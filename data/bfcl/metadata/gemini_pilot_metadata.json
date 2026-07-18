@@ -1,0 +1,28 @@
+{
+  "bfcl_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "models": [
+    "gpt4o",
+    "gemini"
+  ],
+  "run_labels": [
+    "pilot_seed0",
+    "pilot_seed1"
+  ],
+  "task_limit": null,
+  "per_category_limit": 1,
+  "task_ids": [
+    "multi_turn_base_0",
+    "multi_turn_miss_func_0",
+    "multi_turn_miss_param_0",
+    "multi_turn_long_context_0"
+  ],
+  "cwd": "F:\\Program Files\\GitHub\\multilingual-compounding",
+  "full_runs": 128,
+  "replays": 1280,
+  "debug_fixes": [
+    "isolated BFCL execution ids per language/run/model and per replay case",
+    "deep-copied replay scenario state before execute_multi_turn_func_call",
+    "serialized replay gold tool calls back to JSON arguments",
+    "hardened OpenRouter parser for non-choices payloads"
+  ]
+}

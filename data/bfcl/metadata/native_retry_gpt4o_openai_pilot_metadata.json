@@ -1,0 +1,18 @@
+{
+  "bfcl_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "models": [
+    "gpt4o_openai"
+  ],
+  "run_labels": [
+    "native_retry_seed0"
+  ],
+  "task_limit": null,
+  "per_category_limit": 1,
+  "language_codes": [
+    "EN"
+  ],
+  "artifact_prefix": "native_retry_gpt4o_openai",
+  "execute_full_runs": true,
+  "execute_replays": true,
+  "cwd": "F:\\Program Files\\GitHub\\multilingual-compounding"
+}

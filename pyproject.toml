@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multilingual-compounding"
+version = "0.1.0"
+description = "Reproducibility package for multilingual long-horizon tool-use compounding analysis on BFCL."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Anonymous" }]
+dependencies = [
+  "numpy",
+  "pandas",
+  "requests",
+  "tqdm",
+  "openai>=1.86.0",
+  "google-genai>=1.52.0",
+  "tenacity>=8.5.0",
+  "overrides",
+  "filelock",
+  "tree_sitter==0.21.3",
+  "tree-sitter-java==0.21.0",
+  "tree-sitter-javascript==0.21.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"

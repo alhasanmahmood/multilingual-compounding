@@ -1,0 +1,24 @@
+{
+  "bfcl_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "models": [
+    "claude_sonnet46"
+  ],
+  "run_labels": [
+    "expanded_seed0",
+    "expanded_seed1"
+  ],
+  "task_limit": null,
+  "per_category_limit": 1,
+  "language_codes": [
+    "EN",
+    "AR",
+    "TR",
+    "ZH",
+    "HI",
+    "JA",
+    "ES",
+    "SW"
+  ],
+  "artifact_prefix": "expanded_claude_sonnet46",
+  "cwd": "F:\\Program Files\\GitHub\\multilingual-compounding"
+}

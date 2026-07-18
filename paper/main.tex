@@ -1,0 +1,1025 @@
+\documentclass[11pt]{article}
+
+\usepackage[review]{acl}
+
+\usepackage{times}
+\usepackage{latexsym}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,decorations.pathreplacing,shadows.blur}
+\usepackage{caption}
+
+\definecolor{cRef}{HTML}{1F5C99}
+\definecolor{cBad}{HTML}{C0392B}
+\definecolor{cGood}{HTML}{2E8B57}
+\definecolor{cInk}{HTML}{242424}
+\definecolor{cMut}{HTML}{7C7C7C}
+\definecolor{cGrid}{HTML}{D8DEE6}
+\definecolor{cFill}{HTML}{EAF1F8}
+\definecolor{cWarn}{HTML}{E67E22}
+\tikzset{
+  vstep/.style={draw=cGood!70!black, line width=0.5pt, fill=cGood!14, rounded corners=2pt,
+                minimum width=0.66cm, minimum height=0.46cm, font=\scriptsize, inner sep=1pt, text=cInk},
+  fstep/.style={draw=cBad!75!black, line width=0.5pt, fill=cBad!12, rounded corners=2pt,
+                minimum width=0.66cm, minimum height=0.46cm, font=\scriptsize, inner sep=1pt, text=cInk},
+  pstep/.style={draw=cBad!55!black, line width=0.5pt, fill=cBad!6, rounded corners=2pt,
+                minimum width=0.66cm, minimum height=0.46cm, font=\scriptsize, inner sep=1pt,
+                text=cBad!70!black, dash pattern=on 1.6pt off 1.2pt},
+  lane/.style={font=\scriptsize\bfseries, text=cInk},
+  flow/.style={-{Stealth[length=4pt]}, line width=0.6pt, draw=cMut},
+  prop/.style={-{Stealth[length=4pt]}, line width=0.7pt, draw=cBad!80!black, dash pattern=on 2pt off 1.5pt},
+  axis/.style={-{Stealth[length=4pt]}, line width=0.6pt, draw=cInk},
+  gridln/.style={draw=cGrid, line width=0.4pt},
+  tick/.style={font=\scriptsize, text=cMut},
+}
+
+\newtheorem{proposition}{Proposition}
+
+\emergencystretch=3em
+% % --- Robust review line numbers: disable lineno's parity-based side "switch"
+% % (which flips numbers onto the text around figures/boxes); place them
+% % deterministically with a small offset and a compact font so the right
+% % column's numbers sit clear inside the gutter. ---
+% \makeatletter
+% \AtBeginDocument{\@ifpackageloaded{lineno}{%
+%   \setlength{\linenumbersep}{6pt}%
+%   \renewcommand\linenumberfont{\normalfont\scriptsize\color{gray}}%
+%   \leftlinenumbers}{}}
+% \makeatother
+
+\title{When Do Errors Compound Across Languages?:\\
+Heterogeneous Multilingual Reliability of Long-Horizon Agentic Tool Use}
+
+\author{Anonymous ACL submission}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Tool-calling agents are evaluated almost entirely in English, and the little
+multilingual evidence that exists studies single function calls. We ask what
+happens over a long horizon. We evaluate frontier backbones on executable BFCL
+multi-turn environments whose user queries are localized into eight
+typologically diverse languages while the tool interfaces remain
+language-invariant, so that success is graded by the post-execution system state
+with no human annotation. Our central finding is not a universal compounding
+story. Instead, the corrected BFCL evidence shows \emph{heterogeneous}
+multilingual long-horizon behavior: some backbone--language cells move
+directionally toward compounding relative to an independent-error null, others
+are largely explained by weaker single-step validity alone, and the main
+comparison is therefore restricted to backbones that provide usable English
+baselines. We therefore pair the
+compounding-factor analysis with a step-stage decomposition over intent and tool
+selection, argument and parameter formatting, and sequencing and planning,
+alongside matched-validity propagation and recovery analysis. This asks not only whether non-English steps are
+weaker, but whether non-English trajectories are less able to recover once they
+go off reference. Across the main interpretable backbones (Gemini 3 Flash
+Preview and Claude Sonnet 4.6), no non-English cell reaches Holm-significant $\mathrm{CF}>1$ on
+the corrected BFCL slice; the strongest directional cell is Turkish on Gemini 3
+Flash Preview
+($\mathrm{CF}=1.24$ at $K=10$). Descriptively, on shared replay-validity bins,
+non-English trajectories
+propagate off-reference errors more often than English ones ($0.353$ vs.\
+$0.143$) and recover less often ($0.647$ vs.\ $0.857$). The dominant failure
+mix in the headline cells is intent/selection and sequencing rather than
+argument-boundary mismatch, so we do not unpause the planned canonicalization
+mitigation in this revision. All $32/32$ localized BFCL queries pass
+reference-call invariance, and the low-fidelity filter removes none of the
+active slice. The contribution is therefore a measurement and decomposition
+framework: BFCL localizes where multilingual long-horizon reliability degrades,
+where it is explained by step-level weakness alone, and where genuine
+trajectory-level differences remain.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Large language models are increasingly deployed as agents that complete tasks by
+issuing structured function calls to external tools over many turns
+\citep{patil2025bfcl,yao2024taubench}. Almost all evaluation of this capability
+is conducted in English. The little multilingual evidence that exists is recent
+and confined to a \emph{single} function call: \citet{mlcl2026} show that when a
+user query is posed in a non-English language, models often produce a
+semantically reasonable but non-executable call, a failure they name parameter
+value language mismatch (for example, filling a categorical argument with a word
+in the user's language where the tool expects a fixed English enumeration value). In parallel, a separate body of work studies
+\emph{long-horizon} tool use, where errors accumulate across steps
+\citep{denoiseflow2026,phgpo2026,htc2026}, but it is conducted entirely in
+English. Neither line answers the question that matters for multilingual
+deployment: over a long trajectory, does a small per-step language penalty stay
+small, or does it compound?
+
+This question is not answered by composing the two literatures. A per-step
+penalty could be benign if errors are independent and recoverable, or severe if a
+single early language-induced error derails the remaining steps. The difference is
+the whole story for whether agents are usable outside English, and it is invisible
+to single-turn evaluation by construction.
+
+We study it directly and with execution ground truth. In this paper we focus on
+BFCL v3 multi-turn tasks, whose success is determined by the post-execution
+system state \citep{patil2025bfcl}. We localize their user-facing queries into
+eight typologically diverse languages and keep the tool schemas
+language-invariant in English, which mirrors real deployment where interfaces
+are fixed and only the user changes language. Because success is graded by
+execution, we need no human annotation; query translation is a
+data-preparation step that we validate by back-translation and a
+reference-call invariance check (Section~\ref{sec:experiments}). We analyze
+trajectories, not just final calls, and use BFCL as the completed evidence base
+for the current manuscript.
+
+Our contributions are as follows.
+\begin{enumerate}
+\itemsep0.2em
+\item \textbf{To our knowledge, the first execution-grounded BFCL study of
+multilingual long-horizon tool reliability that directly tests where
+cross-lingual gaps exceed a step-level null.} Prior work treats these pieces
+separately: single-turn multilingual tool calling
+\citep{mlcl2026,arabicenglish2026}, monolingual long-horizon compounding
+\citep{fintoolbench2026}, and monolingual single-turn-baseline and
+propagation measurement \citep{turnwise2026,agentprop2026}. We study their
+intersection on execution ground truth, with no human labels.
+\item \textbf{A heterogeneity analysis against an independent-error null.}
+We define an independent-error baseline that predicts task-level degradation
+from the per-step gap (Proposition~\ref{prop:indep}), then ask where the
+observed cross-lingual task gap exceeds it and where it does not. This lets us
+distinguish cells with directional cross-step amplification from cells whose
+task-level degradation is already explained by weaker step-level validity.
+\item \textbf{A trajectory-level decomposition of where multilingual gaps come
+from.} We decompose the gap by trajectory stage, quantify propagation and
+recovery effects at matched single-turn validity, and use those measurements to
+decide whether a tool-boundary mitigation is scientifically justified rather
+than assuming in advance that one thin interface fix should help everywhere.
+\end{enumerate}
+
+This is a measurement contribution: it locates where multilingual unreliability in
+agents actually becomes dangerous, the long horizon, and quantifies it on ground
+truth that no annotator can dispute. Figure~\ref{fig:teaser} previews one
+trajectory pattern that the paper measures, not a universal outcome.
+
+\begin{center}
+
+\centering
+\footnotesize
+\resizebox{\columnwidth}{!}{\begin{tikzpicture}[
+  >=Latex,
+  stepok/.style={draw, rounded corners, fill=green!12, minimum width=0.72cm, minimum height=0.46cm, font=\scriptsize, inner sep=1pt},
+  stepbad/.style={draw, rounded corners, fill=red!16, minimum width=0.72cm, minimum height=0.46cm, font=\scriptsize, inner sep=1pt},
+  lab/.style={font=\scriptsize\bfseries},
+  node distance=0.34cm
+]
+% English track
+\node[lab] (enl) {EN};
+\node[stepok, right=0.30cm of enl] (e1) {$a_1$};
+\node[stepok, right=of e1] (e2) {$a_2$};
+\node[stepok, right=of e2] (e3) {$a_3$};
+\node[stepok, right=of e3] (e4) {$a_4$};
+\node[right=0.30cm of e4, green!50!black] (eok) {\ding{51}};
+\draw[->] (e1)--(e2); \draw[->] (e2)--(e3); \draw[->] (e3)--(e4); \draw[->] (e4)--(eok);
+% Non-English track
+\node[lab, below=1.05cm of enl] (arl) {AR};
+\node[stepok, right=0.30cm of arl] (a1) {$a_1$};
+\node[stepbad, right=of a1] (a2) {$a_2$};
+\node[stepbad, right=of a2] (a3) {$a_3$};
+\node[stepbad, right=of a3] (a4) {$a_4$};
+\node[right=0.30cm of a4, red!70!black] (afail) {\ding{55}};
+\draw[->] (a1)--(a2); \draw[->] (a2)--(a3); \draw[->] (a3)--(a4); \draw[->] (a4)--(afail);
+% annotations
+\node[font=\scriptsize, text=red!70!black, align=center, above=0.06cm of a2] (err) {arg.\ error};
+\draw[->, red!70!black, dashed] (a2.south) to[bend right=20] node[below, font=\scriptsize, pos=0.55] {propagates, no recovery} (a4.south);
+\node[font=\scriptsize, align=left, right=0.18cm of eok] {task\\[-2pt]success};
+\node[font=\scriptsize, align=left, right=0.18cm of afail] {task\\[-2pt]failure};
+\end{tikzpicture}}
+\captionof{figure}{One long-horizon multilingual failure pattern that motivates the
+measurement. The same intent in English (top) and a non-English language
+(bottom) differs in only one early step, an argument-level error at $a_2$, yet
+that error can propagate and fail to recover. The paper asks where patterns of
+this kind appear, where they do not, and whether they are better explained by
+step-level weakness alone or by trajectory-level effects.}
+\label{fig:teaser}
+
+\end{center}
+
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Multilingual tool calling.} \citet{mlcl2026} introduce a diagnostic
+benchmark over Chinese, Hindi, and Igbo and identify parameter value language
+mismatch as a dominant single-turn failure; \citet{arabicenglish2026} report a
+parallel Arabic study on BFCL and observe that the non-English penalty is most
+severe on complex, multi-step, and parallel tool use. Their ``compounding
+language penalty'' names a different effect from ours: it is the stacking of
+non-English sources \emph{within} a call (an Arabic query with Arabic tool
+descriptions is worse than with English ones). We instead study compounding
+\emph{across} the horizon---whether per-step penalties accumulate
+super-additively over a trajectory---and formalize it against an independent-error
+null (Section~\ref{sec:compound}). Multilingual multi-turn evaluation more broadly
+reports cross-lingual brittleness in context retention \citep{m2lingual2025}, and
+multilingual evaluation documents large non-English performance gaps and
+English-centric internal processing
+\citep{hada2024evaluators,fu2025reliable,singh2025globalmmlu,mexa2024}, with the
+prompt language itself an evaluation variable \citep{mahmood2026multilingualpromptlocalizationagentasajudge}. A standard
+remedy is cross-lingual prompting or translate-test, which routes non-English
+inputs through English \citep{shi2022language}; we include translate-test as a
+baseline but target the deployment setting where the interface is fixed and inputs
+are not translated. None of this work formalizes or measures whether per-step
+penalties compound super-additively over an execution-graded trajectory, which is
+our question.
+
+\paragraph{Long-horizon reliability and error propagation.} Multi-step tool use
+degrades as the horizon grows, with early errors cascading
+\citep{denoiseflow2026,phgpo2026,fintoolbench2026}; trajectory-level reward
+modeling \citep{planrewardbench2026}, confidence calibration \citep{htc2026}, and
+planning \citep{phgpo2026} target this regime. Methodologically closest to us,
+\citet{turnwise2026} isolate the multi-/single-turn gap against a model's own
+single-turn baseline, and \citet{agentprop2026} measure causal propagation rates
+via controlled error injection with a runtime interceptor; recovery-oriented
+methods turn errors into explicit repairs \citep{structref2025} or self-distill
+single-turn competence into the multi-turn setting \citep{foundinconv2026}. All of
+this is monolingual English. Beyond tool use specifically, general multi-turn
+conversation work also shows that models can get lost after an early wrong turn
+\citep{laban2025lostinconversation}. Our independent-error null is the cross-lingual,
+execution-grounded analogue of the single-turn baseline; unlike injection studies
+our errors are induced naturally by the user's language rather than inserted; and
+our mitigation is inference-time and adds no parameters. We add the language axis
+and ask whether the compounding is itself language-dependent.
+
+\paragraph{Executable tool-use benchmarks.} BFCL v3 evaluates single-turn,
+multi-turn, and multi-step function calling with state-based grading
+\citep{patil2025bfcl}; $\tau$-bench and $\tau^2$-bench evaluate policy-adherent,
+multi-turn agent--user interaction with database-state success
+\citep{yao2024taubench,barres2025tau2}; further environments include ToolBench and
+its stable variant \citep{qin2024toolbench,guo2024stabletoolbench}. We build on
+their executable evaluators and add controlled localization.
+
+\paragraph{Agentic evaluation generally.} Agent-as-a-Judge and related work
+emphasize process-level, intermediate evaluation \citep{zhuge2025agentjudge}; we
+rely instead on deterministic execution outcomes, which removes the judge from the
+measurement loop entirely.
+
+\section{Setup and Notation}
+\label{sec:setup}
+
+An agent solves a task $x$ by interacting with an environment over a trajectory of
+steps. At step $k$ the agent emits a tool call $a_k$ (a function name and named
+arguments), the environment executes it and returns an observation, and after
+$K$ steps the environment reports a deterministic task outcome
+$y \in \{0,1\}$ obtained by comparing the resulting system state to a gold state
+\citep{patil2025bfcl,yao2024taubench}. We never use a model or a human to judge
+the outcome.
+
+Let $B$ be the set of backbones and $L$ the set of eight evaluation languages
+(English, Arabic, Turkish, Chinese, Hindi, Japanese, Spanish, Swahili), spanning a
+range of resource levels from higher-resource Spanish, Chinese, and Japanese to
+lower-resource Turkish, Hindi, and Swahili. For a
+task $x$ we hold the tool schemas fixed and English (language-invariant) and
+localize only the user-facing query into language $\ell$, giving $x^{(\ell)}$.
+This isolates the effect of the user's language at a fixed tool interface, the
+realistic deployment condition.
+
+The BFCL slice used in the main comparison contains four distinct multi-turn
+tasks localized into eight languages, for $32$ task--language localized
+queries in total. Each localized query is then executed under two decoding
+seeds for Gemini 3 Flash Preview and Claude Sonnet 4.6, so every
+backbone--language cell pools $8$ full-task trials ($4$ tasks $\times$ $2$
+seeds) for $T(\ell,b)$ and $80$ isolated step replays ($10$ critical steps
+$\times$ $4$ tasks $\times$ $2$ seeds) for $p(\ell,b)$. Task success is
+therefore estimated over pooled task--seed trials rather than by averaging
+seed-wise rates. Here a \emph{critical step} is an executable tool call in the
+reference BFCL trajectory whose validity can be checked against the environment
+and ordered gold call sequence; non-execution turns are not counted in $K$ or
+in the replay-based $p(\ell,b)$.
+
+For backbone $b$ and language $\ell$ we measure two things. The \textbf{task
+success rate} is
+\begin{equation}
+T(\ell,b) = \Pr\nolimits_x[\, y = 1 \mid x^{(\ell)}, b\,],
+\end{equation}
+and the \textbf{single-turn validity rate} $p(\ell,b)$ is the probability that the
+model emits a valid call for a critical step \emph{in isolation}: the step is
+presented on its own with the correct (gold) preceding context, so no earlier
+error can have propagated into it. This measures intrinsic per-step competence in
+language $\ell$ \emph{without} any trajectory-level interaction. We obtain it by
+replaying each critical step of a task as a single-turn query with gold history
+(for BFCL v3 we additionally cross-check against its native single-turn
+categories). We deliberately do \emph{not} use the marginal validity
+of calls emitted during the full trajectory, because that marginal already absorbs
+propagated errors and would make the compounding test below circular. All rates are estimated with task-level bootstrap
+and multiple decoding seeds (Section~\ref{sec:experiments}).
+
+\section{Does the Per-Step Penalty Compound?}
+\label{sec:compound}
+
+\subsection{An independent-error null}
+The question is whether the task-level cross-lingual gap is larger than the
+per-step gap predicts. We make ``predicts'' precise with a null in which step
+errors are independent.
+
+\begin{proposition}[Independent-error prediction]
+\label{prop:indep}
+Suppose a task of effective length $K$ succeeds only if every critical step is
+valid, and suppose step validity events are mutually independent with common
+per-step validity $p(\ell,b)$. Then the task success rate is
+$T_{\mathrm{ind}}(\ell,b) = p(\ell,b)^{K}$, and the cross-lingual task-success
+ratio relative to English is
+\begin{equation}
+\frac{T_{\mathrm{ind}}(\ell,b)}{T_{\mathrm{ind}}(\mathrm{EN},b)}
+= \left(\frac{p(\ell,b)}{p(\mathrm{EN},b)}\right)^{K}.
+\label{eq:indep}
+\end{equation}
+\end{proposition}
+
+\noindent The proof is immediate (Appendix~\ref{app:indep}) and the proposition is
+deliberately modest; its role is to provide a falsifiable baseline. Equation \eqref{eq:indep} says that under independence a per-step validity ratio
+close to one is amplified only geometrically by the horizon $K$. Writing the
+observed and predicted task-success ratios relative to English as
+$r_{\mathrm{obs}}(\ell,b)=T(\ell,b)/T(\mathrm{EN},b)$ and
+$r_{\mathrm{ind}}(\ell,b)=T_{\mathrm{ind}}(\ell,b)/T_{\mathrm{ind}}(\mathrm{EN},b)$,
+we define the \textbf{compounding factor}
+\begin{equation}
+\mathrm{CF}(\ell,b) =
+\frac{\log r_{\mathrm{obs}}(\ell,b)}{\log r_{\mathrm{ind}}(\ell,b)},
+\label{eq:cf}
+\end{equation}
+the ratio of observed to independence-predicted log task-success degradation.
+$\mathrm{CF}\approx 1$ means the trajectory composes as if steps were independent
+at their single-turn competence; $\mathrm{CF}>1$ means \emph{super-additive
+compounding}: observed multi-turn success is lower than the independent
+composition of single-turn competence predicts, so the non-English task-level
+deficit is worse than its single-turn per-step gap can explain, the signature of
+cross-step interactions such as error propagation.
+$K$ is estimated per environment from reference trajectory lengths; we report
+$\mathrm{CF}$ over a range of $K$ estimates for robustness.
+
+Here $K$ should be read as an \emph{effective horizon proxy}, not as a literal
+count of independent Bernoulli trials. BFCL trajectories contain shared
+prefixes, dependencies, and opportunities for repair, so the common null is too
+crude as an absolute model of task success. That absolute misfit is visible even
+in English: at $K=10$, the common null predicts $T_{\mathrm{ind}}(\mathrm{EN}) =
+0.237$ for Gemini 3 Flash Preview and $0.272$ for Claude Sonnet 4.6, versus
+observed $T(\mathrm{EN}) = 0.900$ and $0.700$. We therefore use the null
+primarily through the cross-lingual ratio $r_{\mathrm{ind}}$, where the
+English-side task difficulty partly cancels within a backbone, and we
+cross-check robustness with the position-specific null in
+Appendix~\ref{app:indep}. Under the common null, $\mathrm{CF}=K^\star/K$ where
+$K^\star(\ell,b)=\log r_{\mathrm{obs}}(\ell,b)\,/\,
+\log\!\bigl(p(\ell,b)/p(\mathrm{EN},b)\bigr)$ is the crossover horizon at which
+the observed and null-predicted cross-lingual degradations match. For Turkish
+on Gemini 3 Flash Preview, $K^\star=12.44$: the cell is beyond-null at $K=10$
+but would fall below $\mathrm{CF}=1$ by $K=13$.
+
+The ratio in Eq.~\eqref{eq:cf} is unstable when $\log r_{\mathrm{ind}}$ is near
+zero (a negligible per-step gap) or when a task-success rate is near $0$ or $1$.
+We therefore (i) apply add-one smoothing to all rates before taking logs, (ii)
+restrict the ratio to cells where $r_{\mathrm{ind}}$ is bounded away from $1$ and
+report the rest separately, and (iii) report the robust additive complement, the
+\emph{excess log-degradation}
+$\Delta(\ell,b)=\log r_{\mathrm{obs}}(\ell,b)-\log r_{\mathrm{ind}}(\ell,b)$,
+which is well defined throughout and for which $\Delta<0$ is the same
+super-additivity test as $\mathrm{CF}>1$. We report both and base conclusions on
+their agreement. Crucially, $\mathrm{CF}>1$ (equivalently $\Delta<0$) is
+\emph{necessary but not sufficient} evidence of true propagation, because it can
+also arise from per-step difficulty that is heterogeneous and correlated within a
+task; the propagation and recovery analysis below, computed at matched per-step
+validity, is what we use to separate genuine propagation from heterogeneity.
+
+\begin{center}
+\resizebox{0.97\columnwidth}{!}{\begin{tikzpicture}[x=1cm, y=1cm]
+  % gridlines
+  \foreach \y in {1,2,3,4}{\draw[gridln] (0,\y)--(7.4,\y);}
+  \foreach \x in {1,2,3,4,5,6,7}{\draw[gridln] (\x,0)--(\x,4.2);}
+  % axes
+  \draw[axis] (0,0)--(7.6,0) node[right, font=\scriptsize, text=cInk] {$K$ (steps)};
+  \draw[axis] (0,0)--(0,4.5) node[above, font=\scriptsize, text=cInk] {task success};
+  \node[tick, anchor=east] at (-0.08,4.0) {high};
+  \node[tick, anchor=east] at (-0.08,0.3) {low};
+  % shaded compounding gap
+  \fill[cBad!10]
+    plot[smooth] coordinates {(2,2.78)(3,2.5)(4,2.28)(5,2.1)(6,1.95)} --
+    plot[smooth] coordinates {(6,0.82)(5,0.96)(4,1.18)(3,1.5)(2,2.0)} -- cycle;
+  % EN (reference) curve
+  \draw[cRef, line width=1.3pt]
+    plot[smooth] coordinates {(0.15,3.85)(1,3.7)(2,3.55)(3,3.42)(4,3.3)(5,3.2)(6,3.12)};
+  % non-EN predicted under independence
+  \draw[cMut, line width=1.0pt, dash pattern=on 3pt off 2pt]
+    plot[smooth] coordinates {(0.15,3.6)(1,3.25)(2,2.78)(3,2.5)(4,2.28)(5,2.1)(6,1.95)};
+  % non-EN observed (super-additive)
+  \draw[cBad, line width=1.3pt]
+    plot[smooth] coordinates {(0.15,3.45)(1,2.7)(2,2.0)(3,1.5)(4,1.18)(5,0.96)(6,0.82)};
+  % direct curve labels
+  \node[font=\scriptsize, anchor=west, text=cRef] at (6.08,3.12) {EN (reference)};
+  \node[font=\scriptsize, anchor=west, text=cMut] at (6.08,1.98) {non-EN, null};
+  \node[font=\scriptsize, anchor=west, text=cBad] at (6.08,0.80) {non-EN, observed};
+  % compounding gap callout
+  \draw[{Stealth[length=4pt]}-{Stealth[length=4pt]}, line width=0.7pt, cBad!80!black] (4,2.24)--(4,1.22);
+  \node[font=\scriptsize, align=center, anchor=south west, text=cBad!80!black] at (4.14,1.30)
+    {compounding\\gap ($\mathrm{CF}\!>\!1$)};
+  \draw[dotted, cMut] (4,0)--(4,1.18);
+  \node[tick] at (4,-0.22) {$K$};
+\end{tikzpicture}}
+\captionof{figure}{Illustrative schematic (not measured data). As the trajectory
+length $K$ grows, the independence null predicts only a mild non-English drop
+(gray dashed). The hypothesis this paper tests is that the observed non-English
+curve (red) falls faster, so the gap to the null widens with $K$ (super-additive
+compounding, $\mathrm{CF}>1$). Section~\ref{sec:experiments} quantifies this gap;
+Figure~\ref{fig:results} reports it on the measured data.}
+\label{fig:compound}
+
+\end{center}
+
+\subsection{Where the gap originates}
+We label every invalid step of every trajectory with one of three step-level
+stages and an associated failure type: (i) \emph{intent and tool selection}
+(wrong function chosen), (ii) \emph{argument and parameter formatting} (right
+function, invalid or language-mismatched arguments, the single-turn mode of
+\citet{mlcl2026}), and (iii) \emph{sequencing and planning} (valid calls in the
+wrong order or missing a prerequisite). Stage labels are derived
+programmatically from the execution trace and the reference, not by a judge:
+missing or unparseable calls, and wrong functions not appearing elsewhere in
+the task's gold sequence, map to intent/selection; same-function argument
+mismatches map to argument/parameter unless BFCL reports a state/context
+mismatch; and calls whose function appears elsewhere in the task's gold
+sequence map to sequencing/planning.
+Recovery is then reported separately as a trajectory-level effect rather than as
+another per-step taxonomy bucket.
+
+Two quantities isolate genuinely trajectory-level effects, invisible single-turn.
+The \textbf{propagation rate} is the probability that a trajectory fails to
+complete given a first invalid step, by language; the \textbf{recovery rate} is
+its complement, the probability the agent repairs and still succeeds. The
+hypothesis is operationalized by greedily aligning the emitted call sequence to
+the ordered gold call sequence: the first unmatched emitted call marks an
+off-reference detour, propagation is failure conditioned on at least one such
+detour, and recovery is success after such a detour. The
+hypothesis is that non-English trajectories have higher propagation and lower
+recovery even at matched per-step validity, which is what produces $\mathrm{CF}>1$.
+
+\section{Conditional Mitigation Design: Language-Invariant Argument Canonicalization}
+\label{sec:method}
+
+If a large share of step failures is argument or parameter mismatch
+\citep{mlcl2026}, and if such failures propagate, then normalizing arguments to
+the schema's execution conventions \emph{before} execution could reduce
+per-step failures and, more importantly, prevent their propagation. The planned
+runtime intervention is a thin, model-agnostic layer at the tool boundary that
+(a) canonicalizes argument values to the schema's expected language and format
+(for example, transliterating or translating enumerated values and units to the
+convention declared in the schema) using the schema itself as the target
+specification, and (b) on an environment error, returns a structured recovery
+hint in English to the agent. The layer touches only the call--execute
+interface, requires no fine-tuning, and would be validated solely by whether
+task success improves under execution. Full pseudocode is in
+Appendix~\ref{app:method}.
+
+The intended baselines are the two controls a reviewer would expect.
+\emph{Translate-test} machine-translates the entire user query into English
+before the agent runs; it often recovers accuracy but discards the
+language-invariant-interface, non-translating deployment condition we target
+and can lose user-specific content, so it is a reference point rather than a
+deployable competitor. \emph{Self-repair} lets the base agent retry after an
+error with a generic reflection prompt, with no canonicalization. Reporting both
+would isolate how much of any gain comes from canonicalization specifically
+versus from translation or from extra retries. In the current revision this
+experiment remains conditional: the measurement (Section~\ref{sec:compound}) is
+the main contribution, and the mitigation is retained as a targeted follow-up
+design rather than as a completed result. Canonicalization can itself introduce
+errors (for example, an incorrect value mapping), so it would only be justified
+by a net task-success gain under execution.
+
+\section{Experiments}
+\label{sec:experiments}
+
+The completed evidence base in this revision is BFCL-only. Estimation uses
+task-level bootstrap and multiple decoding seeds where available; significance
+uses paired tests with Holm--Bonferroni correction. Full per-experiment
+protocols (metrics, the claim each supports, and what was gated off) are in
+Appendix~\ref{app:protocol}.
+
+\begin{itemize}
+\itemsep0.15em
+\item BFCL evidence base (completed): localize BFCL v3 multi-turn queries into
+the eight languages, validate with back-translation and reference-call
+invariance, run the selected backbone set, and record full execution traces,
+per-step validity $p(\ell,b)$, and task success $T(\ell,b)$.
+\item BFCL compounding analysis (completed): compute the compounding factor $\mathrm{CF}(\ell,b)$
+(Eq.~\ref{eq:cf}) and the excess log-degradation $\Delta(\ell,b)$ with CIs over a
+range of $K$; test $\mathrm{CF}>1$ (equivalently $\Delta<0$).
+\item BFCL decomposition (completed): stage decomposition and the
+propagation/recovery analysis by language, at matched per-step validity.
+\item Conditional follow-up (not unpaused in this revision): apply canonicalization and
+canonicalization-plus-recovery, and the translate-test and self-repair
+baselines, only if the decomposition identifies a mechanism that plausibly
+matches a tool-boundary fix.
+\item BFCL robustness (completed): translation-confound controls and BFCL-scope robustness
+(seeds, $K$ sensitivity, leave-one-language-out, and fidelity filtering), with
+broader environment coverage treated as future work rather than completed scope
+in this draft.
+\end{itemize}
+
+\paragraph{Reproducibility.} We will release the localized query sets and
+fidelity ratings, full execution traces, the stage-labeling and metric code
+(including $\mathrm{CF}$ and $\Delta$), and pinned environment versions, in an
+anonymized repository, and will complete the target cycle's responsibility
+checklist. Because the mitigation gate was not passed in this revision, the
+canonicalization layer remains a follow-up artifact rather than part of the
+current release claim.
+
+\section{Results}
+\label{sec:results}
+
+\begin{center}
+
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\resizebox{\columnwidth}{!}{\begin{tabular}{llrrrr}
+\toprule
+ & & \multicolumn{2}{c}{Per-cell rates} & \multicolumn{2}{c}{Cross-lingual, vs.\ null} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+Backbone & Lang. & $p(\ell,b)$ & $T(\ell,b)$ & $\mathrm{CF}(\ell,b)$ & $\Delta(\ell,b)$ \\
+\midrule
+\multirow{8}{*}{Gemini 3 Flash Preview}
+ & EN & 0.866 & 0.900 & \cellcolor{black!8}ref. & \cellcolor{black!8}ref. \\
+ & AR & 0.646 & 0.100 & \cellcolor{cRef!9}0.751  & $+0.73$ \\
+ & ES & 0.768 & 0.500 & \cellcolor{cRef!17}0.492 & $+0.61$ \\
+ & HI & 0.768 & 0.500 & \cellcolor{cRef!17}0.492 & $+0.61$ \\
+ & JA & 0.720 & 0.500 & \cellcolor{cRef!23}0.317 & $+1.26$ \\
+ & SW & 0.622 & 0.100 & \cellcolor{cRef!12}0.664 & $+1.11$ \\
+ & TR & 0.793 & 0.300 & \cellcolor{cBad!14}\textbf{1.244} & $\mathbf{-0.22}$ \\
+ & ZH & 0.695 & 0.100 & \cellcolor{cRef!1}1.000  & $+0.00$ \\
+\cmidrule(l){2-6}
+\multirow{8}{*}{Claude Sonnet 4.6}
+ & EN & 0.878 & 0.700 & \cellcolor{black!8}ref. & \cellcolor{black!8}ref. \\
+ & AR & 0.671 & 0.500 & \cellcolor{cRef!30}0.125 & $+2.35$ \\
+ & ES & 0.854 & 0.600 & \cellcolor{cRef!15}0.547 & $+0.12$ \\
+ & HI & 0.695 & 0.600 & \cellcolor{cRef!32}0.066 & $+2.18$ \\
+ & JA & 0.805 & 0.600 & \cellcolor{cRef!28}0.177 & $+0.71$ \\
+ & SW & 0.622 & 0.200 & \cellcolor{cRef!22}0.363 & $+2.19$ \\
+ & TR & 0.780 & 0.600 & \cellcolor{cRef!30}0.131 & $+1.03$ \\
+ & ZH & 0.707 & 0.400 & \cellcolor{cRef!25}0.259 & $+1.61$ \\
+\bottomrule
+\end{tabular}}
+\captionof{table}{Per-step validity $p$, task success $T$, compounding factor
+$\mathrm{CF}$, and excess log-degradation $\Delta$ at the rounded BFCL horizon
+$K=10$ for the two interpretable backbones. Grouped per-cell rates on the left, cross-lingual deviation from the
+null on the right, with CF cells shaded by distance from $\mathrm{CF}=1$ (blue
+for $\mathrm{CF}<1$, red for $\mathrm{CF}>1$). Each backbone--language cell
+pools $8$ full-task trials ($4$ tasks $\times$ $2$ seeds) and $80$ isolated
+step replays; displayed values are computed from the pooled smoothed counts.
+At $K=10$, no non-English cell is Holm-significant for $\mathrm{CF}>1$.
+Appendix Table~\ref{tab:cf_ci_appendix} reports the corresponding 95\%
+bootstrap CIs and Holm-adjusted p-values for each non-English cell.}
+\label{tab:cf}
+
+\end{center}
+
+\begin{center}
+\resizebox{\columnwidth}{!}{\begin{tikzpicture}[x=1cm,y=1cm,
+  gmk/.style={circle, fill=cRef, draw=white, line width=0.5pt, inner sep=1.9pt},
+  cmk/.style={rectangle, fill=cBad, draw=white, line width=0.5pt, minimum size=3.8pt, inner sep=0pt},
+  glab/.style={font=\scriptsize\bfseries, text=cInk, anchor=east},
+  plab/.style={font=\scriptsize, text=cInk}]
+  \fill[cGood!6] (0,-0.28) rectangle (5.0,4.02);
+  \fill[cBad!7]  (5.0,-0.28) rectangle (7.15,4.02);
+  \foreach \y in {0,0.62,1.24,1.86,2.48,3.10,3.72}{\draw[gridln](0,\y)--(7.1,\y);}
+  \draw[cMut,line width=1.0pt,dash pattern=on 3pt off 2pt](5.0,-0.28)--(5.0,3.95);
+  \node[font=\scriptsize,text=cMut,anchor=south] at (5.0,4.02) {independence null ($\mathrm{CF}=1$)};
+  \draw[axis](0,-0.28)--(7.2,-0.28) node[right,font=\scriptsize,text=cInk]{$\mathrm{CF}$};
+  \foreach \tx/\tl in {0/0.0,2.5/0.5,5.0/1.0}{\draw[axis,-](\tx,-0.28)--(\tx,-0.40);\node[tick,anchor=north]at(\tx,-0.42){\tl};}
+  \node[font=\scriptsize,text=cInk,anchor=north] at (3.2,-0.86) {compounding factor $\mathrm{CF}(\ell,b)$};
+  \node[glab] at (-0.18,3.72) {TR}; \node[gmk] at (6.22,3.72){}; \node[cmk] at (0.66,3.72){};
+  \node[glab] at (-0.18,3.10) {ZH}; \node[gmk] at (5.00,3.10){}; \node[cmk] at (1.29,3.10){};
+  \node[glab] at (-0.18,2.48) {AR}; \node[gmk] at (3.75,2.48){}; \node[cmk] at (0.62,2.48){};
+  \node[glab] at (-0.18,1.86) {SW}; \node[gmk] at (3.32,1.86){}; \node[cmk] at (1.81,1.86){};
+  \node[glab] at (-0.18,1.24) {ES}; \node[gmk] at (2.46,1.24){}; \node[cmk] at (2.74,1.24){};
+  \node[glab] at (-0.18,0.62) {HI}; \node[gmk] at (2.46,0.62){}; \node[cmk] at (0.33,0.62){};
+  \node[glab] at (-0.18,0.00) {JA}; \node[gmk] at (1.58,0.00){}; \node[cmk] at (0.89,0.00){};
+  \node[gmk] at (0.15,-1.62){}; \node[plab,anchor=west] at (0.32,-1.62){Gemini 3 Flash Preview};
+  \node[cmk] at (3.75,-1.62){}; \node[plab,anchor=west] at (3.92,-1.62){Claude Sonnet 4.6};
+\end{tikzpicture}}
+\captionof{figure}{Compounding factor by language for the two interpretable
+backbones (measured data, Table~\ref{tab:cf}; one marker per cell, $K=10$). The
+dashed line is the independence null: cells to its left have $\mathrm{CF}\le 1$,
+while cells to its right show super-additive compounding. Only Turkish on
+Gemini 3 Flash Preview lies past the null, and it is not Holm-significant at
+the reference $K=10$; Appendix Table~\ref{tab:cf_ci_appendix} reports the
+pointwise uncertainty and corrected significance values for these markers.}
+\label{fig:results}
+\end{center}
+
+\begin{center}
+
+\centering\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lrrr}
+\toprule
+Stage / effect & EN & non-EN & $\Delta$ \\
+\midrule
+\multicolumn{4}{l}{\textit{Failure-type mix (share of invalid steps)}}\\
+\addlinespace[1pt]
+Intent / selection    & 0.579 & 0.440 & $-0.14$ \\
+Argument / parameter  & 0.000 & 0.298 & $+0.30$ \\
+Sequencing / planning & 0.421 & 0.262 & $-0.16$ \\
+\midrule
+\multicolumn{4}{l}{\textit{Trajectory-level effects (matched $8/10$, $9/10$ bins)}}\\
+\addlinespace[1pt]
+Propagation rate & 0.143 & 0.353 & \cellcolor{cBad!16}$+0.21$ \\
+Recovery rate    & 0.857 & 0.647 & \cellcolor{cBad!16}$-0.21$ \\
+\bottomrule
+\end{tabular}
+\captionof{table}{Where the gap originates (failure-type mix, top block) and the
+two trajectory-level effects (bottom block), English vs.\ the non-English mean
+over the main backbones; $\Delta$ is non-EN minus EN. Propagation and recovery
+are computed on the shared replay-validity bins so the comparison is not merely
+about error frequency; the shaded rows indicate the directional non-English
+disadvantage (more propagation, less recovery). The matched-bin counts are
+$2/15$ English propagations (Wilson 95\% CI $[0.037, 0.379]$) versus $22/49$
+non-English propagations ($[0.319, 0.587]$), with Fisher two-sided $p=0.034$;
+the complementary recovery counts are $13/15$ English ($[0.621, 0.963]$)
+versus $27/49$ non-English ($[0.413, 0.681]$). We therefore treat this pattern
+as descriptive rather than as a standalone established effect.}
+\label{tab:stage}
+
+\end{center}
+
+The Results narrative in this revision is organized around heterogeneity rather
+than a universal claim. The first question is where any backbone--language cell
+shows directional evidence beyond the independent-error null; the second is
+whether the decomposition analysis reveals propagation or weaker recovery that
+cannot be reduced to step-frequency differences alone; the third, only if
+warranted by that analysis, is
+whether a tool-boundary mitigation materially improves execution. If no such
+mechanism is found, mitigation remains a design hypothesis rather than a paper
+contribution.
+
+Table~\ref{tab:cf} shows that the corrected BFCL evidence does not support a
+universal compounding claim. Gemini 3 Flash Preview remains the strongest directional backbone:
+its English baseline is strong ($p=0.866$, $T=0.900$), and Turkish is the
+strongest beyond-null cell ($p=0.793$, $T=0.300$, $\mathrm{CF}=1.244$ at
+$K=10$), but it is not Holm-significant. Chinese is effectively at the null
+($\mathrm{CF}=1.000$), while Arabic, Spanish, Hindi, Japanese, and Swahili all
+remain below that level. Claude Sonnet 4.6 is stable and multilingual, but its
+non-English cells stay modest throughout ($\mathrm{CF}=0.066$ to $0.547$). We
+therefore keep Gemini 3 Flash Preview and Claude Sonnet 4.6 as the main
+interpretable backbones. The common null is informative here only as a
+relative baseline, not as an absolute English success model: at $K=10$ it
+predicts $T_{\mathrm{ind}}(\mathrm{EN})=0.237$ for Gemini 3 Flash Preview and
+$0.272$ for Claude Sonnet 4.6, versus observed $T(\mathrm{EN})=0.900$ and
+$0.700$. This is why the main quantity of interest is the cross-lingual ratio
+after English cancellation, with the position-specific null reported as a
+robustness check rather than a replacement claim.
+
+The effective-horizon choice also matters exactly as the algebra predicts.
+Because $\mathrm{CF}=K^\star/K$ under the common null, Turkish on Gemini 3
+Flash Preview declines from $\mathrm{CF}=1.78$ at $K=7$ to $0.96$ at $K=13$ and
+crosses $\mathrm{CF}=1$ at $K^\star=12.44$. Chinese on Gemini 3 Flash Preview
+has $K^\star=10.00$: it becomes Holm-significant only at $K=7$--$8$ under the
+common null, then returns to the null region by $K \ge 9$ and is non-significant
+under the position-specific null throughout. We therefore treat the beyond-null
+signal as $K$-sensitive rather than robust and keep $K=10$ as the reference
+length proxy for the main table. Appendix Table~\ref{tab:headline_task_breakdown}
+shows that the headline Turkish/Gemini directional signal is also not uniform
+across the four BFCL tasks, which is another reason we avoid a stronger
+aggregate claim.
+
+GPT-4o (\emph{gpt-4o-2024-08-06}) is excluded from Table~\ref{tab:cf} because
+it never supplied a usable English reference backbone on BFCL: on the corrected
+OpenRouter path it achieved $0/8$ English task successes with $58/80$
+replay-valid steps, and a direct OpenAI diagnostic still gave $0/4$ English
+task successes with $27/40$ replay-valid steps.
+
+Table~\ref{tab:stage} is best read descriptively. The non-English failure mix is not purely
+argument-boundary driven: intent/selection errors are the largest share
+($0.440$), with argument/parameter ($0.298$) and sequencing/planning ($0.262$)
+close behind. Yet even after matching on replay-validity bins, non-English
+trajectories propagate off-reference steps more often than English ones
+($0.353$ vs.\ $0.143$) and recover less often ($0.647$ vs.\ $0.857$). The same
+direction appears in the pooled shared-bin counts reported in the caption, but
+on this small slice we treat the matched-bin comparison as suggestive evidence
+that the BFCL multilingual gap is not only a per-step frequency story rather
+than as a standalone significance claim.
+
+The mitigation experiment was not unpaused for this revision. The gate criterion was whether the
+headline cells exposed an argument-boundary mechanism that a thin
+canonicalization layer could realistically fix. They do not. For
+Turkish on Gemini 3 Flash Preview, the replay failure mix is $62.5\%$
+intent/selection and $37.5\%$ sequencing/planning, with no
+argument/parameter dominance. For Turkish on Claude Sonnet 4.6, the split is
+$82.4\%$ intent/selection and $17.6\%$ argument/parameter. Some secondary cells
+are more argument-heavy (Arabic and Swahili on Gemini 3 Flash Preview, and
+Chinese on Claude Sonnet 4.6), but those are not the
+main carriers of the current paper story. Running the full five-setting
+mitigation matrix would therefore test the wrong mechanism on the wrong cells,
+so mitigation remains a targeted future follow-up rather than a completed
+contribution here.
+
+The BFCL-scope robustness checks leave the heterogeneity conclusion intact. All $32/32$
+localized queries pass reference-call invariance; at the active fidelity
+threshold (rating $\ge 3$), the low-fidelity filter removes no BFCL examples;
+the wider $K \in \{7,\dots,13\}$ sensitivity sweep preserves the main
+interpretation once the position-specific null is included; and
+leave-one-language-out never produces a Holm-significant $\mathrm{CF}>1$ cell.
+When Turkish is present, Turkish on Gemini 3 Flash Preview remains the strongest
+directional beyond-null cell; when Turkish is held out, Chinese on Gemini 3
+Flash Preview becomes the strongest directional cell, still without significance
+at the reference $K=10$. Seed variance changes magnitudes
+but not the main interpretation.
+
+\section{Discussion}
+\label{sec:discussion}
+Our results reframe multilingual agent reliability as a heterogeneity problem
+over the horizon rather than a universal compounding law. What matters for
+deployment is not only how often a single non-English call is valid, but which
+backbones and languages turn step-level weakness into trajectory-level failure
+and which do not. On the corrected BFCL slice, the strongest directional
+beyond-null evidence comes from Turkish on Gemini 3 Flash Preview, but no cell is
+Holm-significant. The more stable statement is therefore not ``all multilingual
+tool use compounds,'' but ``some multilingual long-horizon regimes show
+trajectory effects that step accuracy alone does not explain.''
+
+First, the propagation/recovery decomposition tells a practitioner which lever
+to pull only when a mechanism is actually present. Where failures propagate
+from early argument or sequencing errors, prevention before execution is
+plausibly valuable; where the deficit is instead dominated by weaker step-level
+competence with strong recovery, a thin runtime fix may do little. In our BFCL
+slice, the main non-English cells are not argument-boundary dominated:
+intent/selection and sequencing are at least as important as parameter
+formatting, and the headline Turkish cell for Gemini 3 Flash Preview contains no dominant
+argument/parameter mode at all.
+
+Second, placement still matters, but only conditionally. A call--execute
+boundary intervention is justified only in those cells where the observed
+failure mix is meaningfully argument-boundary mediated. Translate-test remains
+an upper reference rather than a deployment-faithful design because it changes
+the user-to-interface contract itself.
+
+Third, the effect is not uniform, and we report its scope honestly. The paper's
+main claim is therefore conditional: some multilingual long-horizon regimes
+show trajectory-level degradation beyond a step-level null, others do not, and
+backbone stability is part of that story. This is precisely why the BFCL
+evidence base is more valuable as a decomposition paper than as a universal
+headline claim. GPT-4o (\emph{gpt-4o-2024-08-06}) never yielded a usable
+English BFCL baseline under either serving path we tested, so it is excluded
+from the main comparison rather than averaged away.
+
+\section{Conclusion}
+\label{sec:conclusion}
+We study multilingual reliability where it matters for agents, over a long
+horizon, with execution ground truth and no annotation. The corrected BFCL
+evidence does not support a single universal compounding story. Instead, it
+shows heterogeneous multilingual long-horizon behavior across backbones and
+languages, which must be explained with trajectory-level decomposition rather
+than with step accuracy alone. In the current BFCL evidence base, no
+non-English cell is Holm-significant for $\mathrm{CF}>1$, but the
+matched-validity propagation/recovery analysis still points in the same
+direction, with non-English trajectories recovering less reliably after going
+off reference. The paper's main result is therefore a constrained one: on this
+BFCL slice, multilingual long-horizon degradation is heterogeneous, $K$-sensitive,
+and not exhausted by step accuracy alone.
+
+\section*{Limitations}
+Coverage is bounded by BFCL v3 multi-turn and the eight languages; broader
+environment coverage is future work. The effective horizon $K$ is an estimate,
+so we report the compounding factor over a range of $K$ rather than a single
+value. The main comparison is also small: $4$ BFCL tasks $\times$ $2$ seeds give
+$8$ full-task trials per backbone--language cell, with $80$ isolated step
+replays per cell, so both CF and the matched-validity trajectory comparison are
+sensitive to individual task outcomes. Localized queries are machine-assisted and human-reviewed; in the
+current BFCL slice, all $32/32$ localizations pass reference-call invariance
+and none are removed by the active low-fidelity filter, which is reassuring but
+also means the robustness analysis cannot stress the claim with a substantial
+filtered subset. The mitigation is not executed in this revision because the E4
+gate does not support it on the headline cells, so the paper cannot claim a
+validated fix yet. Tool schemas are held English and language-invariant by
+design, which matches common deployment but not settings with localized
+interfaces.
+
+\section*{Ethics Statement}
+This work uses no human subjects and no personal data. All model runs use
+commercial or open APIs under their terms. Multilingual reliability has direct
+fairness implications: agents that are markedly less reliable in non-English
+languages disadvantage those users, which is the problem this paper measures and
+seeks to reduce. Query localization for low-resource languages should be reviewed
+by competent speakers; we report which languages received native review. The
+authors verify and take responsibility for all content, including
+Proposition~\ref{prop:indep} and the mitigation; AI assistance in drafting is
+disclosed per the target cycle's policy.
+
+\bibliography{references}
+
+\appendix
+
+\section{Proof of Proposition~\ref{prop:indep}}
+\label{app:indep}
+If a task succeeds only when each of $K$ critical steps is valid and step validity
+events $V_1,\dots,V_K$ are independent with $\Pr[V_k=1]=p(\ell,b)$, then
+$T_{\mathrm{ind}}(\ell,b)=\Pr[\bigcap_k V_k]=\prod_k \Pr[V_k]=p(\ell,b)^K$, and the
+cross-lingual ratio in Eq.~\eqref{eq:indep} follows by dividing the two
+expressions. Taking logs of the observed and predicted ratios and dividing gives the
+compounding factor in Eq.~\eqref{eq:cf}; $\mathrm{CF}=1$ exactly under the null,
+and $\mathrm{CF}>1$ means observed multi-turn success falls below the independent
+product of single-turn competence, i.e., cross-step interactions (propagation of
+early errors, degraded state tracking) reduce success below the no-interaction
+baseline. This is necessary but not sufficient for error propagation
+specifically, since other cross-step interactions could also lower success: we
+therefore recompute the prediction with step-position-specific single-turn
+validity $\prod_k p_k$, which removes heterogeneity across positions, and rely on
+the matched-validity propagation and recovery analysis (Section~\ref{sec:compound},
+the decomposition analysis) to isolate propagation. As discussed in the main
+text, the common null is not treated as an absolute model of English success:
+at $K=10$ it underpredicts English BFCL task success for both Gemini 3 Flash
+Preview ($0.237$ vs.\ $0.900$) and Claude Sonnet 4.6 ($0.272$ vs.\ $0.700$).
+Its role is relative, after English cancellation within a backbone. We report
+whether the $\mathrm{CF}>1$ test is unchanged under the position-specific null
+rather than assuming it.
+
+\section{Supplementary Quantitative Tables}
+\label{app:supp}
+
+\begin{center}
+\centering\small
+\setlength{\tabcolsep}{6pt}
+\resizebox{\columnwidth}{!}{\begin{tabular}{llccc}
+\toprule
+Backbone & Lang. & $\mathrm{CF}$ & 95\% CI & $p_{\mathrm{Holm}}$ \\
+\midrule
+\multirow{7}{*}{Gemini 3 Flash Preview}
+ & AR & 0.751 & [0.641, 0.888] & 1.000 \\
+ & ES & 0.492 & [0.101, 1.221] & 1.000 \\
+ & HI & 0.492 & [0.097, 0.955] & 1.000 \\
+ & JA & 0.317 & [0.100, 0.663] & 1.000 \\
+ & SW & 0.664 & [0.542, 0.816] & 1.000 \\
+ & TR & 1.244 & [0.573, 3.679] & 1.000 \\
+ & ZH & 1.000 & [0.847, 1.226] & 1.000 \\
+\cmidrule(l){2-5}
+\multirow{7}{*}{Claude Sonnet 4.6}
+ & AR & 0.125 & [0.000, 0.349] & 1.000 \\
+ & ES & 0.547 & [0.000, 4.262] & 1.000 \\
+ & HI & 0.066 & [0.000, 0.227] & 1.000 \\
+ & JA & 0.177 & [0.000, 0.927] & 1.000 \\
+ & SW & 0.363 & [0.172, 0.650] & 1.000 \\
+ & TR & 0.131 & [0.000, 0.987] & 1.000 \\
+ & ZH & 0.259 & [0.059, 0.762] & 1.000 \\
+\bottomrule
+\end{tabular}}
+\captionof{table}{Supplement to Table~\ref{tab:cf}: per-cell 95\% bootstrap
+confidence intervals for $\mathrm{CF}$ and Holm-adjusted one-sided p-values for
+$\Delta<0$ (equivalently $\mathrm{CF}>1$) at the reference $K=10$. The main
+results table hides these quantities;
+this appendix table makes the underlying uncertainty explicit.}
+\label{tab:cf_ci_appendix}
+\end{center}
+
+\begin{center}
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\resizebox{\columnwidth}{!}{\begin{tabular}{lrrrrrr}
+\toprule
+Task & EN $p$ & EN $T$ & TR $p$ & TR $T$ & TR $\Delta$ & TR $\mathrm{CF}$ \\
+\midrule
+Base & 0.864 & 0.750 & 0.773 & 0.750 & +1.112 & 0.000 \\
+Miss-func & 0.773 & 0.750 & 0.773 & 0.250 & $-1.099$ & -- \\
+Miss-param & 0.864 & 0.750 & 0.773 & 0.250 & +0.014 & 0.988 \\
+Long-context & 0.864 & 0.750 & 0.773 & 0.250 & +0.014 & 0.988 \\
+\bottomrule
+\end{tabular}}
+\captionof{table}{Per-task descriptive breakdown for the headline Turkish on
+Gemini 3 Flash Preview comparison against its task-matched English reference at
+$K=10$. Each row pools two seeds for one BFCL task, so $T$ is estimated from
+two full-task trials and $p$ from $20$ isolated step replays. This reveals that
+the aggregate Turkish/Gemini signal is not uniform across tasks. $\mathrm{CF}$
+is omitted when the task-specific independent baseline ratio is numerically at
+the null ($\log r_{\mathrm{ind}} \approx 0$), the same instability regime
+discussed in Section~\ref{sec:compound}.}
+\label{tab:headline_task_breakdown}
+\end{center}
+
+\section{Per-Experiment Protocol}
+\label{app:protocol}
+Ground truth is execution; no human annotation is used at any stage.
+
+\paragraph{Localization.} Source: BFCL v3 multi-turn tasks used in the current
+paper. Procedure: localize each user-facing query into the
+eight languages with machine translation plus competent-speaker review; keep all
+tool schemas and reference solutions in English. Validate with independent
+back-translation and a reference-call invariance check (the gold call sequence
+must be unchanged by localization). Output: localized query sets and a per-query
+fidelity rating. Reduces: the translation-confound objection.
+
+\paragraph{BFCL runs.} Execute the selected backbone set on every localized task
+with the official executable evaluator and available decoding seeds. Record full
+multi-turn traces and task success $T(\ell,b)$. \emph{Separately} measure the
+single-turn validity $p(\ell,b)$ by replaying each critical step in isolation with
+gold preceding context (Section~\ref{sec:setup}); do not read $p$ off the
+in-trajectory marginal, which would make the compounding test circular. Also
+record step and token counts. Output: trace database; Table~\ref{tab:cf} columns
+$p,T$.
+
+\paragraph{Reproducibility note.} For the main BFCL comparison we decode the two
+interpretable backbones at temperature $0.001$ with two API seeds ($0$ and $1$),
+recorded in the released artifacts under run labels
+\texttt{pilot\_seed0}/\texttt{pilot\_seed1} and
+\texttt{expanded\_seed0}/\texttt{expanded\_seed1}. Prompting follows the official
+BFCL executable evaluator and task formatting; where provider APIs expose an
+explicit seed, the released pipeline passes through the seed encoded in the run
+label.
+
+\paragraph{BFCL compounding analysis.} Estimate effective horizon $K$ from the
+reference BFCL trajectories; compute
+$T_{\mathrm{ind}}$ and the compounding
+factor (Eqs.~\ref{eq:indep}--\ref{eq:cf}); bootstrap CIs over tasks; test
+$\mathrm{CF}>1$ per backbone and language with correction. Repeat with
+step-position-specific validity. Output: Table~\ref{tab:cf} column $\mathrm{CF}$.
+This distinguishes directional beyond-null cells from cells explained by
+step-level weakness alone.
+
+\paragraph{E4 decomposition and recovery.} Label each step's stage and
+failure type from the trace and reference; compute the failure-type mix by
+language and the propagation and recovery rates by language at matched per-step
+validity. Output: Table~\ref{tab:stage}. Establishes the trajectory-level
+mechanism.
+
+\paragraph{Conditional E5 mitigation.} Apply canonicalization, then canonicalization
+plus recovery (Appendix~\ref{app:method}), alongside the translate-test and
+self-repair baselines; recompute $T$, $\mathrm{CF}$, and $\Delta$, and the
+recovered fraction of the English gap. Report added latency and tokens, and
+confirm canonicalization gains exceed translate-test and self-repair to
+attribute them to the interface fix rather than to translation or extra
+retries. This experiment was \emph{not} unpaused in the current revision
+because E4 did not identify an argument-boundary-dominated mechanism in the
+headline cells.
+
+\paragraph{E6 robustness.} Exclude low-fidelity localized queries and re-run the
+relevant completed analyses; vary $K$; leave-one-language-out; and report seed
+variance. In the current BFCL-primary manuscript, broader environment holdout is
+future work rather than completed evidence, so the robustness claim is kept
+tightly matched to the BFCL scope actually executed.
+
+\paragraph{GPT-4o diagnostic exclusion.} GPT-4o
+(\emph{gpt-4o-2024-08-06}) is not part of the main comparison because it never
+yielded a usable English BFCL reference backbone under either serving path we
+tested. On the corrected OpenRouter path it produced $0/8$ English task
+successes with $58/80$ replay-valid steps; on a direct OpenAI diagnostic it
+still produced $0/4$ English task successes with $27/40$ replay-valid steps.
+We therefore report it as an instability finding rather than averaging it into
+the two-backbone multilingual comparison.
+
+\section{Mitigation Algorithm}
+\label{app:method}
+At each tool call: parse the emitted arguments; for each argument, read the
+schema's declared type, enumeration, unit, and language convention; if a value
+violates the convention (for example, an enumerated value or unit expressed in the
+user's language), map it to the schema convention using the schema as the target
+specification; pass canonicalized arguments to execution. On an environment error,
+return a structured English recovery hint naming the offending argument and the
+expected convention, and allow one repair attempt. The layer is model-agnostic,
+adds no parameters, and is evaluated only by execution-measured task success if
+the E4 gate justifies running it. Because E5 remained gated off in this
+revision, we report the algorithm here as a targeted follow-up design rather
+than as an executed main-paper result.
+
+\begin{center}
+\footnotesize
+\resizebox{\columnwidth}{!}{\begin{tikzpicture}[
+  >=Latex,
+  agent/.style={draw, rounded corners, align=center, minimum height=0.95cm, minimum width=1.6cm, font=\scriptsize},
+  layer/.style={draw, very thick, rounded corners, fill=blue!8, align=center, minimum height=0.95cm, minimum width=2.0cm, font=\scriptsize},
+  env/.style={draw, rounded corners, align=center, minimum height=0.95cm, minimum width=1.6cm, font=\scriptsize},
+  fwd/.style={->, shorten >=1pt, shorten <=1pt},
+  lbl/.style={font=\tiny, inner sep=1.5pt}
+]
+\node[agent] (a) {Agent\\(backbone)};
+\node[layer, right=2.3cm of a] (L) {Canonicalize\\$+$ recovery\\layer};
+\node[env, right=2.3cm of L] (e) {Execute\\(environment)};
+% outgoing (top): agent -> layer -> env
+\draw[fwd] ([yshift=5pt]a.east) -- node[lbl, above] {tool call} ([yshift=5pt]L.west);
+\draw[fwd] ([yshift=5pt]L.east) -- node[lbl, above] {canonicalized call} ([yshift=5pt]e.west);
+% returning (bottom): env -> layer -> agent
+\draw[fwd] ([yshift=-5pt]e.west) -- node[lbl, below] {result / error} ([yshift=-5pt]L.east);
+\draw[fwd] ([yshift=-5pt]L.west) -- node[lbl, below, align=center] {observation, or\\ recovery hint ($1$ retry)} ([yshift=-5pt]a.east);
+\node[font=\tiny, align=center, below=0.32cm of L, text=blue!45!black] {new component;\\ rest is the standard agent loop};
+\end{tikzpicture}}
+\captionof{figure}{The canonicalization-plus-recovery layer (blue, the only new
+component) sits between the agent and the environment and mediates both
+directions. Outgoing tool calls have their argument values canonicalized to the
+schema's language and format before execution; on an execution error the layer
+returns a structured English recovery hint and allows one retry, otherwise it
+passes the observation back unchanged. It is model-agnostic and adds no
+parameters.}
+\label{fig:pipeline}
+
+\end{center}
+
+\end{document}

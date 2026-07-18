@@ -1,0 +1,12 @@
+numpy
+pandas
+requests
+tqdm
+openai>=1.86.0
+google-genai>=1.52.0
+tenacity>=8.5.0
+overrides
+filelock
+tree_sitter==0.21.3
+tree-sitter-java==0.21.0
+tree-sitter-javascript==0.21.4
