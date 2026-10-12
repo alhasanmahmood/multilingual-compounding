@@ -54,7 +54,7 @@ task-level deviation from a product baseline, and reference-path differences
 that may include valid alternatives. Scenario resampling, sensitivity checks,
 and synthetic calibration make the assumptions and limits of these
 measurements explicit. The study supports descriptive comparisons rather
-than causal claims about error propagation.
+than causal claims about error propagation. Code is available at \url{https://anonymous.4open.science/r/multilingual-compounding-5A88/}
 \end{abstract}
 
 \section{Introduction}
@@ -312,9 +312,8 @@ recovery effect.
 \section{Experiments}
 \label{sec:experiments}
 
-We use Gemini 3 Flash Preview and Claude Sonnet 4.6, both served through
-OpenRouter, on the selected BFCL v3 multi-turn tasks. Full trajectories and
-isolated replays use the same task,
+We use Gemini 3 Flash Preview and Claude Sonnet 4.6 on the selected BFCL v3
+multi-turn tasks. Full trajectories and isolated replays use the same task,
 query language, model configuration, and seed. Execution uses the pinned
 benchmark snapshot. Appendix~\ref{app:protocol} records the selection,
 localization, model settings, and analysis commands.
@@ -397,16 +396,16 @@ mechanism that would justify claiming a canonicalization benefit.
 
 \begin{table}[t]\centering\footnotesize
 \setlength{\tabcolsep}{4pt}
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrr@{}}\toprule
+\begin{tabular}{lrrr}\toprule
 Stage / outcome & EN & non-EN & Difference \\ \midrule
-\shortstack[l]{\textit{Share of invalid}\\\textit{replay steps}} & & & \\
+\multicolumn{4}{l}{\textit{Share of invalid replay steps}}\\
 Intent / selection & .185 & .194 & +.009 \\
 Argument / parameter & .116 & .131 & +.014 \\
 Sequencing / planning & .699 & .675 & -.023 \\ \midrule
-\shortstack[l]{\textit{Weighted shared-bin}\\\textit{outcomes}} & & & \\
+\multicolumn{4}{l}{\textit{Weighted shared-bin outcomes}}\\
 Detour-to-failure & .416 & .531 & +.115 \\
 Post-detour success & .584 & .469 & -.115 \\ \bottomrule
-\end{tabular*}
+\end{tabular}
 \caption{Stage shares pool invalid isolated replays across both models
 ($292$ English, $2026$ non-English). Outcome rates use thirteen shared
 replay-count bins with total weight $77$. Differences are non-English minus
@@ -518,7 +517,7 @@ counts, seed structure, and base seed $20261010$.
 \begin{table}[ht]
 \centering\footnotesize
 \setlength{\tabcolsep}{2pt}
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrrr@{}}
+\begin{tabular}{lrrrr}
 \toprule
 Process & EN $T$ & TR $T$ & $\mathrm{CF}$ & $\Delta$ \\
 \midrule
@@ -530,7 +529,7 @@ Unequal rescue ($\rho=.10/.15$) & .414 & .338 & .444 & .253 \\
 Unequal position difficulty & .314 & .209 & .892 & .049 \\
 Shared task difficulty & .474 & .301 & 1.000 & .000 \\
 \bottomrule
-\end{tabular*}
+\end{tabular}
 \caption{Population values under specified synthetic processes and the
 common-mean null. Extra TR loss uses survival $.70/.35$. These are analytic
 expectations, not empirical BFCL results.}
@@ -565,7 +564,7 @@ dataset. Wilson intervals measure Monte Carlo uncertainty.
 \begin{table}[ht]
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}rcc@{}}
+\begin{tabular}{rcc}
 \toprule
 Scenarios & Null family rejection & Adjusted target power \\
 \midrule
@@ -575,7 +574,7 @@ Scenarios & Null family rejection & Adjusted target power \\
 25 & .090 [.058, .138] & .055 [.031, .096] \\
 50 & .110 [.074, .161] & .045 [.024, .083] \\
 \bottomrule
-\end{tabular*}
+\end{tabular}
 \caption{Conditional Monte Carlo rates with Wilson 95\% intervals.
 Family rejection is any Holm-adjusted tail below $.05$; target power concerns
 Turkish/Gemini. The four-scenario simulation assumes four independent clusters,
@@ -617,7 +616,7 @@ or CF reportability relative to the full estimate.
 
 \begin{table}[ht]\centering
 \small
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llrr@{}}
+\begin{tabular}{llrr}
 \toprule
 $K$ & Null & \shortstack{$\Delta$ sign\\changes} & \shortstack{CF reportability\\changes} \\
 \midrule
@@ -628,7 +627,7 @@ $K$ & Null & \shortstack{$\Delta$ sign\\changes} & \shortstack{CF reportability\
 10 & Common & 3/14 & 5/14 \\
 10 & Position-specific & 3/14 & 3/14 \\
 \bottomrule
-\end{tabular*}
+\end{tabular}
 \caption{Leave-one-scenario-out sensitivity in the twenty-scenario study. A cell is counted when at least one omission changes its
 $\Delta$ sign or CF reportability. These describe sensitivity to the selected tasks,
 not significance tests.}
