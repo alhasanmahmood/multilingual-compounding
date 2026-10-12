@@ -44,9 +44,28 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--task-limit", type=int, default=None)
     parser.add_argument("--per-category-limit", type=int, default=None)
+    parser.add_argument(
+        "--task-ids",
+        nargs="+",
+        default=None,
+        help="Exact BFCL task IDs to summarize. This overrides task and category limits.",
+    )
     parser.add_argument("--run-labels", nargs="+", default=["seed0"])
     parser.add_argument("--language-codes", nargs="+", default=None)
     parser.add_argument("--artifact-prefix", default=None)
+    parser.add_argument(
+        "--input-artifact-prefix",
+        default=None,
+        help="Optional prefix on source run/replay JSONL files. The output artifact prefix is set separately.",
+    )
+    parser.add_argument("--n-boot", type=int, default=5000)
+    parser.add_argument("--bootstrap-seed", type=int, default=0)
+    parser.add_argument(
+        "--cluster-unit",
+        choices=("underlying_task", "task_seed"),
+        default="underlying_task",
+        help="Bootstrap cluster unit. Scenario-level inference is unavailable with one scenario cluster.",
+    )
     return parser.parse_args()
 
 
@@ -61,6 +80,7 @@ def main() -> None:
         tasks,
         task_limit=args.task_limit,
         per_category_limit=args.per_category_limit,
+        task_ids=args.task_ids,
     )
     result = summarize_existing_artifacts(
         tasks=tasks,
@@ -68,6 +88,10 @@ def main() -> None:
         language_codes=resolve_language_codes(args.language_codes),
         run_labels=args.run_labels,
         artifact_prefix=args.artifact_prefix,
+        input_artifact_prefix=args.input_artifact_prefix,
+        n_boot=args.n_boot,
+        bootstrap_seed=args.bootstrap_seed,
+        cluster_unit=args.cluster_unit,
     )
     print(json.dumps(result, indent=2))
 

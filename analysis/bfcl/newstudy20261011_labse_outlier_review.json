@@ -1,0 +1,804 @@
+{
+  "review_type": "AI-only independent linguistic inspection",
+  "source_csv": "analysis/bfcl/newstudy20261010_labse_pairs.csv",
+  "source_csv_sha256": "7885706bb5873e725128f729c9d5fb23be19c5cb843c1b32abd262a2cafb0604",
+  "model_id": "sentence-transformers/LaBSE",
+  "model_revision": "836121a0533e5664b21c7aacc5d22951f2b8b25b",
+  "frozen_translation_cache_sha256": "04f858c21801117fe0f99d6974773d1818c10d91a3ecbbf1579c707455a4e034",
+  "coverage": {
+    "input_population_pairs": 602,
+    "languages": [
+      "AR",
+      "ES",
+      "HI",
+      "JA",
+      "SW",
+      "TR",
+      "ZH"
+    ],
+    "input_pairs_per_language": 86,
+    "full_text_pairs_inspected": 54,
+    "lowest_3_per_language_pairs": 21,
+    "numeric_manual_review_flags": 34,
+    "quoted_literal_manual_review_flags": 0,
+    "filename_manual_review_flags": 0,
+    "overlap_count": 1,
+    "overlap_pair_ids": [
+      "multi_turn_miss_param_70/TR/2"
+    ],
+    "reviewed_union_count": 54,
+    "reviewed_union_pair_ids": [
+      "multi_turn_base_63/JA/0",
+      "multi_turn_base_63/TR/1",
+      "multi_turn_base_63/ZH/0",
+      "multi_turn_base_65/JA/0",
+      "multi_turn_base_65/ZH/0",
+      "multi_turn_base_80/AR/4",
+      "multi_turn_base_80/SW/3",
+      "multi_turn_long_context_2/ES/0",
+      "multi_turn_long_context_59/AR/2",
+      "multi_turn_long_context_59/JA/2",
+      "multi_turn_long_context_59/JA/4",
+      "multi_turn_long_context_59/SW/2",
+      "multi_turn_long_context_59/TR/2",
+      "multi_turn_long_context_59/ZH/4",
+      "multi_turn_long_context_71/ZH/2",
+      "multi_turn_long_context_71/ZH/3",
+      "multi_turn_miss_func_55/ES/4",
+      "multi_turn_miss_func_55/JA/0",
+      "multi_turn_miss_func_55/ZH/0",
+      "multi_turn_miss_func_69/JA/0",
+      "multi_turn_miss_func_69/ZH/0",
+      "multi_turn_miss_func_90/JA/0",
+      "multi_turn_miss_func_90/ZH/0",
+      "multi_turn_miss_func_92/JA/0",
+      "multi_turn_miss_func_92/JA/4",
+      "multi_turn_miss_func_92/ZH/2",
+      "multi_turn_miss_param_171/AR/0",
+      "multi_turn_miss_param_171/ES/0",
+      "multi_turn_miss_param_171/HI/0",
+      "multi_turn_miss_param_171/JA/0",
+      "multi_turn_miss_param_171/JA/2",
+      "multi_turn_miss_param_171/SW/0",
+      "multi_turn_miss_param_171/TR/0",
+      "multi_turn_miss_param_171/ZH/0",
+      "multi_turn_miss_param_171/ZH/2",
+      "multi_turn_miss_param_39/AR/0",
+      "multi_turn_miss_param_39/AR/2",
+      "multi_turn_miss_param_39/ES/0",
+      "multi_turn_miss_param_39/HI/0",
+      "multi_turn_miss_param_39/JA/0",
+      "multi_turn_miss_param_39/JA/2",
+      "multi_turn_miss_param_39/TR/0",
+      "multi_turn_miss_param_39/ZH/2",
+      "multi_turn_miss_param_58/JA/2",
+      "multi_turn_miss_param_58/ZH/2",
+      "multi_turn_miss_param_70/JA/0",
+      "multi_turn_miss_param_70/SW/2",
+      "multi_turn_miss_param_70/TR/2",
+      "multi_turn_miss_param_70/ZH/0",
+      "multi_turn_miss_param_70/ZH/2",
+      "multi_turn_miss_param_97/AR/3",
+      "multi_turn_miss_param_97/HI/2",
+      "multi_turn_miss_param_97/HI/4",
+      "multi_turn_miss_param_97/JA/2"
+    ]
+  },
+  "method": [
+    "Read full source_text and target_text for each of the lowest three cosine pairs per language and every needs_manual_review=True row.",
+    "Used adjacent same-task turns where needed to interpret references to liters.",
+    "Inspected values in the text directly; CSV regex-extracted numbers were treated as flags, not truth.",
+    "The number regex uses Unicode-aware word boundaries. It can miss digits adjacent to Unicode letters and miss ordinals such as 15th."
+  ],
+  "result": {
+    "confirmed_task_critical_mistranslations": 0,
+    "wrong_numeric_values_found": 0,
+    "numeric_flags_summary": "All flags are explained by a number word, Unicode or ordinal regex boundary, equivalent precision wording, a repeated threshold, or the Arabic decimal boundary case documented below.",
+    "wording_nuances": [
+      "HI multi_turn_miss_param_39/HI/0 says to create a folder inside the folder currently being worked in, a slight location specificity consistent with the intended current working folder.",
+      "ZH multi_turn_long_context_71/ZH/3 renders “vehicle secured” broadly as “vehicle in a safe condition.” The source is ambiguous; no definite task change was found."
+    ],
+    "limitation": "Targeted AI review only. This does not certify every translation or establish native-speaker correctness; cosine similarity is a screening signal, not an accuracy percentage."
+  },
+  "lowest_cosine_pairs": [
+    {
+      "pair_id": "multi_turn_miss_param_97/AR/3",
+      "language_code": "AR",
+      "cosine_similarity": 0.7911508380654354,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "Tank full now; faithful."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_39/AR/0",
+      "language_code": "AR",
+      "cosine_similarity": 0.8361828464375092,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "New folder at current work location; faithful."
+    },
+    {
+      "pair_id": "multi_turn_long_context_59/AR/2",
+      "language_code": "AR",
+      "cosine_similarity": 0.8377528021863642,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful_in_context",
+      "note": "Carries the preceding liters context into the fill request; faithful."
+    },
+    {
+      "pair_id": "multi_turn_long_context_2/ES/0",
+      "language_code": "ES",
+      "cosine_similarity": 0.8788915949772205,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "Repairs source disfluency and preserves folder, filename, and purpose."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_55/ES/4",
+      "language_code": "ES",
+      "cosine_similarity": 0.8821694346570544,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "Ticket, missing feedback, and status retrieval preserved."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_39/ES/0",
+      "language_code": "ES",
+      "cosine_similarity": 0.8859896126185355,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "New folder wherever currently working; faithful."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_39/HI/0",
+      "language_code": "HI",
+      "cosine_similarity": 0.6144956789160033,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful_with_slight_location_specificity",
+      "note": "Faithful, with slight specificity: says inside the folder currently being worked in."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_97/HI/4",
+      "language_code": "HI",
+      "cosine_similarity": 0.7817069980387843,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "Tank-full context and request to start car preserved."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_97/HI/2",
+      "language_code": "HI",
+      "cosine_similarity": 0.7846703906999876,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "Empty-tank concern and request to fill fully preserved."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_97/JA/2",
+      "language_code": "JA",
+      "cosine_similarity": 0.7118435393303273,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "Fuel-exhaustion concern and request to fill tank preserved."
+    },
+    {
+      "pair_id": "multi_turn_long_context_59/JA/2",
+      "language_code": "JA",
+      "cosine_similarity": 0.7314976675398223,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful_in_context",
+      "note": "Carries the preceding liters context into the fill request; faithful."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_39/JA/0",
+      "language_code": "JA",
+      "cosine_similarity": 0.7540845091219012,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "New folder at current work location; faithful."
+    },
+    {
+      "pair_id": "multi_turn_long_context_59/SW/2",
+      "language_code": "SW",
+      "cosine_similarity": 0.800335860729133,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful_in_context",
+      "note": "Prior turn establishes liters on hand; translation carries context forward."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_70/SW/2",
+      "language_code": "SW",
+      "cosine_similarity": 0.8114249998080076,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "32 PSI target, below-target condition, and repair route preserved."
+    },
+    {
+      "pair_id": "multi_turn_base_80/SW/3",
+      "language_code": "SW",
+      "cosine_similarity": 0.8296737085389267,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "Full tank, securing doors, and starting engine preserved."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_39/TR/0",
+      "language_code": "TR",
+      "cosine_similarity": 0.7482473591452831,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "New folder where currently working; faithful."
+    },
+    {
+      "pair_id": "multi_turn_long_context_59/TR/2",
+      "language_code": "TR",
+      "cosine_similarity": 0.7678037786176872,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful_in_context",
+      "note": "Carries the preceding liters context into the fill request; faithful."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_70/TR/2",
+      "language_code": "TR",
+      "cosine_similarity": 0.787512628776708,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful_with_explicit_threshold_repeat",
+      "note": "Repeats 32 PSI to make the conditional threshold explicit; faithful."
+    },
+    {
+      "pair_id": "multi_turn_long_context_71/ZH/2",
+      "language_code": "ZH",
+      "cosine_similarity": 0.6928167955363564,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "Request to fill fuel tank completely preserved."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_92/ZH/2",
+      "language_code": "ZH",
+      "cosine_similarity": 0.7112962331435186,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful",
+      "note": "Concern and request to fill tank completely preserved."
+    },
+    {
+      "pair_id": "multi_turn_long_context_71/ZH/3",
+      "language_code": "ZH",
+      "cosine_similarity": 0.7832392643839984,
+      "reason_selected": "lowest_3_cosine_within_language",
+      "disposition": "faithful_with_wording_nuance",
+      "note": "“Secured” becomes broadly “in a safe condition”; source is ambiguous, no confirmed task change."
+    }
+  ],
+  "numeric_flags": [
+    {
+      "pair_id": "multi_turn_base_63/JA/0",
+      "language_code": "JA",
+      "cosine_similarity": 0.8568943129560473,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "166"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 166 liters is visibly preserved as 166リットル. The regex misses the digit adjacent to Japanese text."
+    },
+    {
+      "pair_id": "multi_turn_base_63/TR/1",
+      "language_code": "TR",
+      "cosine_similarity": 0.8566738603409988,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [],
+      "target_numbers_extracted": [
+        "0.01"
+      ],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "equivalent_precision_paraphrase",
+      "note": "Source says round to the nearest hundredth. Turkish explicitly says round to the nearest 0.01 unit and to two decimal places. This is an equivalent clarification, not a changed quantity."
+    },
+    {
+      "pair_id": "multi_turn_base_63/ZH/0",
+      "language_code": "ZH",
+      "cosine_similarity": 0.9087970106886742,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "166"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 166 liters is visibly preserved as 166升. The regex misses the digit adjacent to Chinese text."
+    },
+    {
+      "pair_id": "multi_turn_base_65/JA/0",
+      "language_code": "JA",
+      "cosine_similarity": 0.8833236507510628,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "15"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 15 liters is visibly preserved as 15リットル. The regex misses the digit adjacent to Japanese text."
+    },
+    {
+      "pair_id": "multi_turn_base_65/ZH/0",
+      "language_code": "ZH",
+      "cosine_similarity": 0.9365349154464966,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "15"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 15 liters is visibly preserved as 15升. The regex misses the digit adjacent to Chinese text."
+    },
+    {
+      "pair_id": "multi_turn_base_80/AR/4",
+      "language_code": "AR",
+      "cosine_similarity": 0.9385125954079375,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "750.0",
+        "320.0",
+        "450.0",
+        "290.0"
+      ],
+      "target_numbers_extracted": [
+        "750.0",
+        "320.0",
+        "450.0",
+        "0"
+      ],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "decimal_boundary_regex_artifact",
+      "note": "All four distances are visibly present, including 290.0 km. The number regex treats the Arabic conjunction و attached before 290 as a word character, then captures only the decimal fraction 0."
+    },
+    {
+      "pair_id": "multi_turn_long_context_59/JA/4",
+      "language_code": "JA",
+      "cosine_similarity": 0.8528458161557652,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10",
+        "20"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "Both 10 and 20 are visibly preserved in the Japanese target. The regex misses digits adjacent to Japanese text."
+    },
+    {
+      "pair_id": "multi_turn_long_context_59/ZH/4",
+      "language_code": "ZH",
+      "cosine_similarity": 0.9073728225097093,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10",
+        "20"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "Both 10 and 20 are visibly preserved in the Chinese target. The regex misses digits adjacent to Chinese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_55/JA/0",
+      "language_code": "JA",
+      "cosine_similarity": 0.8428345592833545,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The threshold 10 is visibly preserved in 10未満, and double is expressed as 2倍. The regex misses both digits adjacent to Japanese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_55/ZH/0",
+      "language_code": "ZH",
+      "cosine_similarity": 0.9025419380086179,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The threshold 10 is visibly preserved in 低于10, and double is translated as 双倍. The regex misses the digit adjacent to Chinese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_69/JA/0",
+      "language_code": "JA",
+      "cosine_similarity": 0.7950931946131838,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "40"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 40 additional liters is visibly preserved as 40リットル. The regex misses the digit adjacent to Japanese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_69/ZH/0",
+      "language_code": "ZH",
+      "cosine_similarity": 0.9058065338767222,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "40"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 40 additional liters is visibly preserved as 40升, including the additional quantity. The regex misses the digit adjacent to Chinese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_90/JA/0",
+      "language_code": "JA",
+      "cosine_similarity": 0.8441984201310224,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "150"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 150 liters is visibly preserved as 150リットル. The regex misses the digit adjacent to Japanese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_90/ZH/0",
+      "language_code": "ZH",
+      "cosine_similarity": 0.9386294265851352,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "150"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 150 liters is visibly preserved as 150升. The regex misses the digit adjacent to Chinese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_92/JA/0",
+      "language_code": "JA",
+      "cosine_similarity": 0.9335262003529329,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "83214",
+        "74532"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_identifier_artifact",
+      "note": "Both ZIP identifiers 83214 and 74532 are visibly preserved next to Japanese text. The regex boundary check misses the digits."
+    },
+    {
+      "pair_id": "multi_turn_miss_func_92/JA/4",
+      "language_code": "JA",
+      "cosine_similarity": 0.8757376059880243,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "35"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The 35 PSI threshold is visibly preserved. It is adjacent to Japanese text, which the regex treats as a word character."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_171/AR/0",
+      "language_code": "AR",
+      "cosine_similarity": 0.9636610322504148,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10000",
+        "2026",
+        "897362"
+      ],
+      "target_numbers_extracted": [
+        "10000",
+        "15",
+        "2026",
+        "897362"
+      ],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "ordinal_suffix_parser_artifact",
+      "note": "The target preserves 10000 RMB, June 15, 2026, and access code 897362. The source extractor misses 15 in “15th” because the ordinal suffix is attached; the target spells the date with 15."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_171/ES/0",
+      "language_code": "ES",
+      "cosine_similarity": 0.9488720219219102,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10000",
+        "2026",
+        "897362"
+      ],
+      "target_numbers_extracted": [
+        "10000",
+        "15",
+        "2026",
+        "897362"
+      ],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "ordinal_suffix_parser_artifact",
+      "note": "The target preserves 10000 RMB, June 15, 2026, and access code 897362. The source extractor misses 15 in “15th” because the ordinal suffix is attached; the target spells the date with 15."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_171/HI/0",
+      "language_code": "HI",
+      "cosine_similarity": 0.8134114546512782,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10000",
+        "2026",
+        "897362"
+      ],
+      "target_numbers_extracted": [
+        "10000",
+        "15",
+        "2026",
+        "897362"
+      ],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "ordinal_suffix_parser_artifact",
+      "note": "The target preserves 10000 RMB, June 15, 2026, and access code 897362. The source extractor misses 15 in “15th” because the ordinal suffix is attached; the target spells the date with 15."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_171/JA/0",
+      "language_code": "JA",
+      "cosine_similarity": 0.8915151008180514,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10000",
+        "2026",
+        "897362"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "ordinal_suffix_and_unicode_boundary_artifacts",
+      "note": "The target visibly preserves 10000 RMB, 2026-06-15, and access code 897362. The source extractor misses 15 in “15th”; Japanese text adjacency also causes target digits not to be extracted."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_171/JA/2",
+      "language_code": "JA",
+      "cosine_similarity": 0.8648173661315137,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "250"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source insurance amount $250 is visibly preserved as $250. The following Japanese text prevents the regex from recognizing the number boundary."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_171/SW/0",
+      "language_code": "SW",
+      "cosine_similarity": 0.9380509814045827,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10000",
+        "2026",
+        "897362"
+      ],
+      "target_numbers_extracted": [
+        "10000",
+        "15",
+        "2026",
+        "897362"
+      ],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "ordinal_suffix_parser_artifact",
+      "note": "The target preserves 10000 RMB, June 15, 2026, and access code 897362. The source extractor misses 15 in “15th” because the ordinal suffix is attached; the target spells the date with 15."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_171/TR/0",
+      "language_code": "TR",
+      "cosine_similarity": 0.8645295013320372,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10000",
+        "2026",
+        "897362"
+      ],
+      "target_numbers_extracted": [
+        "10000",
+        "15",
+        "2026",
+        "897362"
+      ],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "ordinal_suffix_parser_artifact",
+      "note": "The target preserves 10000 RMB, June 15, 2026, and access code 897362. The source extractor misses 15 in “15th” because the ordinal suffix is attached; the target spells the date with 15."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_171/ZH/0",
+      "language_code": "ZH",
+      "cosine_similarity": 0.930075592963712,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "10000",
+        "2026",
+        "897362"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "ordinal_suffix_and_unicode_boundary_artifacts",
+      "note": "The target visibly preserves 10000 RMB, 2026-06-15, and access code 897362. The source extractor misses 15 in “15th”; Chinese text adjacency also causes target digits not to be extracted."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_171/ZH/2",
+      "language_code": "ZH",
+      "cosine_similarity": 0.9409376501336157,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "250"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source insurance amount $250 is visibly preserved as 250美元. The regex misses the digits adjacent to Chinese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_39/AR/2",
+      "language_code": "AR",
+      "cosine_similarity": 0.9586444937810992,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "3"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "number_written_as_word",
+      "note": "Source says 3 files; Arabic target expresses three as ثلاثة. Correct value, but the numeric extractor does not treat a written number word as the digit 3."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_39/JA/2",
+      "language_code": "JA",
+      "cosine_similarity": 0.8972554542877853,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "3"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "Source says 3 files; target visibly contains 3つのファイル. The value is present, but the regex boundary check misses a digit adjacent to Japanese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_39/ZH/2",
+      "language_code": "ZH",
+      "cosine_similarity": 0.9608431409024498,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "3"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "Source says 3 files; target visibly contains 3个文件. The value is present, but the regex boundary check misses a digit adjacent to Chinese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_58/JA/2",
+      "language_code": "JA",
+      "cosine_similarity": 0.8555213107613274,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "30"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The 30-gallon drum is visibly preserved as 30ガロン. The regex misses the digit because it is adjacent to Japanese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_58/ZH/2",
+      "language_code": "ZH",
+      "cosine_similarity": 0.889266188020239,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "30"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The 30-gallon drum is visibly preserved as 30-gallon. The digit follows Chinese text, so the regex misses its left word boundary."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_70/JA/0",
+      "language_code": "JA",
+      "cosine_similarity": 0.8662553816464366,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "38"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 38 liters is visibly preserved as 38リットル. The regex misses the digit adjacent to Japanese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_70/TR/2",
+      "language_code": "TR",
+      "cosine_similarity": 0.787512628776708,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "32"
+      ],
+      "target_numbers_extracted": [
+        "32",
+        "32"
+      ],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "repeated_threshold_not_value_change",
+      "note": "Source has 32 PSI once. Turkish repeats 32 PSI in the conditional to spell out the reference threshold; the value and condition are unchanged."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_70/ZH/0",
+      "language_code": "ZH",
+      "cosine_similarity": 0.9319304964862052,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "38"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact",
+      "note": "The source quantity 38 liters is visibly preserved as 38升. The regex misses the digit adjacent to Chinese text."
+    },
+    {
+      "pair_id": "multi_turn_miss_param_70/ZH/2",
+      "language_code": "ZH",
+      "cosine_similarity": 0.8702880128307388,
+      "reason_selected": "needs_manual_review=True because numeric_values_match=False",
+      "source_numbers_extracted": [
+        "32"
+      ],
+      "target_numbers_extracted": [],
+      "quoted_literals_preserved": true,
+      "filenames_preserved": true,
+      "disposition": "unicode_word_boundary_artifact_and_threshold_repeat",
+      "note": "The 32 PSI threshold is visibly preserved and repeated in the conditional. Chinese text adjacency prevents the regex from reading the values."
+    }
+  ]
+}

@@ -1,0 +1,1498 @@
+{
+  "metadata": {
+    "calibration_version": 2,
+    "upgrade_note": "Supersedes the prior 80-replicate/200-bootstrap synthetic run. The prior output is preserved under historical_v1. This is an expanded synthetic analysis, not a replication of numbers in the author response.",
+    "script": "scripts/run_cf_calibration.py",
+    "metric_implementation": "src/multilingual_compounding/metrics.py",
+    "base_seed": 20261010,
+    "k": 10,
+    "large_n_underlying_tasks": 10000,
+    "seeds_per_task_in_clustered_scenarios": 2,
+    "task_count_curve": [
+      4,
+      10,
+      20,
+      25,
+      50
+    ],
+    "monte_carlo_replicates": 200,
+    "bootstrap_resamples": 5000,
+    "known_process_step_rates": {
+      "EN": 0.9,
+      "TR": 0.86
+    },
+    "bootstrap_test": "one-sided bootstrap tail for Delta < 0 with plus-one p-value",
+    "rng": "numpy.default_rng; all generator and bootstrap seeds recorded or scheduled below"
+  },
+  "holm_resolution": {
+    "number_of_tests": 14,
+    "n_boot": 5000,
+    "best_case_adjusted_p": 0.0027994401119776045,
+    "strict_0_05_possible": true,
+    "minimum_n_boot_for_strict_holm_p_below_0_05": 280,
+    "derivation": "raw p_min=1/(n_boot+1); first Holm adjusted p_min=min(1,14/(n_boot+1))"
+  },
+  "cf_exclusion_rule": {
+    "metric_default_min_abs_log_rind": 0.05,
+    "report_CF_when": "abs(log(r_ind)) >= 0.05",
+    "CF_numerically_undefined_when": "abs(log(r_ind)) <= 1e-9 in compute_cf",
+    "Delta_reported_when_CF_excluded": true
+  },
+  "analytic_scenarios": {
+    "multiplicative_survival": {
+      "independent_steps": {
+        "generator_seed": 20261011,
+        "n_tasks_per_language": 10000,
+        "k": 10,
+        "p": {
+          "EN": 0.9,
+          "TR": 0.86
+        },
+        "alpha": {
+          "EN": 1.0,
+          "TR": 1.0
+        },
+        "analytic_expected_CF": 1.0,
+        "point_estimates": {
+          "EN": {
+            "n_tasks": 10000,
+            "p": 0.8995020099598008,
+            "T": 0.34823035392921414,
+            "T_ind": 0.34675392146905915,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 10000,
+            "p": 0.8583228335433292,
+            "T": 0.21075784843031395,
+            "T_ind": 0.21702344844638397,
+            "r_obs": 0.605225380419179,
+            "r_ind": 0.6258716484789603,
+            "CF": 1.0715827661593351,
+            "Delta": -0.03354439742163001
+          }
+        }
+      },
+      "shared_multiplicative_survival": {
+        "generator_seed": 20261012,
+        "n_tasks_per_language": 10000,
+        "k": 10,
+        "p": {
+          "EN": 0.9,
+          "TR": 0.86
+        },
+        "alpha": {
+          "EN": 0.7,
+          "TR": 0.7
+        },
+        "analytic_expected_CF": 1.0,
+        "point_estimates": {
+          "EN": {
+            "n_tasks": 10000,
+            "p": 0.8990020199596008,
+            "T": 0.242751449710058,
+            "T_ind": 0.3448312968555148,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 10000,
+            "p": 0.8607827843443131,
+            "T": 0.15836832633473305,
+            "T_ind": 0.22332416826064663,
+            "r_obs": 0.6523887973640856,
+            "r_ind": 0.6476331188529563,
+            "CF": 0.9831588004540401,
+            "Delta": 0.007316337771846426
+          }
+        }
+      },
+      "extra_turkish_multiplicative_degradation": {
+        "generator_seed": 20261013,
+        "n_tasks_per_language": 10000,
+        "k": 10,
+        "p": {
+          "EN": 0.9,
+          "TR": 0.86
+        },
+        "alpha": {
+          "EN": 0.7,
+          "TR": 0.35
+        },
+        "analytic_expected_CF": 2.5246612053071735,
+        "point_estimates": {
+          "EN": {
+            "n_tasks": 10000,
+            "p": 0.9000319993600128,
+            "T": 0.250249950009998,
+            "T_ind": 0.3488024320140547,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 10000,
+            "p": 0.8591628167436651,
+            "T": 0.08008398320335933,
+            "T_ind": 0.21915668953719106,
+            "r_obs": 0.32001598082301236,
+            "r_ind": 0.6283118161525901,
+            "CF": 2.451772033251531,
+            "Delta": -0.6746656311589221
+          }
+        },
+        "bootstrap": {
+          "n_boot": 5000,
+          "seed": 20261014,
+          "TR_CF_CI_95": [
+            2.2865753171522623,
+            2.631790218806067
+          ],
+          "TR_Delta_CI_95": [
+            -0.7431012154414338,
+            -0.6102255996919219
+          ],
+          "TR_p_holm_single_cell": 0.0001999600079984003,
+          "TR_CF_reportable": true,
+          "TR_compounding_rejected": true
+        }
+      }
+    },
+    "repair": {
+      "same_repair_probability": {
+        "analytic": {
+          "p": {
+            "EN": 0.9,
+            "TR": 0.86
+          },
+          "repair_probability_after_step_failure": {
+            "EN": 0.1,
+            "TR": 0.1
+          },
+          "T": {
+            "EN": 0.4138105960900001,
+            "TR": 0.2991714209992276
+          },
+          "T_without_repair": {
+            "EN": 0.3486784401000001,
+            "TR": 0.22130157888803068
+          },
+          "metrics": {
+            "common": {
+              "T_ind_EN": 0.3486784401000001,
+              "T_ind_comparison": 0.22130157888803068,
+              "r_ind": 0.6346867297690156,
+              "r_obs": 0.7229670381233073,
+              "CF": 0.7135387336771024,
+              "Delta": 0.13023209248073192
+            },
+            "position": {
+              "T_ind_EN": 0.34867844010000015,
+              "T_ind_comparison": 0.22130157888803068,
+              "r_ind": 0.6346867297690155,
+              "r_obs": 0.7229670381233073,
+              "CF": 0.7135387336771022,
+              "Delta": 0.1302320924807321
+            }
+          }
+        },
+        "n_underlying_tasks": 10000,
+        "seeds_per_task": 2,
+        "point_estimates_by_null": {
+          "common_mean": {
+            "EN": {
+              "n_tasks": 20000,
+              "p": 0.9004209957900421,
+              "T": 0.41825817418258177,
+              "T_ind": 0.35031290160568196,
+              "r_obs": 1.0,
+              "r_ind": 1.0,
+              "CF": null,
+              "Delta": 0.0
+            },
+            "TR": {
+              "n_tasks": 20000,
+              "p": 0.8604663953360466,
+              "T": 0.3042195780421958,
+              "T_ind": 0.22250467512736385,
+              "r_obs": 0.7273487927324886,
+              "r_ind": 0.6351598074392899,
+              "CF": 0.7013970563282461,
+              "Delta": 0.1355294999125941
+            }
+          },
+          "position_specific": {
+            "EN": {
+              "n_tasks": 20000,
+              "p": 0.9004209957900421,
+              "T": 0.41825817418258177,
+              "T_ind": 0.35014939773310044,
+              "r_obs": 1.0,
+              "r_ind": 1.0,
+              "CF": null,
+              "Delta": 0.0
+            },
+            "TR": {
+              "n_tasks": 20000,
+              "p": 0.8604663953360466,
+              "T": 0.3042195780421958,
+              "T_ind": 0.22240767793088287,
+              "r_obs": 0.7273487927324886,
+              "r_ind": 0.6351793816318713,
+              "CF": 0.7014446827367701,
+              "Delta": 0.13549868264307852
+            }
+          }
+        }
+      },
+      "language_specific_repair_probability": {
+        "analytic": {
+          "p": {
+            "EN": 0.9,
+            "TR": 0.86
+          },
+          "repair_probability_after_step_failure": {
+            "EN": 0.1,
+            "TR": 0.15
+          },
+          "T": {
+            "EN": 0.4138105960900001,
+            "TR": 0.33810634205482604
+          },
+          "T_without_repair": {
+            "EN": 0.3486784401000001,
+            "TR": 0.22130157888803068
+          },
+          "metrics": {
+            "common": {
+              "T_ind_EN": 0.3486784401000001,
+              "T_ind_comparison": 0.22130157888803068,
+              "r_ind": 0.6346867297690156,
+              "r_obs": 0.8170557865108194,
+              "CF": 0.44442884564087165,
+              "Delta": 0.2525758364573061
+            },
+            "position": {
+              "T_ind_EN": 0.34867844010000015,
+              "T_ind_comparison": 0.22130157888803068,
+              "r_ind": 0.6346867297690155,
+              "r_obs": 0.8170557865108194,
+              "CF": 0.4444288456408715,
+              "Delta": 0.2525758364573063
+            }
+          }
+        },
+        "n_underlying_tasks": 10000,
+        "seeds_per_task": 2,
+        "point_estimates_by_null": {
+          "common_mean": {
+            "EN": {
+              "n_tasks": 20000,
+              "p": 0.9001709982900171,
+              "T": 0.4205079492050795,
+              "T_ind": 0.3493414892152406,
+              "r_obs": 1.0,
+              "r_ind": 1.0,
+              "CF": null,
+              "Delta": 0.0
+            },
+            "TR": {
+              "n_tasks": 20000,
+              "p": 0.8601513984860152,
+              "T": 0.3377162283771623,
+              "T_ind": 0.2216914774804644,
+              "r_obs": 0.8031149684936393,
+              "r_ind": 0.6345981920969973,
+              "CF": 0.4821352696899251,
+              "Delta": 0.23550584715487852
+            }
+          },
+          "position_specific": {
+            "EN": {
+              "n_tasks": 20000,
+              "p": 0.9001709982900171,
+              "T": 0.4205079492050795,
+              "T_ind": 0.3491954336609547,
+              "r_obs": 1.0,
+              "r_ind": 1.0,
+              "CF": null,
+              "Delta": 0.0
+            },
+            "TR": {
+              "n_tasks": 20000,
+              "p": 0.8601513984860152,
+              "T": 0.3377162283771623,
+              "T_ind": 0.22160155203548224,
+              "r_obs": 0.8031149684936393,
+              "r_ind": 0.634606099261431,
+              "CF": 0.4821484800506219,
+              "Delta": 0.23549338712068604
+            }
+          }
+        }
+      }
+    },
+    "unequal_position_difficulty": {
+      "p_by_position": {
+        "EN": [
+          0.96,
+          0.96,
+          0.96,
+          0.96,
+          0.96,
+          0.96,
+          0.96,
+          0.96,
+          0.66,
+          0.66
+        ],
+        "TR": [
+          0.95,
+          0.95,
+          0.95,
+          0.95,
+          0.95,
+          0.77,
+          0.77,
+          0.77,
+          0.77,
+          0.77
+        ]
+      },
+      "analytic_T": {
+        "EN": 0.31423730060535787,
+        "TR": 0.20944579826136073
+      },
+      "analytic_metrics": {
+        "common": {
+          "T_ind_EN": 0.3486784401000001,
+          "T_ind_comparison": 0.22130157888803068,
+          "r_ind": 0.6346867297690156,
+          "r_obs": 0.666521122278854,
+          "CF": 0.8923498976086752,
+          "Delta": 0.048940292243156436
+        },
+        "position": {
+          "T_ind_EN": 0.31423730060535787,
+          "T_ind_comparison": 0.20944579826136073,
+          "r_ind": 0.666521122278854,
+          "r_obs": 0.666521122278854,
+          "CF": 1.0,
+          "Delta": 0.0
+        }
+      },
+      "n_tasks": 10000,
+      "point_estimates_by_null": {
+        "common_mean": {
+          "EN": {
+            "n_tasks": 10000,
+            "p": 0.8988920221595568,
+            "T": 0.3080383923215357,
+            "T_ind": 0.34440960919081187,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 10000,
+            "p": 0.8608527829443411,
+            "T": 0.20825834833033394,
+            "T_ind": 0.22350584128138612,
+            "r_obs": 0.6760791950665369,
+            "r_ind": 0.6489535579640523,
+            "CF": 0.905296893304183,
+            "Delta": 0.04094906688026889
+          }
+        },
+        "position_specific": {
+          "EN": {
+            "n_tasks": 10000,
+            "p": 0.8988920221595568,
+            "T": 0.3080383923215357,
+            "T_ind": 0.310281744537417,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 10000,
+            "p": 0.8608527829443411,
+            "T": 0.20825834833033394,
+            "T_ind": 0.21129589607069618,
+            "r_obs": 0.6760791950665369,
+            "r_ind": 0.6809807531078127,
+            "CF": 1.018801202895238,
+            "Delta": -0.007223821413237241
+          }
+        }
+      }
+    },
+    "shared_task_difficulty": {
+      "beta_parameters": {
+        "alpha": 9.0,
+        "beta": 1.0
+      },
+      "mean_difficulty": 0.9,
+      "expected_q_to_K": 0.4736842105263159,
+      "scale_by_language": {
+        "EN": 1.0,
+        "TR": 0.9555555555555555
+      },
+      "analytic_T": {
+        "EN": 0.4736842105263159,
+        "TR": 0.3006410825221653
+      },
+      "analytic_metrics": {
+        "common": {
+          "T_ind_EN": 0.3486784401000001,
+          "T_ind_comparison": 0.22130157888803068,
+          "r_ind": 0.6346867297690156,
+          "r_obs": 0.6346867297690155,
+          "CF": 1.0000000000000004,
+          "Delta": -1.6653345369377348e-16
+        },
+        "position": {
+          "T_ind_EN": 0.34867844010000015,
+          "T_ind_comparison": 0.22130157888803068,
+          "r_ind": 0.6346867297690155,
+          "r_obs": 0.6346867297690155,
+          "CF": 1.0,
+          "Delta": 0.0
+        }
+      },
+      "absolute_T_over_common_T_ind": {
+        "EN": 1.3585130482701036,
+        "TR": 1.3585130482701033
+      },
+      "n_underlying_tasks": 10000,
+      "seeds_per_task": 2,
+      "point_estimates_by_null": {
+        "common_mean": {
+          "EN": {
+            "n_tasks": 20000,
+            "p": 0.8992110078899211,
+            "T": 0.47255274472552744,
+            "T_ind": 0.34563375349038994,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 20000,
+            "p": 0.8585164148358516,
+            "T": 0.296970302969703,
+            "T_ind": 0.21751340795248308,
+            "r_obs": 0.6284384257300042,
+            "r_ind": 0.6293176107828568,
+            "CF": 1.0030187083898925,
+            "Delta": -0.001398021827006768
+          }
+        },
+        "position_specific": {
+          "EN": {
+            "n_tasks": 20000,
+            "p": 0.8992110078899211,
+            "T": 0.47255274472552744,
+            "T_ind": 0.3454802626565529,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 20000,
+            "p": 0.8585164148358516,
+            "T": 0.296970302969703,
+            "T_ind": 0.21742589814279342,
+            "r_obs": 0.6284384257300042,
+            "r_ind": 0.629343906569099,
+            "CF": 1.003109211318008,
+            "Delta": -0.0014398055566013923
+          }
+        }
+      }
+    }
+  },
+  "null_and_conditional_power_curves": {
+    "target_cell": "TR::gemini",
+    "number_of_non_english_cells_in_holm_family": 14,
+    "mc_replicates": 200,
+    "bootstrap_resamples_per_replicate": 5000,
+    "bootstrap_cluster_unit": "underlying task; both seed rows stay together",
+    "sample_seed_schedule": "20261010 + 1000000 + task_count_index*100000 + replicate_index*2 + condition_bit",
+    "bootstrap_seed_schedule": "sample_seed + 1",
+    "independent_underlying_task_assumption": "Each task-count row draws independent latent difficulty across underlying task clusters. The n=4 row is not an exact reconstruction of the existing BFCL task/scenario-variant layout.",
+    "null_process": {
+      "description": "All 14 tested cells have analytic CF=1. A shared Beta(9,1) task difficulty is reused across languages, models, and two seeds; isolated steps are conditionally independent, and language/model-specific rescue probabilities calibrate T to the null ratio.",
+      "parameters": {
+        "difficulty_beta": {
+          "alpha": 9.0,
+          "beta": 1.0
+        },
+        "difficulty_mean": 0.9,
+        "cells": {
+          "AR::claude_sonnet46": {
+            "language": "AR",
+            "model": "claude_sonnet46",
+            "p": 0.8398780487804878,
+            "T": 0.6636817142054353,
+            "relative_p_to_EN": 0.97,
+            "step_scale_given_q": 0.9331978319783197,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.2372608708456275,
+            "repair_probability_after_step_failure": 0.5590651207740825
+          },
+          "EN::claude_sonnet46": {
+            "language": "EN",
+            "model": "claude_sonnet46",
+            "p": 0.8658536585365854,
+            "T": 0.9,
+            "relative_p_to_EN": 1.0,
+            "step_scale_given_q": 0.962059620596206,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.321742755888205,
+            "repair_probability_after_step_failure": 0.8525633144826135
+          },
+          "ES::claude_sonnet46": {
+            "language": "ES",
+            "model": "claude_sonnet46",
+            "p": 0.8312195121951219,
+            "T": 0.5983493723923508,
+            "relative_p_to_EN": 0.96,
+            "step_scale_given_q": 0.9235772357723576,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.21390508450832513,
+            "repair_probability_after_step_failure": 0.4890558128639837
+          },
+          "HI::claude_sonnet46": {
+            "language": "HI",
+            "model": "claude_sonnet46",
+            "p": 0.822560975609756,
+            "T": 0.5388632453145408,
+            "relative_p_to_EN": 0.95,
+            "step_scale_given_q": 0.9139566395663956,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.19263927288262464,
+            "repair_probability_after_step_failure": 0.42883430021185753
+          },
+          "JA::claude_sonnet46": {
+            "language": "JA",
+            "model": "claude_sonnet46",
+            "p": 0.8139024390243902,
+            "T": 0.48475360268540946,
+            "relative_p_to_EN": 0.94,
+            "step_scale_given_q": 0.9043360433604335,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.1732955111719328,
+            "repair_probability_after_step_failure": 0.3767465832379819
+          },
+          "SW::claude_sonnet46": {
+            "language": "SW",
+            "model": "claude_sonnet46",
+            "p": 0.8052439024390244,
+            "T": 0.4355840764613641,
+            "relative_p_to_EN": 0.93,
+            "step_scale_given_q": 0.8947154471544716,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.15571780131299767,
+            "repair_probability_after_step_failure": 0.33148427810464853
+          },
+          "TR::claude_sonnet46": {
+            "language": "TR",
+            "model": "claude_sonnet46",
+            "p": 0.7926829268292683,
+            "T": 0.3722139010584046,
+            "relative_p_to_EN": 0.9154929577464789,
+            "step_scale_given_q": 0.8807588075880759,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.13306347367381197,
+            "repair_probability_after_step_failure": 0.27585690546231684
+          },
+          "ZH::claude_sonnet46": {
+            "language": "ZH",
+            "model": "claude_sonnet46",
+            "p": 0.7879268292682927,
+            "T": 0.35047450630629684,
+            "relative_p_to_EN": 0.91,
+            "step_scale_given_q": 0.8754742547425475,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.1252918150306067,
+            "repair_probability_after_step_failure": 0.2574375033241165
+          },
+          "AR::gemini": {
+            "language": "AR",
+            "model": "gemini",
+            "p": 0.8398780487804878,
+            "T": 0.6636817142054353,
+            "relative_p_to_EN": 0.97,
+            "step_scale_given_q": 0.9331978319783197,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.2372608708456275,
+            "repair_probability_after_step_failure": 0.5590651207740825
+          },
+          "EN::gemini": {
+            "language": "EN",
+            "model": "gemini",
+            "p": 0.8658536585365854,
+            "T": 0.9,
+            "relative_p_to_EN": 1.0,
+            "step_scale_given_q": 0.962059620596206,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.321742755888205,
+            "repair_probability_after_step_failure": 0.8525633144826135
+          },
+          "ES::gemini": {
+            "language": "ES",
+            "model": "gemini",
+            "p": 0.8312195121951219,
+            "T": 0.5983493723923508,
+            "relative_p_to_EN": 0.96,
+            "step_scale_given_q": 0.9235772357723576,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.21390508450832513,
+            "repair_probability_after_step_failure": 0.4890558128639837
+          },
+          "HI::gemini": {
+            "language": "HI",
+            "model": "gemini",
+            "p": 0.822560975609756,
+            "T": 0.5388632453145408,
+            "relative_p_to_EN": 0.95,
+            "step_scale_given_q": 0.9139566395663956,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.19263927288262464,
+            "repair_probability_after_step_failure": 0.42883430021185753
+          },
+          "JA::gemini": {
+            "language": "JA",
+            "model": "gemini",
+            "p": 0.8139024390243902,
+            "T": 0.48475360268540946,
+            "relative_p_to_EN": 0.94,
+            "step_scale_given_q": 0.9043360433604335,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.1732955111719328,
+            "repair_probability_after_step_failure": 0.3767465832379819
+          },
+          "SW::gemini": {
+            "language": "SW",
+            "model": "gemini",
+            "p": 0.8052439024390244,
+            "T": 0.4355840764613641,
+            "relative_p_to_EN": 0.93,
+            "step_scale_given_q": 0.8947154471544716,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.15571780131299767,
+            "repair_probability_after_step_failure": 0.33148427810464853
+          },
+          "TR::gemini": {
+            "language": "TR",
+            "model": "gemini",
+            "p": 0.7926829268292683,
+            "T": 0.3722139010584046,
+            "relative_p_to_EN": 0.9154929577464789,
+            "step_scale_given_q": 0.8807588075880759,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.13306347367381197,
+            "repair_probability_after_step_failure": 0.27585690546231684
+          },
+          "ZH::gemini": {
+            "language": "ZH",
+            "model": "gemini",
+            "p": 0.7879268292682927,
+            "T": 0.35047450630629684,
+            "relative_p_to_EN": 0.91,
+            "step_scale_given_q": 0.8754742547425475,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.1252918150306067,
+            "repair_probability_after_step_failure": 0.2574375033241165
+          }
+        }
+      }
+    },
+    "alternative_process": {
+      "description": "The same paired task-difficulty process is used, but TR::gemini task success is set to the observed Laplace-smoothed rate. Other 13 cells remain at CF=1. The observed EN/TR replay and success rates are treated as generating probabilities.",
+      "parameters": {
+        "difficulty_beta": {
+          "alpha": 9.0,
+          "beta": 1.0
+        },
+        "difficulty_mean": 0.9,
+        "cells": {
+          "AR::claude_sonnet46": {
+            "language": "AR",
+            "model": "claude_sonnet46",
+            "p": 0.8398780487804878,
+            "T": 0.6636817142054353,
+            "relative_p_to_EN": 0.97,
+            "step_scale_given_q": 0.9331978319783197,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.2372608708456275,
+            "repair_probability_after_step_failure": 0.5590651207740825
+          },
+          "EN::claude_sonnet46": {
+            "language": "EN",
+            "model": "claude_sonnet46",
+            "p": 0.8658536585365854,
+            "T": 0.9,
+            "relative_p_to_EN": 1.0,
+            "step_scale_given_q": 0.962059620596206,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.321742755888205,
+            "repair_probability_after_step_failure": 0.8525633144826135
+          },
+          "ES::claude_sonnet46": {
+            "language": "ES",
+            "model": "claude_sonnet46",
+            "p": 0.8312195121951219,
+            "T": 0.5983493723923508,
+            "relative_p_to_EN": 0.96,
+            "step_scale_given_q": 0.9235772357723576,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.21390508450832513,
+            "repair_probability_after_step_failure": 0.4890558128639837
+          },
+          "HI::claude_sonnet46": {
+            "language": "HI",
+            "model": "claude_sonnet46",
+            "p": 0.822560975609756,
+            "T": 0.5388632453145408,
+            "relative_p_to_EN": 0.95,
+            "step_scale_given_q": 0.9139566395663956,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.19263927288262464,
+            "repair_probability_after_step_failure": 0.42883430021185753
+          },
+          "JA::claude_sonnet46": {
+            "language": "JA",
+            "model": "claude_sonnet46",
+            "p": 0.8139024390243902,
+            "T": 0.48475360268540946,
+            "relative_p_to_EN": 0.94,
+            "step_scale_given_q": 0.9043360433604335,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.1732955111719328,
+            "repair_probability_after_step_failure": 0.3767465832379819
+          },
+          "SW::claude_sonnet46": {
+            "language": "SW",
+            "model": "claude_sonnet46",
+            "p": 0.8052439024390244,
+            "T": 0.4355840764613641,
+            "relative_p_to_EN": 0.93,
+            "step_scale_given_q": 0.8947154471544716,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.15571780131299767,
+            "repair_probability_after_step_failure": 0.33148427810464853
+          },
+          "TR::claude_sonnet46": {
+            "language": "TR",
+            "model": "claude_sonnet46",
+            "p": 0.7926829268292683,
+            "T": 0.3722139010584046,
+            "relative_p_to_EN": 0.9154929577464789,
+            "step_scale_given_q": 0.8807588075880759,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.13306347367381197,
+            "repair_probability_after_step_failure": 0.27585690546231684
+          },
+          "ZH::claude_sonnet46": {
+            "language": "ZH",
+            "model": "claude_sonnet46",
+            "p": 0.7879268292682927,
+            "T": 0.35047450630629684,
+            "relative_p_to_EN": 0.91,
+            "step_scale_given_q": 0.8754742547425475,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.1252918150306067,
+            "repair_probability_after_step_failure": 0.2574375033241165
+          },
+          "AR::gemini": {
+            "language": "AR",
+            "model": "gemini",
+            "p": 0.8398780487804878,
+            "T": 0.6636817142054353,
+            "relative_p_to_EN": 0.97,
+            "step_scale_given_q": 0.9331978319783197,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.2372608708456275,
+            "repair_probability_after_step_failure": 0.5590651207740825
+          },
+          "EN::gemini": {
+            "language": "EN",
+            "model": "gemini",
+            "p": 0.8658536585365854,
+            "T": 0.9,
+            "relative_p_to_EN": 1.0,
+            "step_scale_given_q": 0.962059620596206,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.321742755888205,
+            "repair_probability_after_step_failure": 0.8525633144826135
+          },
+          "ES::gemini": {
+            "language": "ES",
+            "model": "gemini",
+            "p": 0.8312195121951219,
+            "T": 0.5983493723923508,
+            "relative_p_to_EN": 0.96,
+            "step_scale_given_q": 0.9235772357723576,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.21390508450832513,
+            "repair_probability_after_step_failure": 0.4890558128639837
+          },
+          "HI::gemini": {
+            "language": "HI",
+            "model": "gemini",
+            "p": 0.822560975609756,
+            "T": 0.5388632453145408,
+            "relative_p_to_EN": 0.95,
+            "step_scale_given_q": 0.9139566395663956,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.19263927288262464,
+            "repair_probability_after_step_failure": 0.42883430021185753
+          },
+          "JA::gemini": {
+            "language": "JA",
+            "model": "gemini",
+            "p": 0.8139024390243902,
+            "T": 0.48475360268540946,
+            "relative_p_to_EN": 0.94,
+            "step_scale_given_q": 0.9043360433604335,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.1732955111719328,
+            "repair_probability_after_step_failure": 0.3767465832379819
+          },
+          "SW::gemini": {
+            "language": "SW",
+            "model": "gemini",
+            "p": 0.8052439024390244,
+            "T": 0.4355840764613641,
+            "relative_p_to_EN": 0.93,
+            "step_scale_given_q": 0.8947154471544716,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.15571780131299767,
+            "repair_probability_after_step_failure": 0.33148427810464853
+          },
+          "TR::gemini": {
+            "language": "TR",
+            "model": "gemini",
+            "p": 0.7926829268292683,
+            "T": 0.3,
+            "relative_p_to_EN": 0.9154929577464789,
+            "step_scale_given_q": 0.8807588075880759,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.13306347367381197,
+            "repair_probability_after_step_failure": 0.1925591104502356
+          },
+          "ZH::gemini": {
+            "language": "ZH",
+            "model": "gemini",
+            "p": 0.7879268292682927,
+            "T": 0.35047450630629684,
+            "relative_p_to_EN": 0.91,
+            "step_scale_given_q": 0.8754742547425475,
+            "E_q_K": 0.4736842105263159,
+            "T_all_steps_valid": 0.1252918150306067,
+            "repair_probability_after_step_failure": 0.2574375033241165
+          }
+        }
+      },
+      "source_observed_rates": {
+        "source": "analysis/bfcl/main_results_cf_summary.json",
+        "k": 10,
+        "task_trials_per_cell": 8,
+        "isolated_replay_trials_per_cell": 80,
+        "rates_are_laplace_smoothed": true,
+        "p": {
+          "EN": 0.8658536585365854,
+          "TR": 0.7926829268292683
+        },
+        "T": {
+          "EN": 0.9,
+          "TR": 0.3
+        },
+        "observed_point_estimates": {
+          "EN": {
+            "p": 0.8658536585365854,
+            "T": 0.9,
+            "T_ind": 0.23683449805499035
+          },
+          "TR": {
+            "p": 0.7926829268292683,
+            "T": 0.3,
+            "T_ind": 0.09794788047361905,
+            "r_obs": 0.3333333333333333,
+            "r_ind": 0.4135710011760053,
+            "CF": 1.2442857043007645,
+            "Delta": -0.2156862172113272
+          }
+        }
+      }
+    },
+    "by_unique_task_count": {
+      "4": {
+        "unique_underlying_tasks": 4,
+        "seeds_per_task": 2,
+        "task_seed_records_per_language_model_cell": 8,
+        "null_false_positive": {
+          "one_cell_unadjusted": {
+            "successes": 24,
+            "replicates": 200,
+            "rate": 0.12,
+            "wilson_95": [
+              0.08197992706375512,
+              0.17234252098296743
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 12,
+            "replicates": 200,
+            "rate": 0.06,
+            "wilson_95": [
+              0.03465219425433187,
+              0.1019316929576627
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 103,
+            "replicates": 200,
+            "rate": 0.515,
+            "wilson_95": [
+              0.44610849192745716,
+              0.5833261482812249
+            ]
+          }
+        },
+        "conditional_power": {
+          "one_cell_unadjusted": {
+            "successes": 29,
+            "replicates": 200,
+            "rate": 0.145,
+            "wilson_95": [
+              0.10289350642004402,
+              0.20048667530781522
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 12,
+            "replicates": 200,
+            "rate": 0.06,
+            "wilson_95": [
+              0.03465219425433187,
+              0.1019316929576627
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 100,
+            "replicates": 200,
+            "rate": 0.5,
+            "wilson_95": [
+              0.43136085960389187,
+              0.5686391403961082
+            ]
+          }
+        }
+      },
+      "10": {
+        "unique_underlying_tasks": 10,
+        "seeds_per_task": 2,
+        "task_seed_records_per_language_model_cell": 20,
+        "null_false_positive": {
+          "one_cell_unadjusted": {
+            "successes": 16,
+            "replicates": 200,
+            "rate": 0.08,
+            "wilson_95": [
+              0.049840585889759974,
+              0.12598948826714396
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 6,
+            "replicates": 200,
+            "rate": 0.03,
+            "wilson_95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 44,
+            "replicates": 200,
+            "rate": 0.22,
+            "wilson_95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        },
+        "conditional_power": {
+          "one_cell_unadjusted": {
+            "successes": 30,
+            "replicates": 200,
+            "rate": 0.15,
+            "wilson_95": [
+              0.10713593562241995,
+              0.20605579284166659
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 11,
+            "replicates": 200,
+            "rate": 0.055,
+            "wilson_95": [
+              0.03098534170345884,
+              0.0957869987723084
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 44,
+            "replicates": 200,
+            "rate": 0.22,
+            "wilson_95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        }
+      },
+      "20": {
+        "unique_underlying_tasks": 20,
+        "seeds_per_task": 2,
+        "task_seed_records_per_language_model_cell": 40,
+        "null_false_positive": {
+          "one_cell_unadjusted": {
+            "successes": 6,
+            "replicates": 200,
+            "rate": 0.03,
+            "wilson_95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 2,
+            "replicates": 200,
+            "rate": 0.01,
+            "wilson_95": [
+              0.0027466581335444384,
+              0.0357217617161768
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 14,
+            "replicates": 200,
+            "rate": 0.07,
+            "wilson_95": [
+              0.042152171828342806,
+              0.11405480885610647
+            ]
+          }
+        },
+        "conditional_power": {
+          "one_cell_unadjusted": {
+            "successes": 34,
+            "replicates": 200,
+            "rate": 0.17,
+            "wilson_95": [
+              0.12427907912586969,
+              0.22815883628312625
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 10,
+            "replicates": 200,
+            "rate": 0.05,
+            "wilson_95": [
+              0.02738264560076393,
+              0.08957814813877599
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 28,
+            "replicates": 200,
+            "rate": 0.14,
+            "wilson_95": [
+              0.09866982633455634,
+              0.1948988086570756
+            ]
+          }
+        }
+      },
+      "25": {
+        "unique_underlying_tasks": 25,
+        "seeds_per_task": 2,
+        "task_seed_records_per_language_model_cell": 50,
+        "null_false_positive": {
+          "one_cell_unadjusted": {
+            "successes": 16,
+            "replicates": 200,
+            "rate": 0.08,
+            "wilson_95": [
+              0.049840585889759974,
+              0.12598948826714396
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 2,
+            "replicates": 200,
+            "rate": 0.01,
+            "wilson_95": [
+              0.0027466581335444384,
+              0.0357217617161768
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 18,
+            "replicates": 200,
+            "rate": 0.09,
+            "wilson_95": [
+              0.05768744886219316,
+              0.13776571876716542
+            ]
+          }
+        },
+        "conditional_power": {
+          "one_cell_unadjusted": {
+            "successes": 46,
+            "replicates": 200,
+            "rate": 0.23,
+            "wilson_95": [
+              0.17709343259068805,
+              0.2930830436530359
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 11,
+            "replicates": 200,
+            "rate": 0.055,
+            "wilson_95": [
+              0.03098534170345884,
+              0.0957869987723084
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 27,
+            "replicates": 200,
+            "rate": 0.135,
+            "wilson_95": [
+              0.09446570454787906,
+              0.18929138370752552
+            ]
+          }
+        }
+      },
+      "50": {
+        "unique_underlying_tasks": 50,
+        "seeds_per_task": 2,
+        "task_seed_records_per_language_model_cell": 100,
+        "null_false_positive": {
+          "one_cell_unadjusted": {
+            "successes": 11,
+            "replicates": 200,
+            "rate": 0.055,
+            "wilson_95": [
+              0.03098534170345884,
+              0.0957869987723084
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 0,
+            "replicates": 200,
+            "rate": 0.0,
+            "wilson_95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 22,
+            "replicates": 200,
+            "rate": 0.11,
+            "wilson_95": [
+              0.07377244460125303,
+              0.1609269099730149
+            ]
+          }
+        },
+        "conditional_power": {
+          "one_cell_unadjusted": {
+            "successes": 52,
+            "replicates": 200,
+            "rate": 0.26,
+            "wilson_95": [
+              0.20413830063574687,
+              0.32490745602534116
+            ]
+          },
+          "target_cell_after_14_cell_holm": {
+            "successes": 9,
+            "replicates": 200,
+            "rate": 0.045,
+            "wilson_95": [
+              0.023852543001492997,
+              0.0832967040018196
+            ]
+          },
+          "familywise_any_of_14_after_holm": {
+            "successes": 23,
+            "replicates": 200,
+            "rate": 0.115,
+            "wilson_95": [
+              0.07786373232561955,
+              0.16664716898487572
+            ]
+          }
+        }
+      }
+    }
+  },
+  "historical_v1": {
+    "metadata": {
+      "script": "scripts/run_cf_calibration.py",
+      "metric_implementation": "src/multilingual_compounding/metrics.py",
+      "seed": 20261010,
+      "k": 10,
+      "large_n_per_language": 2000,
+      "small_n_per_language": 8,
+      "monte_carlo_replicates": 80,
+      "bootstrap_resamples": 200,
+      "known_process_step_rates": {
+        "EN": 0.9,
+        "TR": 0.86
+      },
+      "bootstrap_test": "one-sided Delta < 0 with plus-one p-value"
+    },
+    "holm_floor": {
+      "number_of_tests": 14,
+      "n_boot_200_best_case_adjusted_p": 0.06965174129353234,
+      "strict_0_05_rejection_possible_at_200": false,
+      "n_boot_279_best_case_adjusted_p": 0.05,
+      "n_boot_280_best_case_adjusted_p": 0.0498220640569395,
+      "minimum_n_boot_for_holm_p_below_0_05": 280,
+      "derivation": "raw p_min=1/(n_boot+1); first Holm adjusted p_min=min(1,14/(n_boot+1))"
+    },
+    "cf_exclusion_rule": {
+      "metric_default_min_abs_log_rind": 0.05,
+      "report_CF_when": "abs(log(r_ind)) >= 0.05",
+      "CF_numerically_undefined_when": "abs(log(r_ind)) <= 1e-9 in compute_cf",
+      "Delta_reported_when_CF_excluded": true
+    },
+    "scenarios": {
+      "independent_steps_large_n": {
+        "generator_seed": 20261011,
+        "n_tasks_per_language": 2000,
+        "k": 10,
+        "p": {
+          "EN": 0.9,
+          "TR": 0.86
+        },
+        "alpha": {
+          "EN": 1.0,
+          "TR": 1.0
+        },
+        "analytic_expected_CF": 1.0,
+        "point_estimates": {
+          "EN": {
+            "n_tasks": 2000,
+            "p": 0.8982601739826017,
+            "T": 0.3451548451548452,
+            "T_ind": 0.34199633237084465,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 2000,
+            "p": 0.8574642535746425,
+            "T": 0.21678321678321677,
+            "T_ind": 0.21486230969294262,
+            "r_obs": 0.6280752532561504,
+            "r_ind": 0.6282591050127289,
+            "CF": 1.0006296859270019,
+            "Delta": -0.00029267966235385634
+          }
+        }
+      },
+      "shared_survival_large_n": {
+        "generator_seed": 20261012,
+        "n_tasks_per_language": 2000,
+        "k": 10,
+        "p": {
+          "EN": 0.9,
+          "TR": 0.86
+        },
+        "alpha": {
+          "EN": 0.7,
+          "TR": 0.7
+        },
+        "analytic_expected_CF": 1.0,
+        "point_estimates": {
+          "EN": {
+            "n_tasks": 2000,
+            "p": 0.9000599940006,
+            "T": 0.23776223776223776,
+            "T_ind": 0.3489109388846333,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 2000,
+            "p": 0.8647135286471352,
+            "T": 0.16433566433566432,
+            "T_ind": 0.23373434727738193,
+            "r_obs": 0.6911764705882353,
+            "r_ind": 0.6698968740405864,
+            "CF": 0.9219447435035147,
+            "Delta": 0.03127139432028314
+          }
+        }
+      },
+      "extra_turkish_degradation_large_n": {
+        "generator_seed": 20261013,
+        "n_tasks_per_language": 2000,
+        "k": 10,
+        "p": {
+          "EN": 0.9,
+          "TR": 0.86
+        },
+        "alpha": {
+          "EN": 0.7,
+          "TR": 0.35
+        },
+        "analytic_expected_CF": 2.5246612053071735,
+        "point_estimates": {
+          "EN": {
+            "n_tasks": 2000,
+            "p": 0.8978602139786022,
+            "T": 0.24875124875124874,
+            "T_ind": 0.3404766044411013,
+            "r_obs": 1.0,
+            "r_ind": 1.0,
+            "CF": null,
+            "Delta": 0.0
+          },
+          "TR": {
+            "n_tasks": 2000,
+            "p": 0.8556144385561444,
+            "T": 0.07992007992007992,
+            "T_ind": 0.21027180711381216,
+            "r_obs": 0.321285140562249,
+            "r_ind": 0.6175807805031928,
+            "CF": 2.3559230170702112,
+            "Delta": -0.6534808613834628
+          }
+        },
+        "bootstrap": {
+          "n_boot": 200,
+          "seed": 20261014,
+          "TR_CF_CI_95": [
+            2.020265976401462,
+            2.853990859445924
+          ],
+          "TR_Delta_CI_95": [
+            -0.8151075978096438,
+            -0.5103229975451218
+          ],
+          "TR_p_holm_single_cell": 0.004975124378109453,
+          "TR_CF_reportable": true,
+          "TR_compounding_rejected": true
+        }
+      },
+      "small_n_known_extra_degradation": {
+        "n_tasks_per_language": 8,
+        "task_design": "four benchmark tasks x two seeds",
+        "p": {
+          "EN": 0.9,
+          "TR": 0.86
+        },
+        "alpha": {
+          "EN": 0.7,
+          "TR": 0.35
+        },
+        "monte_carlo": {
+          "replicates": 80,
+          "finite_CF_replicates": 72,
+          "CF_percentiles_5_50_95": [
+            -3.125649968566317,
+            1.2121817790224028,
+            4.848481946215462
+          ],
+          "CF_reportable_fraction": 0.9,
+          "single_cell_rejection_count": 9,
+          "single_cell_rejection_rate": 0.1125,
+          "base_seed": 20261015,
+          "sample_seed_schedule": "base_seed + 10000 * replicate_index",
+          "bootstrap_seed_schedule": "sample_seed + 1",
+          "bootstrap_resamples": 200,
+          "paired_identifier_assumption": "The 8 task-seed identifiers are paired across languages and are independent of one another; shared difficulty across the two seed runs of one actual task is not modeled."
+        }
+      },
+      "small_n_observed_rate_power": {
+        "n_tasks_per_language": 8,
+        "task_design": "four benchmark tasks x two seeds",
+        "alternative_from_main_results": {
+          "source": "analysis/bfcl/main_results_cf_summary.json",
+          "k": 10,
+          "task_trials_per_cell": 8,
+          "isolated_replay_trials_per_cell": 80,
+          "rates_are_laplace_smoothed": true,
+          "p": {
+            "EN": 0.8658536585365854,
+            "TR": 0.7926829268292683
+          },
+          "T": {
+            "EN": 0.9,
+            "TR": 0.3
+          },
+          "observed_point_estimates": {
+            "EN": {
+              "p": 0.8658536585365854,
+              "T": 0.9,
+              "T_ind": 0.23683449805499035
+            },
+            "TR": {
+              "p": 0.7926829268292683,
+              "T": 0.3,
+              "T_ind": 0.09794788047361905,
+              "r_obs": 0.3333333333333333,
+              "r_ind": 0.4135710011760053,
+              "CF": 1.2442857043007645,
+              "Delta": -0.2156862172113272
+            }
+          }
+        },
+        "assumption": "Treat the reported Laplace-smoothed p and T rates as Bernoulli generating probabilities; generate isolated replay outcomes and full-task outcomes independently, allowing full-task success despite isolated replay failures.",
+        "monte_carlo": {
+          "replicates": 80,
+          "finite_CF_replicates": 75,
+          "CF_percentiles_5_50_95": [
+            -1.466924419940895,
+            0.9699586713325993,
+            4.344977783988383
+          ],
+          "CF_reportable_fraction": 0.9375,
+          "single_cell_rejection_count": 8,
+          "single_cell_rejection_rate": 0.1,
+          "base_seed": 20261016,
+          "sample_seed_schedule": "base_seed + 10000 * replicate_index",
+          "bootstrap_seed_schedule": "sample_seed + 1",
+          "bootstrap_resamples": 200,
+          "paired_identifier_assumption": "The 8 task-seed identifiers are paired across languages and are independent of one another; shared difficulty across the two seed runs of one actual task is not modeled."
+        }
+      }
+    }
+  }
+}

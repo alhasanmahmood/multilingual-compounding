@@ -1,123 +1,100 @@
 # Included Files and Selection Rationale
 
-This repository was carved out of a larger research monorepo to isolate the
-third paper's reproducibility package. Every included path below is required
-either to rerun the reported analyses offline, optionally recollect evaluation
-trajectories, compile the manuscript, or audit the measurement contracts used
-in the paper.
+This repository is the reproducibility package for the paper. Its primary
+evidence is a fresh, horizon-selected BFCL slice with 20 distinct scenarios,
+five tasks from each of four categories, eight languages, two models, and two
+seeds. It contains 640 full trajectories and 5,952 isolated replays. The
+historical pilot is retained separately: its four category variants all share
+scenario 0, yielding 128 trajectories and 1,280 replays. Historical and fresh
+results are not pooled. Both cohorts support descriptive analysis of these
+selected tasks; they do not establish population-wide effects.
 
-## Included directories
+The files below let readers inspect the reported evidence, regenerate the
+offline analyses, or compile the manuscript. Recollecting model outputs is an
+optional workflow and requires provider credentials.
 
-### `paper/`
+## Paper source
 
-Contains the submission manuscript and ACL style files.
+| Path | Purpose |
+|------|---------|
+| `paper/main.tex` | Submission manuscript source. |
+| `paper/references.bib` | Bibliography used by the manuscript. |
+| `paper/acl.sty`, `paper/acl_natbib.bst` | Official style and bibliography files used for COLING through ARR. |
+| `paper/generated/newstudy20261010_main_table.tex` | Generated primary result table included in the manuscript. |
+| `paper/generated/newstudy20261010_delta_figure.tex` | Generated primary Delta figure included in the manuscript. |
+| `paper/generated/newstudy20261011_translation_diagnostics.tex` | Generated translation diagnostic table included in the appendix. |
+| `paper/generated/newstudy20261010_expansion_results_table.tex` and `paper/generated/newstudy20261010_expansion_cf_sensitivity_plot_data.csv` | Additional generated result display and plot data for audit. |
 
-| Path | Rationale |
-|------|-----------|
-| `paper/main.tex` | Manuscript source of record for the submission. |
-| `paper/references.bib` | Bibliography consumed by `main.tex`. |
-| `paper/acl.sty` | ACL style file required for compilation. |
-| `paper/acl_natbib.bst` | Bibliography style required for compilation. |
+## Code
 
-Orphan TikZ preview PNGs and internal drafting notes from the development tree
-were excluded because the manuscript embeds figures via TikZ and does not
-`\includegraphics` those assets.
+`src/multilingual_compounding/` contains the analysis and evaluation package.
+The most relevant commands are:
 
-### `src/multilingual_compounding/`
+| Script | Purpose |
+|--------|---------|
+| `scripts/analyze_completed_expansion.py` | Checks completeness and provenance of the saved 20-scenario cohort; with `--run-analyses`, regenerates the four offline analyses. |
+| `scripts/run_compounding_analysis.py` | Computes the primary compounding metrics from full runs and isolated replays. |
+| `scripts/run_decomposition_analysis.py` | Computes replay failure stages and reference-relative trajectory outcomes. |
+| `scripts/run_robustness_analysis.py` | Checks localization policy and other robustness conditions. |
+| `scripts/run_task_sensitivity.py` | Measures sensitivity to scenario omissions, horizons, null definitions, and task/seed resampling. |
+| `scripts/run_cf_calibration.py` | Runs stated synthetic processes to check the behavior and limits of the bootstrap tail diagnostic. These are simulations, not added benchmark data. |
+| `scripts/run_translation_similarity.py` | Scores source and target turns with pinned LaBSE and creates deliberate-error probes. Scores are similarity diagnostics, not translation accuracy. |
+| `scripts/render_expansion_paper_results.py` | Rebuilds the generated result displays from saved analysis outputs. |
+| `scripts/audit_submission_paper.py` | Checks the manuscript's local references and generated values against saved artifacts. |
 
-Provides the minimal Python package needed by the analysis and evaluation
-scripts.
+The optional collection workflow is in `scripts/plan_bfcl_expansion.py`,
+`scripts/validate_expansion_environment.py`,
+`scripts/run_expansion_collection.py`, and
+`scripts/run_bfcl_evaluation.py`. It is not needed to reproduce the reported
+offline results.
 
-| Path | Rationale |
-|------|-----------|
-| `metrics.py` | Reference compounding-factor math (CF, Delta, bootstrap, Holm). |
-| `evaluation.py` | Artifact I/O, CF summarization, and optional end-to-end evaluation. |
-| `decomposition.py` | E4 stage mix, propagation, and recovery analysis. |
-| `robustness.py` | E6 fidelity filtering, K-sensitivity, LOLO, and seed variance. |
-| `localization.py` | Query localization / back-translation helpers for optional recollection. |
-| `bfcl_vendor.py` | Adapter over the pinned BFCL vendor for tasks, handlers, and replay. |
-| `openrouter_handler.py` | OpenAI-compatible chat-completions handler used for model calls. |
-| `settings.py` | Languages, model registry, temperature, and pinned BFCL commit. |
-| `paths.py` | Canonical repository path constants. |
-| `env.py` | Minimal `.env` loader with OpenRouter alias support. |
+## Evidence and generated analyses
 
-### `scripts/`
+| Path | Purpose |
+|------|---------|
+| `data/bfcl/localized_queries/newstudy20261010_bfcl_multiturn_localizations.jsonl` | The 160 collected task-language query rows. Its hash is checked by the collection audit and translation diagnostic. |
+| `data/bfcl/runs/newstudy20261010_{gemini,claude_sonnet46}_{LANG}_expansion_seed{0,1}.jsonl` | The 640 primary full-task trajectories across eight languages, two models, and two seeds. |
+| `data/bfcl/isolated_replays/newstudy20261010_{gemini,claude_sonnet46}_{LANG}_expansion_seed{0,1}.jsonl` | The 5,952 primary isolated replay results. |
+| `data/bfcl/metadata/newstudy20261010_evaluation_metadata_*.json` | Provider, model, run, and artifact provenance. |
+| `analysis/bfcl/newstudy20261010_plan.json` and `analysis/bfcl/newstudy20261010_expansion_collection_audit.json` | The fixed task plan and strict completeness and provenance audit. |
+| `analysis/bfcl/newstudy20261010_expansion_cf_summary.json` | Primary compounding estimates used by the result display. |
+| `analysis/bfcl/newstudy20261010_expansion_decomposition_summary.json` and matching report | Primary replay and trajectory decomposition. |
+| `analysis/bfcl/newstudy20261010_expansion_robustness_summary.json` and matching report | Primary robustness analyses. |
+| `analysis/bfcl/newstudy20261010_expansion_task_sensitivity_summary.json` and matching report | Scenario omission, horizon, and task/seed sensitivity results. |
+| `analysis/bfcl/cf_calibration_summary.json` and `analysis/bfcl/cf_calibration_report.md` | Synthetic calibration evidence and its stated assumptions. |
+| `analysis/bfcl/newstudy20261010_labse_pairs.csv`, `newstudy20261010_labse_controls.csv`, and `newstudy20261010_labse_summary.json` | Translation similarity scores and deliberate-error probes. The model manifest and environment freeze record the encoder and software versions. |
+| `analysis/bfcl/newstudy20261010_author_translation_review.json` | Separate record of the author's later review of target text and English backtranslations. It does not change collection-time row statuses or establish independent expert validation. |
+| `tests/` | Focused tests for the analysis, collection checks, and artifact renderers. |
 
-Executable entry points for the standalone submission repository.
+Historical inputs and outputs remain in their original paths, such as
+`data/bfcl/localized_queries/bfcl_multiturn_localizations.jsonl` and
+`analysis/bfcl/main_results_cf_summary.json`. They are not substitutes for the
+fresh primary cohort and must not be combined with its estimates.
 
-| Path | Rationale |
-|------|-----------|
-| `run_compounding_analysis.py` | Offline regeneration of the main CF / Table 1 outputs. |
-| `run_decomposition_analysis.py` | Offline regeneration of E4 stage and recovery outputs. |
-| `run_robustness_analysis.py` | Offline regeneration of E6 robustness outputs. |
-| `run_bfcl_evaluation.py` | Optional full evaluation / recollection pipeline (API required). |
+## Documents and supporting data
 
-### `data/bfcl/`
+`docs/PROJECT_EXPLAINER.md` gives a plain-language account of the study.
+`docs/COLLECTION_PROTOCOL.md` records the selection and collection process.
+`docs/REPRODUCIBILITY.md` explains evidence checks, software versions, translation
+review, and release exclusions. The E3 and E4 contract notes document
+their analysis interfaces. `vendor/berkeley-function-call-leaderboard/`
+contains the pinned BFCL source and data required by the analysis and optional
+collection code.
 
-Curated evaluation artifacts sufficient to reproduce the paper without new API
-calls.
+## Keep private or machine-specific material out of the release
 
-| Path | Rationale |
-|------|-----------|
-| `localized_queries/bfcl_multiturn_localizations.jsonl` | Eight-language localized BFCL queries plus invariance/fidelity metadata. |
-| `runs/gemini_*_pilot_seed{0,1}.jsonl` | Main Gemini full-task trajectories used in Table 1 / E4 / E6. |
-| `runs/claude_sonnet46_*_expanded_seed{0,1}.jsonl` | Main Claude full-task trajectories used in Table 1 / E4 / E6. |
-| `runs/gpt4o_*_pilot_seed{0,1}.jsonl` | Supporting GPT-4o trajectories for the English-baseline exclusion narrative. |
-| `runs/gpt4o_openai_EN_native_retry_seed0.jsonl` | Direct-OpenAI diagnostic trajectory referenced in the manuscript. |
-| Matching `isolated_replays/*.jsonl` | Isolated step-validity evidence required by CF and matched recovery analyses. |
-| `metadata/*.json` | Provenance metadata for the retained evaluation slices. |
-
-Screening, principled-backbone exploration, and non-main expanded runs were
-excluded because they are not required to regenerate the reported tables and
-would inflate the package without changing paper numbers.
-
-### `analysis/bfcl/`
-
-Canonical analysis outputs used in the manuscript (also regenerable offline).
-
-| Path | Rationale |
-|------|-----------|
-| `main_results_cf_summary.json` | Canonical compounding summary underlying Table 1 and appendix CIs. |
-| `main_results_report.md` | Human-readable snapshot of the same CF results. |
-| `e4_main_summary.json` / `e4_main_report.md` | Stage mix and matched propagation/recovery results. |
-| `e6_main_summary.json` / `e6_main_report.md` | Localization robustness, K-sensitivity, and LOLO diagnostics. |
-
-### `docs/`
-
-| Path | Rationale |
-|------|-----------|
-| `FILES_RATIONALE.md` | This selection-rationale document. |
-| `PROJECT_EXPLAINER.md` | Plain-language overview for reviewers and reimplementers. |
-| `e3_metrics_contract.md` | Locked input/output contract for compounding metrics. |
-| `e4_decomposition_contract.md` | Locked input/output contract for decomposition analysis. |
-
-### `tests/`
-
-Unit tests covering metrics, settings resolution, environment loading,
-decomposition helpers, and robustness filters. Included so reviewers can
-sanity-check the math and contracts without API access.
-
-### `vendor/berkeley-function-call-leaderboard/`
-
-Pinned BFCL source and data needed by `bfcl_vendor.py`. Only the BFCL subtree
-is retained; unrelated Gorilla projects (raft, goex, agent-arena, etc.) from the
-upstream clone were removed to keep the package small and focused.
-
-## Included root files
-
-| Path | Rationale |
-|------|-----------|
-| `README.md` | Reviewer-facing setup and reproduction instructions. |
-| `pyproject.toml` | Installable package metadata for `pip install -e .`. |
-| `requirements.txt` | Minimal dependency pin list. |
-| `.env.example` | Documents environment variables for optional recollection. |
-| `.gitignore` | Keeps secrets, virtualenvs, and LaTeX build debris out of the repo. |
-| `LICENSE` | Preserves the upstream MIT license. |
-
-## Artifact decisions
-
-`data/bfcl/` retains the exact run and replay files needed to regenerate the
-paper's main tables offline, plus the GPT-4o artifacts required to audit the
-backbone-exclusion claims. `analysis/bfcl/` retains the canonical regenerated
-summaries so reviewers can inspect reported numbers without first running the
-scripts, while the scripts remain available to reproduce those files from data.
+Exclude `reviews/`, `.env`, local virtual environments, local model weights and
+model caches, package installation or download logs, `data/bfcl/trace_db/`, and
+temporary LaTeX build files. Also exclude internal baseline copies, rendered
+page images, and working histories under
+`analysis/bfcl/submission_refinement_20261012/` unless a particular audit file
+is intentionally selected for release. These items contain private review
+material, credentials, machine-specific state, duplicated runtime traces, or
+internal drafting history. The public package still needs the primary JSONL
+trajectories and replays, localization cache, provenance metadata, fixed plan,
+analysis outputs, source code, generated displays, and manuscript source.
+Private reviewer correspondence, account-balance notes, collection supervisor
+state, duplicate review presentations, and local audit passports remain ignored.
+The three indexed AI translation-review JSONs and targeted LaBSE review JSON
+are retained as scientific input-quality evidence, with the later author
+attestation kept separate from the collected cache.

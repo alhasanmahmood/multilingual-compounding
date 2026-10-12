@@ -14,5 +14,5 @@
   "artifact_prefix": "native_retry_gpt4o_openai",
   "execute_full_runs": true,
   "execute_replays": true,
-  "cwd": "F:\\Program Files\\GitHub\\multilingual-compounding"
+  "cwd": "<local-path-omitted>"
 }

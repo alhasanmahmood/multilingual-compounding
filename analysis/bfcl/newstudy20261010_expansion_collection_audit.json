@@ -1,0 +1,714 @@
+{
+  "status": "complete",
+  "created_at_utc": "2026-10-10T18:37:10.845154+00:00",
+  "counts": {
+    "tasks": 20,
+    "unique_scenarios": 20,
+    "categories": 4,
+    "tasks_per_category": {
+      "multi_turn_base": 5,
+      "multi_turn_miss_func": 5,
+      "multi_turn_miss_param": 5,
+      "multi_turn_long_context": 5
+    },
+    "languages": [
+      "EN",
+      "AR",
+      "TR",
+      "ZH",
+      "HI",
+      "JA",
+      "ES",
+      "SW"
+    ],
+    "models": [
+      "gemini",
+      "claude_sonnet46"
+    ],
+    "run_labels": [
+      "expansion_seed0",
+      "expansion_seed1"
+    ],
+    "localization_rows": 160,
+    "gold_call_positions": 186,
+    "full_trajectories": 640,
+    "replays": 5952
+  },
+  "validation": {
+    "localizations": {
+      "rows": 160,
+      "expected_rows": 160,
+      "source_hashes_verified": 160,
+      "distinct_source_tasks": 20,
+      "target_turn_hashes": 160,
+      "translation_models": [
+        "openai/gpt-4o-2024-08-06"
+      ],
+      "translation_provider_reported_model_ids": [
+        "openai/gpt-4o-2024-08-06"
+      ]
+    },
+    "artifacts": {
+      "full_trajectories": 640,
+      "expected_full_trajectories": 640,
+      "full_duplicates": 0,
+      "full_orphans": 0,
+      "replays": 5952,
+      "expected_replays": 5952,
+      "replay_duplicates": 0,
+      "replay_orphans": 0,
+      "unique_task_scenarios": 20,
+      "gold_call_positions_per_task": {
+        "multi_turn_base_0": 10,
+        "multi_turn_base_63": 10,
+        "multi_turn_base_18": 9,
+        "multi_turn_base_65": 9,
+        "multi_turn_base_80": 9,
+        "multi_turn_miss_func_10": 10,
+        "multi_turn_miss_func_90": 10,
+        "multi_turn_miss_func_55": 9,
+        "multi_turn_miss_func_69": 9,
+        "multi_turn_miss_func_92": 9,
+        "multi_turn_miss_param_39": 10,
+        "multi_turn_miss_param_97": 10,
+        "multi_turn_miss_param_58": 9,
+        "multi_turn_miss_param_70": 9,
+        "multi_turn_miss_param_171": 9,
+        "multi_turn_long_context_59": 10,
+        "multi_turn_long_context_6": 9,
+        "multi_turn_long_context_61": 9,
+        "multi_turn_long_context_71": 9,
+        "multi_turn_long_context_2": 8
+      },
+      "gold_call_horizon_distribution": {
+        "8": 1,
+        "9": 12,
+        "10": 7
+      },
+      "source_task_hash_matches": 6592,
+      "current_localization_hash_matches": 6592,
+      "provider_reported_model_ids": {
+        "gemini": [
+          "google/gemini-3-flash-preview"
+        ],
+        "claude_sonnet46": [
+          "anthropic/claude-sonnet-4.6"
+        ]
+      }
+    },
+    "all_expected_keys_present": true,
+    "duplicate_keys": 0,
+    "orphan_keys": 0,
+    "provider_identities_match": true,
+    "source_and_target_hashes_match": true,
+    "gold_call_positions_match": true
+  },
+  "provenance": {
+    "plan_path": "analysis\\bfcl\\newstudy20261010_plan.json",
+    "plan_sha256": "5f8c17e8357c17bacb0ab180a5dbf05238bf992237b01c092fb55ea04d72b79d",
+    "bfcl_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+    "artifact_prefix": "newstudy20261010",
+    "localization_prefix": "newstudy20261010",
+    "localization_cache_path": "data\\bfcl\\localized_queries\\newstudy20261010_bfcl_multiturn_localizations.jsonl",
+    "localization_cache_sha256": "04f858c21801117fe0f99d6974773d1818c10d91a3ecbbf1579c707455a4e034",
+    "collection_state": {
+      "status": "completed",
+      "jobs": 8,
+      "completed_jobs": 8,
+      "plan_sha256": "5f8c17e8357c17bacb0ab180a5dbf05238bf992237b01c092fb55ea04d72b79d",
+      "started_at": "2026-10-10T15:06:44.036719+00:00",
+      "finished_at": "2026-10-10T18:36:54.165134+00:00"
+    },
+    "api_provider": "openrouter",
+    "requested_model_names": {
+      "gemini": "google/gemini-3-flash-preview",
+      "claude_sonnet46": "anthropic/claude-sonnet-4.6"
+    },
+    "localization_translation_models": [
+      "openai/gpt-4o-2024-08-06"
+    ],
+    "localization_provider_reported_model_ids": [
+      "openai/gpt-4o-2024-08-06"
+    ],
+    "raw_file_count": 64,
+    "raw_file_manifest_sha256": "cfaebf25031926ee42788a220a67926a4c9e5d892ac5b20faca50d4952651149",
+    "raw_files": [
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_AR_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "ccd375ddecff312957623328dc6f682e51425d3de035fb881cb9890e0473e833",
+        "model_key": "claude_sonnet46",
+        "language_code": "AR",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_AR_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "2021a7e857d9c2da4be33939bf79faa20bc663eccc61f452dc2df13771c651d8",
+        "model_key": "claude_sonnet46",
+        "language_code": "AR",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_EN_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "b3002036d313114fc1c46bd52d5b5c511d8a0c61050994de394276b394433109",
+        "model_key": "claude_sonnet46",
+        "language_code": "EN",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_EN_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "a243e734707a16fbe47f779240d63d3efbb297e52f3e12a3d4fb467d161d52ca",
+        "model_key": "claude_sonnet46",
+        "language_code": "EN",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_ES_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "5aecf0640c200f84a7d1dc28ad295713e022e0748b87c170f877d20b07a6f57f",
+        "model_key": "claude_sonnet46",
+        "language_code": "ES",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_ES_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "c28d074ead7eeeaab1940ca6e1454469bd04acb0c5ff011ba8206a92689422ce",
+        "model_key": "claude_sonnet46",
+        "language_code": "ES",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_HI_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "6c3ba36116681bccab023cc026552620c717eef8963299546cbfa780b5e61414",
+        "model_key": "claude_sonnet46",
+        "language_code": "HI",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_HI_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "e5d2c9bb663982a5376c8b665a563ed039af4fe5074168a893d9f1f308d0096c",
+        "model_key": "claude_sonnet46",
+        "language_code": "HI",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_JA_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "3a16641b0b3fec5f7eab7558ec43bad20ae9200af9a8aca8c781721de3672e87",
+        "model_key": "claude_sonnet46",
+        "language_code": "JA",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_JA_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "07fe5158d7d97ce2ab60c2ad677a5c0ea0c8fdf6cd76aa070daa031fd3ad94c4",
+        "model_key": "claude_sonnet46",
+        "language_code": "JA",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_SW_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "b24a71bd8bef572d7cdba439d93d1d9a357259fff7538a0a3041b6c35f6c5fa0",
+        "model_key": "claude_sonnet46",
+        "language_code": "SW",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_SW_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "963c094c338c518ba0f4b2a53f6525e8270bd8e6a322937236b1cda8d75606b4",
+        "model_key": "claude_sonnet46",
+        "language_code": "SW",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_TR_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "907bd77eaa8051e469f579c2fc1e0f76e8a95985db241b2be8833087da1a1574",
+        "model_key": "claude_sonnet46",
+        "language_code": "TR",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_TR_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "effd015718ae277b575ef66ad3b1fa6dfb8a041926c0db16a6074974d7929335",
+        "model_key": "claude_sonnet46",
+        "language_code": "TR",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_ZH_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "ab8f0f2d02c361c01c2e0406ec9944fb7756676165b7466b82155ab344588c55",
+        "model_key": "claude_sonnet46",
+        "language_code": "ZH",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_claude_sonnet46_ZH_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "23938889da7ab78048ada17e210dfccdc87b54c84ea976290acae0a78bc5128e",
+        "model_key": "claude_sonnet46",
+        "language_code": "ZH",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_AR_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "3f24d282f702fe209e287e8213516f42808a4acf020f6b64f3f6a6cc93892511",
+        "model_key": "gemini",
+        "language_code": "AR",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_AR_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "e8f1fd60df413026e3d43badca85be0b51988668efc79018c60cdf359f74405b",
+        "model_key": "gemini",
+        "language_code": "AR",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_EN_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "dfcad2469663832c8a8445b5aedd0928975a1d9a755ab5dcd1a23123dbcc1060",
+        "model_key": "gemini",
+        "language_code": "EN",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_EN_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "ed5929e8f1104adc6e7ea969bec84d2357ba23a6a2261013fd35e38c17113680",
+        "model_key": "gemini",
+        "language_code": "EN",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_ES_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "51248be579ef72b211512dddfa8bda40ead6df2823e9843d87d39926eee2be57",
+        "model_key": "gemini",
+        "language_code": "ES",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_ES_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "761c67acd809436281b2f98b0b8219b8b03ce24412edfa3162e092e12a0bfd02",
+        "model_key": "gemini",
+        "language_code": "ES",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_HI_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "c8b383185b1c5c3fcda6b464738018ae3f9084786b61542f2b1f8a0979c1ff20",
+        "model_key": "gemini",
+        "language_code": "HI",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_HI_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "00522adaedc18d7804a58444c048b9e2995e43eae9ad8970e71bd4250bfafbf1",
+        "model_key": "gemini",
+        "language_code": "HI",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_JA_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "c6c2d80fc8ad4b19a366ce2dd0e1ca313140212749746e9ccd11da2559d92c54",
+        "model_key": "gemini",
+        "language_code": "JA",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_JA_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "e5ebf074b56acb90b308336ba26fec0969299bc1c8ecb4983d378cd9d014e190",
+        "model_key": "gemini",
+        "language_code": "JA",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_SW_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "b9b272685867d731c73e5af5fc6cc23129182f055861caa43af6f696846525f7",
+        "model_key": "gemini",
+        "language_code": "SW",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_SW_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "9234a8ad6251641896efa39545be362f96cc9877deccf2c1889047195e0aa1f4",
+        "model_key": "gemini",
+        "language_code": "SW",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_TR_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "1bdfb03de9aba7b5c4ba1fe981b47b68feb90f73eaab0d842b8bc42879d34800",
+        "model_key": "gemini",
+        "language_code": "TR",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_TR_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "7aa2649247b58ee89c4cd02bd9309a2871b4c1a25768c03adffe57596e69a13f",
+        "model_key": "gemini",
+        "language_code": "TR",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_ZH_expansion_seed0.jsonl",
+        "rows": 20,
+        "sha256": "93a8ff0f9209845105389f57f3edee51becc1202a8b86671a668ce96b3d1e9a9",
+        "model_key": "gemini",
+        "language_code": "ZH",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "full",
+        "path": "data\\bfcl\\runs\\newstudy20261010_gemini_ZH_expansion_seed1.jsonl",
+        "rows": 20,
+        "sha256": "1bfdef857d5aafbbb0e06fe2b73f79990259b086fe6066802a4984009a45c4a8",
+        "model_key": "gemini",
+        "language_code": "ZH",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_AR_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "4fc46a79cb7dcbd6eda833d0024edeb894e58c537045628036b85b329adefc8f",
+        "model_key": "claude_sonnet46",
+        "language_code": "AR",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_AR_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "3ee563a20011dc2f0f9d9dcd4153702aaad88a8047c7ca4abf4acaa73e85c60b",
+        "model_key": "claude_sonnet46",
+        "language_code": "AR",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_EN_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "b573d48b12da54d1d93d6f9ac59d9541bbfdb520271a0fb6a31f8d495dbb0e41",
+        "model_key": "claude_sonnet46",
+        "language_code": "EN",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_EN_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "a0a4d5ffaa956b7650cc5b5e447c7f1d827a5e310ea140f5109756234d75d73d",
+        "model_key": "claude_sonnet46",
+        "language_code": "EN",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_ES_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "185f29b74f824deb7a44cd32e97667e2729731eb28d1eb61522806d52be34a63",
+        "model_key": "claude_sonnet46",
+        "language_code": "ES",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_ES_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "a360673761c13811e57541aa5fc525d1ab7d2ef4c204fb0552692c743b9f6986",
+        "model_key": "claude_sonnet46",
+        "language_code": "ES",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_HI_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "f049d8f6af50291a5556f198e20a8ea79a179d7b836818d8941db4b19da51f22",
+        "model_key": "claude_sonnet46",
+        "language_code": "HI",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_HI_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "4db3c03a9874a6f8db68ea9cbd97998443d8c1321d12fbb7d6664d69f34e112b",
+        "model_key": "claude_sonnet46",
+        "language_code": "HI",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_JA_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "f907bc26f56f7cf5df3a7a53e68aaa87c2402fa4c776633750fb6e3c0b229c6d",
+        "model_key": "claude_sonnet46",
+        "language_code": "JA",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_JA_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "7fa63edf75f1ebcadfc2add3c57e97e4c16ebfb86c30e2c751815afb0c480dd8",
+        "model_key": "claude_sonnet46",
+        "language_code": "JA",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_SW_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "9d010344c462653f8658737765f54c16215b678b31e6d2c86e7ab321af56e1b3",
+        "model_key": "claude_sonnet46",
+        "language_code": "SW",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_SW_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "080205ed6a4a3f319c994dd23249dbf58dce780bdb32dbf1bbc5064798094e2a",
+        "model_key": "claude_sonnet46",
+        "language_code": "SW",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_TR_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "22350ab1abd1daaf04a9d4b383b33e624c9a10ac5b275ea4100ff9df0f9b4922",
+        "model_key": "claude_sonnet46",
+        "language_code": "TR",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_TR_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "131d175e8a27a375a1f78ece4974d824cab8eb5e92d22b0d7af12773cf3e5a88",
+        "model_key": "claude_sonnet46",
+        "language_code": "TR",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_ZH_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "6444816e7294d6cd7d1bc66238b4a27c7b48b90ffe63e3db8a226173a6af55be",
+        "model_key": "claude_sonnet46",
+        "language_code": "ZH",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_claude_sonnet46_ZH_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "946e12918d7a677dce6730e8b69ff6cb3911e68fa398a9ad87c0157022c967c8",
+        "model_key": "claude_sonnet46",
+        "language_code": "ZH",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_AR_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "edf39ebfe9f55e23514fa1840ecfa88d0b20a84148a8b92500d9e42e9ef985b9",
+        "model_key": "gemini",
+        "language_code": "AR",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_AR_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "f2ab480bad5ab74928cdb1a7e08b66eac992075a6cfff15d4475ae0110cc83be",
+        "model_key": "gemini",
+        "language_code": "AR",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_EN_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "4f05f7d3f30c0de23c524fa0d3aa03e4168bfcd5f82e4f1a5dd954eb22d57131",
+        "model_key": "gemini",
+        "language_code": "EN",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_EN_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "06cb79661c0e3b36f88c88403a4408f0d0afbb5f219f15431245a7b5279bdd36",
+        "model_key": "gemini",
+        "language_code": "EN",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_ES_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "e69acbf2b40fa9c070004c0155917327cb79304825025189a901f80d82edb8dd",
+        "model_key": "gemini",
+        "language_code": "ES",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_ES_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "58275eb12b9ab3ce3bdc7e97d3a17c6f5b323087349948711151e41e93dd2023",
+        "model_key": "gemini",
+        "language_code": "ES",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_HI_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "19ece77bf97baeefbe49d39c7c46546addca948bc834d3cf20fe591db13bcd15",
+        "model_key": "gemini",
+        "language_code": "HI",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_HI_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "4cf5c3773e5ae7cc141b1bc160141daf94598698aad5ec8e93f411118ecf9289",
+        "model_key": "gemini",
+        "language_code": "HI",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_JA_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "a793b3196cdaf9999e0eb4149eb0579b792db0baf51e93bd3f85dc7a8cc498a5",
+        "model_key": "gemini",
+        "language_code": "JA",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_JA_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "4a5d4377407385cf880b84a51c73118730c6e93dfbe7c75bceee01e39faa9ee3",
+        "model_key": "gemini",
+        "language_code": "JA",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_SW_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "77a5dae352295ab4d69194ac4aefe2b2c8c03ec39fb814779c7e704078685d47",
+        "model_key": "gemini",
+        "language_code": "SW",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_SW_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "68e483175e7e47e9aebf84c3c8c4c633231b1480febd9d7b970cc36b8d36ed44",
+        "model_key": "gemini",
+        "language_code": "SW",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_TR_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "f4b8d5d9482ae8af17137843053acd30c5ed7ad783376251b7aef8909e92003a",
+        "model_key": "gemini",
+        "language_code": "TR",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_TR_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "872315ff4ec68945c1e86ea97b6516581e02c8fbf05b1f80cf750be6f700a9ae",
+        "model_key": "gemini",
+        "language_code": "TR",
+        "run_label": "expansion_seed1"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_ZH_expansion_seed0.jsonl",
+        "rows": 186,
+        "sha256": "b6689e17dd2d70c64ed62524f2261a92951bd84538ffcfef7168710194f6e47d",
+        "model_key": "gemini",
+        "language_code": "ZH",
+        "run_label": "expansion_seed0"
+      },
+      {
+        "stage": "replay",
+        "path": "data\\bfcl\\isolated_replays\\newstudy20261010_gemini_ZH_expansion_seed1.jsonl",
+        "rows": 186,
+        "sha256": "995f250d2216c2590189f5963bd3c8ef5fe30de793fa6694b13848c2adf32ef8",
+        "model_key": "gemini",
+        "language_code": "ZH",
+        "run_label": "expansion_seed1"
+      }
+    ]
+  }
+}

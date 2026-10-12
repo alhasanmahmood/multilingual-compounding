@@ -36,10 +36,18 @@ class LocalizationArtifact:
 
 
 class OpenAICompatibleTranslator:
-    def __init__(self, model: str | None = None):
+    def __init__(
+        self,
+        model: str | None = None,
+        api_key: str | None = None,
+        base_url: str | None = None,
+    ):
         self.model = model or os.getenv("TRANSLATION_MODEL") or DEFAULT_TRANSLATION_MODEL
-        self.base_url = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
-        self.api_key = os.getenv("OPENAI_API_KEY")
+        self.provider_reported_model_ids: list[str] = []
+        self.base_url = (
+            base_url or os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
+        ).rstrip("/")
+        self.api_key = api_key if api_key is not None else os.getenv("OPENAI_API_KEY")
         if not self.api_key:
             raise ValueError("OPENAI_API_KEY must be set for localization.")
 
@@ -65,7 +73,11 @@ class OpenAICompatibleTranslator:
                     timeout=120,
                 )
                 response.raise_for_status()
-                content = response.json()["choices"][0]["message"]["content"]
+                payload = response.json()
+                resolved_model = payload.get("model")
+                if resolved_model:
+                    self.provider_reported_model_ids.append(str(resolved_model))
+                content = payload["choices"][0]["message"]["content"]
                 return json.loads(content)
             except Exception as exc:  # network / provider errors
                 last_error = exc
@@ -76,6 +88,9 @@ class OpenAICompatibleTranslator:
         raise last_error
 
     def translate_turns(self, turns: list[str], target_language: str) -> list[str]:
+        nonempty = [turn for turn in turns if turn.strip()]
+        if not nonempty:
+            return list(turns)
         payload = self._chat_json(
             system_prompt=(
                 "You translate user-facing benchmark queries. Preserve filenames, "
@@ -86,12 +101,19 @@ class OpenAICompatibleTranslator:
             ),
             user_prompt=(
                 f"Translate the following user turns into {target_language}.\n\n"
-                f"Turns:\n{json.dumps(turns, ensure_ascii=False)}"
+                f"Turns:\n{json.dumps(nonempty, ensure_ascii=False)}"
             ),
         )
-        return [text.strip() for text in payload["translations"]]
+        translated = payload["translations"]
+        if not isinstance(translated, list) or len(translated) != len(nonempty) or any(not isinstance(t, str) or not t.strip() for t in translated):
+            raise ValueError("Translation output must preserve every nonempty input turn.")
+        iterator = iter(translated)
+        return [next(iterator).strip() if turn.strip() else turn for turn in turns]
 
     def backtranslate_turns(self, turns: list[str], source_language: str) -> list[str]:
+        nonempty = [turn for turn in turns if turn.strip()]
+        if not nonempty:
+            return list(turns)
         payload = self._chat_json(
             system_prompt=(
                 "You back-translate benchmark queries into English. Preserve literal "
@@ -100,10 +122,14 @@ class OpenAICompatibleTranslator:
             ),
             user_prompt=(
                 f"Back-translate the following {source_language} turns into English.\n\n"
-                f"Turns:\n{json.dumps(turns, ensure_ascii=False)}"
+                f"Turns:\n{json.dumps(nonempty, ensure_ascii=False)}"
             ),
         )
-        return [text.strip() for text in payload["translations"]]
+        translated = payload["translations"]
+        if not isinstance(translated, list) or len(translated) != len(nonempty) or any(not isinstance(t, str) or not t.strip() for t in translated):
+            raise ValueError("Backtranslation output must preserve every nonempty input turn.")
+        iterator = iter(translated)
+        return [next(iterator).strip() if turn.strip() else turn for turn in turns]
 
 
 def extract_anchor_literals(*texts: str) -> list[str]:

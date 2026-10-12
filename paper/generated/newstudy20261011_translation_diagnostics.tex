@@ -1,0 +1,75 @@
+\section{Translation Consistency Diagnostics}
+\label{app:translation_quality}
+We apply LaBSE \citep{feng2022labse} to the frozen translations used in
+the twenty-scenario cohort. We compare each nonempty English source turn
+directly with its target-language turn, yielding $602$ pairs, $86$ per
+language. Backtranslations are not scored. We pin the encoder revision
+and retain cache, model-file, and input hashes with the outputs.
+Every input fits the encoder's $256$-token limit; the script rejects
+over-limit text rather than truncating it. Table~\ref{tab:labse_pairs}
+reports cosine distributions without a pass threshold.
+
+\begin{table}[ht]
+\centering\footnotesize
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrr@{}}\toprule
+Language & Median & 10th percentile & Minimum \\\midrule
+AR & 0.927 & 0.878 & 0.791 \\
+TR & 0.882 & 0.811 & 0.748 \\
+ZH & 0.928 & 0.854 & 0.693 \\
+HI & 0.871 & 0.815 & 0.614 \\
+JA & 0.874 & 0.810 & 0.712 \\
+ES & 0.938 & 0.901 & 0.879 \\
+SW & 0.911 & 0.855 & 0.800 \\
+\bottomrule\end{tabular*}
+\caption{LaBSE cosine for English--translation pairs,
+$86$ per language. This score measures text similarity, not translation accuracy.}
+\label{tab:labse_pairs}
+\end{table}
+
+\paragraph{Control probes.} We change one number
+or an exact quoted literal/filename in eligible target turns, and pair
+source turns with another task's target turn in the same language
+and turn position. We also include
+$7$ AI-written and AI-checked sentence pairs, one per
+target language. Each pair reverses a ``do not delete the original file''
+instruction. These are artificial probes, not a labeled benchmark of natural
+translation errors.
+Table~\ref{tab:labse_controls} gives their average score changes.
+
+\begin{table}[ht]
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrr@{}}\toprule
+Probe & $n$ & Cosine & Mean drop \\\midrule
+Number change & 79 & 0.882 & 0.029 \\
+Literal/filename change & 245 & 0.885 & 0.023 \\
+Different-task turn & 483 & 0.324 & 0.572 \\
+Negation reversal & 7 & 0.801 & 0.058 \\
+\bottomrule\end{tabular*}
+\caption{Mean cosine for each altered or mismatched pair; mean drop from its
+baseline. Negative drops mean higher cosine for the comparison pair. Groups
+have different baselines.}
+\label{tab:labse_controls}\end{table}
+
+\paragraph{Interpretation and review.} A high score can coexist with an
+incorrect number, literal, or constraint. In these probes, $8/245$
+literal/filename corruptions and $1/7$ negation reversals even score
+higher than their unperturbed pairs. Shared English identifiers
+can also contribute to similarity. Cosine therefore supplements author
+review and exact-literal/alignment checks; it cannot certify semantic
+accuracy or native fluency.
+Between-language score differences do not establish a quality ranking.
+We inspect the three lowest pairs per language and all string-level flags using AI assistance,
+with dispositions released alongside the scores. This subsequent AI
+inspection covers $54$ unique pairs, including all $34$ numeric flags.
+It finds no clear task-critical mistranslation in this selected set;
+wording nuances and extraction artifacts are recorded separately. This
+inspection is distinct from the author's mixed target-text and
+backtranslation review and is not independent bilingual validation.
+
+\paragraph{Reproduction.} The script
+\path{scripts/run_translation_similarity.py} writes per-turn scores,
+probe scores, and a provenance summary under
+\path{analysis/bfcl/newstudy20261010_labse_*}. The pinned model revision
+is {\footnotesize\texttt{836121a0533e5664b21c7aacc5d22951f2b8b25b}}.
+Optional dependency pins and the executed environment are released.
+Scoring runs locally and makes no paid model-API calls.

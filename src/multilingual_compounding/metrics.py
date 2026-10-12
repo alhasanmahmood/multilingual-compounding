@@ -12,8 +12,8 @@ This computes, per (language, backbone):
     and the position-specific null prod_k p_k
   - the compounding factor  CF = log r_obs / log r_ind
   - the robust complement   Delta = log r_obs - log r_ind
-  - task-level bootstrap CIs and a one-sided test of CF>1 (Delta<0)
-    with Holm-Bonferroni correction across (language, backbone) cells.
+  - task-cluster bootstrap intervals and directional tail diagnostics for
+    Delta<0, with Holm adjustment across (language, backbone) cells.
 
 This module implements only the math layer. It does not run any benchmark.
 Feed it the per-task records produced by the evaluation pipeline. Each record
@@ -46,11 +46,13 @@ class TaskRecord:
     Using in-trajectory marginal validity here makes the test circular and
     flips the sign of CF.
     """
-    task_id: str                  # task identifier for paired task-level bootstrap
+    task_id: str                  # task-seed identifier for paired bootstrap
     language: str                 # e.g. "EN", "English", "TR", "SW"
     backbone: str                 # e.g. "model_A"
     success: int                  # full multi-turn task outcome y in {0,1}
     step_validity: list[int]      # SINGLE-TURN validity of each critical step, in order
+    underlying_task_id: str | None = None  # groups multiple seeds of the same task
+    task_variant_id: str | None = None  # category-specific BFCL row within a scenario family
 
 
 def _is_english(label: str) -> bool:
@@ -140,45 +142,154 @@ def compute_cf(records: Sequence[TaskRecord], K: int,
 
 def bootstrap_cf(records: Sequence[TaskRecord], K: int, null: str = "common",
                  n_boot: int = 1000, seed: int = 0,
-                 min_log_rind: float = 0.05) -> dict:
+                 min_log_rind: float = 0.05,
+                 cluster_unit: str = "task_seed") -> dict:
     """
-    Task-level bootstrap CIs for CF and Delta, and a one-sided test of
-    Delta<0 (equivalently CF>1) with Holm-Bonferroni correction across
-    non-English (language, backbone) cells.
+    Cluster bootstrap intervals for CF and Delta, plus a directional
+    bootstrap-tail diagnostic for Delta<0, with Holm
+    adjustment across non-English (language, backbone) cells. These tail
+    probabilities are not calibrated inferential p-values; retain them as
+    descriptive diagnostics only.
 
     min_log_rind restricts CF reporting to cells where |log r_ind| is bounded
     away from 0 (i.e. r_ind bounded away from 1), per Sec. 4. Delta is always
     reported because it is well defined throughout.
+
+    ``task_seed`` resamples each task-variant/run-label row as a separate
+    cluster. The ``underlying_task`` option groups all category variants and
+    seed runs that share an underlying scenario, while keeping language rows
+    paired. At least two clusters are required; a single scenario cannot
+    provide a bootstrap variance estimate. Returned diagnostics record the
+    resample count, seed, cluster unit, and number of sampled clusters.
     """
+    if cluster_unit not in {"task_seed", "underlying_task"}:
+        raise ValueError("cluster_unit must be 'task_seed' or 'underlying_task'")
+    if n_boot < 1:
+        raise ValueError("n_boot must be positive")
+
     rng = np.random.default_rng(seed)
     point = compute_cf(records, K, null)
     cells = [c for c in point if not _is_english(c[0])]
+    boot_delta = {c: np.empty(n_boot, dtype=float) for c in cells}
+    boot_cf = {c: np.empty(n_boot, dtype=float) for c in cells}
 
-    # group by backbone and task id so the bootstrap resamples paired tasks
-    # across all languages for the same backbone.
-    task_groups_by_backbone: dict[str, dict[str, list[TaskRecord]]] = {}
-    for r in records:
-        task_groups_by_backbone.setdefault(r.backbone, {}).setdefault(r.task_id, []).append(r)
+    # Prepare cluster-by-cell sufficient statistics once. Each draw then
+    # recomputes the smoothed rates through matrix multiplication rather than
+    # rebuilding TaskRecord lists 5,000 times.
+    records_by_backbone: dict[str, list[TaskRecord]] = {}
+    for record in records:
+        records_by_backbone.setdefault(record.backbone, []).append(record)
 
-    boot_delta = {c: [] for c in cells}
-    boot_cf = {c: [] for c in cells}
-    for _ in range(n_boot):
-        resampled: list[TaskRecord] = []
-        for task_groups in task_groups_by_backbone.values():
-            task_ids = np.array(sorted(task_groups))
-            picked_task_ids = rng.choice(task_ids, size=len(task_ids), replace=True)
-            for task_id in picked_task_ids:
-                resampled.extend(task_groups[str(task_id)])
-        bres = compute_cf(resampled, K, null)
-        for c in cells:
-            if c in bres:
-                boot_delta[c].append(bres[c]["Delta"])
-                boot_cf[c].append(bres[c]["CF"])
+    cluster_counts_by_backbone: dict[str, int] = {}
+    for backbone, backbone_records in records_by_backbone.items():
+        cluster_key = (
+            (lambda r: r.task_id)
+            if cluster_unit == "task_seed"
+            else (lambda r: r.underlying_task_id or r.task_id)
+        )
+        cluster_ids = sorted({cluster_key(r) for r in backbone_records})
+        if len(cluster_ids) < 2:
+            raise ValueError(
+                f"Bootstrap unavailable for {cluster_unit}: backbone {backbone} has "
+                f"only {len(cluster_ids)} cluster(s); at least two are required"
+            )
+        cluster_index = {cluster_id: i for i, cluster_id in enumerate(cluster_ids)}
+        language_labels = sorted({r.language for r in backbone_records})
+        cell_ids = [(language, backbone) for language in language_labels]
+        cell_index = {cell: i for i, cell in enumerate(cell_ids)}
+        max_positions = max((len(r.step_validity) for r in backbone_records), default=0)
 
-    # one-sided p-value for Delta<0 : fraction of bootstrap draws with Delta>=0
+        shape = (len(cluster_ids), len(cell_ids))
+        cluster_n = np.zeros(shape, dtype=float)
+        cluster_success = np.zeros(shape, dtype=float)
+        cluster_step_n = np.zeros(shape, dtype=float)
+        cluster_step_success = np.zeros(shape, dtype=float)
+        pos_shape = (len(cluster_ids), len(cell_ids), max_positions)
+        cluster_pos_n = np.zeros(pos_shape, dtype=float)
+        cluster_pos_success = np.zeros(pos_shape, dtype=float)
+        for record in backbone_records:
+            j = cluster_index[cluster_key(record)]
+            c = cell_index[(record.language, backbone)]
+            cluster_n[j, c] += 1.0
+            cluster_success[j, c] += record.success
+            cluster_step_n[j, c] += len(record.step_validity)
+            cluster_step_success[j, c] += sum(record.step_validity)
+            for position, valid in enumerate(record.step_validity):
+                cluster_pos_n[j, c, position] += 1.0
+                cluster_pos_success[j, c, position] += valid
+
+        cluster_count = len(cluster_ids)
+        cluster_counts_by_backbone[backbone] = cluster_count
+        draw_counts = rng.multinomial(
+            cluster_count,
+            np.full(cluster_count, 1.0 / cluster_count),
+            size=n_boot,
+        ).astype(float)
+        n_tasks = draw_counts @ cluster_n
+        successes = draw_counts @ cluster_success
+        step_trials = draw_counts @ cluster_step_n
+        step_successes = draw_counts @ cluster_step_success
+        p = (step_successes + 1.0) / (step_trials + 2.0)
+        task_success = (successes + 1.0) / (n_tasks + 2.0)
+
+        if null == "common":
+            t_ind = p**K
+        elif null == "position":
+            pos_n = np.einsum("bj,jcp->bcp", draw_counts, cluster_pos_n)
+            pos_success = np.einsum("bj,jcp->bcp", draw_counts, cluster_pos_success)
+            pos_rates = (pos_success + 1.0) / (pos_n + 2.0)
+            t_ind = np.empty_like(p)
+            positions = np.arange(1, max_positions + 1)
+            for c in range(len(cell_ids)):
+                if max_positions:
+                    observed_positions = np.max(
+                        np.where(pos_n[:, c, :] > 0.0, positions[None, :], 0),
+                        axis=1,
+                    )
+                    used_rates = np.where(
+                        (positions[None, :] <= K)
+                        & (positions[None, :] <= observed_positions[:, None]),
+                        pos_rates[:, c, :],
+                        1.0,
+                    )
+                    products = np.prod(used_rates, axis=1)
+                else:
+                    observed_positions = np.zeros(n_boot, dtype=int)
+                    products = np.ones(n_boot, dtype=float)
+                pad_exponent = np.maximum(K - observed_positions, 0)
+                t_ind[:, c] = products * np.where(
+                    pad_exponent > 0, p[:, c] ** pad_exponent, 1.0
+                )
+        else:
+            raise ValueError("null must be 'common' or 'position'")
+
+        en_cells = [i for i, label in enumerate(language_labels) if _is_english(label)]
+        if len(en_cells) != 1:
+            raise ValueError(
+                f"Expected exactly one English baseline for backbone {backbone}, found "
+                f"{[language_labels[i] for i in en_cells]}"
+            )
+        en = en_cells[0]
+        for c, (language, bb) in enumerate(cell_ids):
+            key = (language, bb)
+            if key not in boot_delta:
+                continue
+            log_obs = np.log(task_success[:, c] / task_success[:, en])
+            log_ind = np.log(t_ind[:, c] / t_ind[:, en])
+            boot_delta[key][:] = log_obs - log_ind
+            boot_cf[key][:] = np.divide(
+                log_obs,
+                log_ind,
+                out=np.full(n_boot, np.nan, dtype=float),
+                where=np.abs(log_ind) > 1e-9,
+            )
+
+    # Directional tail probability for Delta<0, retained under its legacy
+    # p-value name for artifact compatibility. Calibration finds this tail is
+    # not generally type-I-error calibrated for the independence null.
     raw = {}
     for c in cells:
-        d = np.array(boot_delta[c], dtype=float)
+        d = boot_delta[c]
         d = d[~np.isnan(d)]
         p_val = (np.sum(d >= 0.0) + 1) / (len(d) + 1) if len(d) else np.nan
         raw[c] = p_val
@@ -196,16 +307,25 @@ def bootstrap_cf(records: Sequence[TaskRecord], K: int, null: str = "common",
 
     result = {}
     for c in cells:
-        d = np.array(boot_delta[c], dtype=float); d = d[~np.isnan(d)]
-        cf = np.array(boot_cf[c], dtype=float); cf = cf[~np.isnan(cf)]
+        d = boot_delta[c]; d = d[~np.isnan(d)]
+        cf = boot_cf[c]; cf = cf[~np.isnan(cf)]
         reportable_cf = abs(np.log(point[c]["r_ind"])) >= min_log_rind
         result[c] = {
             **point[c],
             "Delta_CI": (float(np.percentile(d, 2.5)), float(np.percentile(d, 97.5))) if len(d) else (np.nan, np.nan),
             "CF_CI": (float(np.percentile(cf, 2.5)), float(np.percentile(cf, 97.5))) if len(cf) else (np.nan, np.nan),
+            "p_raw": float(raw[c]),
             "p_holm": holm.get(c, np.nan),
+            "bootstrap_tail_probability": float(raw[c]),
+            "holm_adjusted_bootstrap_tail_probability": holm.get(c, np.nan),
             "CF_reportable": bool(reportable_cf),
             "compounding": bool(holm.get(c, 1.0) < 0.05 and point[c]["Delta"] < 0),
+            "inference_status": "uncalibrated_tail_diagnostic",
+            "compounding_status": "legacy_diagnostic_flag_not_inferential",
+            "n_boot": n_boot,
+            "seed": seed,
+            "cluster_unit": cluster_unit,
+            "cluster_count": cluster_counts_by_backbone[c[1]],
         }
     return result
 

@@ -1,0 +1,5 @@
+# Optional local LaBSE environment. Install PyTorch for the intended device first.
+torch==2.8.0
+sentence-transformers==5.1.2
+transformers==4.57.1
+huggingface-hub==0.36.0

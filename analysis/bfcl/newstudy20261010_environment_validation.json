@@ -1,0 +1,500 @@
+{
+  "status": "passed",
+  "plan_path": "analysis/bfcl/newstudy20261010_plan.json",
+  "provider_api_calls": 0,
+  "provider_api_clients_created": false,
+  "tasks": [
+    {
+      "task_id": "multi_turn_base_0",
+      "category": "multi_turn_base",
+      "involved_classes": [
+        {
+          "class_name": "TwitterAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.posting_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "GorillaFileSystem",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.gorilla_file_system",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 10,
+      "gold_calls": 10,
+      "initial_environments_checked": 2,
+      "replay_cases": 10,
+      "gold_self_replays_passed": 10,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_func_10",
+      "category": "multi_turn_miss_func",
+      "involved_classes": [
+        {
+          "class_name": "GorillaFileSystem",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.gorilla_file_system",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 10,
+      "gold_calls": 10,
+      "initial_environments_checked": 1,
+      "replay_cases": 10,
+      "gold_self_replays_passed": 10,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_param_39",
+      "category": "multi_turn_miss_param",
+      "involved_classes": [
+        {
+          "class_name": "GorillaFileSystem",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.gorilla_file_system",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 10,
+      "gold_calls": 10,
+      "initial_environments_checked": 1,
+      "replay_cases": 10,
+      "gold_self_replays_passed": 10,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_long_context_59",
+      "category": "multi_turn_long_context",
+      "involved_classes": [
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "MathAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.math_api",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 10,
+      "gold_calls": 10,
+      "initial_environments_checked": 2,
+      "replay_cases": 10,
+      "gold_self_replays_passed": 10,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_base_63",
+      "category": "multi_turn_base",
+      "involved_classes": [
+        {
+          "class_name": "MessageAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.message_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 10,
+      "gold_calls": 10,
+      "initial_environments_checked": 2,
+      "replay_cases": 10,
+      "gold_self_replays_passed": 10,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_func_90",
+      "category": "multi_turn_miss_func",
+      "involved_classes": [
+        {
+          "class_name": "TwitterAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.posting_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 10,
+      "gold_calls": 10,
+      "initial_environments_checked": 2,
+      "replay_cases": 10,
+      "gold_self_replays_passed": 10,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_param_97",
+      "category": "multi_turn_miss_param",
+      "involved_classes": [
+        {
+          "class_name": "MessageAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.message_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 10,
+      "gold_calls": 10,
+      "initial_environments_checked": 2,
+      "replay_cases": 10,
+      "gold_self_replays_passed": 10,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_long_context_6",
+      "category": "multi_turn_long_context",
+      "involved_classes": [
+        {
+          "class_name": "GorillaFileSystem",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.gorilla_file_system",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 1,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_base_18",
+      "category": "multi_turn_base",
+      "involved_classes": [
+        {
+          "class_name": "TwitterAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.posting_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "GorillaFileSystem",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.gorilla_file_system",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 2,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_func_55",
+      "category": "multi_turn_miss_func",
+      "involved_classes": [
+        {
+          "class_name": "TicketAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.ticket_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 2,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_param_58",
+      "category": "multi_turn_miss_param",
+      "involved_classes": [
+        {
+          "class_name": "TwitterAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.posting_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 2,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_long_context_61",
+      "category": "multi_turn_long_context",
+      "involved_classes": [
+        {
+          "class_name": "MessageAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.message_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 2,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_base_65",
+      "category": "multi_turn_base",
+      "involved_classes": [
+        {
+          "class_name": "TwitterAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.posting_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 2,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_func_69",
+      "category": "multi_turn_miss_func",
+      "involved_classes": [
+        {
+          "class_name": "TwitterAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.posting_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 2,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_param_70",
+      "category": "multi_turn_miss_param",
+      "involved_classes": [
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 1,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_long_context_71",
+      "category": "multi_turn_long_context",
+      "involved_classes": [
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 1,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_base_80",
+      "category": "multi_turn_base",
+      "involved_classes": [
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "MathAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.math_api",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 2,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_func_92",
+      "category": "multi_turn_miss_func",
+      "involved_classes": [
+        {
+          "class_name": "VehicleControlAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 1,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_miss_param_171",
+      "category": "multi_turn_miss_param",
+      "involved_classes": [
+        {
+          "class_name": "MessageAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.message_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "TravelAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.travel_booking",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 9,
+      "gold_calls": 9,
+      "initial_environments_checked": 2,
+      "replay_cases": 9,
+      "gold_self_replays_passed": 9,
+      "issues": [],
+      "status": "passed"
+    },
+    {
+      "task_id": "multi_turn_long_context_2",
+      "category": "multi_turn_long_context",
+      "involved_classes": [
+        {
+          "class_name": "TicketAPI",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.ticket_api",
+          "class_status": "passed"
+        },
+        {
+          "class_name": "GorillaFileSystem",
+          "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.gorilla_file_system",
+          "class_status": "passed"
+        }
+      ],
+      "expected_gold_calls": 8,
+      "gold_calls": 8,
+      "initial_environments_checked": 2,
+      "replay_cases": 8,
+      "gold_self_replays_passed": 8,
+      "issues": [],
+      "status": "passed"
+    }
+  ],
+  "classes": [
+    {
+      "class_name": "GorillaFileSystem",
+      "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.gorilla_file_system",
+      "module_imported": true,
+      "class_instantiated": true,
+      "status": "passed"
+    },
+    {
+      "class_name": "MathAPI",
+      "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.math_api",
+      "module_imported": true,
+      "class_instantiated": true,
+      "status": "passed"
+    },
+    {
+      "class_name": "MessageAPI",
+      "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.message_api",
+      "module_imported": true,
+      "class_instantiated": true,
+      "status": "passed"
+    },
+    {
+      "class_name": "TicketAPI",
+      "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.ticket_api",
+      "module_imported": true,
+      "class_instantiated": true,
+      "status": "passed"
+    },
+    {
+      "class_name": "TravelAPI",
+      "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.travel_booking",
+      "module_imported": true,
+      "class_instantiated": true,
+      "status": "passed"
+    },
+    {
+      "class_name": "TwitterAPI",
+      "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.posting_api",
+      "module_imported": true,
+      "class_instantiated": true,
+      "status": "passed"
+    },
+    {
+      "class_name": "VehicleControlAPI",
+      "module": "bfcl_eval.eval_checker.multi_turn_eval.func_source_code.vehicle_control",
+      "module_imported": true,
+      "class_instantiated": true,
+      "status": "passed"
+    }
+  ],
+  "issues": [],
+  "plan_sha256": "5f8c17e8357c17bacb0ab180a5dbf05238bf992237b01c092fb55ea04d72b79d",
+  "bfcl_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "artifact_prefix": "newstudy20261010",
+  "available_bfcl_task_count": 800,
+  "expected_task_count": 20,
+  "validated_task_count": 20,
+  "gold_call_count": 186,
+  "replay_case_count": 186,
+  "gold_self_replay_count": 186,
+  "report_path": "analysis/bfcl/newstudy20261010_environment_validation.json"
+}

@@ -1,185 +1,112 @@
 # E4 Decomposition Contract
 
-This document fixes the `E4` decomposition input/output contract for the
-BFCL-based heterogeneity analysis.
-
-## Goal
-
-Given existing BFCL full-run and isolated-replay artifacts, compute:
-
-1. failure-stage mix
-2. failure-type mix
-3. propagation rate
-4. recovery rate
-5. replay-matched propagation/recovery comparisons
-
-The contract is intentionally programmatic. It does not rely on model-judge
-annotations.
+This document records the behavior implemented by
+`src/multilingual_compounding/decomposition.py` and
+`scripts/run_decomposition_analysis.py`. The analysis labels observed replay
+errors and full-run differences from a BFCL reference sequence. These labels
+are descriptive and are not model-judge annotations.
 
 ## Inputs
 
-### 1. Full-run records
+Full-run records come from `data/bfcl/runs/*.jsonl` and must include
+`task_id`, `language_code`, `model_key`, `run_label`, `success`, and
+`evaluation.decoded_result`.
 
-Source:
+Isolated replay records come from `data/bfcl/isolated_replays/*.jsonl` and
+must include `task_id`, `language_code`, `model_key`, `run_label`,
+`turn_index`, `step_index`, `gold_call`, `candidate_call`, `valid`, and
+`evaluation.error_type`.
 
-- `data/bfcl/runs/*.jsonl`
+The matching BFCL task data supplies the ordered gold call sequence for each
+task. Replay rows are sorted by turn and step before classification. Full-run
+calls are flattened in their emitted order.
 
-Required fields per record:
+## Replay stage labels
 
-- `task_id`
-- `language_code`
-- `model_key`
-- `run_label`
-- `success`
-- `evaluation.decoded_result`
+Every invalid replay step is assigned one stage:
 
-### 2. Isolated-replay records
+1. `intent_selection`: no parsable candidate call, an invalid gold call, or a
+   different candidate function that is outside the reference sequence and is
+   not marked as an instance-state mismatch.
+2. `argument_parameter`: the candidate names the expected function but its
+   arguments differ, or the evaluator reports an unexpected mismatch despite
+   identical parsed arguments.
+3. `sequencing_planning`: the candidate names a function from another point in
+   the reference sequence, or the evaluator reports an instance-state mismatch
+   for a same or different candidate function.
 
-Source:
+These stage labels describe where a replay mismatch appears to occur. They do
+not establish the model's internal cause.
 
-- `data/bfcl/isolated_replays/*.jsonl`
+## Failure-type labels
 
-Required fields per record:
+The failure type is a separate field from the stage. The classifier can emit
+the following labels:
 
-- `task_id`
-- `language_code`
-- `model_key`
-- `run_label`
-- `turn_index`
-- `step_index`
-- `gold_call`
-- `candidate_call`
-- `valid`
-- `evaluation.error_type`
+| Failure type | Assignment rule |
+|--------------|-----------------|
+| `no_call` | Candidate is absent, unparsable, or marked `replay:no_call`. |
+| `unknown_gold_call` | The gold call cannot be parsed. |
+| `wrong_arguments` | Candidate and gold function names match, but parsed arguments differ. |
+| `unexpected_same_call_mismatch` | Parsed function and arguments match, but replay is still marked invalid for a reason other than the handled instance-state mismatch. |
+| `wrong_context` | Parsed function and arguments match, but the evaluator reports `multi_turn:instance_state_mismatch`. |
+| `wrong_order_or_context` | The candidate function occurs elsewhere in the task's gold sequence, or a different function is marked with an instance-state mismatch. |
+| `wrong_function` | The candidate function differs from the expected function and does not occur elsewhere in the gold sequence. |
 
-### 3. Task references
+The rule order in `_classify_stage` determines the output. In particular,
+`wrong_context` and `unexpected_same_call_mismatch` are valid labels even
+though they were absent from the earlier four-label list. Do not merge this
+failure-type taxonomy with the three stage labels.
 
-Source:
+## Full-trajectory reference alignment
 
-- BFCL tasks loaded from the same categories used in the run/replay slice
+The decoded call trace is compared greedily with the ordered BFCL reference.
+Function names and arguments are parsed, and argument order is normalized. A
+call that matches the next unmatched reference call advances the pointer. Any
+other emitted call is marked as a detour and leaves the pointer in place. This
+can mark harmless alternatives or extra calls in a successful run. A detour
+does not by itself mean that the full task failed.
 
-Required fields:
+The trajectory row sets:
 
-- ordered gold call sequence per task
+- `has_detour` when at least one emitted call differs from the next reference
+  call under that alignment;
+- `propagated_to_failure` when `has_detour` is true and the benchmark outcome
+  is failure;
+- `recovered` when `has_detour` is true and the benchmark outcome is success.
 
-## Stage taxonomy
+The reported propagation and recovery rates are conditional outcome shares
+among detour-bearing trajectories. The labels describe co-occurrence of a
+reference detour and the final benchmark outcome. They do not show that the
+detour caused that outcome or that a model repaired its internal state.
 
-Each invalid replay step is assigned exactly one stage:
+The first detour also receives stage and failure-type labels from the same
+classifier, with an off-reference marker. These trajectory labels are not the
+replay failure counts. For example, the instance-state mismatch labels
+`wrong_context` and `unexpected_same_call_mismatch` describe replay outcomes
+and are not used as evidence that a full-run detour caused failure.
 
-1. `intent_selection`
-2. `argument_parameter`
-3. `sequencing_planning`
+## Matched replay-validity comparison
 
-Recovery is not a per-step share row in the summary table. It is reported as a
-trajectory-level rate after an off-reference step occurs.
+For detour-bearing runs, the script groups trajectories by the exact pair
+`(replay_valid_steps, replay_total_steps)`. It keeps bins present in both the
+English and comparison-language group. Within each bin, it computes each
+group's propagation and recovery shares and weights those shares by the
+smaller group count. The output `weighted_pairs` is this sum of bin weights;
+it does not mean that individual English and non-English runs were paired.
 
-## Failure-type taxonomy
+This descriptive weighting compares groups with the same replay count and
+validity count. It does not remove all confounding and is not a causal
+adjustment. The rates still condition on having a reference detour.
 
-Each invalid replay step is assigned exactly one coarse failure type:
+## Outputs and scope
 
-1. `no_call`
-2. `wrong_function`
-3. `wrong_arguments`
-4. `wrong_order_or_context`
+The script writes `analysis/bfcl/<prefix>_summary.json` and
+`analysis/bfcl/<prefix>_report.md`. The primary fresh-cohort outputs use the
+`newstudy20261010_expansion_decomposition` prefix. The historical pilot has a
+separate summary and report and is not pooled with the fresh cohort.
 
-## Programmatic labeling rules
-
-Let the current gold call be the ordered BFCL reference call at the replay
-step's flat index.
-
-1. If there is no parsable `candidate_call`, label:
-   - stage: `intent_selection`
-   - failure type: `no_call`
-2. If the candidate function name equals the gold function name:
-   - stage: `argument_parameter`
-   - failure type: `wrong_arguments`
-   - except if the arguments normalize identically but BFCL still reports an
-     instance-state mismatch, then label stage `sequencing_planning` and failure
-     type `wrong_context`
-3. If the candidate function name appears elsewhere in the same task's gold
-   sequence (earlier or later), label:
-   - stage: `sequencing_planning`
-   - failure type: `wrong_order_or_context`
-4. Otherwise label:
-   - stage: `intent_selection`
-   - failure type: `wrong_function`
-
-## Trajectory alignment rule
-
-Trajectory-level propagation/recovery is computed from the full-run decoded call
-trace against the ordered gold sequence.
-
-Alignment is greedy:
-
-1. flatten the decoded full-run call sequence
-2. keep a pointer to the next unmatched gold call
-3. if the current emitted call matches the next gold call after argument-order
-   normalization, advance the pointer
-4. otherwise mark the emitted call as an off-reference detour and keep the
-   pointer fixed
-
-This intentionally permits successful runs that contain harmless or recoverable
-extra calls before later realigning with the reference trajectory.
-
-## Trajectory metrics
-
-For each full-run record:
-
-- `has_detour`: at least one off-reference emitted call under the greedy
-  alignment above
-- `propagated_to_failure`: `has_detour == 1` and `success == 0`
-- `recovered`: `has_detour == 1` and `success == 1`
-
-For any group of runs:
-
-- `propagation_rate = mean(propagated_to_failure | has_detour == 1)`
-- `recovery_rate = mean(recovered | has_detour == 1)`
-
-These sum to 1 by construction for groups with at least one detour-bearing run.
-
-## Matched-validity comparison
-
-To reduce pure error-frequency confounding, matched propagation/recovery is
-computed only inside replay-validity bins shared by English and the comparison
-group.
-
-Per full-run trial:
-
-- `replay_valid_steps`
-- `replay_total_steps`
-
-define the validity bin.
-
-For each shared bin:
-
-1. compute English propagation/recovery among detour-bearing runs in that bin
-2. compute comparison-group propagation/recovery among detour-bearing runs in
-   that bin
-3. weight the bin by the smaller of the two group counts
-
-The final matched rates are the weighted averages over shared bins.
-
-## Outputs
-
-Primary script:
-
-- `scripts/run_decomposition_analysis.py`
-
-Artifacts:
-
-- `analysis/bfcl/<prefix>_summary.json`
-- `analysis/bfcl/<prefix>_report.md`
-
-The summary JSON must contain:
-
-- `scope`
-- `aggregates.english.replay`
-- `aggregates.english.trajectory`
-- `aggregates.non_english.replay`
-- `aggregates.non_english.trajectory`
-- `aggregates.matched_validity`
-- `cells`
-
-The markdown report must expose the aggregate stage shares, trajectory rates,
-matched-validity rates, and per-cell highlights needed for manuscript table
-construction.
+The JSON contains the analysis scope, English and non-English aggregates,
+matched-validity results, and per-model/language cells with replay and
+trajectory summaries. It preserves individual trajectory rows and their first
+detour labels for audit.

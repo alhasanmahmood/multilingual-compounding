@@ -45,9 +45,20 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--task-limit", type=int, default=None)
     parser.add_argument("--per-category-limit", type=int, default=1)
+    parser.add_argument(
+        "--task-ids",
+        nargs="+",
+        default=None,
+        help="Exact BFCL task IDs to summarize. This overrides task and category limits.",
+    )
     parser.add_argument("--run-labels", nargs="+", default=["pilot_seed0", "pilot_seed1", "expanded_seed0"])
     parser.add_argument("--language-codes", nargs="+", default=None)
     parser.add_argument("--artifact-prefix", default="e4")
+    parser.add_argument(
+        "--input-artifact-prefix",
+        default=None,
+        help="Prefix on source run and replay JSONL files. Output prefix is set separately.",
+    )
     return parser.parse_args()
 
 
@@ -69,11 +80,13 @@ def main() -> None:
         tasks,
         task_limit=args.task_limit,
         per_category_limit=args.per_category_limit,
+        task_ids=args.task_ids,
     )
     full_run_records, replay_records = collect_artifact_records(
         model_keys=model_keys,
         run_labels=args.run_labels,
         language_codes=resolve_language_codes(args.language_codes),
+        artifact_prefix=args.input_artifact_prefix,
     )
 
     summary = summarize_decomposition(

@@ -1,62 +1,109 @@
 # Project Explainer
 
-Plain-language overview of the method and experiments in
-**"When Do Errors Compound Across Languages?: Heterogeneous Multilingual
-Reliability of Long-Horizon Agentic Tool Use."**
+Plain-language guide to **"When Do Errors Compound Across Languages?: A
+Descriptive Study of Multilingual Long-Horizon Tool Use."**
 
-## One-sentence summary
+## Research question
 
-The paper asks whether a small per-step disadvantage in non-English tool use
-stays small over a long trajectory or grows into a larger full-task gap, and
-finds heterogeneous behavior rather than a universal compounding law.
+The paper asks whether differences in individual tool calls between English and
+other languages correspond to differences in success over a full multi-step
+task. An isolated replay estimates whether a model can make one critical call
+when given the correct earlier state. A full trajectory shows what happens
+when the model carries out the whole task itself.
 
-## Problem
+## What was measured
 
-Most tool-use evaluation is English-only. In agentic settings, one early mistake
-can poison later steps. The scientific question is therefore trajectory-level:
+The primary study uses 20 distinct BFCL scenarios, five tasks from each of four
+categories. The tasks have 8 to 10 critical calls, with a mean of 9.3. The
+study covers English, Arabic, Turkish, Chinese, Hindi, Japanese, Spanish, and
+Swahili, using Gemini 3 Flash Preview and Claude Sonnet 4.6 with two seeds per
+task. This produces 640 full trajectories and 5,952 isolated replay results.
+The fixed task plan and collection audit are in
+`analysis/bfcl/newstudy20261010_plan.json` and
+`analysis/bfcl/newstudy20261010_expansion_collection_audit.json`.
 
-> Do multilingual errors compound beyond what a step-level independence null
-> would predict?
+The slice was selected by task length and completeness. Each underlying
+scenario appears in one category, so scenario and category effects cannot be
+separated. The results describe this selected BFCL slice. They do not establish
+that the same patterns hold for other tasks, models, or tool environments.
 
-## Method sketch
+The earlier pilot remains separate. It has four category variants of one
+underlying scenario, with 128 trajectories and 1,280 replays. Those variants
+are not four independent scenarios, and their results are not pooled with the
+20-scenario study.
 
-1. **Localize BFCL multi-turn user queries** into eight languages while keeping
-   tool schemas English and language-invariant.
-2. **Run full multi-turn tasks** and score success by executable system state.
-3. **Replay each critical step in isolation** with gold preceding context to
-   estimate per-step validity without in-trajectory confounding.
-4. **Compute compounding metrics** comparing observed task success against an
-   independence null (`CF`, `Delta`, bootstrap CIs, Holm adjustment).
-5. **Decompose failures** into stage mix plus matched propagation/recovery.
-6. **Check robustness** via localization fidelity/invariance, K-sensitivity,
-   leave-one-language-out, and seed variance.
+## How the comparison works
 
-## Main evidence base
+1. Localize the user queries into eight languages while keeping the tools and
+   tool schemas in English.
+2. Run each task from start to finish. Score success from the resulting system
+   state.
+3. Replay each critical call separately with the correct preceding state. Use
+   these results to estimate single-call validity without errors from earlier
+   calls in the full trajectory.
+4. Compare observed task success with a reference calculation that assumes
+   critical calls succeed independently. `Delta` is the difference on a log
+   scale; the compounding factor (`CF`) is a ratio of those log differences.
+   The reference is a comparison null, not a realistic model of every agent.
+5. Describe which stages contain replay errors and whether full traces finish
+   after a call that differs from the BFCL reference sequence. These
+   reference-relative outcomes do not establish that the earlier call caused
+   the final success or failure.
+6. Check whether estimates change across task horizons, scenario omissions,
+   localization filters, and synthetic processes.
 
-- Benchmark: BFCL v3 multi-turn (pinned vendor commit in `settings.py`)
-- Languages: EN, AR, TR, ZH, HI, JA, ES, SW
-- Main backbones: Gemini 3 Flash Preview and Claude Sonnet 4.6
-- Supporting exclusion narrative: GPT-4o English baseline collapse under the
-  evaluation setup
+The main paper emphasizes `Delta` because `CF` becomes unstable when the
+predicted non-English to English success ratio under the null is close to one.
+Results are descriptive:
+synthetic checks found that the bootstrap tail values are not calibrated
+inferential p-values. The paper does not claim a confirmed general compounding
+effect, a causal recovery effect, or significance from those tails.
 
-## What the package reproduces offline
+## Translation review
 
-From saved runs and replays under `data/bfcl/`, the analysis scripts regenerate:
+Before collection, an AI review checked the localized queries and 86 of the
+140 non-English rows were corrected. The author later reported reviewing a
+mixture of target-language text and English backtranslations and judged the
+translations adequate. This was not independent bilingual expert validation.
 
-- compounding summaries used for Table 1 / appendix CIs;
-- E4 stage and matched recovery summaries;
-- E6 robustness summaries.
+The later LaBSE analysis compares 602 nonempty English source turns directly
+with their aligned target-language turns. It reports cosine similarity and
+tests deliberately changed numbers, quoted literals, filenames, negations, and
+task pairings. Some deliberately changed constraints still receive high
+similarity scores. These values are therefore consistency diagnostics, not
+translation accuracy percentages or a pass threshold. Details and row-level
+scores are in `docs/TRANSLATION_VALIDATION_20261011.md` and the associated
+`analysis/bfcl/newstudy20261010_labse_*` files.
 
-No new API calls are required for those steps.
+## Reproducing the saved results
 
-## Reading guide for the code
+The core analyses run from saved files and make no model API calls. First check
+the collection and then regenerate the analyses to a new output prefix:
 
-| Module | Role |
-|--------|------|
-| `metrics.py` | Pure math for CF / Delta / bootstrap |
-| `evaluation.py` | Artifact loading and CF summarization |
-| `decomposition.py` | E4 programmatic decomposition |
-| `robustness.py` | E6 robustness diagnostics |
-| `bfcl_vendor.py` | BFCL task/handler/replay adapter |
+```powershell
+.\.venv\Scripts\python.exe scripts/analyze_completed_expansion.py
+.\.venv\Scripts\python.exe scripts/analyze_completed_expansion.py --run-analyses --output-prefix expansion_reproduction
+```
 
-For path-by-path inclusion decisions, see `docs/FILES_RATIONALE.md`.
+The first command checks that all planned trajectories and replays are present
+and match their provenance. The second regenerates compounding,
+decomposition, robustness, and task-sensitivity outputs. It refuses to
+overwrite existing outputs. The exact original commands and generated paper
+displays are listed in `analysis/bfcl/newstudy20261010_expansion_overview.md`.
+The synthetic calibration uses `scripts/run_cf_calibration.py`. The optional
+translation diagnostic uses `scripts/run_translation_similarity.py` and its
+separate pinned LaBSE dependency environment. The README contains setup and
+reproduction details.
+
+## Reading guide
+
+| File | Purpose |
+|------|---------|
+| `src/multilingual_compounding/metrics.py` | Compounding and `Delta` calculations, smoothing, and bootstrap resampling. |
+| `src/multilingual_compounding/evaluation.py` | Loads full runs and isolated replays and builds analysis records. |
+| `src/multilingual_compounding/decomposition.py` | Classifies replay errors and summarizes reference-relative trajectory outcomes. |
+| `src/multilingual_compounding/robustness.py` | Checks localization and other robustness settings. |
+| `analysis/bfcl/newstudy20261010_expansion_*` | Saved primary analysis summaries and reports. |
+| `paper/main.tex` | Manuscript source. |
+
+For path selection and release exclusions, see `docs/FILES_RATIONALE.md`.

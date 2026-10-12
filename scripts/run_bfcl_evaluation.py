@@ -52,6 +52,12 @@ def parse_args() -> argparse.Namespace:
         help="Optional subset of languages to run, e.g. EN TR.",
     )
     parser.add_argument(
+        "--task-ids",
+        nargs="+",
+        default=None,
+        help="Run an explicit, ordered list of BFCL task ids from plan_bfcl_expansion.py.",
+    )
+    parser.add_argument(
         "--task-limit",
         type=int,
         default=None,
@@ -69,6 +75,17 @@ def parse_args() -> argparse.Namespace:
         help="Optional prefix for metadata and summary filenames.",
     )
     parser.add_argument(
+        "--localization-prefix",
+        default=None,
+        help="Use an isolated localization JSONL cache with this prefix.",
+    )
+    parser.add_argument(
+        "--provider",
+        choices=["openrouter", "openai"],
+        default="openrouter",
+        help="Explicit OpenAI-compatible API provider. Defaults to OpenRouter.",
+    )
+    parser.add_argument(
         "--skip-full-runs",
         action="store_true",
         help="Reuse existing full-run artifacts and execute only the replay stage.",
@@ -82,6 +99,44 @@ def parse_args() -> argparse.Namespace:
         "--force-localization",
         action="store_true",
         help="Rebuild localized queries even if cached artifacts already exist.",
+    )
+    parser.add_argument(
+        "--localize-only",
+        action="store_true",
+        help="Create/complete the localization cache and side-by-side review report, then stop.",
+    )
+    parser.add_argument(
+        "--require-human-localization-review",
+        action="store_true",
+        help="Refuse evaluation until every selected localization JSONL row is marked approved.",
+    )
+    parser.add_argument(
+        "--collection-only",
+        action="store_true",
+        help="Run selected provider jobs without summary generation; requires --job-label.",
+    )
+    parser.add_argument(
+        "--job-label",
+        default=None,
+        help="Unique metadata filename suffix for concurrent collection jobs.",
+    )
+    parser.add_argument(
+        "--n-boot",
+        type=int,
+        default=5000,
+        help="Number of bootstrap draws for a completed summary (default: 5000).",
+    )
+    parser.add_argument(
+        "--bootstrap-seed",
+        type=int,
+        default=0,
+        help="Random seed for bootstrap intervals (default: 0).",
+    )
+    parser.add_argument(
+        "--cluster-unit",
+        choices=["underlying_task", "task_seed"],
+        default="underlying_task",
+        help="Bootstrap resampling unit. Defaults to grouping seeds by underlying task.",
     )
     return parser.parse_args()
 
@@ -102,6 +157,16 @@ def main() -> None:
         execute_full_runs=not args.skip_full_runs,
         execute_replays=not args.skip_replays,
         force_localization=args.force_localization,
+        task_ids=args.task_ids,
+        localization_prefix=args.localization_prefix,
+        api_provider=args.provider,
+        localize_only=args.localize_only,
+        require_human_localization_review=args.require_human_localization_review,
+        collection_only=args.collection_only,
+        job_label=args.job_label,
+        n_boot=args.n_boot,
+        bootstrap_seed=args.bootstrap_seed,
+        cluster_unit=args.cluster_unit,
     )
     print(json.dumps(result, indent=2))
 

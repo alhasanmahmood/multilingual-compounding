@@ -39,6 +39,7 @@ class OpenRouterChatCompletionsHandler(OpenAICompletionsHandler):
             **kwargs,
         )
         self.seed = seed
+        self.provider_reported_model_ids: list[str] = []
         self.api_key = os.getenv("OPENAI_API_KEY") or os.getenv("OPENROUTER_API_KEY")
         self.base_url = (
             os.getenv("OPENAI_BASE_URL")
@@ -67,7 +68,11 @@ class OpenRouterChatCompletionsHandler(OpenAICompletionsHandler):
                 )
                 end_time = time.time()
                 response.raise_for_status()
-                return response.json(), end_time - start_time
+                payload = response.json()
+                resolved_model = payload.get("model")
+                if resolved_model:
+                    self.provider_reported_model_ids.append(str(resolved_model))
+                return payload, end_time - start_time
             except Exception as exc:
                 last_error = exc
                 if attempt == 3:

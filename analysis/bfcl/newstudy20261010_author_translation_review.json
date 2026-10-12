@@ -1,0 +1,15 @@
+{
+  "status": "author_review_attested",
+  "reported_date": "2026-10-11",
+  "reviewer": "An author (user attestation)",
+  "reported_judgment": "I reviewed the translations and they seem good enough.",
+  "reported_method": "A mixture of target-language text and English backtranslations",
+  "scope": "Current 20-scenario translation set, as reported by the author; per-language method and row-level decisions were not supplied",
+  "review_timing": "After benchmark collection",
+  "independent_bilingual_expert_validation": false,
+  "language_proficiency": "not recorded",
+  "cache_path": "data/bfcl/localized_queries/newstudy20261010_bfcl_multiturn_localizations.jsonl",
+  "cache_sha256": "04f858c21801117fe0f99d6974773d1818c10d91a3ecbbf1579c707455a4e034",
+  "frozen_cache_human_status": "pending at collection; preserved as provenance",
+  "note": "This sidecar records author attestation only. It does not invent individual row approvals or change collected prompts."
+}

@@ -1,0 +1,67 @@
+{
+  "provenance": {
+    "authorship": "AI-authored minimal challenge sentences",
+    "review": "Separately AI-reviewed for preserved instruction versus reversed deletion constraint",
+    "human_validation": false,
+    "benchmark_origin": false,
+    "purpose": "Probe score sensitivity; not a representative or calibrated translation-quality test"
+  },
+  "records": [
+    {
+      "control_id": "authored_negation_AR",
+      "language_code": "AR",
+      "source_text": "Copy the file and do not delete the original.",
+      "correct_text": "انسخ الملف دون حذف النسخة الأصلية.",
+      "corrupted_text": "انسخ الملف واحذف النسخة الأصلية.",
+      "corruption_type": "negation_reversal"
+    },
+    {
+      "control_id": "authored_negation_TR",
+      "language_code": "TR",
+      "source_text": "Copy the file and do not delete the original.",
+      "correct_text": "Dosyayı kopyala ve orijinalini silme.",
+      "corrupted_text": "Dosyayı kopyala ve orijinalini sil.",
+      "corruption_type": "negation_reversal"
+    },
+    {
+      "control_id": "authored_negation_ZH",
+      "language_code": "ZH",
+      "source_text": "Copy the file and do not delete the original.",
+      "correct_text": "复制文件，不要删除原文件。",
+      "corrupted_text": "复制文件，并删除原文件。",
+      "corruption_type": "negation_reversal"
+    },
+    {
+      "control_id": "authored_negation_HI",
+      "language_code": "HI",
+      "source_text": "Copy the file and do not delete the original.",
+      "correct_text": "फ़ाइल की प्रतिलिपि बनाएँ और मूल फ़ाइल को न हटाएँ।",
+      "corrupted_text": "फ़ाइल की प्रतिलिपि बनाएँ और मूल फ़ाइल को हटाएँ।",
+      "corruption_type": "negation_reversal"
+    },
+    {
+      "control_id": "authored_negation_JA",
+      "language_code": "JA",
+      "source_text": "Copy the file and do not delete the original.",
+      "correct_text": "ファイルをコピーし、元のファイルは削除しないでください。",
+      "corrupted_text": "ファイルをコピーし、元のファイルは削除してください。",
+      "corruption_type": "negation_reversal"
+    },
+    {
+      "control_id": "authored_negation_ES",
+      "language_code": "ES",
+      "source_text": "Copy the file and do not delete the original.",
+      "correct_text": "Copia el archivo y no elimines el original.",
+      "corrupted_text": "Copia el archivo y elimina el original.",
+      "corruption_type": "negation_reversal"
+    },
+    {
+      "control_id": "authored_negation_SW",
+      "language_code": "SW",
+      "source_text": "Copy the file and do not delete the original.",
+      "correct_text": "Nakili faili na usifute faili ya asili.",
+      "corrupted_text": "Nakili faili na ufute faili ya asili.",
+      "corruption_type": "negation_reversal"
+    }
+  ]
+}

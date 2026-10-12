@@ -1,0 +1,2311 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-10T14:51:40.158758+00:00",
+  "source_plan": "analysis/bfcl/newstudy20261010_plan.json",
+  "source_bfcl_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "localization_cache": "data/bfcl/localized_queries/newstudy20261010_bfcl_multiturn_localizations.jsonl",
+  "review_scope": {
+    "languages": [
+      "TR",
+      "ZH"
+    ],
+    "initial_completed_rows_only": false,
+    "row_count": 40,
+    "reviewed_key_policy": "All 20 planned task IDs were present for both TR and ZH in the completed localization cache snapshot; all 40 rows were checked against the pinned BFCL source.",
+    "counts_by_status": {
+      "reviewed": 16,
+      "correction_proposed": 24,
+      "uncertain": 0
+    },
+    "turn_indexing": "Zero-based; each source, localized, and backtranslated turn is included in turn_reviews. Empty source turns remain empty at the same index."
+  },
+  "method": {
+    "english_source": "get_original_turn_texts(BFCLTask) from the local BFCL snapshot pinned by newstudy20261010_plan.json.",
+    "source_task_hash": "task_content_sha256(BFCLTask), recomputed locally and checked against each cache row.",
+    "source_turns_hash": "SHA-256 of UTF-8 canonical JSON list of source English turns.",
+    "localized_turns_hash": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+    "direct_review_checks": [
+      "semantic meaning",
+      "negation",
+      "turn ordering",
+      "conditional constraints",
+      "filenames and exact quoted strings",
+      "API-facing names and identifiers",
+      "units and numeric values",
+      "preservation and alignment of empty turns"
+    ],
+    "backtranslation_role": "Secondary diagnostic only; it was not treated as proof of target-language accuracy.",
+    "human_or_native_speaker_verification": false,
+    "api_calls": false
+  },
+  "records": [
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "reviewed",
+      "original_source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "cache_record_source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "0ce74d670c31bdd1571211dedff15db725d6367a3c32b9ca3eebcbdc6c9e2fd1",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "ee4b127c661b89a750ad876635400aa229517c1f95ef8cea451b01e2712e6b63",
+      "backtranslation_similarity_cache_diagnostic_only": 0.07285974499089254,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Move 'final_report.pdf' within document directory to 'temp' directory in document. Make sure to create the directory",
+          "localized_turn": "'final_report.pdf' dosyasını belge dizininde 'temp' dizinine taşıyın. Dizini oluşturduğunuzdan emin olun.",
+          "backtranslated_turn_secondary_check": "Move the 'final_report.pdf' file to the 'temp' directory in the document directory. Make sure you have created the directory.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+          "localized_turn": "'budget analysis' ile ilgili bölümleri belirlemek için dosyada grep kullanarak detaylı bir arama yapın.",
+          "backtranslated_turn_secondary_check": "Perform a detailed search using grep in the file to identify sections related to 'budget analysis'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+          "localized_turn": "Gerekli 'budget analysis' içeriğini belirledikten sonra, 'final_report.pdf' dosyasını daha iyi bir netlik ve anlama için satır bazında sıralayın.",
+          "backtranslated_turn_secondary_check": "After determining the necessary 'budget analysis' content, sort the 'final_report.pdf' file line by line for better clarity and understanding.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Move 'previous_report.pdf' in document directory to temp as well and having final report also there, proceed to juxtapose it with 'previous_report.pdf' to detect any critical alterations.",
+          "localized_turn": "Belge dizinindeki 'previous_report.pdf' dosyasını da temp'e taşıyın ve final raporu da orada bulundurarak, 'previous_report.pdf' ile karşılaştırarak herhangi bir kritik değişikliği tespit edin.",
+          "backtranslated_turn_secondary_check": "Also move the 'previous_report.pdf' file in the document directory to temp and, by keeping the final report there, identify any critical changes by comparing it with 'previous_report.pdf'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "cache_record_source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "f576c9376d7bb6fc495a924adf2a67f94dc7f9155821eab7a1c156c567a6c09b",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "e94ac8daa65234a097032b52b705bc2e5b8df6f6272ced491f037479691ba212",
+      "backtranslation_similarity_cache_diagnostic_only": 0.0600375234521576,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Move 'final_report.pdf' within document directory to 'temp' directory in document. Make sure to create the directory",
+          "localized_turn": "将文档目录中的“final_report.pdf”移动到文档中的“temp”目录。确保创建该目录。",
+          "backtranslated_turn_secondary_check": "Move 'final_report.pdf' from the document directory to the 'temp' directory in the document. Ensure that the directory is created.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+          "localized_turn": "使用 grep 进行详细搜索，以识别文件中与“预算分析”相关的部分。",
+          "backtranslated_turn_secondary_check": "Use grep for a detailed search to identify sections related to 'budget analysis' in the file.",
+          "assessment": "Correction proposed: Keep the exact grep search term because it is the literal query text."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+          "localized_turn": "在识别出所需的“预算分析”内容后，按行对“final_report.pdf”进行排序，以提高清晰度和理解力。",
+          "backtranslated_turn_secondary_check": "After identifying the required 'budget analysis' content, sort 'final_report.pdf' by line to improve clarity and comprehension.",
+          "assessment": "Correction proposed: Preserve the exact search term and filename used by the filesystem tool."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Move 'previous_report.pdf' in document directory to temp as well and having final report also there, proceed to juxtapose it with 'previous_report.pdf' to detect any critical alterations.",
+          "localized_turn": "将文档目录中的“previous_report.pdf”也移动到 temp，并在最终报告也在那里的情况下，将其与“previous_report.pdf”进行对比，以检测任何关键更改。",
+          "backtranslated_turn_secondary_check": "Also move 'previous_report.pdf' from the document directory to temp, and if the final report is also there, compare it with 'previous_report.pdf' to detect any key changes.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 1,
+          "replacement": "使用 grep 进行详细搜索，找出文件中与 'budget analysis' 相关的部分。",
+          "reason": "Keep the exact grep search term because it is the literal query text."
+        },
+        {
+          "turn_index": 2,
+          "replacement": "找到所需的 'budget analysis' 内容后，请按行对 'final_report.pdf' 排序，以便内容更清晰易懂。",
+          "reason": "Preserve the exact search term and filename used by the filesystem tool."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_func_10",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "reviewed",
+      "original_source_task_sha256": "62c00d3de4b565556adceae4fff03adb16ad2b932e27f6d77b8cccf920fda026",
+      "cache_record_source_task_sha256": "62c00d3de4b565556adceae4fff03adb16ad2b932e27f6d77b8cccf920fda026",
+      "source_turns_sha256": "cbc1a8c035f946f20416d510031bc6343aa6c94b73f6abc685c9b8d41950c3fe",
+      "localized_turns_sha256": "ee1294ca5a826a44ee62fbbc2d3ddf7ba48b83540c805c29f4612329f41be87d",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "89163b397cd9c287ac79bcfc4dfd1666c065c851a965b1755e980cee102e25bb",
+      "backtranslation_similarity_cache_diagnostic_only": 0.47209515096065874,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Hey, can you set up a new directory named 'Projects' right in workspace folder?",
+          "localized_turn": "Hey, 'Projects' adında yeni bir dizin oluşturabilir misin, doğrudan çalışma alanı klasörüne?",
+          "backtranslated_turn_secondary_check": "Hey, can you create a new directory named 'Projects', directly in the workspace folder?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Let's move over the project's proposal document into this 'Projects' folder, but we'll go ahead and rename it to 'final_proposal_2024'.",
+          "localized_turn": "Proje teklif belgesini bu 'Projects' klasörüne taşıyalım, ama 'final_proposal_2024' olarak yeniden adlandıralım.",
+          "backtranslated_turn_secondary_check": "Let's move the project proposal document to this 'Projects' folder, but rename it as 'final_proposal_2024'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Inside this directory, get cracking on a new file, call it 'notes.md', to capture all the highlights from our meetings.",
+          "localized_turn": "Bu dizin içinde, toplantılarımızdan tüm önemli noktaları yakalamak için 'notes.md' adında yeni bir dosya oluştur.",
+          "backtranslated_turn_secondary_check": "Within this directory, create a new file named 'notes.md' to capture all the key points from our meetings.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Also, create a file named 'summary.txt' and write 'Hello' into it. After that, do a quick comparison between this one and 'notes.md' to spot any disparities in information.",
+          "localized_turn": "Ayrıca, 'summary.txt' adında bir dosya oluştur ve içine 'Hello' yaz. Bundan sonra, bu dosya ile 'notes.md' arasında hızlı bir karşılaştırma yaparak bilgi farklılıklarını tespit et.",
+          "backtranslated_turn_secondary_check": "Also, create a file named 'summary.txt' and write 'Hello' in it. After that, quickly compare this file with 'notes.md' to detect information differences.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 5,
+          "source_english": "Finally, tally up the number of characters in 'summary.txt'.",
+          "localized_turn": "Son olarak, 'summary.txt' dosyasındaki karakter sayısını hesapla.",
+          "backtranslated_turn_secondary_check": "Finally, calculate the character count in the 'summary.txt' file.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_miss_func_10",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "reviewed",
+      "original_source_task_sha256": "62c00d3de4b565556adceae4fff03adb16ad2b932e27f6d77b8cccf920fda026",
+      "cache_record_source_task_sha256": "62c00d3de4b565556adceae4fff03adb16ad2b932e27f6d77b8cccf920fda026",
+      "source_turns_sha256": "cbc1a8c035f946f20416d510031bc6343aa6c94b73f6abc685c9b8d41950c3fe",
+      "localized_turns_sha256": "cd03864306a4576ff43530595154235154c214f50a5e92a06504b38d18d4bfe7",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "9eb1181e904bb24c3bfb2cfa66e9ef6b374d929f1f5671ab455d656dd63ec663",
+      "backtranslation_similarity_cache_diagnostic_only": 0.6414048059149723,
+      "machine_fidelity_rating_cache_diagnostic_only": 4,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Hey, can you set up a new directory named 'Projects' right in workspace folder?",
+          "localized_turn": "嘿，你能在工作区文件夹里创建一个名为 'Projects' 的新目录吗？",
+          "backtranslated_turn_secondary_check": "Hey, can you create a new directory named 'Projects' in the workspace folder?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Let's move over the project's proposal document into this 'Projects' folder, but we'll go ahead and rename it to 'final_proposal_2024'.",
+          "localized_turn": "我们把项目的提案文档移到这个 'Projects' 文件夹里，但我们会把它重命名为 'final_proposal_2024'。",
+          "backtranslated_turn_secondary_check": "Let's move the project proposal document into this 'Projects' folder, but we will rename it to 'final_proposal_2024'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Inside this directory, get cracking on a new file, call it 'notes.md', to capture all the highlights from our meetings.",
+          "localized_turn": "在这个目录里，新建一个文件，叫做 'notes.md'，用来记录我们会议的所有要点。",
+          "backtranslated_turn_secondary_check": "In this directory, create a new file called 'notes.md' to record all the key points of our meetings.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Also, create a file named 'summary.txt' and write 'Hello' into it. After that, do a quick comparison between this one and 'notes.md' to spot any disparities in information.",
+          "localized_turn": "另外，创建一个名为 'summary.txt' 的文件，并在其中写入 'Hello'。之后，快速比较一下这个文件和 'notes.md' 之间的信息差异。",
+          "backtranslated_turn_secondary_check": "Additionally, create a file named 'summary.txt' and write 'Hello' in it. Then, quickly compare the information differences between this file and 'notes.md'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 5,
+          "source_english": "Finally, tally up the number of characters in 'summary.txt'.",
+          "localized_turn": "最后，统计一下 'summary.txt' 中的字符数。",
+          "backtranslated_turn_secondary_check": "Finally, count the number of characters in 'summary.txt'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_miss_param_39",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "reviewed",
+      "original_source_task_sha256": "ad3f4a7699004114805baeb914cb432ffd75577e50043a9efca82663a1d0a45f",
+      "cache_record_source_task_sha256": "ad3f4a7699004114805baeb914cb432ffd75577e50043a9efca82663a1d0a45f",
+      "source_turns_sha256": "cec61e37980799d28e405394703d68a3db7349663c800a3a655ae1518ff56a48",
+      "localized_turns_sha256": "dbaa5cce6c0e313762f4a9282cc900b76c9ff973cf9bdcb300fb05be3a3c074a",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "28961bd4d63232cc3db9befdf96eb8f78e2fe18bdfcb3805d8c9a11d3e60e5ec",
+      "backtranslation_similarity_cache_diagnostic_only": 0.3845327604726101,
+      "machine_fidelity_rating_cache_diagnostic_only": 4,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I need you to set up a fresh folder wherever you're currently working.",
+          "localized_turn": "Şu anda çalıştığınız yerde yeni bir klasör oluşturmanızı istiyorum.",
+          "backtranslated_turn_secondary_check": "I want you to create a new folder at the place you are currently working.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "The fresh folder should name 'WebDevProjects'. ",
+          "localized_turn": "Yeni klasörün adı 'WebDevProjects' olmalı.",
+          "backtranslated_turn_secondary_check": "The name of the new folder should be 'WebDevProjects'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Enter the folder and populate the 'WebDevProjects' folder with 3 files:, 'styles.css',  'index.html', and 'script.js' with content 'Hello World!','Hi World!', 'Halo World!' in each.",
+          "localized_turn": "Klasöre girin ve 'WebDevProjects' klasörünü 3 dosya ile doldurun: 'styles.css', 'index.html' ve 'script.js' dosyalarına sırasıyla 'Hello World!', 'Hi World!', 'Halo World!' içeriklerini ekleyin.",
+          "backtranslated_turn_secondary_check": "Enter the folder and fill the 'WebDevProjects' folder with 3 files: Add the contents 'Hello World!', 'Hi World!', 'Halo World!' to the files 'styles.css', 'index.html', and 'script.js' respectively.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "What's the second file name by system order? Don't list out hidden files.",
+          "localized_turn": "Sistem sırasına göre ikinci dosya adı nedir? Gizli dosyaları listelemeyin.",
+          "backtranslated_turn_secondary_check": "What is the name of the second file according to the system order? Do not list hidden files.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Can you display the content of the first file by system order?",
+          "localized_turn": "Sistem sırasına göre ilk dosyanın içeriğini gösterebilir misiniz?",
+          "backtranslated_turn_secondary_check": "Can you show the content of the first file according to the system order?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_miss_param_39",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "reviewed",
+      "original_source_task_sha256": "ad3f4a7699004114805baeb914cb432ffd75577e50043a9efca82663a1d0a45f",
+      "cache_record_source_task_sha256": "ad3f4a7699004114805baeb914cb432ffd75577e50043a9efca82663a1d0a45f",
+      "source_turns_sha256": "cec61e37980799d28e405394703d68a3db7349663c800a3a655ae1518ff56a48",
+      "localized_turns_sha256": "436aadb3230318ef30b8cdf33564c6cdc7f02e9dbbc002748b676fb4d0455783",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "2552f34b294e4a7db704b146c8ba9a4114d6641225b4a6296c29eec54376f3b4",
+      "backtranslation_similarity_cache_diagnostic_only": 0.08592910848549946,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I need you to set up a fresh folder wherever you're currently working.",
+          "localized_turn": "我需要你在当前工作的地方设置一个新的文件夹。",
+          "backtranslated_turn_secondary_check": "I need you to set up a new folder at the current working location.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "The fresh folder should name 'WebDevProjects'. ",
+          "localized_turn": "新的文件夹应该命名为 'WebDevProjects'。",
+          "backtranslated_turn_secondary_check": "The new folder should be named 'WebDevProjects'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Enter the folder and populate the 'WebDevProjects' folder with 3 files:, 'styles.css',  'index.html', and 'script.js' with content 'Hello World!','Hi World!', 'Halo World!' in each.",
+          "localized_turn": "进入文件夹并在 'WebDevProjects' 文件夹中填充3个文件：'styles.css'、'index.html' 和 'script.js'，每个文件的内容分别为 'Hello World!'、'Hi World!'、'Halo World!'。",
+          "backtranslated_turn_secondary_check": "Enter the folder and populate 3 files in the 'WebDevProjects' folder: 'styles.css', 'index.html', and 'script.js', with the content of each file being 'Hello World!', 'Hi World!', 'Halo World!' respectively.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "What's the second file name by system order? Don't list out hidden files.",
+          "localized_turn": "按系统顺序，第二个文件的名称是什么？不要列出隐藏文件。",
+          "backtranslated_turn_secondary_check": "According to the system order, what is the name of the second file? Do not list hidden files.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Can you display the content of the first file by system order?",
+          "localized_turn": "你能按系统顺序显示第一个文件的内容吗？",
+          "backtranslated_turn_secondary_check": "Can you display the content of the first file according to the system order?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_long_context_59",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "reviewed",
+      "original_source_task_sha256": "329813e5ed7fac742f6f9c4b3c08365fc21f426576de77aae1f7bba526c3dc8b",
+      "cache_record_source_task_sha256": "329813e5ed7fac742f6f9c4b3c08365fc21f426576de77aae1f7bba526c3dc8b",
+      "source_turns_sha256": "3836a38bc8a973a41b0d5163ca0254d7d5a03a05bd952cf691d62e9305e795f9",
+      "localized_turns_sha256": "550647f0c933baecfe58f1f584b50e6ccb3bef87a56ad98028654bc717eb02b7",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "a40373a29801f5df8a8fca7a68fd5203fde31c6a5fa6666fdd080669b9e53fcf",
+      "backtranslation_similarity_cache_diagnostic_only": 0.19105939987752601,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I recently moved to San Francisco and Iâ€™m planning a trip to Rivermist. How far apart are these places? I'd like to gauge the distance before setting off on this adventure.",
+          "localized_turn": "Yakın zamanda San Francisco'ya taşındım ve Rivermist'e bir gezi planlıyorum. Bu yerler ne kadar uzaklıkta? Bu maceraya başlamadan önce mesafeyi ölçmek istiyorum.",
+          "backtranslated_turn_secondary_check": "I recently moved to San Francisco and am planning a trip to Rivermist. How far apart are these places? I want to measure the distance before embarking on this adventure.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Now that I have the distance sorted, I'm considering the fuel situation. What's the current level of gasoline I have in liters?",
+          "localized_turn": "Mesafeyi hallettikten sonra, yakıt durumunu düşünüyorum. Şu anda kaç litre benzinim var?",
+          "backtranslated_turn_secondary_check": "After dealing with the distance, I'm thinking about the fuel situation. How many liters of gasoline do I currently have?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "With the liters in mind, I'll need to top up my vehicleâ€™s tank. Please go ahead and fill up the tank before I hit the road.",
+          "localized_turn": "Litrelere bakarak, aracımın deposunu doldurmam gerekecek. Yola çıkmadan önce lütfen depoyu doldurun.",
+          "backtranslated_turn_secondary_check": "Looking at the liters, I will need to fill up my car's tank. Please fill up the tank before setting off.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "As the journey is about to begin, could you kindly engage the 'START' ignition mode to ready the vehicle? I want to ensure everything's in perfect working order before I drive off.",
+          "localized_turn": "Yolculuk başlamak üzereyken, aracı hazır hale getirmek için lütfen 'START' ateşleme modunu devreye sokar mısınız? Yola çıkmadan önce her şeyin mükemmel çalıştığından emin olmak istiyorum.",
+          "backtranslated_turn_secondary_check": "As the journey is about to begin, could you please engage the 'START' ignition mode to get the vehicle ready? I want to make sure everything is working perfectly before setting off.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Finally, I'm analyzing mileage statistics and need the logarithm of the distance to the base the previous fuel value, computed to a precision of 10. Use base of 20. This will help with assessing the fuel efficiency patterns.",
+          "localized_turn": "Son olarak, kilometre istatistiklerini analiz ediyorum ve önceki yakıt değerinin tabanına göre mesafenin logaritmasını, 10 hassasiyetle hesaplamam gerekiyor. Taban olarak 20 kullanın. Bu, yakıt verimliliği kalıplarını değerlendirmeme yardımcı olacak.",
+          "backtranslated_turn_secondary_check": "Finally, I am analyzing the mileage statistics and need to calculate the logarithm of the distance to 10 precision based on the previous fuel value. Use 20 as the base. This will help me evaluate fuel efficiency patterns.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_long_context_59",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "329813e5ed7fac742f6f9c4b3c08365fc21f426576de77aae1f7bba526c3dc8b",
+      "cache_record_source_task_sha256": "329813e5ed7fac742f6f9c4b3c08365fc21f426576de77aae1f7bba526c3dc8b",
+      "source_turns_sha256": "3836a38bc8a973a41b0d5163ca0254d7d5a03a05bd952cf691d62e9305e795f9",
+      "localized_turns_sha256": "f91f1ba4f2f22fcc421fba3c62b7ff58b9bc336aa652ace31bf1334a3900510a",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "bca1f5f68cf730a97173ef51cb4a20e2fe38fa1c7b0a37bd9329997e359a72d8",
+      "backtranslation_similarity_cache_diagnostic_only": 0.31901840490797545,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I recently moved to San Francisco and Iâ€™m planning a trip to Rivermist. How far apart are these places? I'd like to gauge the distance before setting off on this adventure.",
+          "localized_turn": "我最近搬到了旧金山，计划去Rivermist旅行。这两个地方相距多远？我想在出发冒险之前估算一下距离。",
+          "backtranslated_turn_secondary_check": "I recently moved to San Francisco and plan to travel to Rivermist. How far apart are these two places? I want to estimate the distance before setting off on the adventure.",
+          "assessment": "Correction proposed: Keep the API-facing city name in source form while giving a Chinese gloss."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Now that I have the distance sorted, I'm considering the fuel situation. What's the current level of gasoline I have in liters?",
+          "localized_turn": "现在我已经知道了距离，我在考虑燃料情况。我目前有多少升汽油？",
+          "backtranslated_turn_secondary_check": "Now that I know the distance, I'm considering the fuel situation. How many liters of gasoline do I currently have?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "With the liters in mind, I'll need to top up my vehicleâ€™s tank. Please go ahead and fill up the tank before I hit the road.",
+          "localized_turn": "考虑到升数，我需要给我的车加满油箱。请在我上路之前给油箱加满油。",
+          "backtranslated_turn_secondary_check": "Considering the number of liters, I need to fill up my car's tank. Please fill up the tank before I hit the road.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "As the journey is about to begin, could you kindly engage the 'START' ignition mode to ready the vehicle? I want to ensure everything's in perfect working order before I drive off.",
+          "localized_turn": "在旅程即将开始时，您能否启动“START”点火模式以准备好车辆？我想确保一切正常工作后再出发。",
+          "backtranslated_turn_secondary_check": "As the journey is about to begin, could you activate the 'START' ignition mode to prepare the vehicle? I want to ensure everything is working properly before setting off.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Finally, I'm analyzing mileage statistics and need the logarithm of the distance to the base the previous fuel value, computed to a precision of 10. Use base of 20. This will help with assessing the fuel efficiency patterns.",
+          "localized_turn": "最后，我正在分析里程统计数据，需要计算以之前燃料值为底的距离的对数，精确到10位。使用20为底。这将有助于评估燃油效率模式。",
+          "backtranslated_turn_secondary_check": "Finally, I am analyzing mileage statistics and need to calculate the logarithm of the distance based on the previous fuel value, accurate to 10 digits. Use 20 as the base. This will help evaluate the fuel efficiency pattern.",
+          "assessment": "Correction proposed: The source is internally ambiguous about the logarithm base and what “precision of 10” means. This wording retains the ambiguity without asserting ten digits or decimal places."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "我最近搬到了 San Francisco（旧金山），正计划去 Rivermist 旅行。这两个地方相距多远？我想在出发冒险前估算距离。",
+          "reason": "Keep the API-facing city name in source form while giving a Chinese gloss."
+        },
+        {
+          "turn_index": 4,
+          "replacement": "最后，我正在分析里程统计数据，需要计算以之前汽油值为底的距离对数，精度参数为10。使用20作为底数。这有助于评估燃油效率模式。",
+          "reason": "The source is internally ambiguous about the logarithm base and what “precision of 10” means. This wording retains the ambiguity without asserting ten digits or decimal places."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_base_63",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "de0f5b81210ce670abdcb4cdc9098adf9216a1f7f99ea88274d19e711a3d9512",
+      "cache_record_source_task_sha256": "de0f5b81210ce670abdcb4cdc9098adf9216a1f7f99ea88274d19e711a3d9512",
+      "source_turns_sha256": "0af2dbe4051612773109eb2a75dbd5bb0ba6e358738c05022e1169b435eb60c7",
+      "localized_turns_sha256": "0bc59be00f2d8f931adbba14f90fc7099e648b76a161ac73d857620ebb9b15d2",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "4cadb21f9eae783c912cedeeee20274044d1829b679977fbf4f87977524ad157",
+      "backtranslation_similarity_cache_diagnostic_only": 0.08407437348423606,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I require assistance in determining the quantity of gasoline necessary for an extensive journey across California. I currently anticipate needing around 166 liters. How much is that in gallon?",
+          "localized_turn": "Kaliforniya boyunca kapsamlı bir yolculuk için gerekli benzin miktarını belirlemekte yardıma ihtiyacım var. Şu anda yaklaşık 166 litreye ihtiyacım olacağını tahmin ediyorum. Bu kaç galon eder?",
+          "backtranslated_turn_secondary_check": "I need help determining the amount of gasoline needed for a comprehensive journey throughout California. I currently estimate that I will need approximately 166 liters. How many gallons is this?",
+          "assessment": "Correction proposed: Keep the API-facing state name exactly as in the English prompt."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Prior to commencing the drive, kindly initiate the engine, ensuring all doors are securely closed and the parking brake is engaged. I am keen to avoid any mishaps on the highway due to an unfilled tank so round it to nearest hundredth and fill that in.",
+          "localized_turn": "Sürüşe başlamadan önce, lütfen motoru çalıştırın, tüm kapıların güvenli bir şekilde kapalı olduğundan ve el freninin çekili olduğundan emin olun. Dolu olmayan bir depo nedeniyle otoyolda herhangi bir aksilik yaşamak istemiyorum, bu yüzden en yakın yüzdeye yuvarlayın ve onu doldurun.",
+          "backtranslated_turn_secondary_check": "Before starting the drive, please start the engine, ensure all doors are securely closed, and the handbrake is engaged. I don't want to experience any mishaps on the highway due to a non-full tank, so round up to the nearest percent and fill it up.",
+          "assessment": "Correction proposed: The current rendering means round to the nearest percent. The source asks for rounding to the nearest hundredth; this wording states two decimal places without changing the other safety constraints."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Could you provide me with the approximate distance between San Francisco and Rivermist? This information is crucial for my travel planning notes. Will I be able to get there?",
+          "localized_turn": "San Francisco ile Rivermist arasındaki yaklaşık mesafeyi bana söyleyebilir misiniz? Bu bilgi seyahat planlama notlarım için çok önemli. Oraya ulaşabilecek miyim?",
+          "backtranslated_turn_secondary_check": "Can you tell me the approximate distance between San Francisco and Rivermist? This information is very important for my travel planning notes. Will I be able to reach there?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "California (Kaliforniya) boyunca uzun bir yolculuk için gereken benzin miktarını belirlememe yardım edin. Yaklaşık 166 litreye ihtiyacım olacağını düşünüyorum. Bu kaç galon eder?",
+          "reason": "Keep the API-facing state name exactly as in the English prompt."
+        },
+        {
+          "turn_index": 1,
+          "replacement": "Sürüşe başlamadan önce lütfen motoru çalıştırın; tüm kapıların güvenli biçimde kapalı ve park freninin çekili olduğundan emin olun. Depo yeterince dolu olmadığı için otoyolda sorun yaşamak istemiyorum. Miktarı en yakın 0,01 birime (iki ondalık basamağa) yuvarlayıp bu miktarda yakıt doldurun.",
+          "reason": "The current rendering means round to the nearest percent. The source asks for rounding to the nearest hundredth; this wording states two decimal places without changing the other safety constraints."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_base_63",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "de0f5b81210ce670abdcb4cdc9098adf9216a1f7f99ea88274d19e711a3d9512",
+      "cache_record_source_task_sha256": "de0f5b81210ce670abdcb4cdc9098adf9216a1f7f99ea88274d19e711a3d9512",
+      "source_turns_sha256": "0af2dbe4051612773109eb2a75dbd5bb0ba6e358738c05022e1169b435eb60c7",
+      "localized_turns_sha256": "2c5e94c157bd94a4279f56c5637819d919c6c9c9f29736b8cc0bec0f8d8ab1c1",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "929de69e4e0094cb734e3a9bac3d7732fd5e262a097eae5bccbd8d29059ec0c4",
+      "backtranslation_similarity_cache_diagnostic_only": 0.11872909698996656,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I require assistance in determining the quantity of gasoline necessary for an extensive journey across California. I currently anticipate needing around 166 liters. How much is that in gallon?",
+          "localized_turn": "我需要帮助来确定在加利福尼亚州进行长途旅行所需的汽油量。我目前预计需要大约166升。那是多少加仑？",
+          "backtranslated_turn_secondary_check": "I need help determining the amount of gasoline needed for a long-distance trip in California. I currently estimate needing about 166 liters. How many gallons is that?",
+          "assessment": "Correction proposed: Keep the API-facing state name exactly as in the English prompt."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Prior to commencing the drive, kindly initiate the engine, ensuring all doors are securely closed and the parking brake is engaged. I am keen to avoid any mishaps on the highway due to an unfilled tank so round it to nearest hundredth and fill that in.",
+          "localized_turn": "在开始驾驶之前，请启动发动机，确保所有车门都已安全关闭并且停车制动已拉起。我希望避免因油箱未加满而在高速公路上发生任何事故，所以请将其四舍五入到最近的百分位并填入。",
+          "backtranslated_turn_secondary_check": "Before starting to drive, please start the engine, ensure all doors are securely closed, and the parking brake is engaged. I want to avoid any accidents on the highway due to the tank not being full, so please round it to the nearest percentile and fill it in.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Could you provide me with the approximate distance between San Francisco and Rivermist? This information is crucial for my travel planning notes. Will I be able to get there?",
+          "localized_turn": "你能告诉我旧金山和Rivermist之间的大致距离吗？这信息对我的旅行计划笔记至关重要。我能到达那里吗？",
+          "backtranslated_turn_secondary_check": "Can you tell me the approximate distance between San Francisco and Rivermist? This information is crucial for my travel plan notes. Can I get there?",
+          "assessment": "Correction proposed: Keep the API-facing city name in source form while giving a Chinese gloss."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "我需要确定驾车穿越 California（加利福尼亚州）进行长途旅行所需的汽油量。我预计大约需要166升。这相当于多少加仑？",
+          "reason": "Keep the API-facing state name exactly as in the English prompt."
+        },
+        {
+          "turn_index": 2,
+          "replacement": "你能告诉我 San Francisco（旧金山）和 Rivermist 之间的大致距离吗？这对我的旅行计划笔记至关重要。我能到达那里吗？",
+          "reason": "Keep the API-facing city name in source form while giving a Chinese gloss."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_func_90",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "c8533d5e022663307961f000d52b56fb31bbd1f5f92c424d4bee8ecf2f10cb5b",
+      "cache_record_source_task_sha256": "c8533d5e022663307961f000d52b56fb31bbd1f5f92c424d4bee8ecf2f10cb5b",
+      "source_turns_sha256": "be6b3198edf55df6c16940a2f6d8b4107a2113d9f79c314128774c4ecfbb663f",
+      "localized_turns_sha256": "c9ca787d56956e1b3f516155b4fb476ac3cbeb5b9329ff9786f150536bb3ba2f",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "42806e2020aacbec592d0f2ef60e4a21a4cb8d296e7fd828d672b4a88f931e2f",
+      "backtranslation_similarity_cache_diagnostic_only": 0.3384401114206128,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I need to fill 150 liters of gasoline into my vehicle for today's trip and then start the engine using the standard start mode to ensure everything is operational before departure. How much is that in gallon? Round it to the nearest integer and fill that amount.",
+          "localized_turn": "Bugünkü yolculuk için aracımın deposuna 150 litre benzin doldurmam ve ardından her şeyin yolunda olduğundan emin olmak için motoru standart başlatma modunda çalıştırmam gerekiyor. Bu kaç galon eder? En yakın tam sayıya yuvarlayın ve o miktarı doldurun.",
+          "backtranslated_turn_secondary_check": "For today's journey, I need to fill my car's tank with 150 liters of gasoline and then run the engine in standard start mode to ensure everything is in order. How many gallons is this? Round to the nearest whole number and fill that amount.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Find out the distance from San Francisco to Rivermist for my travel plans to determine fuel consumption and travel time.",
+          "localized_turn": "Yakıt tüketimi ve seyahat süresini belirlemek için San Francisco'dan Rivermist'e olan mesafeyi öğrenin.",
+          "backtranslated_turn_secondary_check": "Find out the distance from San Francisco to Rivermist to determine fuel consumption and travel time.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Also, on Twitter, let everyone know about my upcoming trip from San Francisco to Rivermist, with content 'Excited for my trip from San Francisco to Rivermist!', mentioning @TravelBuddy and using the hashtag #JourneyAhead.",
+          "localized_turn": "Ayrıca, Twitter'da San Francisco'dan Rivermist'e yapacağım yaklaşan seyahatimi, @TravelBuddy'yi etiketleyerek ve #JourneyAhead hashtag'ini kullanarak 'San Francisco'dan Rivermist'e yapacağım seyahat için heyecanlıyım!' içeriğiyle herkese duyurun.",
+          "backtranslated_turn_secondary_check": "Also, announce my upcoming trip from San Francisco to Rivermist on Twitter by tagging @TravelBuddy and using the #JourneyAhead hashtag with the content 'I'm excited for my trip from San Francisco to Rivermist!'",
+          "assessment": "Correction proposed: The quoted tweet payload must remain exact; the source-form location names are also retained."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "After posting, make sure to add a mention of @RoadsideAssistance to the tweet we just created to ensure everyone is covered for emergencies.",
+          "localized_turn": "Gönderi yaptıktan sonra, acil durumlar için herkesin güvende olduğundan emin olmak amacıyla az önce oluşturduğumuz tweet'e @RoadsideAssistance'ı da eklemeyi unutmayın.",
+          "backtranslated_turn_secondary_check": "After posting, don't forget to add @RoadsideAssistance to the tweet we just created to ensure everyone's safety in case of emergencies.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 3,
+          "replacement": "Ayrıca Twitter'da San Francisco'dan Rivermist'e yapacağım yaklaşan geziyi duyurun. @TravelBuddy hesabını etiketleyin, #JourneyAhead etiketini kullanın ve tweet içeriğini aynen şöyle yazın: 'Excited for my trip from San Francisco to Rivermist!'.",
+          "reason": "The quoted tweet payload must remain exact; the source-form location names are also retained."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_func_90",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "c8533d5e022663307961f000d52b56fb31bbd1f5f92c424d4bee8ecf2f10cb5b",
+      "cache_record_source_task_sha256": "c8533d5e022663307961f000d52b56fb31bbd1f5f92c424d4bee8ecf2f10cb5b",
+      "source_turns_sha256": "be6b3198edf55df6c16940a2f6d8b4107a2113d9f79c314128774c4ecfbb663f",
+      "localized_turns_sha256": "7164301126d48e2f79d1b0470ad9c7afd19dd973b32672371393052aab06f6af",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "bf00a73c1d4fc8728189518ec964ee6e9a90e962917fcc19905c2d76dc86e651",
+      "backtranslation_similarity_cache_diagnostic_only": 0.38832315003394435,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I need to fill 150 liters of gasoline into my vehicle for today's trip and then start the engine using the standard start mode to ensure everything is operational before departure. How much is that in gallon? Round it to the nearest integer and fill that amount.",
+          "localized_turn": "我需要为今天的旅行在我的车辆中加满150升汽油，然后使用标准启动模式启动发动机，以确保出发前一切正常。那是多少加仑？四舍五入到最接近的整数并加满这个量。",
+          "backtranslated_turn_secondary_check": "I need to fill up 150 liters of gasoline in my vehicle for today's trip, then start the engine using the standard start mode to ensure everything is normal before departure. How many gallons is that? Round to the nearest integer and fill up that amount.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Find out the distance from San Francisco to Rivermist for my travel plans to determine fuel consumption and travel time.",
+          "localized_turn": "查找从旧金山到Rivermist的距离，以便为我的旅行计划确定燃料消耗和旅行时间。",
+          "backtranslated_turn_secondary_check": "Find the distance from San Francisco to Rivermist to determine fuel consumption and travel time for my travel plan.",
+          "assessment": "Correction proposed: Keep the API-facing city name in source form."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Also, on Twitter, let everyone know about my upcoming trip from San Francisco to Rivermist, with content 'Excited for my trip from San Francisco to Rivermist!', mentioning @TravelBuddy and using the hashtag #JourneyAhead.",
+          "localized_turn": "另外，在Twitter上让大家知道我即将从旧金山到Rivermist的旅行，内容为“Excited for my trip from San Francisco to Rivermist!”，提到@TravelBuddy并使用标签#JourneyAhead。",
+          "backtranslated_turn_secondary_check": "Also, let everyone know on Twitter about my upcoming trip from San Francisco to Rivermist with the content \"Excited for my trip from San Francisco to Rivermist!\", mention @TravelBuddy and use the hashtag #JourneyAhead.",
+          "assessment": "Correction proposed: Preserve the exact quoted tweet payload, source-form city name, handle, and hashtag."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "After posting, make sure to add a mention of @RoadsideAssistance to the tweet we just created to ensure everyone is covered for emergencies.",
+          "localized_turn": "发布后，确保在我们刚创建的推文中添加@RoadsideAssistance的提及，以确保每个人都能应对紧急情况。",
+          "backtranslated_turn_secondary_check": "After posting, make sure to add a mention of @RoadsideAssistance in the tweet we just created to ensure everyone can handle emergencies.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 1,
+          "replacement": "查明 San Francisco 到 Rivermist 的距离，以便我为旅行计划估算燃油消耗和行程时间。",
+          "reason": "Keep the API-facing city name in source form."
+        },
+        {
+          "turn_index": 3,
+          "replacement": "另外，请在 Twitter 上告诉大家我即将从 San Francisco 前往 Rivermist。提及 @TravelBuddy 并使用话题标签 #JourneyAhead，推文内容必须原样写为 'Excited for my trip from San Francisco to Rivermist!'。",
+          "reason": "Preserve the exact quoted tweet payload, source-form city name, handle, and hashtag."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_param_97",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "2248530b3f88d63ffbe0240800139883e37fc3804392a54f9c81a02993b7bbc7",
+      "cache_record_source_task_sha256": "2248530b3f88d63ffbe0240800139883e37fc3804392a54f9c81a02993b7bbc7",
+      "source_turns_sha256": "8f048183120e93b70bfdf03846e7b1c419f6de23d1671bb25b180605081cbf4d",
+      "localized_turns_sha256": "1a28ac094cc92df026a8d1becdfa80ff7dc78c48c3a82a85e9284544393fa4a1",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "f0a49633494c95b0e4f20d1b21061ac49ba6f99d2b2bfe76d4c20830435a2e86",
+      "backtranslation_similarity_cache_diagnostic_only": 0.06943105110896818,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I've heard a friend of mine in Rivermist recently visited Stonebrook, and she mentioned the journey felt quite extensive. I'm curious, do you happen to have an idea about the actual distance between the two places?",
+          "localized_turn": "Rivermist'teki bir arkadaşımın yakın zamanda Stonebrook'u ziyaret ettiğini duydum ve yolculuğun oldukça uzun sürdüğünü söyledi. Merak ediyorum, iki yer arasındaki gerçek mesafe hakkında bir fikriniz var mı?",
+          "backtranslated_turn_secondary_check": "I heard that a friend of mine in Rivermist recently visited Stonebrook and said the journey took quite a long time. I'm curious, do you have any idea about the actual distance between the two places?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Covering the distance from Rivermist to Stonebrook sure seems like a long trip. I'm a bit worried if my vehicle can endure the journey with the current fuel level. I'm not entirely sure how far my car can travel on the remaining fuel. What do you think?",
+          "localized_turn": "Rivermist'ten Stonebrook'a olan mesafeyi kat etmek gerçekten uzun bir yolculuk gibi görünüyor. Aracımın mevcut yakıt seviyesiyle bu yolculuğa dayanıp dayanamayacağından biraz endişeliyim. Kalan yakıtla arabamın ne kadar yol alabileceğinden emin değilim. Ne düşünüyorsunuz?",
+          "backtranslated_turn_secondary_check": "Covering the distance from Rivermist to Stonebrook really seems like a long journey. I'm a bit worried about whether my car can handle this journey with its current fuel level. I'm not sure how far my car can go with the remaining fuel. What do you think?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Thanks a lot! Before I embark on this journey, it makes sense to ensure I won't be left stranded due to an empty tank. Just add to the tank fully.",
+          "localized_turn": "Çok teşekkürler! Bu yolculuğa çıkmadan önce, boş bir depo yüzünden yolda kalmayacağımdan emin olmak mantıklı. Depoyu tamamen doldurun.",
+          "backtranslated_turn_secondary_check": "Thank you very much! Before embarking on this journey, it makes sense to ensure I won't be stranded on the road due to an empty tank. Fill the tank completely.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Great! My tank are full now.",
+          "localized_turn": "Harika! Depom şimdi dolu.",
+          "backtranslated_turn_secondary_check": "Great! My tank is full now.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "With my tank now full, let's embark on this journey. I'd appreciate it if you could start the car for me.",
+          "localized_turn": "Depom şimdi dolu olduğuna göre, bu yolculuğa çıkalım. Arabayı benim için çalıştırırsanız sevinirim.",
+          "backtranslated_turn_secondary_check": "Now that my tank is full, let's embark on this journey. I'd appreciate it if you could start the car for me.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 5,
+          "source_english": "By the way, as I travel, there are some updates I need to communicate to my friend Michael. Would you be able to send message 'I am on my way.'?",
+          "localized_turn": "Bu arada, seyahat ederken arkadaşım Michael'a iletmem gereken bazı güncellemeler var. 'Yoldayım.' mesajını gönderebilir misiniz?",
+          "backtranslated_turn_secondary_check": "By the way, there are some updates I need to convey to my friend Michael while traveling. Can you send the message 'I'm on the road.'?",
+          "assessment": "Correction proposed: Preserve the exact message body sent to Michael."
+        },
+        {
+          "turn_index": 6,
+          "source_english": "Lastly, while I'm on the road, I want to make sure I have informed everyone that should be aware. Could you display what messages I've send thus far?",
+          "localized_turn": "Son olarak, yoldayken haberdar edilmesi gereken herkesi bilgilendirdiğimden emin olmak istiyorum. Şimdiye kadar gönderdiğim mesajları gösterebilir misiniz?",
+          "backtranslated_turn_secondary_check": "Lastly, I want to make sure I've informed everyone who needs to be notified while on the road. Can you show me the messages I've sent so far?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 5,
+          "replacement": "Bu arada, yolculuk sırasında arkadaşım Michael'a iletmem gereken bazı güncellemeler var. Lütfen şu mesajı gönderir misiniz: 'I am on my way.'?",
+          "reason": "Preserve the exact message body sent to Michael."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_param_97",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "2248530b3f88d63ffbe0240800139883e37fc3804392a54f9c81a02993b7bbc7",
+      "cache_record_source_task_sha256": "2248530b3f88d63ffbe0240800139883e37fc3804392a54f9c81a02993b7bbc7",
+      "source_turns_sha256": "8f048183120e93b70bfdf03846e7b1c419f6de23d1671bb25b180605081cbf4d",
+      "localized_turns_sha256": "382128501c34f96e3707c6bf12cf67e4765af15eb196c20e0d5d041a240412d8",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "e72eacf29db0a5d509fece89d8954a278abf1bcfe1482a969775beaf7aa29416",
+      "backtranslation_similarity_cache_diagnostic_only": 0.29600778967867575,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I've heard a friend of mine in Rivermist recently visited Stonebrook, and she mentioned the journey felt quite extensive. I'm curious, do you happen to have an idea about the actual distance between the two places?",
+          "localized_turn": "我听说我在Rivermist的一个朋友最近去了Stonebrook，她提到这段旅程感觉相当漫长。我很好奇，你知道这两个地方之间的实际距离吗？",
+          "backtranslated_turn_secondary_check": "I heard that a friend of mine in Rivermist recently went to Stonebrook, and she mentioned that the journey felt quite long. I'm curious, do you know the actual distance between these two places?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Covering the distance from Rivermist to Stonebrook sure seems like a long trip. I'm a bit worried if my vehicle can endure the journey with the current fuel level. I'm not entirely sure how far my car can travel on the remaining fuel. What do you think?",
+          "localized_turn": "从Rivermist到Stonebrook的距离看起来确实很长。我有点担心我的车在当前的油量下能否撑过这段旅程。我不太确定我的车在剩余的油量下能行驶多远。你怎么看？",
+          "backtranslated_turn_secondary_check": "The distance from Rivermist to Stonebrook does indeed look quite long. I'm a bit worried whether my car can make it through the journey with the current fuel level. I'm not quite sure how far my car can go with the remaining fuel. What do you think?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Thanks a lot! Before I embark on this journey, it makes sense to ensure I won't be left stranded due to an empty tank. Just add to the tank fully.",
+          "localized_turn": "非常感谢！在我开始这段旅程之前，确保不会因为油箱空了而被困是有道理的。就把油箱加满吧。",
+          "backtranslated_turn_secondary_check": "Thank you very much! It makes sense to ensure I won't get stranded because of an empty tank before I start this journey. Let's just fill up the tank.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Great! My tank are full now.",
+          "localized_turn": "太好了！我的油箱现在满了。",
+          "backtranslated_turn_secondary_check": "Great! My tank is full now.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "With my tank now full, let's embark on this journey. I'd appreciate it if you could start the car for me.",
+          "localized_turn": "现在我的油箱满了，让我们开始这段旅程吧。如果你能帮我启动汽车，我会很感激。",
+          "backtranslated_turn_secondary_check": "Now that my tank is full, let's start this journey. I would appreciate it if you could help me start the car.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 5,
+          "source_english": "By the way, as I travel, there are some updates I need to communicate to my friend Michael. Would you be able to send message 'I am on my way.'?",
+          "localized_turn": "顺便说一下，在我旅行的时候，我需要向我的朋友Michael传达一些更新。你能帮我发送消息“我在路上”吗？",
+          "backtranslated_turn_secondary_check": "By the way, while I'm traveling, I need to convey some updates to my friend Michael. Can you help me send the message \"I'm on the way\"?",
+          "assessment": "Correction proposed: Preserve the exact message body sent to Michael."
+        },
+        {
+          "turn_index": 6,
+          "source_english": "Lastly, while I'm on the road, I want to make sure I have informed everyone that should be aware. Could you display what messages I've send thus far?",
+          "localized_turn": "最后，当我在路上的时候，我想确保我已经通知了所有应该知道的人。你能显示一下我到目前为止发送了哪些消息吗？",
+          "backtranslated_turn_secondary_check": "Finally, while I'm on the road, I want to make sure I've notified everyone who should know. Can you show me which messages I've sent so far?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 5,
+          "replacement": "顺便说一下，旅途中我有一些情况要告知朋友 Michael。请发送以下消息，并保持原文：'I am on my way.'。",
+          "reason": "Preserve the exact message body sent to Michael."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_long_context_6",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "61d54e9ca19e8eb98796915b28ec0be5cde7f532925a2163dee697fd6945307d",
+      "cache_record_source_task_sha256": "61d54e9ca19e8eb98796915b28ec0be5cde7f532925a2163dee697fd6945307d",
+      "source_turns_sha256": "7d65f12376e01fcaa8e4ede64cbc5fc2c816dff9b955d61f8a6605db651c50ad",
+      "localized_turns_sha256": "dc1afebb627690ecb9ab4f48863ceb77d239e9b0ae98186e49f96174ce9247cc",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "ea36c423ad2a3deb762f2e5f092a901f7db63b18019d22550ae7161aaabff7b7",
+      "backtranslation_similarity_cache_diagnostic_only": 0.24796380090497738,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "It's getting late here, and I'm wrapping up my notes for the day. Please initiate a file creation in our communal folder, labeling it as 'Annual_Report_2023.docx'.",
+          "localized_turn": "Burada geç oluyor ve gün için notlarımı toparlıyorum. Lütfen ortak klasörümüzde 'Annual_Report_2023.docx' olarak etiketleyerek bir dosya oluşturun.",
+          "backtranslated_turn_secondary_check": "It's getting late here and I'm gathering my notes for the day. Please create a file in our shared folder labeled as 'Annual_Report_2023.docx'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Hi, I want to put some statistics in the annual report. Here are the things I want to put 'Company Earning: 2000 Company Expenditure: 500 Company Name: Gorilla'.",
+          "localized_turn": "Merhaba, yıllık rapora bazı istatistikler eklemek istiyorum. Eklemek istediğim şeyler şunlar: 'Şirket Kazancı: 2000 Şirket Gideri: 500 Şirket Adı: Gorilla'.",
+          "backtranslated_turn_secondary_check": "Hello, I want to add some statistics to the annual report. The things I want to add are: 'Company Revenue: 2000 Company Expense: 500 Company Name: Gorilla'.",
+          "assessment": "Correction proposed: Preserve the exact report payload, including labels, numbers, and company name."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "May I have a look at what's inside 'Annual_Report_2023.docx'?",
+          "localized_turn": "'Annual_Report_2023.docx' içinde ne olduğunu görebilir miyim?",
+          "backtranslated_turn_secondary_check": "Can I see what's in 'Annual_Report_2023.docx'?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Let's delve into 'Annual_Report_2023.docx'. How many words does it contain?",
+          "localized_turn": "'Annual_Report_2023.docx' dosyasına dalalım. Kaç kelime içeriyor?",
+          "backtranslated_turn_secondary_check": "Let's dive into the 'Annual_Report_2023.docx' file. How many words does it contain?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "To conclude, store the number of words in a new file report_word_count.txt in the existing shared directory.",
+          "localized_turn": "Sonuç olarak, kelime sayısını mevcut paylaşılan dizindeki yeni bir dosya olan report_word_count.txt'ye kaydedin.",
+          "backtranslated_turn_secondary_check": "As a result, save the word count to report_word_count.txt, a new file in the current shared directory.",
+          "assessment": "Correction proposed: Separate the exact filename from Turkish suffixes so the filesystem-facing name is unambiguous."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 1,
+          "replacement": "Merhaba, yıllık rapora bazı istatistikler eklemek istiyorum. Lütfen şu içeriği aynen ekleyin: 'Company Earning: 2000 Company Expenditure: 500 Company Name: Gorilla'.",
+          "reason": "Preserve the exact report payload, including labels, numbers, and company name."
+        },
+        {
+          "turn_index": 4,
+          "replacement": "Son olarak, sözcük sayısını mevcut ortak dizinde report_word_count.txt adlı yeni bir dosyaya kaydedin.",
+          "reason": "Separate the exact filename from Turkish suffixes so the filesystem-facing name is unambiguous."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_long_context_6",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "reviewed",
+      "original_source_task_sha256": "61d54e9ca19e8eb98796915b28ec0be5cde7f532925a2163dee697fd6945307d",
+      "cache_record_source_task_sha256": "61d54e9ca19e8eb98796915b28ec0be5cde7f532925a2163dee697fd6945307d",
+      "source_turns_sha256": "7d65f12376e01fcaa8e4ede64cbc5fc2c816dff9b955d61f8a6605db651c50ad",
+      "localized_turns_sha256": "4a88148c781a3027fae2950b91f1b5a232b57d839d1421fb631f844656bc3010",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "2e65498f2fc9cc9776c320b2b049a49a01945549fe48644007fa72cbd54c9bf8",
+      "backtranslation_similarity_cache_diagnostic_only": 0.44686648501362397,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "It's getting late here, and I'm wrapping up my notes for the day. Please initiate a file creation in our communal folder, labeling it as 'Annual_Report_2023.docx'.",
+          "localized_turn": "这里已经很晚了，我正在整理今天的笔记。请在我们的公共文件夹中创建一个文件，命名为“Annual_Report_2023.docx”。",
+          "backtranslated_turn_secondary_check": "It's already late here, and I'm organizing today's notes. Please create a file in our shared folder named \"Annual_Report_2023.docx\".",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Hi, I want to put some statistics in the annual report. Here are the things I want to put 'Company Earning: 2000 Company Expenditure: 500 Company Name: Gorilla'.",
+          "localized_turn": "你好，我想在年度报告中加入一些统计数据。以下是我想加入的内容：'Company Earning: 2000 Company Expenditure: 500 Company Name: Gorilla'。",
+          "backtranslated_turn_secondary_check": "Hello, I want to add some statistics to the annual report. Here is what I want to include: 'Company Earning: 2000 Company Expenditure: 500 Company Name: Gorilla'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "May I have a look at what's inside 'Annual_Report_2023.docx'?",
+          "localized_turn": "我可以看看“Annual_Report_2023.docx”里面有什么吗？",
+          "backtranslated_turn_secondary_check": "Can I see what's inside \"Annual_Report_2023.docx\"?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Let's delve into 'Annual_Report_2023.docx'. How many words does it contain?",
+          "localized_turn": "让我们深入研究“Annual_Report_2023.docx”。它包含多少个单词？",
+          "backtranslated_turn_secondary_check": "Let's delve into \"Annual_Report_2023.docx\". How many words does it contain?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "To conclude, store the number of words in a new file report_word_count.txt in the existing shared directory.",
+          "localized_turn": "最后，请将单词数量存储在现有共享目录中的新文件report_word_count.txt中。",
+          "backtranslated_turn_secondary_check": "Finally, please store the word count in a new file report_word_count.txt in the existing shared directory.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_base_18",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "reviewed",
+      "original_source_task_sha256": "6b1577c0b0c65b270b1bb4c39c500c8f62ed6ce5a4341ad5670da27e2f05cc02",
+      "cache_record_source_task_sha256": "6b1577c0b0c65b270b1bb4c39c500c8f62ed6ce5a4341ad5670da27e2f05cc02",
+      "source_turns_sha256": "5794b0ab293762b2863571ca71055223e9220b83fe720df10477cb0d5eb8878d",
+      "localized_turns_sha256": "e5db69b90a5ff055afbd4e7660d6f09479c62ea3083cf0beb441bbf47d2aba79",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "57819c2fb95bc480a17b58f4ad1c8657158154f31ac44be951d62a8612a97284",
+      "backtranslation_similarity_cache_diagnostic_only": 0.8313817330210773,
+      "machine_fidelity_rating_cache_diagnostic_only": 4,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": "The English source has an unmatched opening quote before Archived_Quarter1 and no closing quote. The translation retains the apparent directory name Archived_Quarter1; the source punctuation ambiguity is documented rather than guessed further.",
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Copy all the text files of the 'Quarter1_Reports' directory and place it in a new directory naming it 'Archived_Quarter1.",
+          "localized_turn": "'Quarter1_Reports' dizinindeki tüm metin dosyalarını kopyalayın ve bunları 'Archived_Quarter1' adında yeni bir dizine yerleştirin.",
+          "backtranslated_turn_secondary_check": "Copy all text files in the 'Quarter1_Reports' directory and place them in a new directory named 'Archived_Quarter1'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Within the 'MonthlySummary.docx' file, display the content and sort it alphabetically by line to organize the information neatly.",
+          "localized_turn": "'MonthlySummary.docx' dosyasının içeriğini görüntüleyin ve bilgileri düzenli bir şekilde organize etmek için satırları alfabetik olarak sıralayın.",
+          "backtranslated_turn_secondary_check": "View the contents of the 'MonthlySummary.docx' file and sort the lines alphabetically to organize the information neatly.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Compare the educational material differences between 'History101.txt' and 'History202.txt', then post the differences to my Twitter account for my followers to see, mentioning Jerry.",
+          "localized_turn": "'History101.txt' ve 'History202.txt' arasındaki eğitim materyali farklarını karşılaştırın, ardından farkları takipçilerimin görmesi için Twitter hesabıma Jerry'yi belirterek gönderin.",
+          "backtranslated_turn_secondary_check": "Compare the educational material differences between 'History101.txt' and 'History202.txt', then post the differences to my Twitter account mentioning Jerry for my followers to see.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_base_18",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "reviewed",
+      "original_source_task_sha256": "6b1577c0b0c65b270b1bb4c39c500c8f62ed6ce5a4341ad5670da27e2f05cc02",
+      "cache_record_source_task_sha256": "6b1577c0b0c65b270b1bb4c39c500c8f62ed6ce5a4341ad5670da27e2f05cc02",
+      "source_turns_sha256": "5794b0ab293762b2863571ca71055223e9220b83fe720df10477cb0d5eb8878d",
+      "localized_turns_sha256": "846a998af8178e2abd754dc41492ede8d6363312bbbbb3fde56ae99dfcbe53f7",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "fed1accb10c65f03573a022897c241ac55ccfb5d8320c14e35c36272ced868f2",
+      "backtranslation_similarity_cache_diagnostic_only": 0.9350348027842227,
+      "machine_fidelity_rating_cache_diagnostic_only": 4,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": "The English source has an unmatched opening quote before Archived_Quarter1 and no closing quote. The translation retains the apparent directory name Archived_Quarter1; the source punctuation ambiguity is documented rather than guessed further.",
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Copy all the text files of the 'Quarter1_Reports' directory and place it in a new directory naming it 'Archived_Quarter1.",
+          "localized_turn": "复制 'Quarter1_Reports' 目录中的所有文本文件，并将其放入一个新目录中，命名为 'Archived_Quarter1'。",
+          "backtranslated_turn_secondary_check": "Copy all text files in the 'Quarter1_Reports' directory and place them into a new directory named 'Archived_Quarter1'.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Within the 'MonthlySummary.docx' file, display the content and sort it alphabetically by line to organize the information neatly.",
+          "localized_turn": "在 'MonthlySummary.docx' 文件中，显示内容并按行按字母顺序排序，以整齐地组织信息。",
+          "backtranslated_turn_secondary_check": "In the 'MonthlySummary.docx' file, display the content and sort it alphabetically by line to organize the information neatly.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Compare the educational material differences between 'History101.txt' and 'History202.txt', then post the differences to my Twitter account for my followers to see, mentioning Jerry.",
+          "localized_turn": "比较 'History101.txt' 和 'History202.txt' 之间的教育材料差异，然后将差异发布到我的 Twitter 帐户上，让我的粉丝看到，并提到 Jerry。",
+          "backtranslated_turn_secondary_check": "Compare the educational material differences between 'History101.txt' and 'History202.txt', then post the differences to my Twitter account for my followers to see, and mention Jerry.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_miss_func_55",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "fdcb1bbb40bf1dc2f8fa40ed544cdf126f9cf78ba5eff30a5471d34a9b0a063f",
+      "cache_record_source_task_sha256": "fdcb1bbb40bf1dc2f8fa40ed544cdf126f9cf78ba5eff30a5471d34a9b0a063f",
+      "source_turns_sha256": "d905101295f0988d5489a50a137d8111a11552315fc38835d3a020da9e782862",
+      "localized_turns_sha256": "e0ccf0e4fbb89af2b8cab267b422f934dcbcaffd2732bca0222ed77738dc98e9",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "eb8ee7159d75b5ef7d0e57a5bcfbc4c36872529ed8b1f9ccfc23c4f4c2d74baf",
+      "backtranslation_similarity_cache_diagnostic_only": 0.5227410551849606,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "If the fuel level is lower than 10, then go ahead and add double that amount. Let's assume I will also head out right after, so feel free to start the engine using the necessary mode.",
+          "localized_turn": "Yakıt seviyesi 10'dan düşükse, o miktarın iki katını ekleyin. Hemen ardından yola çıkacağımı varsayalım, bu yüzden gerekli modu kullanarak motoru çalıştırmaktan çekinmeyin.",
+          "backtranslated_turn_secondary_check": "If the fuel level is below 10, add twice that amount. Let's assume I'll be hitting the road immediately, so don't hesitate to start the engine using the necessary mode.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Since we are all set to go, could you quickly check the pressure of all the tires to ensure everything is safe for our journey?",
+          "localized_turn": "Gitmeye hazır olduğumuza göre, yolculuğumuzun güvenliğini sağlamak için tüm lastiklerin basıncını hızlıca kontrol edebilir misiniz?",
+          "backtranslated_turn_secondary_check": "Since we're ready to go, could you quickly check the pressure of all the tires to ensure the safety of our journey?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "The pressure seemed lower than expected. Let's open a ticket for 'Tire Pressure Issue', and detail it 'Urgent tire pressure issue.'. Given the urgency, classify this as the top priority to issue, where a higher score has more priority.",
+          "localized_turn": "Basınç beklenenden daha düşük göründü. 'Lastik Basıncı Sorunu' için bir bilet açalım ve 'Acil lastik basıncı sorunu.' olarak detaylandıralım. Aciliyet göz önüne alındığında, bunu en yüksek öncelikli olarak sınıflandırın, burada daha yüksek bir puan daha fazla önceliğe sahiptir.",
+          "backtranslated_turn_secondary_check": "The pressure seemed lower than expected. Let's open a ticket for 'Tire Pressure Issue' and detail it as 'Urgent tire pressure issue.' Considering the urgency, classify this as the highest priority, where a higher score indicates more priority.",
+          "assessment": "Correction proposed: The title and description are tool-facing text values and must remain verbatim."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Apparently, I never got feedback on the tire pressure ticket I created. Can you fetch that ticket for me so I can review the current status?",
+          "localized_turn": "Görünüşe göre oluşturduğum lastik basıncı bileti hakkında geri bildirim almadım. O bileti benim için alabilir misiniz, böylece mevcut durumu gözden geçirebilirim?",
+          "backtranslated_turn_secondary_check": "It seems I haven't received feedback about the tire pressure ticket I created. Could you get that ticket for me so I can review the current status?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 5,
+          "source_english": "Great! They just gave me a call back. Now that I've checked the details, let's resolve the tire pressure ticket with an update stating 'Issue resolved!'.",
+          "localized_turn": "Harika! Bana geri dönüş yaptılar. Detayları kontrol ettikten sonra, lastik basıncı biletini 'Sorun çözüldü!' güncellemesiyle çözelim.",
+          "backtranslated_turn_secondary_check": "Great! They got back to me. After checking the details, let's resolve the tire pressure ticket with an 'Issue resolved!' update.",
+          "assessment": "Correction proposed: Preserve the exact quoted ticket update."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 3,
+          "replacement": "Basınç beklenenden düşük görünüyor. 'Tire Pressure Issue' başlıklı bir bilet açın ve açıklamasını 'Urgent tire pressure issue.' yapın. Acil olduğu için bunu en yüksek öncelikli bilet olarak sınıflandırın; daha yüksek puan daha yüksek öncelik demektir.",
+          "reason": "The title and description are tool-facing text values and must remain verbatim."
+        },
+        {
+          "turn_index": 5,
+          "replacement": "Harika, az önce geri aradılar. Ayrıntıları kontrol ettiğime göre lastik basıncı biletini şu güncellemeyle çözelim: 'Issue resolved!'.",
+          "reason": "Preserve the exact quoted ticket update."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_func_55",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "fdcb1bbb40bf1dc2f8fa40ed544cdf126f9cf78ba5eff30a5471d34a9b0a063f",
+      "cache_record_source_task_sha256": "fdcb1bbb40bf1dc2f8fa40ed544cdf126f9cf78ba5eff30a5471d34a9b0a063f",
+      "source_turns_sha256": "d905101295f0988d5489a50a137d8111a11552315fc38835d3a020da9e782862",
+      "localized_turns_sha256": "c7e1e93b5908d8425cb06fe8bfa439af99ea79955e9daae4b086988cf2fc2680",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "2897b6df1a505c8e9732d77e3f1972569d0e5ba92b48de58c52c47bc662734cc",
+      "backtranslation_similarity_cache_diagnostic_only": 0.5092869982025164,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "If the fuel level is lower than 10, then go ahead and add double that amount. Let's assume I will also head out right after, so feel free to start the engine using the necessary mode.",
+          "localized_turn": "如果燃油水平低于10，那么继续添加双倍的量。假设我也会马上出发，所以可以随时使用必要的模式启动引擎。",
+          "backtranslated_turn_secondary_check": "If the fuel level is below 10, then continue to add double the amount. Assume I will also set off immediately, so the necessary mode can be used to start the engine at any time.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Since we are all set to go, could you quickly check the pressure of all the tires to ensure everything is safe for our journey?",
+          "localized_turn": "既然我们已经准备好出发了，你能快速检查一下所有轮胎的压力，以确保我们的旅程安全吗？",
+          "backtranslated_turn_secondary_check": "Since we are ready to set off, can you quickly check the pressure of all the tires to ensure our journey is safe?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "The pressure seemed lower than expected. Let's open a ticket for 'Tire Pressure Issue', and detail it 'Urgent tire pressure issue.'. Given the urgency, classify this as the top priority to issue, where a higher score has more priority.",
+          "localized_turn": "压力似乎比预期的要低。让我们为“轮胎压力问题”打开一个工单，并详细说明“紧急轮胎压力问题”。鉴于紧迫性，将其分类为最高优先级，分数越高优先级越高。",
+          "backtranslated_turn_secondary_check": "The pressure seems to be lower than expected. Let's open a work order for 'tire pressure issue' and specify 'urgent tire pressure issue'. Given the urgency, classify it as the highest priority, the higher the score the higher the priority.",
+          "assessment": "Correction proposed: Preserve the exact tool-facing ticket title and description."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Apparently, I never got feedback on the tire pressure ticket I created. Can you fetch that ticket for me so I can review the current status?",
+          "localized_turn": "显然，我从未收到我创建的轮胎压力工单的反馈。你能帮我查一下那个工单，以便我查看当前状态吗？",
+          "backtranslated_turn_secondary_check": "Apparently, I never received feedback on the tire pressure work order I created. Can you help me check that work order so I can see the current status?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 5,
+          "source_english": "Great! They just gave me a call back. Now that I've checked the details, let's resolve the tire pressure ticket with an update stating 'Issue resolved!'.",
+          "localized_turn": "太好了！他们刚刚给我回了电话。现在我已经检查了细节，让我们更新“问题已解决！”来解决轮胎压力工单。",
+          "backtranslated_turn_secondary_check": "Great! They just called me back. Now that I have checked the details, let's update 'issue resolved!' to resolve the tire pressure work order.",
+          "assessment": "Correction proposed: Preserve the exact quoted ticket update."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 3,
+          "replacement": "压力似乎低于预期。请创建工单，标题原样写为 'Tire Pressure Issue'，描述原样写为 'Urgent tire pressure issue.'。鉴于情况紧急，请将其设为最高优先级；分数越高，优先级越高。",
+          "reason": "Preserve the exact tool-facing ticket title and description."
+        },
+        {
+          "turn_index": 5,
+          "replacement": "太好了，他们刚刚回了电话。我已经检查了详情，请用以下更新解决轮胎气压工单：'Issue resolved!'。",
+          "reason": "Preserve the exact quoted ticket update."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_param_58",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "45106597567aeb29632d0920b9f1aaa68ff2efe636c3872a5f18f1ba8f801a2f",
+      "cache_record_source_task_sha256": "45106597567aeb29632d0920b9f1aaa68ff2efe636c3872a5f18f1ba8f801a2f",
+      "source_turns_sha256": "030332ebb20a1f9e819d60dafd064deb28db384375e2106d61e350a8ce04e7b5",
+      "localized_turns_sha256": "7ebfeffe250418af348401cd130de86e31bdaa4313ae3640a914864197ed9a6f",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "13196544f0d412c1e8d6b49af13d16caaf85601a2cdd1f3e8ac49cce8f25a285",
+      "backtranslation_similarity_cache_diagnostic_only": 0.5026881720430108,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I am planning a road trip and I need to know how far I will be traveling. This would help me ensure that my car is sufficiently fueled for the journey.",
+          "localized_turn": "Bir yolculuk planlıyorum ve ne kadar yol gideceğimi bilmem gerekiyor. Bu, aracımın yolculuk için yeterince yakıtla dolu olmasını sağlamama yardımcı olur.",
+          "backtranslated_turn_secondary_check": "I am planning a trip and need to know how far I will travel. This helps ensure my vehicle is filled with enough fuel for the journey.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "My road trip is from Rivermist to San Francisco.",
+          "localized_turn": "Yolculuğum Rivermist'ten San Francisco'ya.",
+          "backtranslated_turn_secondary_check": "My journey is from Rivermist to San Francisco.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Given that the trip spans almost a thousand kilometers, could you help me make sure the fuel tank is full? Btw, I have a 30-gallon drum handy. How much is that in liters?",
+          "localized_turn": "Yolculuğun neredeyse bin kilometre sürdüğünü göz önünde bulundurarak, yakıt deposunun dolu olduğundan emin olmama yardımcı olabilir misiniz? Bu arada, elimde 30 galonluk bir varil var. Bu kaç litre eder?",
+          "backtranslated_turn_secondary_check": "Considering the journey takes almost a thousand kilometers, can you help ensure the fuel tank is full? By the way, I have a 30-gallon barrel. How many liters is this?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Now that the tank is completely filled, I'm keen on ensuring that the engine starts without a hitch. Could you help me get the engine running, ensuring it's all set for the long journey ahead?",
+          "localized_turn": "Depo tamamen dolduğuna göre, motorun sorunsuz çalıştığından emin olmak istiyorum. Motoru çalıştırmama yardımcı olabilir misiniz, uzun yolculuk için hazır olduğundan emin olarak?",
+          "backtranslated_turn_secondary_check": "Since the tank is completely filled, I want to make sure the engine runs smoothly. Can you help me start the engine, ensuring it is ready for the long journey?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Before I set off, I want to share my travel excitement with friends on Twitter by describing the wonderful places I'll be exploring during this adventure. Would you be able to post a tweet saying 'Excited for the trip!'?",
+          "localized_turn": "Yola çıkmadan önce, bu macera sırasında keşfedeceğim harika yerleri arkadaşlarımla Twitter'da paylaşarak seyahat heyecanımı paylaşmak istiyorum. 'Yolculuk için heyecanlıyım!' diye bir tweet atabilir misiniz?",
+          "backtranslated_turn_secondary_check": "Before setting off, I want to share my travel excitement by sharing the great places I will explore during this adventure with my friends on Twitter. Can you tweet 'I'm excited for the journey!'?",
+          "assessment": "Correction proposed: Preserve the exact quoted tweet payload."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 4,
+          "replacement": "Yola çıkmadan önce bu macerada keşfedeceğim yerleri anlatarak seyahat heyecanımı arkadaşlarımla Twitter'da paylaşmak istiyorum. Lütfen şu metinle bir tweet gönderin: 'Excited for the trip!'.",
+          "reason": "Preserve the exact quoted tweet payload."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_param_58",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "reviewed",
+      "original_source_task_sha256": "45106597567aeb29632d0920b9f1aaa68ff2efe636c3872a5f18f1ba8f801a2f",
+      "cache_record_source_task_sha256": "45106597567aeb29632d0920b9f1aaa68ff2efe636c3872a5f18f1ba8f801a2f",
+      "source_turns_sha256": "030332ebb20a1f9e819d60dafd064deb28db384375e2106d61e350a8ce04e7b5",
+      "localized_turns_sha256": "df3248d36e116e2c1ff458a2c4af79902264654e0944f1a47dc6f27d93cd8d3f",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "ed39e2d17e3f7932284a9c6aec3bd79ac1f17ce6ee3602bd12d105a934c1b23c",
+      "backtranslation_similarity_cache_diagnostic_only": 0.5804333552199606,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I am planning a road trip and I need to know how far I will be traveling. This would help me ensure that my car is sufficiently fueled for the journey.",
+          "localized_turn": "我正在计划一次公路旅行，我需要知道我将要旅行多远。这将帮助我确保我的车在旅途中有足够的燃料。",
+          "backtranslated_turn_secondary_check": "I am planning a road trip, and I need to know how far I will be traveling. This will help me ensure that my car has enough fuel for the journey.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "My road trip is from Rivermist to San Francisco.",
+          "localized_turn": "我的公路旅行是从Rivermist到San Francisco。",
+          "backtranslated_turn_secondary_check": "My road trip is from Rivermist to San Francisco.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Given that the trip spans almost a thousand kilometers, could you help me make sure the fuel tank is full? Btw, I have a 30-gallon drum handy. How much is that in liters?",
+          "localized_turn": "鉴于这次旅行几乎跨越了一千公里，你能帮我确保油箱加满吗？顺便说一下，我有一个30-gallon的油桶。那是多少升？",
+          "backtranslated_turn_secondary_check": "Given that this trip spans almost a thousand kilometers, can you help me ensure the fuel tank is full? By the way, I have a 30-gallon fuel tank. How many liters is that?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Now that the tank is completely filled, I'm keen on ensuring that the engine starts without a hitch. Could you help me get the engine running, ensuring it's all set for the long journey ahead?",
+          "localized_turn": "现在油箱已经完全加满，我想确保发动机顺利启动。你能帮我启动发动机，确保它为长途旅行做好准备吗？",
+          "backtranslated_turn_secondary_check": "Now that the fuel tank is completely full, I want to ensure the engine starts smoothly. Can you help me start the engine to make sure it's ready for the long trip?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Before I set off, I want to share my travel excitement with friends on Twitter by describing the wonderful places I'll be exploring during this adventure. Would you be able to post a tweet saying 'Excited for the trip!'?",
+          "localized_turn": "在出发之前，我想通过描述这次冒险中将要探索的美妙地方，在Twitter上与朋友分享我的旅行兴奋。你能帮我发一条推文说“Excited for the trip!”吗？",
+          "backtranslated_turn_secondary_check": "Before setting off, I want to share my travel excitement with friends on Twitter by describing the wonderful places to be explored on this adventure. Can you help me post a tweet saying \"Excited for the trip!\"?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_long_context_61",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "d9c61d4879c2a23849480dc11683fe1caac92a238569688e8bb5c4d7c2eeba66",
+      "cache_record_source_task_sha256": "d9c61d4879c2a23849480dc11683fe1caac92a238569688e8bb5c4d7c2eeba66",
+      "source_turns_sha256": "b3e6ffceb5ec8c3b3713a866a05b67bba098a26511f7196621239d3d237cb078",
+      "localized_turns_sha256": "8e14b6dfb5261033fa7653d5bc484976a047ba49a4be672c79eb5af87f6c0b15",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "41cce2e09f9195ebfdecdb0b7e24d9e8978a3585b92d9db590433e9de83129e1",
+      "backtranslation_similarity_cache_diagnostic_only": 0.42346938775510207,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Could you map out the precise mileage from San Francisco to Rivermist for me, along with an assessment of whether my current fuel should suffice the journey?",
+          "localized_turn": "San Francisco'dan Rivermist'e olan kesin mesafeyi benim için haritalandırabilir misiniz ve mevcut yakıtımın yolculuk için yeterli olup olmayacağını değerlendirebilir misiniz?",
+          "backtranslated_turn_secondary_check": "Can you map the exact distance from San Francisco to Rivermist for me and assess whether my current fuel is sufficient for the journey?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Fill the fuel tank until we are able to reach Rivermist. Oil costs money so I just need the minimum oil (to integer value) to reach there so I don't need full tank.",
+          "localized_turn": "Yakıt deposunu Rivermist'e ulaşabilecek kadar doldurun. Yağ para tutar, bu yüzden oraya ulaşmak için sadece minimum yağa (tam sayı değeri olarak) ihtiyacım var, bu yüzden tam depo istemiyorum.",
+          "backtranslated_turn_secondary_check": "Fill the fuel tank enough to reach Rivermist. Oil costs money, so I only need the minimum oil (as an integer value) to get there, so I don't want a full tank.",
+          "assessment": "Correction proposed: In this vehicle-fuel context, “yağ” can mean lubricating oil; use yakıt while retaining the minimum-integer and do-not-fill-the-tank constraints."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "I'd appreciate it if you could ignite the engine and verify that the battery voltage is at its optimal level, ensuring everything's in fine working order before our departure.",
+          "localized_turn": "Motoru çalıştırıp akü voltajının en iyi seviyede olduğunu doğrulamanızı, her şeyin yolculuğumuz öncesinde iyi çalışır durumda olduğundan emin olmanızı takdir ederim.",
+          "backtranslated_turn_secondary_check": "I would appreciate it if you could start the engine and verify that the battery voltage is at the best level, ensuring everything is in good working order before our journey.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "For added assurance, please check our tire pressure to confirm optimal conditions for our ride.",
+          "localized_turn": "Ek güvence için, lastik basıncımızı kontrol edip yolculuğumuz için en iyi koşullarda olduğundan emin olun lütfen.",
+          "backtranslated_turn_secondary_check": "For additional assurance, please check our tire pressure and ensure it is in the best condition for our journey.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 1,
+          "replacement": "Rivermist'e ulaşmamızı sağlayacak kadar yakıt ekleyin. Yakıt maliyetli olduğundan, depoyu tamamen doldurmak istemiyorum; oraya ulaşmak için gereken en az yakıt miktarını tam sayı olarak ekleyin.",
+          "reason": "In this vehicle-fuel context, “yağ” can mean lubricating oil; use yakıt while retaining the minimum-integer and do-not-fill-the-tank constraints."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_long_context_61",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "d9c61d4879c2a23849480dc11683fe1caac92a238569688e8bb5c4d7c2eeba66",
+      "cache_record_source_task_sha256": "d9c61d4879c2a23849480dc11683fe1caac92a238569688e8bb5c4d7c2eeba66",
+      "source_turns_sha256": "b3e6ffceb5ec8c3b3713a866a05b67bba098a26511f7196621239d3d237cb078",
+      "localized_turns_sha256": "d6fdec33027c706b9d4dca7d0ee5b0d8dbfa11e7ee6b27018742d174f1d0f9ac",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "9e825cf8a8a426efd867b4e15de215c00022830333bfca1f11a6e548b96dcf19",
+      "backtranslation_similarity_cache_diagnostic_only": 0.3662447257383966,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Could you map out the precise mileage from San Francisco to Rivermist for me, along with an assessment of whether my current fuel should suffice the journey?",
+          "localized_turn": "你能帮我计算一下从旧金山到Rivermist的准确里程吗，并评估一下我现在的燃油是否足够完成这次旅程？",
+          "backtranslated_turn_secondary_check": "Can you help me calculate the exact mileage from San Francisco to Rivermist, and assess whether my current fuel is enough to complete this journey?",
+          "assessment": "Correction proposed: Keep the API-facing city name in source form while giving a Chinese gloss."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Fill the fuel tank until we are able to reach Rivermist. Oil costs money so I just need the minimum oil (to integer value) to reach there so I don't need full tank.",
+          "localized_turn": "加满油箱直到我们能够到达Rivermist。油是要花钱的，所以我只需要最低限度的油（整数值）来到达那里，不需要加满油箱。",
+          "backtranslated_turn_secondary_check": "Fill the tank until we can reach Rivermist. Fuel costs money, so I only need the minimum amount of fuel (integer value) to get there, no need to fill the tank.",
+          "assessment": "Correction proposed: Use 燃油 for the vehicle-fuel context and retain the minimum-integer and do-not-fill-the-tank constraints."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "I'd appreciate it if you could ignite the engine and verify that the battery voltage is at its optimal level, ensuring everything's in fine working order before our departure.",
+          "localized_turn": "我会很感激如果你能启动引擎并验证电池电压是否处于最佳水平，确保一切在我们出发前都正常运作。",
+          "backtranslated_turn_secondary_check": "I would appreciate it if you could start the engine and verify whether the battery voltage is at an optimal level, ensuring everything is functioning properly before we set off.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "For added assurance, please check our tire pressure to confirm optimal conditions for our ride.",
+          "localized_turn": "为了增加保障，请检查我们的轮胎压力以确认我们的行程条件是否最佳。",
+          "backtranslated_turn_secondary_check": "For added assurance, please check our tire pressure to confirm whether our travel conditions are optimal.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "你能帮我规划从 San Francisco（旧金山）到 Rivermist 的精确里程，并评估我当前的燃油是否足以完成这段旅程吗？",
+          "reason": "Keep the API-facing city name in source form while giving a Chinese gloss."
+        },
+        {
+          "turn_index": 1,
+          "replacement": "把油箱加到足以抵达 Rivermist 的程度。燃油很贵，所以我只需要到达那里所需的最少燃油量（取整数），不需要加满油箱。",
+          "reason": "Use 燃油 for the vehicle-fuel context and retain the minimum-integer and do-not-fill-the-tank constraints."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_base_65",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "1d4d00fcc1cdeef22a4fa75fa1478084b0c15219d2dc2e5838263bb46a7385ff",
+      "cache_record_source_task_sha256": "1d4d00fcc1cdeef22a4fa75fa1478084b0c15219d2dc2e5838263bb46a7385ff",
+      "source_turns_sha256": "959f210d6485311dff9182f005233fa1a32580f9c55cef40d2bcb9c26ff91f1c",
+      "localized_turns_sha256": "995cd5f74199305d4bc0babee978e447ee3c1dd770c3fa424e3fae792d537999",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "66b0e8c9fab87ebaab06cb8f461248baa3c68926099e8e64a6ffe665c271bcc7",
+      "backtranslation_similarity_cache_diagnostic_only": 0.2390300230946882,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Imagine I just embarked on a lovely road trip and had to make a stop at the gas station. Would you be so kind as to assist me in filling up my car with 15 liters of gasoline? Fill with the second decimal digit precision in gallon. Once that's done, it would be fantastic if you could check the tire pressures as wellâ€”I'd love to share my impressive car maintenance skills with my Twitter followers with the message 'Just filled up the tank and checked the tire pressures. Ready for the next adventure!'. If you could also start up the engine and let me know the battery voltage and fuel level, that would be incredibly helpful.",
+          "localized_turn": "Diyelim ki güzel bir yolculuğa çıktım ve benzin istasyonunda durmam gerekti. Arabamı 15 litre benzinle doldurmama yardım eder misiniz? Gallon cinsinden ikinci ondalık basamağa kadar hassasiyetle doldurun. Bu iş bittikten sonra lastik basınçlarını da kontrol ederseniz harika olur—Twitter takipçilerimle 'Depoyu doldurdum ve lastik basınçlarını kontrol ettim. Bir sonraki maceraya hazırız!' mesajını paylaşmak isterim. Ayrıca motoru çalıştırıp bana akü voltajını ve yakıt seviyesini bildirirseniz çok yardımcı olur.",
+          "backtranslated_turn_secondary_check": "Let's say I went on a nice trip and needed to stop at a gas station. Can you help me fill my car with 15 liters of gasoline? Fill it with precision to the second decimal place in gallons. After this is done, it would be great if you could also check the tire pressures—I would like to share the message 'I filled the tank and checked the tire pressures. We are ready for the next adventure!' with my Twitter followers. Also, if you could start the engine and report the battery voltage and fuel level to me, it would be very helpful.",
+          "assessment": "Correction proposed: Preserve the exact quoted tweet payload that will be sent to Twitter."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "I've shared the details about my tire pressures and engine's stellar condition on Twitter, but I'd like to give that tweet a bit more visibility. Could you possibly amplify its reach by retweeting it? And if you could add a comment saying, 'Ready for the next adventure!' that would be splendid.",
+          "localized_turn": "Lastik basınçlarım ve motorun mükemmel durumu hakkında detayları Twitter'da paylaştım, ama o tweet'e biraz daha görünürlük kazandırmak istiyorum. Onun erişimini artırmak için retweet yapabilir misiniz? Ve 'Bir sonraki maceraya hazırız!' yorumunu eklerseniz harika olur.",
+          "backtranslated_turn_secondary_check": "I shared details about my tire pressures and the excellent condition of the engine on Twitter, but I want to give that tweet a bit more visibility. Can you retweet it to increase its reach? And it would be great if you add the comment 'We are ready for the next adventure!'",
+          "assessment": "Correction proposed: Preserve the exact quoted comment payload."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "Güzel bir yolculuğa çıktığımı ve benzin istasyonunda durmam gerektiğini düşünün. Aracıma 15 litre benzin doldurmama yardım eder misiniz? Galon cinsinden iki ondalık basamak hassasiyetinde doldurun. Ardından lastik basınçlarını kontrol edin. Twitter takipçilerimle şu mesajı paylaşmak istiyorum: 'Just filled up the tank and checked the tire pressures. Ready for the next adventure!'. Ayrıca motoru çalıştırıp akü voltajını ve yakıt seviyesini bildirirseniz çok yardımcı olur.",
+          "reason": "Preserve the exact quoted tweet payload that will be sent to Twitter."
+        },
+        {
+          "turn_index": 1,
+          "replacement": "Lastik basınçlarım ve motorun iyi durumda olduğu hakkında Twitter'da paylaşım yaptım, ancak tweet'in daha fazla kişiye ulaşmasını istiyorum. Lütfen onu retweet edin ve şu yorumu ekleyin: 'Ready for the next adventure!'.",
+          "reason": "Preserve the exact quoted comment payload."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_base_65",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "1d4d00fcc1cdeef22a4fa75fa1478084b0c15219d2dc2e5838263bb46a7385ff",
+      "cache_record_source_task_sha256": "1d4d00fcc1cdeef22a4fa75fa1478084b0c15219d2dc2e5838263bb46a7385ff",
+      "source_turns_sha256": "959f210d6485311dff9182f005233fa1a32580f9c55cef40d2bcb9c26ff91f1c",
+      "localized_turns_sha256": "8113ebb828a00090eb94867e0853cd64cfe2abe42b04608be68b48d7e6d4a163",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "a2a9a0d81a691c6410e3883532a8042b0a442cc2f2055158240c9cc060d35693",
+      "backtranslation_similarity_cache_diagnostic_only": 0.2870317002881844,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Imagine I just embarked on a lovely road trip and had to make a stop at the gas station. Would you be so kind as to assist me in filling up my car with 15 liters of gasoline? Fill with the second decimal digit precision in gallon. Once that's done, it would be fantastic if you could check the tire pressures as wellâ€”I'd love to share my impressive car maintenance skills with my Twitter followers with the message 'Just filled up the tank and checked the tire pressures. Ready for the next adventure!'. If you could also start up the engine and let me know the battery voltage and fuel level, that would be incredibly helpful.",
+          "localized_turn": "想象一下，我刚刚开始了一次美妙的公路旅行，不得不停在加油站。您能帮我给车加满15升汽油吗？精确到小数点后两位的加仑数。完成后，如果您能检查一下轮胎压力，那就太好了——我想和我的Twitter粉丝分享我令人印象深刻的汽车维护技能，信息是“刚加满油箱并检查了轮胎压力。准备好迎接下一个冒险！”如果您还能启动引擎并告诉我电池电压和燃油水平，那将非常有帮助。",
+          "backtranslated_turn_secondary_check": "Imagine, I just started a wonderful road trip and had to stop at a gas station. Can you help me fill the car with 15 liters of gasoline? The number of gallons accurate to two decimal places. Once done, it would be great if you could check the tire pressure—I want to share my impressive car maintenance skills with my Twitter followers, the message is \"Just filled up the tank and checked the tire pressure. Ready for the next adventure!\" It would be very helpful if you could also start the engine and tell me the battery voltage and fuel level.",
+          "assessment": "Correction proposed: Preserve the full exact Twitter payload; retain the 15-liter amount, two-decimal gallon precision, tire check, engine start, and requested readings."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "I've shared the details about my tire pressures and engine's stellar condition on Twitter, but I'd like to give that tweet a bit more visibility. Could you possibly amplify its reach by retweeting it? And if you could add a comment saying, 'Ready for the next adventure!' that would be splendid.",
+          "localized_turn": "我已经在Twitter上分享了关于我轮胎压力和引擎良好状态的细节，但我想让那条推文获得更多的关注。您能否通过转发来扩大它的影响力？如果您能加上一句评论“准备好迎接下一个冒险！”那就太好了。",
+          "backtranslated_turn_secondary_check": "I have already shared the details about my tire pressure and engine good condition on Twitter, but I want that tweet to get more attention. Could you amplify its impact by retweeting it? It would be great if you could add a comment \"Ready for the next adventure!\"",
+          "assessment": "Correction proposed: Preserve the exact quoted comment posted to Twitter."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "想象一下，我刚开始了一次愉快的公路旅行，并在加油站停了下来。您能帮我给车加15升汽油吗？请按加仑计量并保留两位小数。之后也请检查轮胎气压。我想在 Twitter 上与粉丝分享我的汽车保养成果，推文内容必须原样写为：'Just filled up the tank and checked the tire pressures. Ready for the next adventure!'。如果还能启动发动机并告诉我电池电压和燃油量，就太有帮助了。",
+          "reason": "Preserve the full exact Twitter payload; retain the 15-liter amount, two-decimal gallon precision, tire check, engine start, and requested readings."
+        },
+        {
+          "turn_index": 1,
+          "replacement": "我已经在 Twitter 上分享了轮胎气压和发动机状况，但想让那条推文获得更多关注。请转发该推文，并添加以下评论，保持原文：'Ready for the next adventure!'。",
+          "reason": "Preserve the exact quoted comment posted to Twitter."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_func_69",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "5ddad67c278a108734c8e4d506d59949557107170bbdfe044aad0ebf33087a2a",
+      "cache_record_source_task_sha256": "5ddad67c278a108734c8e4d506d59949557107170bbdfe044aad0ebf33087a2a",
+      "source_turns_sha256": "15f9fc6407cd349bb53a6881ae769b17a7c866e8cec8b3f7e37f9277b2ec75ee",
+      "localized_turns_sha256": "ecaf23048ef4126792832c4ef7b643248aed27b79ac841437ee63b0590653bea",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "ac1670db5cc1d73220dce08fb7e6f2b36574ac5c6ff5d0ff08a820726d356c8b",
+      "backtranslation_similarity_cache_diagnostic_only": 0.7452135493372607,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Estimate the distance between San Francisco and Rivermist. Afterwards, fill the tank with 40 additional liters of gasoline for my quick trip. Round the fill amount to two decimal places",
+          "localized_turn": "San Francisco ile Rivermist arasındaki mesafeyi tahmin et. Ardından, hızlı yolculuğum için depoya 40 litre daha benzin doldur. Doldurma miktarını iki ondalık basamağa yuvarla.",
+          "backtranslated_turn_secondary_check": "Estimate the distance between San Francisco and Rivermist. Then, fill 40 more liters of gasoline into the tank for my fast trip. Round the filling amount to two decimal places.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Preparations are complete. Start the engine and help me tweet about this journey containing message 'Just started my journey!' with #RoadTrip and @carenthusiast.",
+          "localized_turn": "Hazırlıklar tamam. Motoru çalıştır ve bu yolculuk hakkında 'Yolculuğuma yeni başladım!' mesajını #RoadTrip ve @carenthusiast ile tweetlememe yardım et.",
+          "backtranslated_turn_secondary_check": "Preparations are complete. Start the engine and help me tweet the message 'I just started my journey!' about this trip with #RoadTrip and @carenthusiast.",
+          "assessment": "Correction proposed: Preserve the exact message sent to Twitter, plus the hashtag and handle."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 2,
+          "replacement": "Hazırlıklar tamam. Motoru çalıştırın ve #RoadTrip ile @carenthusiast etiketlerini kullanarak şu mesajla tweet atın: 'Just started my journey!'.",
+          "reason": "Preserve the exact message sent to Twitter, plus the hashtag and handle."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_func_69",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "5ddad67c278a108734c8e4d506d59949557107170bbdfe044aad0ebf33087a2a",
+      "cache_record_source_task_sha256": "5ddad67c278a108734c8e4d506d59949557107170bbdfe044aad0ebf33087a2a",
+      "source_turns_sha256": "15f9fc6407cd349bb53a6881ae769b17a7c866e8cec8b3f7e37f9277b2ec75ee",
+      "localized_turns_sha256": "1cb56f0298cda1b914b2a95fb2cb269366bba9facfc14287fe5aef344b79baeb",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "d1d4e71a6ed130c27b63fb1a0cf457a8ddf8d4cdd7b57b139ae7b6af47ad2cb6",
+      "backtranslation_similarity_cache_diagnostic_only": 0.6119402985074627,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Estimate the distance between San Francisco and Rivermist. Afterwards, fill the tank with 40 additional liters of gasoline for my quick trip. Round the fill amount to two decimal places",
+          "localized_turn": "估算旧金山和Rivermist之间的距离。之后，为我的短途旅行加满40升汽油。将加油量四舍五入到小数点后两位。",
+          "backtranslated_turn_secondary_check": "Estimate the distance between San Francisco and Rivermist. Afterwards, fill up 40 liters of gasoline for my short trip. Round the refueling amount to two decimal places.",
+          "assessment": "Correction proposed: Retain the source-form location name and make clear that 40 additional liters are added, rather than implying the tank should be filled completely."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Preparations are complete. Start the engine and help me tweet about this journey containing message 'Just started my journey!' with #RoadTrip and @carenthusiast.",
+          "localized_turn": "准备工作已完成。启动引擎，帮我发一条推文，内容为“Just started my journey!”并带上#RoadTrip和@carenthusiast。",
+          "backtranslated_turn_secondary_check": "Preparations are complete. Start the engine, help me send a tweet with the content \"Just started my journey!\" and include #RoadTrip and @carenthusiast.",
+          "assessment": "Correction proposed: Preserve the exact quoted message, hashtag, and handle."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "估算 San Francisco 和 Rivermist 之间的距离。之后，为我的短途旅行再向油箱添加40升汽油。将添加量四舍五入到小数点后两位。",
+          "reason": "Retain the source-form location name and make clear that 40 additional liters are added, rather than implying the tank should be filled completely."
+        },
+        {
+          "turn_index": 2,
+          "replacement": "准备工作已经完成。启动发动机，并帮我发一条推文，内容必须原样写为 'Just started my journey!'，同时使用 #RoadTrip 和 @carenthusiast。",
+          "reason": "Preserve the exact quoted message, hashtag, and handle."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_param_70",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "533f20d94c553557ac39dfeb533b584feb7eb1d1f2b5f301120b808ddfe0765e",
+      "cache_record_source_task_sha256": "533f20d94c553557ac39dfeb533b584feb7eb1d1f2b5f301120b808ddfe0765e",
+      "source_turns_sha256": "5eeec8410031f3307add690a37494f92234ffde608bd6d47ccb057ea671e320f",
+      "localized_turns_sha256": "c7102fde3fd7223bdbdb9559b6ce94ab6f2c049519d13f68507f41d7dd0b2497",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "fdb5d7d224c5e3bc8a9d9a204f3dd52f96f66010ad59825104af607b98527c55",
+      "backtranslation_similarity_cache_diagnostic_only": 0.30488815244407624,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Ensure the fuel tank is replenished adequately by adding 38 liters of gasoline so that we're well-prepared for the lengthy voyage ahead. Only fill with interger amount for volumn; round when not integer. Once fueled, proceed to start the engine confidently with the ignition mode, and make certain that all doors are secure, and the parking brake is engaged as a safety measure.",
+          "localized_turn": "Yakıt deposunun yeterince doldurulmasını sağlamak için 38 litre benzin ekleyin, böylece önümüzdeki uzun yolculuğa iyi hazırlanmış oluruz. Hacim için yalnızca tam sayı miktarı doldurun; tam sayı değilse yuvarlayın. Yakıt doldurulduktan sonra, motoru güvenle çalıştırmak için ateşleme moduna geçin ve tüm kapıların güvenli olduğundan ve park freninin güvenlik önlemi olarak çekili olduğundan emin olun.",
+          "backtranslated_turn_secondary_check": "Add 38 liters of gasoline to ensure the fuel tank is sufficiently filled, so we are well prepared for the upcoming long journey. Fill only integer amounts for volume; round if not an integer. After the fuel is filled, switch to ignition mode to safely start the engine and ensure all doors are secure and the parking brake is engaged as a safety measure.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "As we gear up for our adventure, itâ€™s wise to confirm that each tire is inflated to that PSI.",
+          "localized_turn": "Macera için hazırlanırken, her bir lastiğin o PSI değerine şişirildiğini doğrulamak akıllıca olur.",
+          "backtranslated_turn_secondary_check": "As we prepare for the adventure, it would be wise to verify that each tire is inflated to that PSI value.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "I mean they should be at 32 PSI. Should any of the tires fall short, chart a course to the nearest tire service center to have this rectified.",
+          "localized_turn": "Yani, lastikler 32 PSI olmalı. Lastiklerden herhangi biri eksikse, bunu düzeltmek için en yakın lastik servis merkezine doğru bir rota çizin.",
+          "backtranslated_turn_secondary_check": "So, the tires should be 32 PSI. If any of the tires are lacking, plot a route to the nearest tire service center to correct this.",
+          "assessment": "Correction proposed: Make the referent of “fall short” explicit from the preceding turn, without filling in any missing ignition mode."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 2,
+          "replacement": "Yani lastik basınçları 32 PSI olmalı. Lastiklerden herhangi birinin basıncı 32 PSI değerinin altındaysa, sorunu gidermek için en yakın lastik servis merkezine giden bir rota belirleyin.",
+          "reason": "Make the referent of “fall short” explicit from the preceding turn, without filling in any missing ignition mode."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_param_70",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "533f20d94c553557ac39dfeb533b584feb7eb1d1f2b5f301120b808ddfe0765e",
+      "cache_record_source_task_sha256": "533f20d94c553557ac39dfeb533b584feb7eb1d1f2b5f301120b808ddfe0765e",
+      "source_turns_sha256": "5eeec8410031f3307add690a37494f92234ffde608bd6d47ccb057ea671e320f",
+      "localized_turns_sha256": "2d95d73bec92340b9b27f4b6d19b986589528cb94112b27eac7d93cfda7fedfc",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "fcc0a43047a50b1ded6d4ddd20484b6f30409a3c1bac7928cdaeabc17f298e4b",
+      "backtranslation_similarity_cache_diagnostic_only": 0.32096635030198445,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Ensure the fuel tank is replenished adequately by adding 38 liters of gasoline so that we're well-prepared for the lengthy voyage ahead. Only fill with interger amount for volumn; round when not integer. Once fueled, proceed to start the engine confidently with the ignition mode, and make certain that all doors are secure, and the parking brake is engaged as a safety measure.",
+          "localized_turn": "确保油箱加满38升汽油，以便为即将到来的长途旅行做好充分准备。只用整数加油量；如果不是整数则进行四舍五入。加满油后，自信地启动发动机，并确保所有车门都已锁好，停车制动已拉上，以确保安全。",
+          "backtranslated_turn_secondary_check": "Ensure the fuel tank is filled with 38 liters of gasoline to be fully prepared for the upcoming long-distance trip. Use only integer fuel amounts; if not an integer, round off. After filling up, confidently start the engine and ensure all car doors are locked and the parking brake is engaged to ensure safety.",
+          "assessment": "Correction proposed: Retain the source’s unspecified ignition mode rather than inventing a mode; preserve 38 liters, integer rounding, secure doors, and parking-brake constraint."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "As we gear up for our adventure, itâ€™s wise to confirm that each tire is inflated to that PSI.",
+          "localized_turn": "在我们准备冒险时，明智的做法是确认每个轮胎的气压达到那个PSI。",
+          "backtranslated_turn_secondary_check": "As we prepare for the adventure, it is wise to confirm that the pressure of each tire reaches that PSI.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "I mean they should be at 32 PSI. Should any of the tires fall short, chart a course to the nearest tire service center to have this rectified.",
+          "localized_turn": "我的意思是它们应该在32 PSI。如果任何轮胎气压不足，请前往最近的轮胎服务中心进行修复。",
+          "backtranslated_turn_secondary_check": "I mean they should be at 32 PSI. If any tire pressure is insufficient, please go to the nearest tire service center for repair.",
+          "assessment": "Correction proposed: Make the referent of “fall short” explicit from the preceding turn."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "请加入38升汽油，确保油箱得到适当补充，为接下来的长途旅行做好准备。燃油量只能取整数，非整数时四舍五入。加油后，使用点火模式启动发动机，并确保所有车门都已锁好且驻车制动已拉起，以保障安全。",
+          "reason": "Retain the source’s unspecified ignition mode rather than inventing a mode; preserve 38 liters, integer rounding, secure doors, and parking-brake constraint."
+        },
+        {
+          "turn_index": 2,
+          "replacement": "我的意思是轮胎应为32 PSI。如果任何轮胎低于32 PSI，请规划前往最近轮胎服务中心的路线以解决问题。",
+          "reason": "Make the referent of “fall short” explicit from the preceding turn."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_long_context_71",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "59c90493c14aaebbab0f2737c5d8a472046948827008a068da3edf4487d52306",
+      "cache_record_source_task_sha256": "59c90493c14aaebbab0f2737c5d8a472046948827008a068da3edf4487d52306",
+      "source_turns_sha256": "845ad28d3fc71313cf91167ccb5fb4177f04717647127ccd6335e528122573d4",
+      "localized_turns_sha256": "5e5363b78bd20817350e74d435777e5d6004f124ec25889e07af1e6c1fc8ab78",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "bf4f17f19fdd5978501583f9173587012d9bb6b783df5a9efb158b88dcb491f7",
+      "backtranslation_similarity_cache_diagnostic_only": 0.14405762304921968,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Using my vehicle's system, estimate the distance between Rivermist and Stonebrook.",
+          "localized_turn": "Aracımın sistemiyle Rivermist ve Stonebrook arasındaki mesafeyi tahmin et.",
+          "backtranslated_turn_secondary_check": "Estimate the distance between Rivermist and Stonebrook with my vehicle's system.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Assess if my vehicle's current mileage will suffice for the distance calculated. You don't need to re-fill, I just want to know.",
+          "localized_turn": "Aracımın mevcut kilometresi hesaplanan mesafe için yeterli olacak mı değerlendir. Yeniden doldurmana gerek yok, sadece bilmek istiyorum.",
+          "backtranslated_turn_secondary_check": "Evaluate if my vehicle's current mileage will be sufficient for the calculated distance. No need to refill, I just want to know.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Fill the fuel tank to completely full.",
+          "localized_turn": "Yakıt deposunu tamamen doldur.",
+          "backtranslated_turn_secondary_check": "Fill the fuel tank completely.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "With the vehicle secured, start the engine for our prepared journey.",
+          "localized_turn": "Araç güvenli bir şekilde sabitlendikten sonra, hazırladığımız yolculuk için motoru çalıştır.",
+          "backtranslated_turn_secondary_check": "After the vehicle is securely fastened, start the engine for the trip we prepared.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Set navigation directly to Crescent Hollow, Spring, TX for a smooth ride without detours.",
+          "localized_turn": "Navigasyonu doğrudan Crescent Hollow, Spring, TX'e ayarla, sapma olmadan sorunsuz bir yolculuk yap.",
+          "backtranslated_turn_secondary_check": "Set the navigation directly to Crescent Hollow, Spring, TX, make a smooth journey without deviation.",
+          "assessment": "Correction proposed: Keep the complete API-facing destination intact and isolate it from Turkish case suffixes."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 4,
+          "replacement": "Sapma olmadan rahat bir yolculuk için navigasyonu doğrudan 'Crescent Hollow, Spring, TX' konumuna ayarlayın.",
+          "reason": "Keep the complete API-facing destination intact and isolate it from Turkish case suffixes."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_long_context_71",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "reviewed",
+      "original_source_task_sha256": "59c90493c14aaebbab0f2737c5d8a472046948827008a068da3edf4487d52306",
+      "cache_record_source_task_sha256": "59c90493c14aaebbab0f2737c5d8a472046948827008a068da3edf4487d52306",
+      "source_turns_sha256": "845ad28d3fc71313cf91167ccb5fb4177f04717647127ccd6335e528122573d4",
+      "localized_turns_sha256": "ff328cebcf5b1fa547b24045a29f67dbd6dba0e5adebc276fc52ae34aebd139b",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "87d26dfcf337f3af0fd6a6889aeb4c3e317f8ed557d1d974c2136455797ae23c",
+      "backtranslation_similarity_cache_diagnostic_only": 0.3985419198055893,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Using my vehicle's system, estimate the distance between Rivermist and Stonebrook.",
+          "localized_turn": "使用我车辆的系统，估算Rivermist和Stonebrook之间的距离。",
+          "backtranslated_turn_secondary_check": "Using my vehicle's system, estimate the distance between Rivermist and Stonebrook.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Assess if my vehicle's current mileage will suffice for the distance calculated. You don't need to re-fill, I just want to know.",
+          "localized_turn": "评估一下我车辆当前的里程是否足够应对计算出的距离。你不需要加油，我只是想知道。",
+          "backtranslated_turn_secondary_check": "Evaluate whether my vehicle's current mileage is sufficient to handle the calculated distance. You don't need to refuel, I just want to know.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Fill the fuel tank to completely full.",
+          "localized_turn": "将油箱加满。",
+          "backtranslated_turn_secondary_check": "Fill up the gas tank.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "With the vehicle secured, start the engine for our prepared journey.",
+          "localized_turn": "在车辆安全的情况下，启动引擎，准备出发。",
+          "backtranslated_turn_secondary_check": "Start the engine when the vehicle is safe, and prepare to depart.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Set navigation directly to Crescent Hollow, Spring, TX for a smooth ride without detours.",
+          "localized_turn": "将导航直接设置到Crescent Hollow, Spring, TX，以确保顺畅的行驶，不绕道。",
+          "backtranslated_turn_secondary_check": "Set the navigation directly to Crescent Hollow, Spring, TX, to ensure smooth driving without detours.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_base_80",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "reviewed",
+      "original_source_task_sha256": "7c960a25a5a08631ad3827b7568eee623b052d89832a698b4582cf97d3ebb009",
+      "cache_record_source_task_sha256": "7c960a25a5a08631ad3827b7568eee623b052d89832a698b4582cf97d3ebb009",
+      "source_turns_sha256": "a411af1cd4bf3b855afcb1b753d652d0d23bacec64b261e331e1893dc8d3b659",
+      "localized_turns_sha256": "e1ce82445d702b9be6f968afcbba43392cba897972feb8e4be75762f6d91e8b5",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "88410b2eb60b2bf58428c4a6b5949a0342557d39601f28e050a13c7039d0e19b",
+      "backtranslation_similarity_cache_diagnostic_only": 0.47067238912732473,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "You're planning an extended expedition from Rivermist to San Francisco. Could you determine the travel distance between these two locations for me?",
+          "localized_turn": "Rivermist'ten San Francisco'ya uzanan bir keşif gezisi planlıyorsunuz. Bu iki yer arasındaki seyahat mesafesini benim için belirleyebilir misiniz?",
+          "backtranslated_turn_secondary_check": "You are planning an expedition from Rivermist to San Francisco. Can you determine the travel distance between these two places for me?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Next, I need to verify if my car's mileage capacity suffices for the journey. Can you assess if the vehicle can handle the calculated travel distance?",
+          "localized_turn": "Sonra, arabamın kilometre kapasitesinin yolculuk için yeterli olup olmadığını doğrulamam gerekiyor. Araç hesaplanan seyahat mesafesini karşılayabilir mi değerlendirebilir misiniz?",
+          "backtranslated_turn_secondary_check": "Then, I need to verify if my car's mileage capacity is sufficient for the journey. Can you assess if the vehicle can cover the calculated travel distance?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "It seems I've discovered the tank isn't full. Could you be so kind as to facilitate refueling the vehicle fully for such a lengthy trip?",
+          "localized_turn": "Görünüşe göre depo dolu değil. Bu kadar uzun bir yolculuk için aracı tamamen doldurmama yardımcı olur musunuz?",
+          "backtranslated_turn_secondary_check": "It seems the tank is not full. Can you help me fill the vehicle completely for such a long journey?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "With the tank now replenished, let's confirm our readiness for departure. Please secure all doors and initiate the engine for me.",
+          "localized_turn": "Depo şimdi dolduğuna göre, kalkışa hazır olduğumuzu doğrulayalım. Lütfen tüm kapıları kilitleyin ve motoru benim için çalıştırın.",
+          "backtranslated_turn_secondary_check": "Now that the tank is full, let's confirm that we are ready for departure. Please lock all doors and start the engine for me.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "As the vehicle's prepared, let's delve into evaluating some fuel efficiency statistics via the mean of these travel distances: 750.0 km, 320.0 km, 450.0 km, and 290.0 km.",
+          "localized_turn": "Araç hazır olduğuna göre, bu seyahat mesafelerinin ortalaması üzerinden bazı yakıt verimliliği istatistiklerini değerlendirelim: 750.0 km, 320.0 km, 450.0 km ve 290.0 km.",
+          "backtranslated_turn_secondary_check": "Since the vehicle is ready, let's evaluate some fuel efficiency statistics over these travel distances: 750.0 km, 320.0 km, 450.0 km, and 290.0 km.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_base_80",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "reviewed",
+      "original_source_task_sha256": "7c960a25a5a08631ad3827b7568eee623b052d89832a698b4582cf97d3ebb009",
+      "cache_record_source_task_sha256": "7c960a25a5a08631ad3827b7568eee623b052d89832a698b4582cf97d3ebb009",
+      "source_turns_sha256": "a411af1cd4bf3b855afcb1b753d652d0d23bacec64b261e331e1893dc8d3b659",
+      "localized_turns_sha256": "3e5730f91232ce540dcdc1150d3310c9e7d56bb16db0392bb42e7861e1865e0d",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "03e3f220bc01d3013b274b95c83817df14906113a7d515bb92ef5d9ab2f28c66",
+      "backtranslation_similarity_cache_diagnostic_only": 0.43072702331961593,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "You're planning an extended expedition from Rivermist to San Francisco. Could you determine the travel distance between these two locations for me?",
+          "localized_turn": "您正在计划从 Rivermist 到 San Francisco 的长途探险。您能帮我确定这两个地点之间的旅行距离吗？",
+          "backtranslated_turn_secondary_check": "You are planning a long-distance adventure from Rivermist to San Francisco. Can you help me determine the travel distance between these two locations?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "Next, I need to verify if my car's mileage capacity suffices for the journey. Can you assess if the vehicle can handle the calculated travel distance?",
+          "localized_turn": "接下来，我需要确认我的汽车的里程容量是否足以完成这次旅程。您能评估一下车辆是否能应对计算出的旅行距离吗？",
+          "backtranslated_turn_secondary_check": "Next, I need to confirm whether my car's mileage capacity is sufficient to complete this journey. Can you assess whether the vehicle can handle the calculated travel distance?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "It seems I've discovered the tank isn't full. Could you be so kind as to facilitate refueling the vehicle fully for such a lengthy trip?",
+          "localized_turn": "看来我发现油箱没有满。您能帮忙为这么长的旅程加满油吗？",
+          "backtranslated_turn_secondary_check": "It seems I found the fuel tank is not full. Can you help fill up the tank for such a long journey?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "With the tank now replenished, let's confirm our readiness for departure. Please secure all doors and initiate the engine for me.",
+          "localized_turn": "现在油箱已加满，让我们确认出发的准备情况。请锁好所有车门并为我启动引擎。",
+          "backtranslated_turn_secondary_check": "Now that the fuel tank is full, let's confirm the readiness for departure. Please lock all the car doors and start the engine for me.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "As the vehicle's prepared, let's delve into evaluating some fuel efficiency statistics via the mean of these travel distances: 750.0 km, 320.0 km, 450.0 km, and 290.0 km.",
+          "localized_turn": "随着车辆准备就绪，让我们通过这些旅行距离的平均值来评估一些燃油效率统计数据：750.0 km、320.0 km、450.0 km 和 290.0 km。",
+          "backtranslated_turn_secondary_check": "With the vehicle ready, let's evaluate some fuel efficiency statistics through the averages of these travel distances: 750.0 km, 320.0 km, 450.0 km, and 290.0 km.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_miss_func_92",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "reviewed",
+      "original_source_task_sha256": "1665b4e5b6b100f41093dc9890249e51ff9f4763f2a08f66b3d1211cb9350e31",
+      "cache_record_source_task_sha256": "1665b4e5b6b100f41093dc9890249e51ff9f4763f2a08f66b3d1211cb9350e31",
+      "source_turns_sha256": "0ac3806a39d2f92d197f3e75547d4b64b142677495a4e805c92ff865ae53b701",
+      "localized_turns_sha256": "2e97e16d66a93231cb70fa2adc0f7d950df20cc0c34f1b3dc5f21b42397ba62f",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "04246e68d5fcd84a02c98149e5adb637dfb15d263e9c1523bc57aa6686559254",
+      "backtranslation_similarity_cache_diagnostic_only": 0.5157593123209169,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Could you provide me with a rough distance from Rivermist (zip 83214) to Greenway (zip 74532)? I'm eager to plan a visit and need to know the travel distance.",
+          "localized_turn": "Rivermist (posta kodu 83214) ile Greenway (posta kodu 74532) arasındaki yaklaşık mesafeyi sağlayabilir misiniz? Ziyaret planlamak için sabırsızlanıyorum ve seyahat mesafesini bilmem gerekiyor.",
+          "backtranslated_turn_secondary_check": "Can you provide the approximate distance between Rivermist (zip code 83214) and Greenway (zip code 74532)? I'm eager to plan a visit and need to know the travel distance.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "In light of this trip, I'm concerned about whether my vehicle's fuel level and car mileage are adequate for the journey. Could you evaluate this for me?",
+          "localized_turn": "Bu seyahat ışığında, aracımın yakıt seviyesi ve araba kilometresi yolculuk için yeterli mi diye endişeleniyorum. Bunu benim için değerlendirebilir misiniz?",
+          "backtranslated_turn_secondary_check": "In light of this trip, I'm worried if my car's fuel level and mileage are sufficient for the journey. Can you assess this for me?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Given this apprehension, can you fill up the fuel completely?",
+          "localized_turn": "Bu endişe göz önüne alındığında, yakıtı tamamen doldurabilir misiniz?",
+          "backtranslated_turn_secondary_check": "Given this concern, can you fill the fuel completely?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Before I set off, I want to check if the engine will indeed start and ensure that everything is prepped for a safe departure. Could you initiate the engine to confirm this?",
+          "localized_turn": "Yola çıkmadan önce, motorun gerçekten çalışıp çalışmayacağını kontrol etmek ve her şeyin güvenli bir çıkış için hazır olduğundan emin olmak istiyorum. Bunu doğrulamak için motoru çalıştırabilir misiniz?",
+          "backtranslated_turn_secondary_check": "Before setting off, I want to check if the engine will really work and ensure everything is ready for a safe departure. Can you start the engine to verify this?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Lastly, I must verify that my vehicle is in excellent shape. If any tire pressure is under 35 PSI, could you direct me to the closest tire shop to rectify this promptly?",
+          "localized_turn": "Son olarak, aracımın mükemmel durumda olduğundan emin olmam gerekiyor. Herhangi bir lastik basıncı 35 PSI'nin altındaysa, bunu hızlıca düzeltmek için beni en yakın lastikçiye yönlendirebilir misiniz?",
+          "backtranslated_turn_secondary_check": "Finally, I need to make sure my car is in perfect condition. If any tire pressure is below 35 PSI, can you direct me to the nearest tire shop to quickly fix this?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 5,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_miss_func_92",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "reviewed",
+      "original_source_task_sha256": "1665b4e5b6b100f41093dc9890249e51ff9f4763f2a08f66b3d1211cb9350e31",
+      "cache_record_source_task_sha256": "1665b4e5b6b100f41093dc9890249e51ff9f4763f2a08f66b3d1211cb9350e31",
+      "source_turns_sha256": "0ac3806a39d2f92d197f3e75547d4b64b142677495a4e805c92ff865ae53b701",
+      "localized_turns_sha256": "af4b497c1321cd06c2748d631e3b8a9e1af76c4f958adbf4447ffd6389ae5bbb",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "43352f6afc7e30562796282997d5ae97a6fe72b032f537723bfd5d64138e93d2",
+      "backtranslation_similarity_cache_diagnostic_only": 0.4316151202749141,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Could you provide me with a rough distance from Rivermist (zip 83214) to Greenway (zip 74532)? I'm eager to plan a visit and need to know the travel distance.",
+          "localized_turn": "你能告诉我从 Rivermist (邮政编码 83214) 到 Greenway (邮政编码 74532) 的大致距离吗？我很想计划一次访问，需要知道旅行距离。",
+          "backtranslated_turn_secondary_check": "Can you tell me the approximate distance from Rivermist (postal code 83214) to Greenway (postal code 74532)? I am eager to plan a visit and need to know the travel distance.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "In light of this trip, I'm concerned about whether my vehicle's fuel level and car mileage are adequate for the journey. Could you evaluate this for me?",
+          "localized_turn": "考虑到这次旅行，我担心我的车辆的燃油水平和汽车里程是否足够完成旅程。你能帮我评估一下吗？",
+          "backtranslated_turn_secondary_check": "Considering this trip, I am worried whether my vehicle's fuel level and car mileage are sufficient to complete the journey. Can you help me evaluate this?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "Given this apprehension, can you fill up the fuel completely?",
+          "localized_turn": "鉴于这种担忧，你能帮我把油箱加满吗？",
+          "backtranslated_turn_secondary_check": "In light of this concern, can you help me fill up the gas tank?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Before I set off, I want to check if the engine will indeed start and ensure that everything is prepped for a safe departure. Could you initiate the engine to confirm this?",
+          "localized_turn": "在我出发之前，我想检查一下发动机是否真的能启动，并确保一切都准备好以安全出发。你能启动发动机以确认这一点吗？",
+          "backtranslated_turn_secondary_check": "Before I set off, I want to check if the engine can really start and ensure everything is ready for a safe departure. Can you start the engine to confirm this?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Lastly, I must verify that my vehicle is in excellent shape. If any tire pressure is under 35 PSI, could you direct me to the closest tire shop to rectify this promptly?",
+          "localized_turn": "最后，我必须确认我的车辆状况良好。如果任何轮胎压力低于 35 PSI，你能指引我到最近的轮胎店以便及时解决这个问题吗？",
+          "backtranslated_turn_secondary_check": "Finally, I must confirm that my vehicle is in good condition. If any tire pressure is below 35 PSI, can you direct me to the nearest tire shop to resolve this issue in a timely manner?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 5,
+          "source_english": "",
+          "localized_turn": "",
+          "backtranslated_turn_secondary_check": "",
+          "assessment": "The source turn is empty and the localized turn remains empty at the same index."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "task_id": "multi_turn_miss_param_171",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "9f01a37bbc2af2e136245ef7bf1133590c9f1b3da0e575d242d1b79d4a60f666",
+      "cache_record_source_task_sha256": "9f01a37bbc2af2e136245ef7bf1133590c9f1b3da0e575d242d1b79d4a60f666",
+      "source_turns_sha256": "282972bc9d786e830f99aec8931c2c95a159158f8439c77aa60abe6746a5f691",
+      "localized_turns_sha256": "e06fd0878d57ac16d0853bd367c7002d41abbd561a89a0c23d963d5e067b98ff",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "32610cb387e99227f97fdd30adefefbb268f99795ba40935780574abfd8b4af0",
+      "backtranslation_similarity_cache_diagnostic_only": 0.5649466192170819,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I'm planning an expedition to Beijing and I want to ensure my financial strategy is well-prepared for the adventure. Budget me sufficiently to meet the target of 10000 RMB and ensure the flight cost checks out to be under my budget? Thanks! Now, let's arrange for a luxurious first-class flight from JFK to Beijing Capital Airport for June 15th 2026 utilizing my primary card with id 'card_8283'. Oh, and here's my access code 897362.",
+          "localized_turn": "Pekin'e bir keşif gezisi planlıyorum ve macera için finansal stratejimin iyi hazırlandığından emin olmak istiyorum. Beni 10000 RMB hedefini karşılayacak şekilde yeterince bütçelendir ve uçuş maliyetinin bütçemin altında olduğundan emin ol? Teşekkürler! Şimdi, 15 Haziran 2026 için JFK'den Pekin Başkent Havalimanı'na lüks bir birinci sınıf uçuş ayarlayalım, 'card_8283' kimlikli ana kartımı kullanarak. Ah, işte erişim kodum 897362.",
+          "backtranslated_turn_secondary_check": "I'm planning an expedition to Beijing and want to ensure my financial strategy is well-prepared for the adventure. Budget me sufficiently to meet the 10000 RMB target and ensure the flight cost is below my budget? Thanks! Now, let's arrange a luxury first-class flight from JFK to Beijing Capital Airport for June 15, 2026, using my main card identified as 'card_8283'. Oh, here's my access code 897362.",
+          "assessment": "Correction proposed: Keep Beijing and the airport name in source form for booking lookup, while supplying Turkish glosses; preserve RMB as the currency code."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "I've successfully confirmed my passage to Beijing. Let's secure a travel insurance plan on some card.",
+          "localized_turn": "Pekin'e geçişimi başarıyla onayladım. Hadi bir seyahat sigortası planı güvence altına alalım, herhangi bir kartta.",
+          "backtranslated_turn_secondary_check": "I have successfully confirmed my transition to Beijing. Let's secure a travel insurance plan, on any card.",
+          "assessment": "Correction proposed: Keep the destination name in source form for continuity with the booking."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "oh insurance worth $250 on the same card. Next steps: Can you retrieve the invoice for this booking for my records? Your assistance in maintaining these important documents is invaluable.",
+          "localized_turn": "oh aynı kartta 250$ değerinde sigorta. Sonraki adımlar: Bu rezervasyonun faturası için kayıtlarım için alabilir misin? Bu önemli belgeleri korumadaki yardımın paha biçilmez.",
+          "backtranslated_turn_secondary_check": "oh insurance worth $250 on the same card. Next steps: Can you get the invoice for this reservation for my records? Your help in safeguarding these important documents is invaluable.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Switching gears, could you draft a quick note to my travel agent (id: 'travel_agent') expressing gratitude for their efficient handling of this booking? Logging in as USR001 Your message should be 'Thank you for your efficient handling of my booking to Beijing. My trip is confirmed for June 15th from JFK to PEK in first class'.Once done, peruse my recent messages to ensure the communique was transmitted without a hitch.",
+          "localized_turn": "Konuyu değiştirerek, seyahat acenteme (id: 'travel_agent') bu rezervasyonu verimli bir şekilde ele aldıkları için minnettarlığımı ifade eden kısa bir not taslağı hazırlayabilir misin? USR001 olarak giriş yapılıyor. Mesajın 'Pekin'e olan rezervasyonumu verimli bir şekilde ele aldığınız için teşekkür ederim. Seyahatim 15 Haziran'da JFK'den PEK'e birinci sınıfta onaylandı' olmalı. Bittiğinde, mesajımın sorunsuz bir şekilde iletildiğinden emin olmak için son mesajlarımı gözden geçir.",
+          "backtranslated_turn_secondary_check": "Changing the subject, can you draft a short note expressing my gratitude to my travel agent (id: 'travel_agent') for handling this reservation efficiently? Logging in as USR001. The message should be 'Thank you for handling my reservation to Beijing efficiently. My travel is confirmed on June 15 from JFK to PEK in first class'. When done, review my last messages to ensure my message is conveyed smoothly.",
+          "assessment": "Correction proposed: Preserve the exact message body, agent ID, and login name."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "Beijing (Pekin) gezisi için finansal planımı hazırlamak istiyorum. 10000 RMB (Renminbi) hedefini karşılayacak kadar bütçe ayırın ve uçuş ücretinin bütçemin altında olduğunu doğrulayın. Teşekkürler. Şimdi 15 Haziran 2026 için JFK'den Beijing Capital Airport (Pekin Başkent Havalimanı)'na birinci sınıf uçuş ayarlayın ve 'card_8283' kimlikli ana kartımı kullanın. Erişim kodum 897362.",
+          "reason": "Keep Beijing and the airport name in source form for booking lookup, while supplying Turkish glosses; preserve RMB as the currency code."
+        },
+        {
+          "turn_index": 1,
+          "replacement": "Beijing (Pekin) seyahatimi başarıyla onayladım. Herhangi bir kartla bir seyahat sigortası planı ayarlayalım.",
+          "reason": "Keep the destination name in source form for continuity with the booking."
+        },
+        {
+          "turn_index": 3,
+          "replacement": "Konuyu değiştirerek, bu rezervasyonu verimli biçimde ele aldığı için seyahat acenteme (id: 'travel_agent') kısa bir teşekkür mesajı taslağı hazırlayabilir misiniz? USR001 olarak giriş yapın. Mesajınız aynen şu olmalı: 'Thank you for your efficient handling of my booking to Beijing. My trip is confirmed for June 15th from JFK to PEK in first class'. Ardından iletinin gönderildiğini doğrulamak için son mesajlarıma bakın.",
+          "reason": "Preserve the exact message body, agent ID, and login name."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_miss_param_171",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "9f01a37bbc2af2e136245ef7bf1133590c9f1b3da0e575d242d1b79d4a60f666",
+      "cache_record_source_task_sha256": "9f01a37bbc2af2e136245ef7bf1133590c9f1b3da0e575d242d1b79d4a60f666",
+      "source_turns_sha256": "282972bc9d786e830f99aec8931c2c95a159158f8439c77aa60abe6746a5f691",
+      "localized_turns_sha256": "8e8c6e31ef08d41745182da0bf6bd8b50b5c1b6e19e37229b650c8cc95b8f451",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "90f7e219562e48f06cbda61361773a7907b1026cc6643b07c21879b75fc942be",
+      "backtranslation_similarity_cache_diagnostic_only": 0.42863340563991326,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "I'm planning an expedition to Beijing and I want to ensure my financial strategy is well-prepared for the adventure. Budget me sufficiently to meet the target of 10000 RMB and ensure the flight cost checks out to be under my budget? Thanks! Now, let's arrange for a luxurious first-class flight from JFK to Beijing Capital Airport for June 15th 2026 utilizing my primary card with id 'card_8283'. Oh, and here's my access code 897362.",
+          "localized_turn": "我正在计划一次去北京的探险，我想确保我的财务策略为这次冒险做好充分准备。请为我制定一个足够的预算，以达到10000人民币的目标，并确保机票费用在我的预算之内？谢谢！现在，让我们安排一趟从JFK到北京首都机场的豪华头等舱航班，日期是2026年6月15日，使用我的主卡，卡号是'card_8283'。哦，这是我的访问代码897362。",
+          "backtranslated_turn_secondary_check": "I am planning an adventure to Beijing, and I want to ensure my financial strategy is well-prepared for this adventure. Please create a sufficient budget for me to reach the goal of 10,000 RMB, and ensure the airfare is within my budget? Thank you! Now, let's arrange a luxury first-class flight from JFK to Beijing Capital Airport on June 15, 2026, using my main card, card number is 'card_8283'. Oh, here is my access code 897362.",
+          "assessment": "Correction proposed: Keep Beijing, the airport name, and RMB in source form for booking and currency interpretation, with Chinese glosses."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "I've successfully confirmed my passage to Beijing. Let's secure a travel insurance plan on some card.",
+          "localized_turn": "我已经成功确认了去北京的行程。让我们用某张卡购买一份旅行保险计划。",
+          "backtranslated_turn_secondary_check": "I have successfully confirmed the trip to Beijing. Let's purchase a travel insurance plan with a certain card.",
+          "assessment": "Correction proposed: Keep the destination name in source form for continuity with the booking."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "oh insurance worth $250 on the same card. Next steps: Can you retrieve the invoice for this booking for my records? Your assistance in maintaining these important documents is invaluable.",
+          "localized_turn": "哦，保险金额为250美元，使用同一张卡。接下来的步骤：你能为我提取这次预订的发票以供记录吗？你在维护这些重要文件方面的帮助是无价的。",
+          "backtranslated_turn_secondary_check": "Oh, the insurance amount is 250 USD, using the same card. Next steps: Can you extract the invoice for this booking for my records? Your help in maintaining these important documents is invaluable.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Switching gears, could you draft a quick note to my travel agent (id: 'travel_agent') expressing gratitude for their efficient handling of this booking? Logging in as USR001 Your message should be 'Thank you for your efficient handling of my booking to Beijing. My trip is confirmed for June 15th from JFK to PEK in first class'.Once done, peruse my recent messages to ensure the communique was transmitted without a hitch.",
+          "localized_turn": "转换一下，能否为我的旅行代理（id: 'travel_agent'）起草一封简短的感谢信，感谢他们高效地处理了这次预订？以USR001身份登录。你的信息应该是：'感谢您高效地处理了我去北京的预订。我的行程已确认，6月15日从JFK到PEK，头等舱'。完成后，请查看我最近的消息，以确保信息传递无误。",
+          "backtranslated_turn_secondary_check": "Switching gears, could you draft a brief thank-you letter for my travel agent (id: 'travel_agent'), thanking them for efficiently handling this booking? Log in as USR001. Your message should be: 'Thank you for efficiently handling my booking to Beijing. My itinerary is confirmed, June 15 from JFK to PEK, first class'. Once completed, please check my recent messages to ensure the information was conveyed correctly.",
+          "assessment": "Correction proposed: Preserve the exact message body, agent ID, and login name."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 0,
+          "replacement": "我正计划去 Beijing（北京）旅行，希望提前做好财务安排。请为我安排足够预算，以达到10000 RMB（人民币）的目标，并确认机票费用低于预算。谢谢！现在请安排2026年6月15日从JFK飞往 Beijing Capital Airport（北京首都机场）的豪华头等舱航班，使用我的主卡，ID为 'card_8283'。这是我的访问码897362。",
+          "reason": "Keep Beijing, the airport name, and RMB in source form for booking and currency interpretation, with Chinese glosses."
+        },
+        {
+          "turn_index": 1,
+          "replacement": "我已经成功确认了去 Beijing（北京）的行程。让我们用某张卡购买一份旅行保险计划。",
+          "reason": "Keep the destination name in source form for continuity with the booking."
+        },
+        {
+          "turn_index": 3,
+          "replacement": "换个话题，能否为我的旅行代理（id: 'travel_agent'）起草一条简短消息，感谢他们高效处理这次预订？以 USR001 身份登录。消息内容必须原样写为：'Thank you for your efficient handling of my booking to Beijing. My trip is confirmed for June 15th from JFK to PEK in first class'。完成后，请查看我最近的消息，确认该信息已顺利发送。",
+          "reason": "Preserve the exact message body, agent ID, and login name."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_long_context_2",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "status": "correction_proposed",
+      "original_source_task_sha256": "4a452c50ab804b31cb088e21d4c4b01455242c87989422f3c77206433316509a",
+      "cache_record_source_task_sha256": "4a452c50ab804b31cb088e21d4c4b01455242c87989422f3c77206433316509a",
+      "source_turns_sha256": "159b0452c9114196611402c58758f463cf2519f3411981c4a7588ca73c5ca033",
+      "localized_turns_sha256": "b7656f427cdc9315f7cb8a7044ae48d4aed9237c1c707fadfd2a86ed34af4036",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "cdc3e8881cdaec9753c2c1a21954d6b999380782a057b0f3272d4d3d64785982",
+      "backtranslation_similarity_cache_diagnostic_only": 0.2758235622557231,
+      "machine_fidelity_rating_cache_diagnostic_only": 2,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Go into document folder and Could you draft up a create a document titled 'TeamNotes.txt' for keeping track of all the fresh ideas?",
+          "localized_turn": "Belge klasörüne gir ve tüm yeni fikirleri takip etmek için 'TeamNotes.txt' başlıklı bir belge taslağı oluşturabilir misin?",
+          "backtranslated_turn_secondary_check": "Can you enter the document folder and create a draft document titled 'TeamNotes.txt' to track all new ideas?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "We've gathered a couple of wise insights from Simona, so could you jot down 'Collaboration leads to success. Innovation ignites growth.' into the previous file?",
+          "localized_turn": "Simona'dan birkaç bilge görüş topladık, bu yüzden 'İşbirliği başarıya götürür. Yenilik büyümeyi ateşler.' cümlesini önceki dosyaya not edebilir misin?",
+          "backtranslated_turn_secondary_check": "We gathered some wise insights from Simona, so can you note the sentence 'Collaboration leads to success. Innovation fuels growth.' in the previous file?",
+          "assessment": "Correction proposed: Preserve the exact file-content string."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "There seems to be some differences noted by Simona between the 'ideas.txt' file and our 'TeamNotes.txt'. Could you delve into these files to identify and explain the line-by-line distinctions for her?",
+          "localized_turn": "Simona, 'ideas.txt' dosyası ile 'TeamNotes.txt' dosyamız arasında bazı farklılıklar olduğunu belirtti. Bu dosyalara dalarak satır satır farklılıkları belirleyip açıklayabilir misin?",
+          "backtranslated_turn_secondary_check": "Simona pointed out that there are some differences between the 'ideas.txt' file and our 'TeamNotes.txt' file. Can you dive into these files and identify and explain the differences line by line?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Simona thinks it's a smart move to secure 'TeamNotes.txt'. How about we copy it over to the archive directory under the name IdeasArchive.txt while keeping the original intact? Make sure the Archived directory exists in document folder. I remembered I put it there.",
+          "localized_turn": "Simona, 'TeamNotes.txt' dosyasını güvence altına almanın akıllıca bir hamle olduğunu düşünüyor. Orijinali bozulmadan bırakırken, bunu Arşiv dizinine IdeasArchive.txt adı altında kopyalayalım mı? Arşiv dizininin belge klasöründe mevcut olduğundan emin ol. Onu oraya koyduğumu hatırlıyorum.",
+          "backtranslated_turn_secondary_check": "Simona thinks securing the 'TeamNotes.txt' file is a smart move. While leaving the original intact, shall we copy it to the Archive directory under the name IdeasArchive.txt? Make sure the Archive directory exists in the document folder. I remember putting it there.",
+          "assessment": "Correction proposed: Keep the exact directory name used by the filesystem tool."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Before Simona signs off for the day, she'd like to take a peek at what's been stored in 'IdeasArchive.txt'. Could you arrange for her to view its contents?",
+          "localized_turn": "Simona günü kapatmadan önce, 'IdeasArchive.txt' dosyasında nelerin saklandığına bir göz atmak istiyor. İçeriğini görmesi için düzenleme yapabilir misin?",
+          "backtranslated_turn_secondary_check": "Before Simona wraps up the day, she wants to take a look at what is stored in the 'IdeasArchive.txt' file. Can you arrange for her to see its contents?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": [
+        {
+          "turn_index": 1,
+          "replacement": "Simona'dan birkaç değerli fikir topladık. Lütfen önceki dosyaya şu metni aynen yazın: 'Collaboration leads to success. Innovation ignites growth.'.",
+          "reason": "Preserve the exact file-content string."
+        },
+        {
+          "turn_index": 3,
+          "replacement": "Simona, 'TeamNotes.txt' dosyasını güvenceye almanın akıllıca olacağını düşünüyor. Özgün dosyayı değiştirmeden bunu IdeasArchive.txt adıyla arşiv dizinine kopyalayalım. Belge klasöründe 'Archived' dizininin bulunduğundan emin olun; onu oraya koyduğumu hatırlıyorum.",
+          "reason": "Keep the exact directory name used by the filesystem tool."
+        }
+      ]
+    },
+    {
+      "task_id": "multi_turn_long_context_2",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "status": "reviewed",
+      "original_source_task_sha256": "4a452c50ab804b31cb088e21d4c4b01455242c87989422f3c77206433316509a",
+      "cache_record_source_task_sha256": "4a452c50ab804b31cb088e21d4c4b01455242c87989422f3c77206433316509a",
+      "source_turns_sha256": "159b0452c9114196611402c58758f463cf2519f3411981c4a7588ca73c5ca033",
+      "localized_turns_sha256": "bbdf97344be4aa3a6136066e49444015e117c554940673c7abd6c81cadf28908",
+      "localized_turns_sha256_canonicalization": "SHA-256 of UTF-8 JSON for localized_turns, ensure_ascii=False, separators=(',', ':').",
+      "backtranslated_turns_sha256": "3b3b6f9f52ab650c5ab4d271bed5f5c546a1a6b562b9bab77c92e30b68a7acef",
+      "backtranslation_similarity_cache_diagnostic_only": 0.3784090909090909,
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "cache_integrity_diagnostic_only": "source_hash_verified",
+      "review_note": null,
+      "turn_reviews": [
+        {
+          "turn_index": 0,
+          "source_english": "Go into document folder and Could you draft up a create a document titled 'TeamNotes.txt' for keeping track of all the fresh ideas?",
+          "localized_turn": "进入文档文件夹，你能起草一个名为'TeamNotes.txt'的文档来记录所有的新想法吗？",
+          "backtranslated_turn_secondary_check": "Enter the Documents folder, can you draft a document named 'TeamNotes.txt' to record all the new ideas?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 1,
+          "source_english": "We've gathered a couple of wise insights from Simona, so could you jot down 'Collaboration leads to success. Innovation ignites growth.' into the previous file?",
+          "localized_turn": "我们从Simona那里收集了一些明智的见解，所以你能把'Collaboration leads to success. Innovation ignites growth.'写到之前的文件里吗？",
+          "backtranslated_turn_secondary_check": "We gathered some insightful perspectives from Simona, so can you write 'Collaboration leads to success. Innovation ignites growth.' into the previous document?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 2,
+          "source_english": "There seems to be some differences noted by Simona between the 'ideas.txt' file and our 'TeamNotes.txt'. Could you delve into these files to identify and explain the line-by-line distinctions for her?",
+          "localized_turn": "Simona注意到'ideas.txt'文件和我们的'TeamNotes.txt'之间似乎有一些差异。你能深入研究这些文件，为她逐行识别和解释这些区别吗？",
+          "backtranslated_turn_secondary_check": "Simona noticed there seem to be some discrepancies between the 'ideas.txt' file and our 'TeamNotes.txt'. Can you delve into these files and identify and explain these differences line by line for her?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 3,
+          "source_english": "Simona thinks it's a smart move to secure 'TeamNotes.txt'. How about we copy it over to the archive directory under the name IdeasArchive.txt while keeping the original intact? Make sure the Archived directory exists in document folder. I remembered I put it there.",
+          "localized_turn": "Simona认为保护'TeamNotes.txt'是一个明智的举动。我们把它复制到存档目录下，命名为IdeasArchive.txt，同时保留原件怎么样？确保在文档文件夹中存在Archived目录。我记得我把它放在那里了。",
+          "backtranslated_turn_secondary_check": "Simona thinks protecting 'TeamNotes.txt' is a wise move. How about we copy it to the archive directory, naming it IdeasArchive.txt, while keeping the original? Ensure there is an Archived directory in the Documents folder. I remember I placed it there.",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        },
+        {
+          "turn_index": 4,
+          "source_english": "Before Simona signs off for the day, she'd like to take a peek at what's been stored in 'IdeasArchive.txt'. Could you arrange for her to view its contents?",
+          "localized_turn": "在Simona下班之前，她想看看'IdeasArchive.txt'中存储了什么。你能安排她查看其内容吗？",
+          "backtranslated_turn_secondary_check": "Before Simona leaves work, she wants to see what is stored in 'IdeasArchive.txt'. Can you arrange for her to view its contents?",
+          "assessment": "Direct target-language review checked meaning, negation, sequence, constraints, exact literals and API-facing names, units, and numbers. See any indexed proposal for a required edit."
+        }
+      ],
+      "corrections": []
+    }
+  ]
+}

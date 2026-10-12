@@ -1,0 +1,55 @@
+{
+  "bfcl_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "models": [
+    "gemini"
+  ],
+  "run_labels": [
+    "expansion_seed0",
+    "expansion_seed1"
+  ],
+  "task_limit": null,
+  "per_category_limit": null,
+  "task_ids": [
+    "multi_turn_base_0",
+    "multi_turn_base_63",
+    "multi_turn_base_18",
+    "multi_turn_base_65",
+    "multi_turn_base_80",
+    "multi_turn_miss_func_10",
+    "multi_turn_miss_func_90",
+    "multi_turn_miss_func_55",
+    "multi_turn_miss_func_69",
+    "multi_turn_miss_func_92",
+    "multi_turn_miss_param_39",
+    "multi_turn_miss_param_97",
+    "multi_turn_miss_param_58",
+    "multi_turn_miss_param_70",
+    "multi_turn_miss_param_171",
+    "multi_turn_long_context_59",
+    "multi_turn_long_context_6",
+    "multi_turn_long_context_61",
+    "multi_turn_long_context_71",
+    "multi_turn_long_context_2"
+  ],
+  "task_set_sha256": "2ee8fc9fd000455f8f90ba107444d95a2b643815c3a1a8b29e88acd1191ed4f6",
+  "language_codes": [
+    "TR",
+    "ZH"
+  ],
+  "artifact_prefix": "newstudy20261010",
+  "localization_prefix": "newstudy20261010",
+  "localization_cache": "data/bfcl/localized_queries/newstudy20261010_bfcl_multiturn_localizations.jsonl",
+  "localization_review": "analysis/bfcl/newstudy20261010_localization_review.md",
+  "api_provider": "openrouter",
+  "requested_models": {
+    "gemini": "google/gemini-3-flash-preview"
+  },
+  "execute_full_runs": true,
+  "execute_replays": true,
+  "collection_only": true,
+  "job_label": "gemini_TR_ZH",
+  "n_boot": 5000,
+  "bootstrap_seed": 0,
+  "cluster_unit": "underlying_task",
+  "cwd": "."
+}

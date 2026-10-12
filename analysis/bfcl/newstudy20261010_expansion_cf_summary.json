@@ -1,0 +1,3110 @@
+{
+  "k": {
+    "mean_k": 9.3,
+    "rounded_k": 9,
+    "k_range": [
+      8,
+      9,
+      10
+    ]
+  },
+  "scope": {
+    "tasks": 20,
+    "task_ids": [
+      "multi_turn_base_0",
+      "multi_turn_base_63",
+      "multi_turn_base_18",
+      "multi_turn_base_65",
+      "multi_turn_base_80",
+      "multi_turn_miss_func_10",
+      "multi_turn_miss_func_90",
+      "multi_turn_miss_func_55",
+      "multi_turn_miss_func_69",
+      "multi_turn_miss_func_92",
+      "multi_turn_miss_param_39",
+      "multi_turn_miss_param_97",
+      "multi_turn_miss_param_58",
+      "multi_turn_miss_param_70",
+      "multi_turn_miss_param_171",
+      "multi_turn_long_context_59",
+      "multi_turn_long_context_6",
+      "multi_turn_long_context_61",
+      "multi_turn_long_context_71",
+      "multi_turn_long_context_2"
+    ],
+    "languages": [
+      "AR",
+      "EN",
+      "ES",
+      "HI",
+      "JA",
+      "SW",
+      "TR",
+      "ZH"
+    ],
+    "models": [
+      "claude_sonnet46",
+      "gemini"
+    ],
+    "run_labels": [
+      "expansion_seed0",
+      "expansion_seed1"
+    ],
+    "task_trials": 640,
+    "replay_trials": 5952,
+    "provider_reported_model_ids": {
+      "claude_sonnet46": [
+        "anthropic/claude-sonnet-4.6"
+      ],
+      "gemini": [
+        "google/gemini-3-flash-preview"
+      ]
+    }
+  },
+  "point_estimates": {
+    "8": {
+      "EN::claude_sonnet46": {
+        "p": 0.5909090909090909,
+        "T": 0.5476190476190477,
+        "T_ind": 0.014865015687902623,
+        "r_obs": 1.0,
+        "r_ind": 1.0,
+        "CF": NaN,
+        "Delta": 0.0,
+        "n": 40
+      },
+      "AR::claude_sonnet46": {
+        "p": 0.6122994652406417,
+        "T": 0.4523809523809524,
+        "T_ind": 0.019756546960756967,
+        "r_obs": 0.826086956521739,
+        "r_ind": 1.3290633104972198,
+        "CF": -0.6716077995803702,
+        "Delta": -0.47552965305460365,
+        "n": 40
+      },
+      "TR::claude_sonnet46": {
+        "p": 0.5962566844919787,
+        "T": 0.5476190476190477,
+        "T_ind": 0.015975927712491036,
+        "r_obs": 1.0,
+        "r_ind": 1.074733323389123,
+        "CF": 0.0,
+        "Delta": -0.07207255953892786,
+        "n": 40
+      },
+      "ZH::claude_sonnet46": {
+        "p": 0.6256684491978609,
+        "T": 0.42857142857142855,
+        "T_ind": 0.023483025066138943,
+        "r_obs": 0.7826086956521738,
+        "r_ind": 1.5797511122204726,
+        "CF": -0.5360594389466488,
+        "Delta": -0.7023897687525729,
+        "n": 40
+      },
+      "HI::claude_sonnet46": {
+        "p": 0.6042780748663101,
+        "T": 0.47619047619047616,
+        "T_ind": 0.017778482786362102,
+        "r_obs": 0.8695652173913042,
+        "r_ind": 1.1959948889142784,
+        "CF": -0.7808872825034304,
+        "Delta": -0.31874032441142264,
+        "n": 40
+      },
+      "JA::claude_sonnet46": {
+        "p": 0.6096256684491979,
+        "T": 0.5714285714285714,
+        "T_ind": 0.01907681896676829,
+        "r_obs": 1.043478260869565,
+        "r_ind": 1.2833366184936688,
+        "CF": 0.17060463015061045,
+        "Delta": -0.20690380507470746,
+        "n": 40
+      },
+      "ES::claude_sonnet46": {
+        "p": 0.6176470588235294,
+        "T": 0.6190476190476191,
+        "T_ind": 0.021179856901349832,
+        "r_obs": 1.1304347826086956,
+        "r_ind": 1.4248122804597054,
+        "CF": 0.346295043350737,
+        "Delta": -0.2314377499399934,
+        "n": 40
+      },
+      "SW::claude_sonnet46": {
+        "p": 0.6256684491978609,
+        "T": 0.4523809523809524,
+        "T_ind": 0.023483025066138943,
+        "r_obs": 0.826086956521739,
+        "r_ind": 1.5797511122204726,
+        "CF": -0.417819582296516,
+        "Delta": -0.6483225474822971,
+        "n": 40
+      },
+      "EN::gemini": {
+        "p": 0.6229946524064172,
+        "T": 0.5952380952380952,
+        "T_ind": 0.02269209278158653,
+        "r_obs": 1.0,
+        "r_ind": 1.0,
+        "CF": NaN,
+        "Delta": 0.0,
+        "n": 40
+      },
+      "AR::gemini": {
+        "p": 0.5909090909090909,
+        "T": 0.4523809523809524,
+        "T_ind": 0.014865015687902623,
+        "r_obs": 0.76,
+        "r_ind": 0.6550746919193289,
+        "CF": 0.6487776416231885,
+        "Delta": 0.1485691706818219,
+        "n": 40
+      },
+      "TR::gemini": {
+        "p": 0.5989304812834224,
+        "T": 0.4523809523809524,
+        "T_ind": 0.01655813156690666,
+        "r_obs": 0.76,
+        "r_ind": 0.7296872847418787,
+        "CF": 0.8708432139956599,
+        "Delta": 0.04070236798352661,
+        "n": 40
+      },
+      "ZH::gemini": {
+        "p": 0.6096256684491979,
+        "T": 0.5714285714285714,
+        "T_ind": 0.01907681896676829,
+        "r_obs": 0.96,
+        "r_ind": 0.8406813399885334,
+        "CF": 0.2352275190748219,
+        "Delta": 0.13272060236982375,
+        "n": 40
+      },
+      "HI::gemini": {
+        "p": 0.6283422459893048,
+        "T": 0.3333333333333333,
+        "T_ind": 0.024297974982466542,
+        "r_obs": 0.5599999999999999,
+        "r_ind": 1.0707683604300748,
+        "CF": -8.479793870805985,
+        "Delta": -0.6481949798806084,
+        "n": 40
+      },
+      "JA::gemini": {
+        "p": 0.5828877005347594,
+        "T": 0.40476190476190477,
+        "T_ind": 0.01332536553543673,
+        "r_obs": 0.68,
+        "r_ind": 0.5872250595700711,
+        "CF": 0.72445677232369,
+        "Delta": 0.14668464540090853,
+        "n": 40
+      },
+      "ES::gemini": {
+        "p": 0.5989304812834224,
+        "T": 0.4523809523809524,
+        "T_ind": 0.01655813156690666,
+        "r_obs": 0.76,
+        "r_ind": 0.7296872847418787,
+        "CF": 0.8708432139956599,
+        "Delta": 0.04070236798352661,
+        "n": 40
+      },
+      "SW::gemini": {
+        "p": 0.6443850267379679,
+        "T": 0.5,
+        "T_ind": 0.02972785150781264,
+        "r_obs": 0.84,
+        "r_ind": 1.3100533209495453,
+        "CF": -0.6455910764212728,
+        "Delta": -0.44442122654441285,
+        "n": 40
+      }
+    },
+    "9": {
+      "EN::claude_sonnet46": {
+        "p": 0.5909090909090909,
+        "T": 0.5476190476190477,
+        "T_ind": 0.008783872906487914,
+        "r_obs": 1.0,
+        "r_ind": 1.0,
+        "CF": NaN,
+        "Delta": 0.0,
+        "n": 40
+      },
+      "AR::claude_sonnet46": {
+        "p": 0.6122994652406417,
+        "T": 0.4523809523809524,
+        "T_ind": 0.012096923139073117,
+        "r_obs": 0.826086956521739,
+        "r_ind": 1.3771741995649924,
+        "CF": -0.5969847107381069,
+        "Delta": -0.5110889550910904,
+        "n": 40
+      },
+      "TR::claude_sonnet46": {
+        "p": 0.5962566844919787,
+        "T": 0.5476190476190477,
+        "T_ind": 0.009525753689533425,
+        "r_obs": 1.0,
+        "r_ind": 1.084459416813459,
+        "CF": 0.0,
+        "Delta": -0.08108162948129378,
+        "n": 40
+      },
+      "ZH::claude_sonnet46": {
+        "p": 0.6256684491978609,
+        "T": 0.42857142857142855,
+        "T_ind": 0.014692587875605647,
+        "r_obs": 0.7826086956521738,
+        "r_ind": 1.6726776482334413,
+        "CF": -0.4764972790636877,
+        "Delta": -0.7595481825925214,
+        "n": 40
+      },
+      "HI::claude_sonnet46": {
+        "p": 0.6042780748663101,
+        "T": 0.47619047619047616,
+        "T_ind": 0.010743147352186724,
+        "r_obs": 0.8695652173913042,
+        "r_ind": 1.2230535968082663,
+        "CF": -0.6941220288919386,
+        "Delta": -0.3411126221659555,
+        "n": 40
+      },
+      "JA::claude_sonnet46": {
+        "p": 0.6096256684491979,
+        "T": 0.5714285714285714,
+        "T_ind": 0.011629718514500453,
+        "r_obs": 1.043478260869565,
+        "r_ind": 1.3239852896676763,
+        "CF": 0.15164856013387595,
+        "Delta": -0.23808673251139534,
+        "n": 40
+      },
+      "ES::claude_sonnet46": {
+        "p": 0.6176470588235294,
+        "T": 0.6190476190476191,
+        "T_ind": 0.013081676321421955,
+        "r_obs": 1.1304347826086956,
+        "r_ind": 1.489283424371909,
+        "CF": 0.30781781631176636,
+        "Delta": -0.27569275894403394,
+        "n": 40
+      },
+      "SW::claude_sonnet46": {
+        "p": 0.6256684491978609,
+        "T": 0.4523809523809524,
+        "T_ind": 0.014692587875605647,
+        "r_obs": 0.826086956521739,
+        "r_ind": 1.6726776482334413,
+        "CF": -0.37139518426356977,
+        "Delta": -0.7054809613222457,
+        "n": 40
+      },
+      "EN::gemini": {
+        "p": 0.6229946524064172,
+        "T": 0.5952380952380952,
+        "T_ind": 0.014137052454838667,
+        "r_obs": 1.0,
+        "r_ind": 1.0,
+        "CF": NaN,
+        "Delta": 0.0,
+        "n": 40
+      },
+      "AR::gemini": {
+        "p": 0.5909090909090909,
+        "T": 0.4523809523809524,
+        "T_ind": 0.008783872906487914,
+        "r_obs": 0.76,
+        "r_ind": 0.6213369395458013,
+        "CF": 0.57669123699839,
+        "Delta": 0.20144492272976955,
+        "n": 40
+      },
+      "TR::gemini": {
+        "p": 0.5989304812834224,
+        "T": 0.4523809523809524,
+        "T_ind": 0.009917169708521635,
+        "r_obs": 0.76,
+        "r_ind": 0.7015019389793168,
+        "CF": 0.7740828568850311,
+        "Delta": 0.08009476969418744,
+        "n": 40
+      },
+      "ZH::gemini": {
+        "p": 0.6096256684491979,
+        "T": 0.5714285714285714,
+        "T_ind": 0.011629718514500453,
+        "r_obs": 0.96,
+        "r_ind": 0.822640967885775,
+        "CF": 0.20909112806650815,
+        "Delta": 0.1544134269810838,
+        "n": 40
+      },
+      "HI::gemini": {
+        "p": 0.6283422459893048,
+        "T": 0.3333333333333333,
+        "T_ind": 0.015267444173474965,
+        "r_obs": 0.5599999999999999,
+        "r_ind": 1.0799595051547963,
+        "CF": -7.537594551827544,
+        "Delta": -0.6567420404590666,
+        "n": 40
+      },
+      "JA::gemini": {
+        "p": 0.5828877005347594,
+        "T": 0.40476190476190477,
+        "T_ind": 0.007767191675735848,
+        "r_obs": 0.68,
+        "r_ind": 0.5494208711857317,
+        "CF": 0.6439615753988356,
+        "Delta": 0.21322803617752017,
+        "n": 40
+      },
+      "ES::gemini": {
+        "p": 0.5989304812834224,
+        "T": 0.4523809523809524,
+        "T_ind": 0.009917169708521635,
+        "r_obs": 0.76,
+        "r_ind": 0.7015019389793168,
+        "CF": 0.7740828568850311,
+        "Delta": 0.08009476969418744,
+        "n": 40
+      },
+      "SW::gemini": {
+        "p": 0.6443850267379679,
+        "T": 0.5,
+        "T_ind": 0.01915618238872419,
+        "r_obs": 0.84,
+        "r_ind": 1.3550336924842938,
+        "CF": -0.5738587345966866,
+        "Delta": -0.47817970646936736,
+        "n": 40
+      }
+    },
+    "10": {
+      "EN::claude_sonnet46": {
+        "p": 0.5909090909090909,
+        "T": 0.5476190476190477,
+        "T_ind": 0.005190470353833767,
+        "r_obs": 1.0,
+        "r_ind": 1.0,
+        "CF": NaN,
+        "Delta": 0.0,
+        "n": 40
+      },
+      "AR::claude_sonnet46": {
+        "p": 0.6122994652406417,
+        "T": 0.4523809523809524,
+        "T_ind": 0.007406939569111614,
+        "r_obs": 0.826086956521739,
+        "r_ind": 1.4270266592777525,
+        "CF": -0.5372862396642959,
+        "Delta": -0.5466482571275775,
+        "n": 40
+      },
+      "TR::claude_sonnet46": {
+        "p": 0.5962566844919787,
+        "T": 0.5476190476190477,
+        "T_ind": 0.005679794312208433,
+        "r_obs": 1.0,
+        "r_ind": 1.0942735291828116,
+        "CF": 0.0,
+        "Delta": -0.09009069942365985,
+        "n": 40
+      },
+      "ZH::claude_sonnet46": {
+        "p": 0.6256684491978609,
+        "T": 0.42857142857142855,
+        "T_ind": 0.009192688670833478,
+        "r_obs": 0.7826086956521738,
+        "r_ind": 1.7710704510707025,
+        "CF": -0.4288475511573189,
+        "Delta": -0.81670659643247,
+        "n": 40
+      },
+      "HI::claude_sonnet46": {
+        "p": 0.6042780748663101,
+        "T": 0.47619047619047616,
+        "T_ind": 0.0064918483999844906,
+        "r_obs": 0.8695652173913042,
+        "r_ind": 1.250724492663657,
+        "CF": -0.6247098260027446,
+        "Delta": -0.36348491992048854,
+        "n": 40
+      },
+      "JA::claude_sonnet46": {
+        "p": 0.6096256684491979,
+        "T": 0.5714285714285714,
+        "T_ind": 0.007089774923278351,
+        "r_obs": 1.043478260869565,
+        "r_ind": 1.365921475313259,
+        "CF": 0.1364837041204883,
+        "Delta": -0.2692696599480834,
+        "n": 40
+      },
+      "ES::claude_sonnet46": {
+        "p": 0.6176470588235294,
+        "T": 0.6190476190476191,
+        "T_ind": 0.00807985890440768,
+        "r_obs": 1.1304347826086956,
+        "r_ind": 1.5566718146149823,
+        "CF": 0.2770360346805895,
+        "Delta": -0.31994776794807495,
+        "n": 40
+      },
+      "SW::claude_sonnet46": {
+        "p": 0.6256684491978609,
+        "T": 0.4523809523809524,
+        "T_ind": 0.009192688670833478,
+        "r_obs": 0.826086956521739,
+        "r_ind": 1.7710704510707025,
+        "CF": -0.3342556658372127,
+        "Delta": -0.7626393751621943,
+        "n": 40
+      },
+      "EN::gemini": {
+        "p": 0.6229946524064172,
+        "T": 0.5952380952380952,
+        "T_ind": 0.008807308080153502,
+        "r_obs": 1.0,
+        "r_ind": 1.0,
+        "CF": NaN,
+        "Delta": 0.0,
+        "n": 40
+      },
+      "AR::gemini": {
+        "p": 0.5909090909090909,
+        "T": 0.4523809523809524,
+        "T_ind": 0.005190470353833767,
+        "r_obs": 0.76,
+        "r_ind": 0.5893367538181205,
+        "CF": 0.5190221132985509,
+        "Delta": 0.25432067477771736,
+        "n": 40
+      },
+      "TR::gemini": {
+        "p": 0.5989304812834224,
+        "T": 0.4523809523809524,
+        "T_ind": 0.005939695226494241,
+        "r_obs": 0.76,
+        "r_ind": 0.6744052975595147,
+        "CF": 0.696674571196528,
+        "Delta": 0.11948717140484832,
+        "n": 40
+      },
+      "ZH::gemini": {
+        "p": 0.6096256684491979,
+        "T": 0.5714285714285714,
+        "T_ind": 0.007089774923278351,
+        "r_obs": 0.96,
+        "r_ind": 0.8049877282315738,
+        "CF": 0.1881820152598574,
+        "Delta": 0.1761062515923436,
+        "n": 40
+      },
+      "HI::gemini": {
+        "p": 0.6283422459893048,
+        "T": 0.3333333333333333,
+        "T_ind": 0.009593180162477585,
+        "r_obs": 0.5599999999999999,
+        "r_ind": 1.0892295438256527,
+        "CF": -6.783835096644794,
+        "Delta": -0.6652891010375248,
+        "n": 40
+      },
+      "JA::gemini": {
+        "p": 0.5828877005347594,
+        "T": 0.40476190476190477,
+        "T_ind": 0.004527400495482393,
+        "r_obs": 0.68,
+        "r_ind": 0.514050428834719,
+        "CF": 0.5795654178589521,
+        "Delta": 0.2797714269541317,
+        "n": 40
+      },
+      "ES::gemini": {
+        "p": 0.5989304812834224,
+        "T": 0.4523809523809524,
+        "T_ind": 0.005939695226494241,
+        "r_obs": 0.76,
+        "r_ind": 0.6744052975595147,
+        "CF": 0.696674571196528,
+        "Delta": 0.11948717140484832,
+        "n": 40
+      },
+      "SW::gemini": {
+        "p": 0.6443850267379679,
+        "T": 0.5,
+        "T_ind": 0.012343957100755427,
+        "r_obs": 0.84,
+        "r_ind": 1.4015584544580035,
+        "CF": -0.5164728611370178,
+        "Delta": -0.5119381863943219,
+        "n": 40
+      }
+    }
+  },
+  "bootstrap": {
+    "8": {
+      "common": {
+        "AR::claude_sonnet46": {
+          "p": 0.6122994652406417,
+          "T": 0.4523809523809524,
+          "T_ind": 0.019756546960756967,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.3290633104972198,
+          "CF": -0.6716077995803702,
+          "Delta": -0.47552965305460365,
+          "n": 40,
+          "Delta_CI": [
+            -1.1735764034426277,
+            0.09638136048889742
+          ],
+          "CF_CI": [
+            -5.076157987510787,
+            5.530729654189791
+          ],
+          "p_raw": 0.05338932213557288,
+          "p_holm": 0.5872825434913017,
+          "bootstrap_tail_probability": 0.05338932213557288,
+          "holm_adjusted_bootstrap_tail_probability": 0.5872825434913017,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::claude_sonnet46": {
+          "p": 0.5962566844919787,
+          "T": 0.5476190476190477,
+          "T_ind": 0.015975927712491036,
+          "r_obs": 1.0,
+          "r_ind": 1.074733323389123,
+          "CF": 0.0,
+          "Delta": -0.07207255953892786,
+          "n": 40,
+          "Delta_CI": [
+            -0.4464251179167893,
+            0.3299036311200021
+          ],
+          "CF_CI": [
+            -4.194187548813648,
+            4.312163455254375
+          ],
+          "p_raw": 0.3489302139572086,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.3489302139572086,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.42857142857142855,
+          "T_ind": 0.023483025066138943,
+          "r_obs": 0.7826086956521738,
+          "r_ind": 1.5797511122204726,
+          "CF": -0.5360594389466488,
+          "Delta": -0.7023897687525729,
+          "n": 40,
+          "Delta_CI": [
+            -1.561945037131038,
+            -0.062352651726345576
+          ],
+          "CF_CI": [
+            -3.71352442949048,
+            1.29067644028186
+          ],
+          "p_raw": 0.013397320535892822,
+          "p_holm": 0.18756248750249951,
+          "bootstrap_tail_probability": 0.013397320535892822,
+          "holm_adjusted_bootstrap_tail_probability": 0.18756248750249951,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::claude_sonnet46": {
+          "p": 0.6042780748663101,
+          "T": 0.47619047619047616,
+          "T_ind": 0.017778482786362102,
+          "r_obs": 0.8695652173913042,
+          "r_ind": 1.1959948889142784,
+          "CF": -0.7808872825034304,
+          "Delta": -0.31874032441142264,
+          "n": 40,
+          "Delta_CI": [
+            -0.9512729313514523,
+            0.20550733689817846
+          ],
+          "CF_CI": [
+            -5.859542787255229,
+            5.7012768538085945
+          ],
+          "p_raw": 0.1297740451909618,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.1297740451909618,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::claude_sonnet46": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.01907681896676829,
+          "r_obs": 1.043478260869565,
+          "r_ind": 1.2833366184936688,
+          "CF": 0.17060463015061045,
+          "Delta": -0.20690380507470746,
+          "n": 40,
+          "Delta_CI": [
+            -0.8857347003733926,
+            0.3671115146395211
+          ],
+          "CF_CI": [
+            -2.7461117380029836,
+            3.1541837214129904
+          ],
+          "p_raw": 0.262747450509898,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.262747450509898,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::claude_sonnet46": {
+          "p": 0.6176470588235294,
+          "T": 0.6190476190476191,
+          "T_ind": 0.021179856901349832,
+          "r_obs": 1.1304347826086956,
+          "r_ind": 1.4248122804597054,
+          "CF": 0.346295043350737,
+          "Delta": -0.2314377499399934,
+          "n": 40,
+          "Delta_CI": [
+            -0.842738000551627,
+            0.3333869689155519
+          ],
+          "CF_CI": [
+            -1.498682702380243,
+            2.224605752323062
+          ],
+          "p_raw": 0.22995400919816036,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.22995400919816036,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.4523809523809524,
+          "T_ind": 0.023483025066138943,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.5797511122204726,
+          "CF": -0.417819582296516,
+          "Delta": -0.6483225474822971,
+          "n": 40,
+          "Delta_CI": [
+            -1.3632491791114454,
+            -0.03079014934549507
+          ],
+          "CF_CI": [
+            -6.317017362462129,
+            5.580409398513457
+          ],
+          "p_raw": 0.021195760847830435,
+          "p_holm": 0.2543491301739652,
+          "bootstrap_tail_probability": 0.021195760847830435,
+          "holm_adjusted_bootstrap_tail_probability": 0.2543491301739652,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "AR::gemini": {
+          "p": 0.5909090909090909,
+          "T": 0.4523809523809524,
+          "T_ind": 0.014865015687902623,
+          "r_obs": 0.76,
+          "r_ind": 0.6550746919193289,
+          "CF": 0.6487776416231885,
+          "Delta": 0.1485691706818219,
+          "n": 40,
+          "Delta_CI": [
+            -0.4302922564436532,
+            0.6583497323772871
+          ],
+          "CF_CI": [
+            -2.839740493438576,
+            4.434041180837318
+          ],
+          "p_raw": 0.6912617476504699,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6912617476504699,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.01655813156690666,
+          "r_obs": 0.76,
+          "r_ind": 0.7296872847418787,
+          "CF": 0.8708432139956599,
+          "Delta": 0.04070236798352661,
+          "n": 40,
+          "Delta_CI": [
+            -0.684867959745235,
+            0.66199650430672
+          ],
+          "CF_CI": [
+            -3.953977340362305,
+            5.747456747428502
+          ],
+          "p_raw": 0.5416916616676665,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.5416916616676665,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::gemini": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.01907681896676829,
+          "r_obs": 0.96,
+          "r_ind": 0.8406813399885334,
+          "CF": 0.2352275190748219,
+          "Delta": 0.13272060236982375,
+          "n": 40,
+          "Delta_CI": [
+            -0.5018331444209058,
+            0.7421638203925403
+          ],
+          "CF_CI": [
+            -1.948595528473749,
+            2.170296766368386
+          ],
+          "p_raw": 0.6764647070585883,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6764647070585883,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::gemini": {
+          "p": 0.6283422459893048,
+          "T": 0.3333333333333333,
+          "T_ind": 0.024297974982466542,
+          "r_obs": 0.5599999999999999,
+          "r_ind": 1.0707683604300748,
+          "CF": -8.479793870805985,
+          "Delta": -0.6481949798806084,
+          "n": 40,
+          "Delta_CI": [
+            -1.3824937308757446,
+            -0.06281585440293555
+          ],
+          "CF_CI": [
+            -17.564455545697285,
+            19.01293086234511
+          ],
+          "p_raw": 0.016596680663867228,
+          "p_holm": 0.21575684863027395,
+          "bootstrap_tail_probability": 0.016596680663867228,
+          "holm_adjusted_bootstrap_tail_probability": 0.21575684863027395,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::gemini": {
+          "p": 0.5828877005347594,
+          "T": 0.40476190476190477,
+          "T_ind": 0.01332536553543673,
+          "r_obs": 0.68,
+          "r_ind": 0.5872250595700711,
+          "CF": 0.72445677232369,
+          "Delta": 0.14668464540090853,
+          "n": 40,
+          "Delta_CI": [
+            -0.5580762068407114,
+            0.7786753096059923
+          ],
+          "CF_CI": [
+            -1.7612901312139917,
+            4.899278210124771
+          ],
+          "p_raw": 0.6542691461707658,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6542691461707658,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.01655813156690666,
+          "r_obs": 0.76,
+          "r_ind": 0.7296872847418787,
+          "CF": 0.8708432139956599,
+          "Delta": 0.04070236798352661,
+          "n": 40,
+          "Delta_CI": [
+            -0.6952741843015677,
+            0.699677441524738
+          ],
+          "CF_CI": [
+            -6.102848619711155,
+            6.602672839112282
+          ],
+          "p_raw": 0.5356928614277144,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.5356928614277144,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::gemini": {
+          "p": 0.6443850267379679,
+          "T": 0.5,
+          "T_ind": 0.02972785150781264,
+          "r_obs": 0.84,
+          "r_ind": 1.3100533209495453,
+          "CF": -0.6455910764212728,
+          "Delta": -0.44442122654441285,
+          "n": 40,
+          "Delta_CI": [
+            -1.2673993705917017,
+            0.17965921677462515
+          ],
+          "CF_CI": [
+            -4.834745311982649,
+            4.7308110714654
+          ],
+          "p_raw": 0.09318136372725455,
+          "p_holm": 0.9318136372725455,
+          "bootstrap_tail_probability": 0.09318136372725455,
+          "holm_adjusted_bootstrap_tail_probability": 0.9318136372725455,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        }
+      },
+      "position": {
+        "AR::claude_sonnet46": {
+          "p": 0.6122994652406417,
+          "T": 0.4523809523809524,
+          "T_ind": 0.01010905884330356,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.125552389037109,
+          "CF": -1.6153622408298882,
+          "Delta": -0.309329164389342,
+          "n": 40,
+          "Delta_CI": [
+            -1.0462285923321721,
+            0.3995789523839797
+          ],
+          "CF_CI": [
+            -8.686890929454817,
+            8.94085906630539
+          ],
+          "p_raw": 0.1931613677264547,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.1931613677264547,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::claude_sonnet46": {
+          "p": 0.5962566844919787,
+          "T": 0.5476190476190477,
+          "T_ind": 0.012120506865623168,
+          "r_obs": 1.0,
+          "r_ind": 1.3495089573031565,
+          "CF": 0.0,
+          "Delta": -0.29974079095160183,
+          "n": 40,
+          "Delta_CI": [
+            -0.9953483424526461,
+            0.3331716263195788
+          ],
+          "CF_CI": [
+            -4.1816522664514215,
+            4.012622096091535
+          ],
+          "p_raw": 0.16996600679864027,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.16996600679864027,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.42857142857142855,
+          "T_ind": 0.013929071862432094,
+          "r_obs": 0.7826086956521738,
+          "r_ind": 1.5508763332815467,
+          "CF": -0.5585943568051674,
+          "Delta": -0.6839426055098448,
+          "n": 40,
+          "Delta_CI": [
+            -1.5508319499789358,
+            -0.010472713171772806
+          ],
+          "CF_CI": [
+            -5.017125965002432,
+            3.5546312996653597
+          ],
+          "p_raw": 0.023195360927814438,
+          "p_holm": 0.3015396920615877,
+          "bootstrap_tail_probability": 0.023195360927814438,
+          "holm_adjusted_bootstrap_tail_probability": 0.3015396920615877,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::claude_sonnet46": {
+          "p": 0.6042780748663101,
+          "T": 0.47619047619047616,
+          "T_ind": 0.010081331027298256,
+          "r_obs": 0.8695652173913042,
+          "r_ind": 1.122465147184894,
+          "CF": -1.209774256092456,
+          "Delta": -0.2552892332489015,
+          "n": 40,
+          "Delta_CI": [
+            -1.000437565078462,
+            0.493143518570723
+          ],
+          "CF_CI": [
+            -8.188577675587137,
+            7.873926309494639
+          ],
+          "p_raw": 0.2549490101979604,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.2549490101979604,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::claude_sonnet46": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.01243515568302647,
+          "r_obs": 1.043478260869565,
+          "r_ind": 1.3845422609593705,
+          "CF": 0.13080391054494372,
+          "Delta": -0.2828099730919108,
+          "n": 40,
+          "Delta_CI": [
+            -1.0725964603665226,
+            0.3887948444397738
+          ],
+          "CF_CI": [
+            -3.2054687184866246,
+            3.627238848347022
+          ],
+          "p_raw": 0.21555688862227554,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.21555688862227554,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::claude_sonnet46": {
+          "p": 0.6176470588235294,
+          "T": 0.6190476190476191,
+          "T_ind": 0.011146162973940185,
+          "r_obs": 1.1304347826086956,
+          "r_ind": 1.2410245660233534,
+          "CF": 0.5677681498912759,
+          "Delta": -0.09333497927938057,
+          "n": 40,
+          "Delta_CI": [
+            -0.8055398965080945,
+            0.59038642123248
+          ],
+          "CF_CI": [
+            -3.6412639681931114,
+            4.385891512624793
+          ],
+          "p_raw": 0.40671865626874626,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.40671865626874626,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.4523809523809524,
+          "T_ind": 0.011854848417818566,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.319930288781266,
+          "CF": -0.6882915829259654,
+          "Delta": -0.468634160437067,
+          "n": 40,
+          "Delta_CI": [
+            -1.256747978353404,
+            0.2662195258720253
+          ],
+          "CF_CI": [
+            -9.99789282400379,
+            8.868664689301012
+          ],
+          "p_raw": 0.09958008398320337,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.09958008398320337,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "AR::gemini": {
+          "p": 0.5909090909090909,
+          "T": 0.4523809523809524,
+          "T_ind": 0.009163911295463628,
+          "r_obs": 0.76,
+          "r_ind": 0.6952337218814528,
+          "CF": 0.75496949193668,
+          "Delta": 0.08907035377164252,
+          "n": 40,
+          "Delta_CI": [
+            -0.5583167444557632,
+            0.7190709663186595
+          ],
+          "CF_CI": [
+            -6.817885998727068,
+            7.784210244356324
+          ],
+          "p_raw": 0.6116776644671066,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6116776644671066,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.010462074340531508,
+          "r_obs": 0.76,
+          "r_ind": 0.7937207866654906,
+          "CF": 1.1879172712914743,
+          "Delta": -0.043413312048276725,
+          "n": 40,
+          "Delta_CI": [
+            -0.8046549922784056,
+            0.6386792283483628
+          ],
+          "CF_CI": [
+            -9.887662527439021,
+            11.58019869028442
+          ],
+          "p_raw": 0.47290541891621674,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.47290541891621674,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::gemini": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.013872710575544782,
+          "r_obs": 0.96,
+          "r_ind": 1.0524737631184407,
+          "CF": -0.7981876049731628,
+          "Delta": -0.09196535263044245,
+          "n": 40,
+          "Delta_CI": [
+            -0.7291837550909345,
+            0.5289116963994127
+          ],
+          "CF_CI": [
+            -3.703821141329079,
+            3.499617517171673
+          ],
+          "p_raw": 0.3837232553489302,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.3837232553489302,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::gemini": {
+          "p": 0.6283422459893048,
+          "T": 0.3333333333333333,
+          "T_ind": 0.01861489898291458,
+          "r_obs": 0.5599999999999999,
+          "r_ind": 1.4122469200182515,
+          "CF": -1.6797472099929351,
+          "Delta": -0.9250004915697457,
+          "n": 40,
+          "Delta_CI": [
+            -1.7685825830021196,
+            -0.2651645476846506
+          ],
+          "CF_CI": [
+            -20.754570194546915,
+            15.957497501117087
+          ],
+          "p_raw": 0.003599280143971206,
+          "p_holm": 0.05038992201559688,
+          "bootstrap_tail_probability": 0.003599280143971206,
+          "holm_adjusted_bootstrap_tail_probability": 0.05038992201559688,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::gemini": {
+          "p": 0.5828877005347594,
+          "T": 0.40476190476190477,
+          "T_ind": 0.008221639254768877,
+          "r_obs": 0.68,
+          "r_ind": 0.6237468559837728,
+          "CF": 0.8170630524550343,
+          "Delta": 0.0863481916241049,
+          "n": 40,
+          "Delta_CI": [
+            -0.6815470441589581,
+            0.8129922979669666
+          ],
+          "CF_CI": [
+            -4.894582973664203,
+            7.437853224638101
+          ],
+          "p_raw": 0.6070785842831433,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6070785842831433,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.009959894772185996,
+          "r_obs": 0.76,
+          "r_ind": 0.7556221889055471,
+          "CF": 0.9793838397706989,
+          "Delta": 0.005776932142494973,
+          "n": 40,
+          "Delta_CI": [
+            -0.762378706291989,
+            0.7929057946977948
+          ],
+          "CF_CI": [
+            -9.515855670776869,
+            10.969591376380164
+          ],
+          "p_raw": 0.5106978604279144,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.5106978604279144,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::gemini": {
+          "p": 0.6443850267379679,
+          "T": 0.5,
+          "T_ind": 0.016785897919305643,
+          "r_obs": 0.84,
+          "r_ind": 1.273487041645417,
+          "CF": -0.7211872258542961,
+          "Delta": -0.4161122271439808,
+          "n": 40,
+          "Delta_CI": [
+            -1.3290663346169216,
+            0.33960024394424226
+          ],
+          "CF_CI": [
+            -6.187249866684406,
+            7.488001719068844
+          ],
+          "p_raw": 0.14597080583883223,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.14597080583883223,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        }
+      },
+      "status": "available",
+      "unavailable_reason": null
+    },
+    "9": {
+      "common": {
+        "AR::claude_sonnet46": {
+          "p": 0.6122994652406417,
+          "T": 0.4523809523809524,
+          "T_ind": 0.012096923139073117,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.3771741995649924,
+          "CF": -0.5969847107381069,
+          "Delta": -0.5110889550910904,
+          "n": 40,
+          "Delta_CI": [
+            -1.292753035063035,
+            0.12716505958828403
+          ],
+          "CF_CI": [
+            -4.512140433342926,
+            4.916204137057592
+          ],
+          "p_raw": 0.0617876424715057,
+          "p_holm": 0.6796640671865627,
+          "bootstrap_tail_probability": 0.0617876424715057,
+          "holm_adjusted_bootstrap_tail_probability": 0.6796640671865627,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::claude_sonnet46": {
+          "p": 0.5962566844919787,
+          "T": 0.5476190476190477,
+          "T_ind": 0.009525753689533425,
+          "r_obs": 1.0,
+          "r_ind": 1.084459416813459,
+          "CF": 0.0,
+          "Delta": -0.08108162948129378,
+          "n": 40,
+          "Delta_CI": [
+            -0.47200536226962275,
+            0.36064360355839886
+          ],
+          "CF_CI": [
+            -3.7281667100565654,
+            3.8330341824483347
+          ],
+          "p_raw": 0.33833233353329334,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.33833233353329334,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.42857142857142855,
+          "T_ind": 0.014692587875605647,
+          "r_obs": 0.7826086956521738,
+          "r_ind": 1.6726776482334413,
+          "CF": -0.4764972790636877,
+          "Delta": -0.7595481825925214,
+          "n": 40,
+          "Delta_CI": [
+            -1.6693942469603003,
+            -0.07854900732857308
+          ],
+          "CF_CI": [
+            -3.300910603991545,
+            1.147267946917209
+          ],
+          "p_raw": 0.012997400519896021,
+          "p_holm": 0.1819636072785443,
+          "bootstrap_tail_probability": 0.012997400519896021,
+          "holm_adjusted_bootstrap_tail_probability": 0.1819636072785443,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::claude_sonnet46": {
+          "p": 0.6042780748663101,
+          "T": 0.47619047619047616,
+          "T_ind": 0.010743147352186724,
+          "r_obs": 0.8695652173913042,
+          "r_ind": 1.2230535968082663,
+          "CF": -0.6941220288919386,
+          "Delta": -0.3411126221659555,
+          "n": 40,
+          "Delta_CI": [
+            -1.0281433649926408,
+            0.2311116471170303
+          ],
+          "CF_CI": [
+            -5.208482477560225,
+            5.0678016478298655
+          ],
+          "p_raw": 0.1329734053189362,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.1329734053189362,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::claude_sonnet46": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.011629718514500453,
+          "r_obs": 1.043478260869565,
+          "r_ind": 1.3239852896676763,
+          "CF": 0.15164856013387595,
+          "Delta": -0.23808673251139534,
+          "n": 40,
+          "Delta_CI": [
+            -0.9848173965150857,
+            0.38570663038400055
+          ],
+          "CF_CI": [
+            -2.4409882115582153,
+            2.8037188634782133
+          ],
+          "p_raw": 0.2535492901419716,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.2535492901419716,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::claude_sonnet46": {
+          "p": 0.6176470588235294,
+          "T": 0.6190476190476191,
+          "T_ind": 0.013081676321421955,
+          "r_obs": 1.1304347826086956,
+          "r_ind": 1.489283424371909,
+          "CF": 0.30781781631176636,
+          "Delta": -0.27569275894403394,
+          "n": 40,
+          "Delta_CI": [
+            -0.9715693682797277,
+            0.35165529550594304
+          ],
+          "CF_CI": [
+            -1.3321624021157739,
+            1.9774273353982754
+          ],
+          "p_raw": 0.21395720855828834,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.21395720855828834,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.4523809523809524,
+          "T_ind": 0.014692587875605647,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.6726776482334413,
+          "CF": -0.37139518426356977,
+          "Delta": -0.7054809613222457,
+          "n": 40,
+          "Delta_CI": [
+            -1.5034931728888141,
+            -0.016648111501385784
+          ],
+          "CF_CI": [
+            -5.615126544410787,
+            4.960363909789743
+          ],
+          "p_raw": 0.022195560887822437,
+          "p_holm": 0.27034593081383723,
+          "bootstrap_tail_probability": 0.022195560887822437,
+          "holm_adjusted_bootstrap_tail_probability": 0.27034593081383723,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "AR::gemini": {
+          "p": 0.5909090909090909,
+          "T": 0.4523809523809524,
+          "T_ind": 0.008783872906487914,
+          "r_obs": 0.76,
+          "r_ind": 0.6213369395458013,
+          "CF": 0.57669123699839,
+          "Delta": 0.20144492272976955,
+          "n": 40,
+          "Delta_CI": [
+            -0.4339453953670025,
+            0.7724041774168888
+          ],
+          "CF_CI": [
+            -2.5242137719454014,
+            3.9413699385220604
+          ],
+          "p_raw": 0.7310537892421516,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.7310537892421516,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.009917169708521635,
+          "r_obs": 0.76,
+          "r_ind": 0.7015019389793168,
+          "CF": 0.7740828568850311,
+          "Delta": 0.08009476969418744,
+          "n": 40,
+          "Delta_CI": [
+            -0.703501873381079,
+            0.7580131740084908
+          ],
+          "CF_CI": [
+            -3.514646524766491,
+            5.108850442158667
+          ],
+          "p_raw": 0.5804839032193562,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.5804839032193562,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::gemini": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.011629718514500453,
+          "r_obs": 0.96,
+          "r_ind": 0.822640967885775,
+          "CF": 0.20909112806650815,
+          "Delta": 0.1544134269810838,
+          "n": 40,
+          "Delta_CI": [
+            -0.558664459583762,
+            0.8322462505300013
+          ],
+          "CF_CI": [
+            -1.7320849141988757,
+            1.9291526812163422
+          ],
+          "p_raw": 0.6804639072185563,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6804639072185563,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::gemini": {
+          "p": 0.6283422459893048,
+          "T": 0.3333333333333333,
+          "T_ind": 0.015267444173474965,
+          "r_obs": 0.5599999999999999,
+          "r_ind": 1.0799595051547963,
+          "CF": -7.537594551827544,
+          "Delta": -0.6567420404590666,
+          "n": 40,
+          "Delta_CI": [
+            -1.4293779988644615,
+            -0.028597526179679523
+          ],
+          "CF_CI": [
+            -15.612849373953118,
+            16.900382988751165
+          ],
+          "p_raw": 0.020795840831833633,
+          "p_holm": 0.27034593081383723,
+          "bootstrap_tail_probability": 0.020795840831833633,
+          "holm_adjusted_bootstrap_tail_probability": 0.27034593081383723,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::gemini": {
+          "p": 0.5828877005347594,
+          "T": 0.40476190476190477,
+          "T_ind": 0.007767191675735848,
+          "r_obs": 0.68,
+          "r_ind": 0.5494208711857317,
+          "CF": 0.6439615753988356,
+          "Delta": 0.21322803617752017,
+          "n": 40,
+          "Delta_CI": [
+            -0.5683909923422749,
+            0.9061030195313623
+          ],
+          "CF_CI": [
+            -1.5655912277457698,
+            4.354913964555353
+          ],
+          "p_raw": 0.7036592681463707,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.7036592681463707,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.009917169708521635,
+          "r_obs": 0.76,
+          "r_ind": 0.7015019389793168,
+          "CF": 0.7740828568850311,
+          "Delta": 0.08009476969418744,
+          "n": 40,
+          "Delta_CI": [
+            -0.7122451260590182,
+            0.7973091107820518
+          ],
+          "CF_CI": [
+            -5.424754328632148,
+            5.869042523655354
+          ],
+          "p_raw": 0.5738852229554089,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.5738852229554089,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::gemini": {
+          "p": 0.6443850267379679,
+          "T": 0.5,
+          "T_ind": 0.01915618238872419,
+          "r_obs": 0.84,
+          "r_ind": 1.3550336924842938,
+          "CF": -0.5738587345966866,
+          "Delta": -0.47817970646936736,
+          "n": 40,
+          "Delta_CI": [
+            -1.410529468689848,
+            0.21837207068327436
+          ],
+          "CF_CI": [
+            -4.297551388429024,
+            4.205165396858135
+          ],
+          "p_raw": 0.10477904419116177,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.10477904419116177,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        }
+      },
+      "position": {
+        "AR::claude_sonnet46": {
+          "p": 0.6122994652406417,
+          "T": 0.4523809523809524,
+          "T_ind": 0.0068236147192299035,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.3213006306087804,
+          "CF": -0.685728172884189,
+          "Delta": -0.46967181446452155,
+          "n": 40,
+          "Delta_CI": [
+            -1.2598382186942232,
+            0.25872400647870963
+          ],
+          "CF_CI": [
+            -7.685699536883469,
+            6.8307796480616725
+          ],
+          "p_raw": 0.10337932413517296,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.10337932413517296,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::claude_sonnet46": {
+          "p": 0.5962566844919787,
+          "T": 0.5476190476190477,
+          "T_ind": 0.00757531679101448,
+          "r_obs": 1.0,
+          "r_ind": 1.4668575622860398,
+          "CF": 0.0,
+          "Delta": -0.383122399890653,
+          "n": 40,
+          "Delta_CI": [
+            -1.0564353632560344,
+            0.22253892061837702
+          ],
+          "CF_CI": [
+            -3.2421934831794257,
+            2.747445455676959
+          ],
+          "p_raw": 0.10037992401519696,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.10037992401519696,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.42857142857142855,
+          "T_ind": 0.009053896710580862,
+          "r_obs": 0.7826086956521738,
+          "r_ind": 1.7531645506660964,
+          "CF": -0.4366096323524066,
+          "Delta": -0.8065449276021772,
+          "n": 40,
+          "Delta_CI": [
+            -1.7252113888781666,
+            -0.10890994514280762
+          ],
+          "CF_CI": [
+            -3.7266869179571973,
+            1.5895178299913704
+          ],
+          "p_raw": 0.009198160367926415,
+          "p_holm": 0.11957608478304341,
+          "bootstrap_tail_probability": 0.009198160367926415,
+          "holm_adjusted_bootstrap_tail_probability": 0.11957608478304341,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::claude_sonnet46": {
+          "p": 0.6042780748663101,
+          "T": 0.47619047619047616,
+          "T_ind": 0.006300831892061411,
+          "r_obs": 0.8695652173913042,
+          "r_ind": 1.2200708121574937,
+          "CF": -0.7026429813180705,
+          "Delta": -0.3386708421879527,
+          "n": 40,
+          "Delta_CI": [
+            -1.0644272781637178,
+            0.3862923505683073
+          ],
+          "CF_CI": [
+            -7.706491923529685,
+            6.787957553189342
+          ],
+          "p_raw": 0.1807638472305539,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.1807638472305539,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::claude_sonnet46": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.00715021451774022,
+          "r_obs": 1.043478260869565,
+          "r_ind": 1.3845422609593703,
+          "CF": 0.13080391054494378,
+          "Delta": -0.28280997309191064,
+          "n": 40,
+          "Delta_CI": [
+            -1.0725964603665226,
+            0.3887948444397738
+          ],
+          "CF_CI": [
+            -3.2054687184866255,
+            3.627238848347011
+          ],
+          "p_raw": 0.21555688862227554,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.21555688862227554,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::claude_sonnet46": {
+          "p": 0.6176470588235294,
+          "T": 0.6190476190476191,
+          "T_ind": 0.006966351858712616,
+          "r_obs": 1.1304347826086956,
+          "r_ind": 1.3489397456775583,
+          "CF": 0.4096043312634073,
+          "Delta": -0.17671658821843172,
+          "n": 40,
+          "Delta_CI": [
+            -0.9396255948468054,
+            0.5526110991527109
+          ],
+          "CF_CI": [
+            -3.095660724972769,
+            3.6951959647071426
+          ],
+          "p_raw": 0.32893421315736854,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.32893421315736854,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.4523809523809524,
+          "T_ind": 0.008002022682027533,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.5494833824823562,
+          "CF": -0.4362772884808378,
+          "Delta": -0.6289768105122466,
+          "n": 40,
+          "Delta_CI": [
+            -1.4742361648252937,
+            0.11635265566851892
+          ],
+          "CF_CI": [
+            -6.684968995778422,
+            6.429243897310858
+          ],
+          "p_raw": 0.04439112177564487,
+          "p_holm": 0.5326934613077385,
+          "bootstrap_tail_probability": 0.04439112177564487,
+          "holm_adjusted_bootstrap_tail_probability": 0.5326934613077385,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "AR::gemini": {
+          "p": 0.5909090909090909,
+          "T": 0.4523809523809524,
+          "T_ind": 0.00618564012443795,
+          "r_obs": 0.76,
+          "r_ind": 0.6472865686482493,
+          "CF": 0.6309383781062938,
+          "Delta": 0.16052931775378732,
+          "n": 40,
+          "Delta_CI": [
+            -0.4903960079109486,
+            0.8114091841550461
+          ],
+          "CF_CI": [
+            -3.7495383306672845,
+            5.592865902678255
+          ],
+          "p_raw": 0.6950609878024395,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6950609878024395,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.006538796462832192,
+          "r_obs": 0.76,
+          "r_ind": 0.6842420574702506,
+          "CF": 0.723261348948255,
+          "Delta": 0.10500669306999649,
+          "n": 40,
+          "Delta_CI": [
+            -0.6966985138281724,
+            0.8901156254268788
+          ],
+          "CF_CI": [
+            -4.8857358175848535,
+            7.24921721469457
+          ],
+          "p_raw": 0.6172765446910617,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6172765446910617,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::gemini": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.00867044410971549,
+          "r_obs": 0.96,
+          "r_ind": 0.9073049682055525,
+          "CF": 0.41964845392812516,
+          "Delta": 0.05645465248783058,
+          "n": 40,
+          "Delta_CI": [
+            -0.6233977686804085,
+            0.7529668964952936
+          ],
+          "CF_CI": [
+            -3.3013457939659583,
+            3.16796549604495
+          ],
+          "p_raw": 0.5664867026594681,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.5664867026594681,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::gemini": {
+          "p": 0.6283422459893048,
+          "T": 0.3333333333333333,
+          "T_ind": 0.013030429288040206,
+          "r_obs": 0.5599999999999999,
+          "r_ind": 1.36354875036245,
+          "CF": -1.8698353068432079,
+          "Delta": -0.8899091717584758,
+          "n": 40,
+          "Delta_CI": [
+            -1.7509455228148934,
+            -0.19369951276248948
+          ],
+          "CF_CI": [
+            -21.271364396751032,
+            20.681211320596717
+          ],
+          "p_raw": 0.0057988402319536095,
+          "p_holm": 0.08118376324735053,
+          "bootstrap_tail_probability": 0.0057988402319536095,
+          "holm_adjusted_bootstrap_tail_probability": 0.08118376324735053,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::gemini": {
+          "p": 0.5828877005347594,
+          "T": 0.40476190476190477,
+          "T_ind": 0.005549606496968992,
+          "r_obs": 0.68,
+          "r_ind": 0.5807298314331678,
+          "CF": 0.7096302258093271,
+          "Delta": 0.1578071556062498,
+          "n": 40,
+          "Delta_CI": [
+            -0.6327116097613408,
+            0.9194498406631724
+          ],
+          "CF_CI": [
+            -4.0327798757865345,
+            6.127906416649428
+          ],
+          "p_raw": 0.6654669066186762,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6654669066186762,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.0067229289712255474,
+          "r_obs": 0.76,
+          "r_ind": 0.703510313808613,
+          "CF": 0.7803756534455363,
+          "Delta": 0.07723589612463971,
+          "n": 40,
+          "Delta_CI": [
+            -0.7442553268150253,
+            0.913070604170907
+          ],
+          "CF_CI": [
+            -6.542509050505918,
+            8.607082945320919
+          ],
+          "p_raw": 0.5758848230353929,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.5758848230353929,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::gemini": {
+          "p": 0.6443850267379679,
+          "T": 0.5,
+          "T_ind": 0.01216977599149659,
+          "r_obs": 0.84,
+          "r_ind": 1.2734870416454172,
+          "CF": -0.7211872258542955,
+          "Delta": -0.41611222714398094,
+          "n": 40,
+          "Delta_CI": [
+            -1.3438250682436235,
+            0.3096576527518487
+          ],
+          "CF_CI": [
+            -6.81982918795762,
+            6.468272731208014
+          ],
+          "p_raw": 0.14737052589482103,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.14737052589482103,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        }
+      },
+      "status": "available",
+      "unavailable_reason": null
+    },
+    "10": {
+      "common": {
+        "AR::claude_sonnet46": {
+          "p": 0.6122994652406417,
+          "T": 0.4523809523809524,
+          "T_ind": 0.007406939569111614,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.4270266592777525,
+          "CF": -0.5372862396642959,
+          "Delta": -0.5466482571275775,
+          "n": 40,
+          "Delta_CI": [
+            -1.4118281424301042,
+            0.16770720252391075
+          ],
+          "CF_CI": [
+            -4.060926390008651,
+            4.4245837233518275
+          ],
+          "p_raw": 0.06958608278344332,
+          "p_holm": 0.7654469106178765,
+          "bootstrap_tail_probability": 0.06958608278344332,
+          "holm_adjusted_bootstrap_tail_probability": 0.7654469106178765,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::claude_sonnet46": {
+          "p": 0.5962566844919787,
+          "T": 0.5476190476190477,
+          "T_ind": 0.005679794312208433,
+          "r_obs": 1.0,
+          "r_ind": 1.0942735291828116,
+          "CF": 0.0,
+          "Delta": -0.09009069942365985,
+          "n": 40,
+          "Delta_CI": [
+            -0.5048856644432169,
+            0.39812171212197806
+          ],
+          "CF_CI": [
+            -3.355350039050918,
+            3.4497307642034984
+          ],
+          "p_raw": 0.33033393321335736,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.33033393321335736,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.42857142857142855,
+          "T_ind": 0.009192688670833478,
+          "r_obs": 0.7826086956521738,
+          "r_ind": 1.7710704510707025,
+          "CF": -0.4288475511573189,
+          "Delta": -0.81670659643247,
+          "n": 40,
+          "Delta_CI": [
+            -1.7737848309057427,
+            -0.08788128225692118
+          ],
+          "CF_CI": [
+            -2.970819543592394,
+            1.0325411522254881
+          ],
+          "p_raw": 0.01279744051189762,
+          "p_holm": 0.1791641671665667,
+          "bootstrap_tail_probability": 0.01279744051189762,
+          "holm_adjusted_bootstrap_tail_probability": 0.1791641671665667,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::claude_sonnet46": {
+          "p": 0.6042780748663101,
+          "T": 0.47619047619047616,
+          "T_ind": 0.0064918483999844906,
+          "r_obs": 0.8695652173913042,
+          "r_ind": 1.250724492663657,
+          "CF": -0.6247098260027446,
+          "Delta": -0.36348491992048854,
+          "n": 40,
+          "Delta_CI": [
+            -1.1021212549203094,
+            0.2523067409602184
+          ],
+          "CF_CI": [
+            -4.687634229804211,
+            4.561021483046877
+          ],
+          "p_raw": 0.13737252549490103,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.13737252549490103,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::claude_sonnet46": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.007089774923278351,
+          "r_obs": 1.043478260869565,
+          "r_ind": 1.365921475313259,
+          "CF": 0.1364837041204883,
+          "Delta": -0.2692696599480834,
+          "n": 40,
+          "Delta_CI": [
+            -1.0794794390313898,
+            0.40158605389282637
+          ],
+          "CF_CI": [
+            -2.1968893904023874,
+            2.523346977130404
+          ],
+          "p_raw": 0.2393521295740852,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.2393521295740852,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::claude_sonnet46": {
+          "p": 0.6176470588235294,
+          "T": 0.6190476190476191,
+          "T_ind": 0.00807985890440768,
+          "r_obs": 1.1304347826086956,
+          "r_ind": 1.5566718146149823,
+          "CF": 0.2770360346805895,
+          "Delta": -0.31994776794807495,
+          "n": 40,
+          "Delta_CI": [
+            -1.0964318221062455,
+            0.38096057487526647
+          ],
+          "CF_CI": [
+            -1.1989461619041961,
+            1.779684601858448
+          ],
+          "p_raw": 0.20235952809438112,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.20235952809438112,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.4523809523809524,
+          "T_ind": 0.009192688670833478,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.7710704510707025,
+          "CF": -0.3342556658372127,
+          "Delta": -0.7626393751621943,
+          "n": 40,
+          "Delta_CI": [
+            -1.6468017057220006,
+            -0.008965452042684572
+          ],
+          "CF_CI": [
+            -5.053613889969706,
+            4.464327518810768
+          ],
+          "p_raw": 0.022595480903819236,
+          "p_holm": 0.29374125174965005,
+          "bootstrap_tail_probability": 0.022595480903819236,
+          "holm_adjusted_bootstrap_tail_probability": 0.29374125174965005,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "AR::gemini": {
+          "p": 0.5909090909090909,
+          "T": 0.4523809523809524,
+          "T_ind": 0.005190470353833767,
+          "r_obs": 0.76,
+          "r_ind": 0.5893367538181205,
+          "CF": 0.5190221132985509,
+          "Delta": 0.25432067477771736,
+          "n": 40,
+          "Delta_CI": [
+            -0.44019840680760797,
+            0.8862510053699604
+          ],
+          "CF_CI": [
+            -2.2717923947508605,
+            3.54723294466985
+          ],
+          "p_raw": 0.7596480703859229,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.7596480703859229,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.005939695226494241,
+          "r_obs": 0.76,
+          "r_ind": 0.6744052975595147,
+          "CF": 0.696674571196528,
+          "Delta": 0.11948717140484832,
+          "n": 40,
+          "Delta_CI": [
+            -0.7232136366074241,
+            0.8486871916708824
+          ],
+          "CF_CI": [
+            -3.1631818722898455,
+            4.597965397942802
+          ],
+          "p_raw": 0.612877424515097,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.612877424515097,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::gemini": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.007089774923278351,
+          "r_obs": 0.96,
+          "r_ind": 0.8049877282315738,
+          "CF": 0.1881820152598574,
+          "Delta": 0.1761062515923436,
+          "n": 40,
+          "Delta_CI": [
+            -0.6100958606556562,
+            0.9286646022975777
+          ],
+          "CF_CI": [
+            -1.5588764227789889,
+            1.736237413094709
+          ],
+          "p_raw": 0.6846630673865227,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6846630673865227,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::gemini": {
+          "p": 0.6283422459893048,
+          "T": 0.3333333333333333,
+          "T_ind": 0.009593180162477585,
+          "r_obs": 0.5599999999999999,
+          "r_ind": 1.0892295438256527,
+          "CF": -6.783835096644794,
+          "Delta": -0.6652891010375248,
+          "n": 40,
+          "Delta_CI": [
+            -1.4872148334650894,
+            0.012834329550937775
+          ],
+          "CF_CI": [
+            -14.051564436557843,
+            15.210344689876067
+          ],
+          "p_raw": 0.028994201159768047,
+          "p_holm": 0.3479304139172166,
+          "bootstrap_tail_probability": 0.028994201159768047,
+          "holm_adjusted_bootstrap_tail_probability": 0.3479304139172166,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::gemini": {
+          "p": 0.5828877005347594,
+          "T": 0.40476190476190477,
+          "T_ind": 0.004527400495482393,
+          "r_obs": 0.68,
+          "r_ind": 0.514050428834719,
+          "CF": 0.5795654178589521,
+          "Delta": 0.2797714269541317,
+          "n": 40,
+          "Delta_CI": [
+            -0.5744797515814604,
+            1.0404285482873707
+          ],
+          "CF_CI": [
+            -1.4090321049711936,
+            3.919422568099817
+          ],
+          "p_raw": 0.738252349530094,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.738252349530094,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.005939695226494241,
+          "r_obs": 0.76,
+          "r_ind": 0.6744052975595147,
+          "CF": 0.696674571196528,
+          "Delta": 0.11948717140484832,
+          "n": 40,
+          "Delta_CI": [
+            -0.7396312972135431,
+            0.894453621738911
+          ],
+          "CF_CI": [
+            -4.882278895768929,
+            5.282138271289826
+          ],
+          "p_raw": 0.5992801439712058,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.5992801439712058,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::gemini": {
+          "p": 0.6443850267379679,
+          "T": 0.5,
+          "T_ind": 0.012343957100755427,
+          "r_obs": 0.84,
+          "r_ind": 1.4015584544580035,
+          "CF": -0.5164728611370178,
+          "Delta": -0.5119381863943219,
+          "n": 40,
+          "Delta_CI": [
+            -1.5488011520153087,
+            0.2734636970967378
+          ],
+          "CF_CI": [
+            -3.8677962495861244,
+            3.7846488571723222
+          ],
+          "p_raw": 0.11617676464707058,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.11617676464707058,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        }
+      },
+      "position": {
+        "AR::claude_sonnet46": {
+          "p": 0.6122994652406417,
+          "T": 0.4523809523809524,
+          "T_ind": 0.005544186959374297,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.3213006306087807,
+          "CF": -0.6857281728841886,
+          "Delta": -0.4696718144645217,
+          "n": 40,
+          "Delta_CI": [
+            -1.2598382186942232,
+            0.25872400647870963
+          ],
+          "CF_CI": [
+            -7.685699536883469,
+            6.8307796480616725
+          ],
+          "p_raw": 0.10337932413517296,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.10337932413517296,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::claude_sonnet46": {
+          "p": 0.5962566844919787,
+          "T": 0.5476190476190477,
+          "T_ind": 0.005208030293822455,
+          "r_obs": 1.0,
+          "r_ind": 1.2411871680881876,
+          "CF": 0.0,
+          "Delta": -0.2160683152274869,
+          "n": 40,
+          "Delta_CI": [
+            -0.857297509304303,
+            0.38504013508751284
+          ],
+          "CF_CI": [
+            -5.279123675969877,
+            4.522513561634961
+          ],
+          "p_raw": 0.23015396920615877,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.23015396920615877,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.42857142857142855,
+          "T_ind": 0.00735629107734695,
+          "r_obs": 0.7826086956521738,
+          "r_ind": 1.7531645506660967,
+          "CF": -0.43660963235240646,
+          "Delta": -0.8065449276021772,
+          "n": 40,
+          "Delta_CI": [
+            -1.7252113888781666,
+            -0.10890994514280762
+          ],
+          "CF_CI": [
+            -3.7266869179571978,
+            1.5895178299913704
+          ],
+          "p_raw": 0.009198160367926415,
+          "p_holm": 0.1287742451509698,
+          "bootstrap_tail_probability": 0.009198160367926415,
+          "holm_adjusted_bootstrap_tail_probability": 0.1287742451509698,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::claude_sonnet46": {
+          "p": 0.6042780748663101,
+          "T": 0.47619047619047616,
+          "T_ind": 0.00433182192579222,
+          "r_obs": 0.8695652173913042,
+          "r_ind": 1.0323676102871102,
+          "CF": -4.387466752472798,
+          "Delta": -0.17161675752478667,
+          "n": 40,
+          "Delta_CI": [
+            -0.8412054239332479,
+            0.4941088000471739
+          ],
+          "CF_CI": [
+            -8.203165156222259,
+            8.408419448111166
+          ],
+          "p_raw": 0.32373525294941013,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.32373525294941013,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": false,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::claude_sonnet46": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.005809549295663929,
+          "r_obs": 1.043478260869565,
+          "r_ind": 1.3845422609593705,
+          "CF": 0.13080391054494372,
+          "Delta": -0.2828099730919108,
+          "n": 40,
+          "Delta_CI": [
+            -1.0725964603665226,
+            0.3887948444397738
+          ],
+          "CF_CI": [
+            -3.2054687184865815,
+            3.627238848347022
+          ],
+          "p_raw": 0.21555688862227554,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.21555688862227554,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::claude_sonnet46": {
+          "p": 0.6176470588235294,
+          "T": 0.6190476190476191,
+          "T_ind": 0.006530954867543078,
+          "r_obs": 1.1304347826086956,
+          "r_ind": 1.5564689373202598,
+          "CF": 0.27711764901390407,
+          "Delta": -0.3198174318591053,
+          "n": 40,
+          "Delta_CI": [
+            -1.145244886070655,
+            0.45732003629826506
+          ],
+          "CF_CI": [
+            -1.5209663504716366,
+            2.604749389543285
+          ],
+          "p_raw": 0.20795840831833634,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.20795840831833634,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::claude_sonnet46": {
+          "p": 0.6256684491978609,
+          "T": 0.4523809523809524,
+          "T_ind": 0.0070017698467740915,
+          "r_obs": 0.826086956521739,
+          "r_ind": 1.6686744119040762,
+          "CF": -0.3731332269618803,
+          "Delta": -0.7030847826659687,
+          "n": 40,
+          "Delta_CI": [
+            -1.603688392905295,
+            0.08792586730731014
+          ],
+          "CF_CI": [
+            -7.849145851978525,
+            6.55952006976515
+          ],
+          "p_raw": 0.04059188162367527,
+          "p_holm": 0.5276944611077785,
+          "bootstrap_tail_probability": 0.04059188162367527,
+          "holm_adjusted_bootstrap_tail_probability": 0.5276944611077785,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "AR::gemini": {
+          "p": 0.5909090909090909,
+          "T": 0.4523809523809524,
+          "T_ind": 0.005025832601105834,
+          "r_obs": 0.76,
+          "r_ind": 0.5609816928284828,
+          "CF": 0.47474919400836785,
+          "Delta": 0.30363016139446053,
+          "n": 40,
+          "Delta_CI": [
+            -0.3849596473561162,
+            1.0234000608152938
+          ],
+          "CF_CI": [
+            -2.4596899149266758,
+            3.5941335172228883
+          ],
+          "p_raw": 0.8118376324735053,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.8118376324735053,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "TR::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.00613012168390518,
+          "r_obs": 0.76,
+          "r_ind": 0.6842420574702507,
+          "CF": 0.7232613489482553,
+          "Delta": 0.10500669306999633,
+          "n": 40,
+          "Delta_CI": [
+            -0.6966985138281724,
+            0.8901156254268787
+          ],
+          "CF_CI": [
+            -4.885735817584849,
+            7.24921721469457
+          ],
+          "p_raw": 0.6172765446910617,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.6172765446910617,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ZH::gemini": {
+          "p": 0.6096256684491979,
+          "T": 0.5714285714285714,
+          "T_ind": 0.007044735839143835,
+          "r_obs": 0.96,
+          "r_ind": 0.7863309724448122,
+          "CF": 0.16982453061673938,
+          "Delta": 0.19955549612850387,
+          "n": 40,
+          "Delta_CI": [
+            -0.5448995899733086,
+            1.0227184395005433
+          ],
+          "CF_CI": [
+            -2.4276590411680066,
+            2.4237774241562797
+          ],
+          "p_raw": 0.7106578684263147,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.7106578684263147,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "HI::gemini": {
+          "p": 0.6283422459893048,
+          "T": 0.3333333333333333,
+          "T_ind": 0.007329616474522616,
+          "r_obs": 0.5599999999999999,
+          "r_ind": 0.81812925021747,
+          "CF": 2.8884780810020967,
+          "Delta": -0.3790835479924851,
+          "n": 40,
+          "Delta_CI": [
+            -1.1930060092212567,
+            0.5072175047967011
+          ],
+          "CF_CI": [
+            -18.63707972999035,
+            19.782775053880574
+          ],
+          "p_raw": 0.1767646470705859,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.1767646470705859,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "JA::gemini": {
+          "p": 0.5828877005347594,
+          "T": 0.40476190476190477,
+          "T_ind": 0.004509055278787306,
+          "r_obs": 0.68,
+          "r_ind": 0.5032991872420789,
+          "CF": 0.5617230743432122,
+          "Delta": 0.3009079992469229,
+          "n": 40,
+          "Delta_CI": [
+            -0.5067698601440928,
+            1.0842787027255578
+          ],
+          "CF_CI": [
+            -1.278738993318059,
+            3.892515498993693
+          ],
+          "p_raw": 0.7836432713457309,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.7836432713457309,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "ES::gemini": {
+          "p": 0.5989304812834224,
+          "T": 0.4523809523809524,
+          "T_ind": 0.006302745910523951,
+          "r_obs": 0.76,
+          "r_ind": 0.703510313808613,
+          "CF": 0.7803756534455363,
+          "Delta": 0.07723589612463971,
+          "n": 40,
+          "Delta_CI": [
+            -0.7442553268150253,
+            0.913070604170907
+          ],
+          "CF_CI": [
+            -6.542509050505938,
+            8.607082945320933
+          ],
+          "p_raw": 0.5758848230353929,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.5758848230353929,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        },
+        "SW::gemini": {
+          "p": 0.6443850267379679,
+          "T": 0.5,
+          "T_ind": 0.011409164992028053,
+          "r_obs": 0.84,
+          "r_ind": 1.2734870416454172,
+          "CF": -0.7211872258542955,
+          "Delta": -0.41611222714398094,
+          "n": 40,
+          "Delta_CI": [
+            -1.3438250682436232,
+            0.3096576527518487
+          ],
+          "CF_CI": [
+            -6.81982918795762,
+            6.468272731208012
+          ],
+          "p_raw": 0.14737052589482103,
+          "p_holm": 1.0,
+          "bootstrap_tail_probability": 0.14737052589482103,
+          "holm_adjusted_bootstrap_tail_probability": 1.0,
+          "CF_reportable": true,
+          "compounding": false,
+          "inference_status": "uncalibrated_tail_diagnostic",
+          "compounding_status": "legacy_diagnostic_flag_not_inferential",
+          "n_boot": 5000,
+          "seed": 0,
+          "cluster_unit": "underlying_task",
+          "cluster_count": 20
+        }
+      },
+      "status": "available",
+      "unavailable_reason": null
+    }
+  },
+  "bootstrap_config": {
+    "n_boot": 5000,
+    "seed": 0,
+    "cluster_unit": "underlying_task",
+    "cluster_counts_by_backbone": {
+      "claude_sonnet46": 20,
+      "gemini": 20
+    },
+    "status": "available",
+    "unavailable_reason": null,
+    "tail_interpretation": "Bootstrap tail probabilities are uncalibrated directional diagnostics, not inferential p-values."
+  }
+}

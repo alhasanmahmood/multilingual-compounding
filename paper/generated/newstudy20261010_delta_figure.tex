@@ -1,0 +1,47 @@
+\begin{figure}[t]\centering
+\resizebox{\columnwidth}{!}{\begin{tikzpicture}[x=2.0cm,y=0.59cm]
+\foreach \x in {-2,-1,0,1}{\draw[gridln] (\x,-0.5)--(\x,6.6);\node[tick,anchor=north] at (\x,-0.6){\x};}
+\draw[dashed,cMut] (0,-0.5)--(0,6.6);
+\node[font=\footnotesize\bfseries,anchor=east] at (-2.08,6){AR};
+\draw[cRef,line width=0.7pt] (-0.433945,6.11)--(0.772404,6.11);
+\node[circle,fill=cRef,inner sep=1.5pt] at (0.201445,6.11){};
+\draw[cBad,line width=0.7pt] (-1.292753,5.89)--(0.127165,5.89);
+\node[rectangle,fill=cBad,inner sep=1.5pt] at (-0.511089,5.89){};
+\node[font=\footnotesize\bfseries,anchor=east] at (-2.08,5){ES};
+\draw[cRef,line width=0.7pt] (-0.712245,5.11)--(0.797309,5.11);
+\node[circle,fill=cRef,inner sep=1.5pt] at (0.080095,5.11){};
+\draw[cBad,line width=0.7pt] (-0.971569,4.89)--(0.351655,4.89);
+\node[rectangle,fill=cBad,inner sep=1.5pt] at (-0.275693,4.89){};
+\node[font=\footnotesize\bfseries,anchor=east] at (-2.08,4){HI};
+\draw[cRef,line width=0.7pt] (-1.429378,4.11)--(-0.028598,4.11);
+\node[circle,fill=cRef,inner sep=1.5pt] at (-0.656742,4.11){};
+\draw[cBad,line width=0.7pt] (-1.028143,3.89)--(0.231112,3.89);
+\node[rectangle,fill=cBad,inner sep=1.5pt] at (-0.341113,3.89){};
+\node[font=\footnotesize\bfseries,anchor=east] at (-2.08,3){JA};
+\draw[cRef,line width=0.7pt] (-0.568391,3.11)--(0.906103,3.11);
+\node[circle,fill=cRef,inner sep=1.5pt] at (0.213228,3.11){};
+\draw[cBad,line width=0.7pt] (-0.984817,2.89)--(0.385707,2.89);
+\node[rectangle,fill=cBad,inner sep=1.5pt] at (-0.238087,2.89){};
+\node[font=\footnotesize\bfseries,anchor=east] at (-2.08,2){SW};
+\draw[cRef,line width=0.7pt] (-1.410529,2.11)--(0.218372,2.11);
+\node[circle,fill=cRef,inner sep=1.5pt] at (-0.478180,2.11){};
+\draw[cBad,line width=0.7pt] (-1.503493,1.89)--(-0.016648,1.89);
+\node[rectangle,fill=cBad,inner sep=1.5pt] at (-0.705481,1.89){};
+\node[font=\footnotesize\bfseries,anchor=east] at (-2.08,1){TR};
+\draw[cRef,line width=0.7pt] (-0.703502,1.11)--(0.758013,1.11);
+\node[circle,fill=cRef,inner sep=1.5pt] at (0.080095,1.11){};
+\draw[cBad,line width=0.7pt] (-0.472005,0.89)--(0.360644,0.89);
+\node[rectangle,fill=cBad,inner sep=1.5pt] at (-0.081082,0.89){};
+\node[font=\footnotesize\bfseries,anchor=east] at (-2.08,0){ZH};
+\draw[cRef,line width=0.7pt] (-0.558664,0.11)--(0.832246,0.11);
+\node[circle,fill=cRef,inner sep=1.5pt] at (0.154413,0.11){};
+\draw[cBad,line width=0.7pt] (-1.669394,-0.11)--(-0.078549,-0.11);
+\node[rectangle,fill=cBad,inner sep=1.5pt] at (-0.759548,-0.11){};
+\node[font=\footnotesize] at (-.5,-1.65){$\Delta$ (zero: independence baseline)};
+\node[circle,fill=cRef,inner sep=1.5pt] at (-2.14,7.1){};
+\node[font=\footnotesize,text=cRef,anchor=west] (geminiLegend) at (-2.00,7.1){Gemini 3 Flash Preview};
+\node[rectangle,fill=cBad,inner sep=1.5pt,right=14pt of geminiLegend] (claudeLegendMarker) {};
+\node[font=\footnotesize,text=cBad,right=5pt of claudeLegendMarker]{Claude Sonnet 4.6};
+\end{tikzpicture}}
+\caption{Log-ratio deviation at $K=9$, with percentile 95\% intervals from $5000$ paired scenario resamples. Negative values mean lower task success relative to English than the baseline predicts. These intervals are exploratory, not significance tests.}
+\label{fig:results}\end{figure}

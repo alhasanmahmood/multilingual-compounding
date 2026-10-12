@@ -1,0 +1,135 @@
+{
+  "control_class_counts": {
+    "artificial_authored_challenge": 7,
+    "real_bfcl_target_corruption": 324,
+    "real_task_cross_pair_control": 483
+  },
+  "control_counts": {
+    "mismatched_task_turn": 483,
+    "negation_reversal": 7,
+    "number_changed": 79,
+    "quoted_literal_or_filename_changed": 245
+  },
+  "interpretation": "Embedding similarity diagnostic only; no threshold or accuracy probability.",
+  "literal_diagnostic_counts": {
+    "missing_filename_rows": 0,
+    "missing_quoted_literal_rows": 0,
+    "numeric_multiset_differences": 34
+  },
+  "pair_count_by_language": {
+    "AR": 86,
+    "ES": 86,
+    "HI": 86,
+    "JA": 86,
+    "SW": 86,
+    "TR": 86,
+    "ZH": 86
+  },
+  "pair_summary_by_language": {
+    "AR": {
+      "mean": 0.919922611407151,
+      "median": 0.9269293027402603,
+      "minimum": 0.7911508380654354,
+      "nonempty_pairs": 86,
+      "p10": 0.8782408137084508
+    },
+    "ES": {
+      "mean": 0.9338907015557545,
+      "median": 0.9377417452574688,
+      "minimum": 0.8788915949772205,
+      "nonempty_pairs": 86,
+      "p10": 0.9009098731355862
+    },
+    "HI": {
+      "mean": 0.8641411869757442,
+      "median": 0.8705234857004929,
+      "minimum": 0.6144956789160033,
+      "nonempty_pairs": 86,
+      "p10": 0.8145647539214214
+    },
+    "JA": {
+      "mean": 0.8667239188171179,
+      "median": 0.8736617522846284,
+      "minimum": 0.7118435393303273,
+      "nonempty_pairs": 86,
+      "p10": 0.8101346486681651
+    },
+    "SW": {
+      "mean": 0.9023992302204662,
+      "median": 0.9111388317510132,
+      "minimum": 0.800335860729133,
+      "nonempty_pairs": 86,
+      "p10": 0.8550329900434932
+    },
+    "TR": {
+      "mean": 0.8743924484011782,
+      "median": 0.882314124039826,
+      "minimum": 0.7482473591452831,
+      "nonempty_pairs": 86,
+      "p10": 0.8107816347697997
+    },
+    "ZH": {
+      "mean": 0.9115528763975139,
+      "median": 0.9281944793485764,
+      "minimum": 0.6928167955363564,
+      "nonempty_pairs": 86,
+      "p10": 0.8540087313743047
+    }
+  },
+  "provenance": {
+    "cache_path": "data/bfcl/localized_queries/newstudy20261010_bfcl_multiturn_localizations.jsonl",
+    "cache_rows": 160,
+    "cache_sha256": "04f858c21801117fe0f99d6974773d1818c10d91a3ecbbf1579c707455a4e034",
+    "chunk_policy": "No chunking: every nonempty text is tokenized without special tokens and must fit within max_seq_length minus tokenizer special-token allowance. Over-limit text fails explicitly; no truncation is allowed.",
+    "collection_audit_path": "analysis/bfcl/newstudy20261010_expansion_collection_audit.json",
+    "collection_audit_sha256": "df3b288c6d5a0be6db9c529fc028370d793df6bf725fddc0922761538b530606",
+    "command_argv": [
+      "scripts/run_translation_similarity.py",
+      "--model-revision",
+      "836121a0533e5664b21c7aacc5d22951f2b8b25b",
+      "--model-path",
+      "<local-model-snapshot>",
+      "--device",
+      "cuda"
+    ],
+    "created_at_utc": "2026-10-10T23:18:36.316872+00:00",
+    "device_requested": "cuda",
+    "device_used": "cuda:0",
+    "languages": [
+      "EN",
+      "AR",
+      "TR",
+      "ZH",
+      "HI",
+      "JA",
+      "ES",
+      "SW"
+    ],
+    "limitations": [
+      "Cosine similarity is not calibrated translation accuracy.",
+      "Low and high scores require human interpretation.",
+      "Artificial corruption controls are sensitivity probes, not a natural-error benchmark.",
+      "Numeric and literal checks flag string differences and do not decide semantic correctness."
+    ],
+    "max_seq_length": 256,
+    "model_id": "sentence-transformers/LaBSE",
+    "model_manifest_path": "analysis/bfcl/newstudy20261010_labse_model_manifest.json",
+    "model_manifest_sha256": "c09788f3ed3897d713d744931bffddbe030e31418d2a8ffa49a930dca19a9270",
+    "model_path": "<local-model-snapshot>",
+    "model_revision": "836121a0533e5664b21c7aacc5d22951f2b8b25b",
+    "negation_controls_path": "analysis/bfcl/newstudy20261010_labse_negation_controls.json",
+    "negation_controls_sha256": "aa9d970e1c22f76fac505d65bfc1acd0a5a76a530f6881895eb8e288d4f0dc04",
+    "nonempty_pairs": 602,
+    "plan_path": "analysis/bfcl/newstudy20261010_plan.json",
+    "plan_sha256": "5f8c17e8357c17bacb0ab180a5dbf05238bf992237b01c092fb55ea04d72b79d",
+    "software_versions": {
+      "numpy": "2.4.6",
+      "python": "3.11.9",
+      "sentence-transformers": "5.1.2",
+      "torch": "2.8.0+cu128",
+      "transformers": "4.57.1"
+    },
+    "task_count": 20
+  },
+  "schema_version": 1
+}

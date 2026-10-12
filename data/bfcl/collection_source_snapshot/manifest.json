@@ -1,0 +1,20 @@
+{
+  "purpose": "Exact collector sources used for the frozen October 10 collection; current release may add preflight safeguards.",
+  "files": [
+    {
+      "original_path": "src/multilingual_compounding/evaluation.py",
+      "snapshot_path": "data/bfcl/collection_source_snapshot/evaluation.py",
+      "sha256": "21ad2aae22f3210ce80279ea3c7a50aa6a2fb48b1136608d3422169b3f6b3a86"
+    },
+    {
+      "original_path": "src/multilingual_compounding/openrouter_handler.py",
+      "snapshot_path": "data/bfcl/collection_source_snapshot/openrouter_handler.py",
+      "sha256": "90018858e8e43c9f3c47bd8617edb15d3b3ef65bc0f9e1eac9630e91f7440522"
+    },
+    {
+      "original_path": "scripts/run_expansion_collection.py",
+      "snapshot_path": "data/bfcl/collection_source_snapshot/run_expansion_collection.py",
+      "sha256": "285106db41a1cefcbb100b71a2c6520a0c7ed88fb3e372e2eaba828e48078c20"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "purpose": "Only workstation paths, process IDs and command presentation were normalized for public release. Collected queries, trajectories, replay outcomes, plan, scores, model-file hashes and numeric summaries were unchanged. Original metadata remains in a private local audit backup.",
+  "changed_metadata_files": [
+    {
+      "path": "analysis/bfcl/newstudy20261010_collection_status.json",
+      "before_sha256": "c43cf9912abd29b2ee6d8dd5f7893cd5ccd73df3e188b6a0d8d228dc5bdfc8b5",
+      "after_sha256": "8b84ba2cf141d0b399b1f765793e3f93eee9f6da19618d55211ebe00afb633cc",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "analysis/bfcl/newstudy20261010_environment_validation.json",
+      "before_sha256": "86754ef9e119fb1d198d29964db4ce3d8fea2a278f8931645548c116ff468426",
+      "after_sha256": "e84ccdae3bd76e2f83f7699e80d87578b9f19baf28ca5a52fb3fb0b0d918d0fa",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "analysis/bfcl/newstudy20261010_expansion_overview.md",
+      "before_sha256": "5c6ba9f2c15833b1a16ac91f83aec0ca380433fddbd7d194e472393e71b586ab",
+      "after_sha256": "9aaa1028b5e67d937a121eb237d5f953679af8cd5fc800ffea40d11bc3bbba3c",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "analysis/bfcl/newstudy20261010_expansion_paper_results_note.md",
+      "before_sha256": "3ab0536378dd35670a6f8aa6876fe283def9bc1dc7db2b8fdde5e95f1faf7b5a",
+      "after_sha256": "a1dbc7dde8f53c9be57f3dbf505c411c03bc5225574849b9750bbad5ddf46d9f",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "analysis/bfcl/newstudy20261010_labse_report.md",
+      "before_sha256": "183b271a5594e4f136a19494d264292bdaddd5e1dc955e86aa864c14259687d8",
+      "after_sha256": "62d5fd5a39dede14a91ad34a37b97db35bda65cf27d9b24a5536240d39c91318",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "analysis/bfcl/newstudy20261010_labse_summary.json",
+      "before_sha256": "3ed0bafe719e98fc3955e7003c504276d38cdd2bf3a4d2a1185fcc5de1906c1c",
+      "after_sha256": "70e82976b5118388f080d695909ad4980026a7d3d24e4980c599ce51efb1a4d1",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/expanded_claude_sonnet46_pilot_metadata.json",
+      "before_sha256": "5eebf2e74046a678d9df2133effc2e922fe6aa24a7056cbb8f985b7879b5792b",
+      "after_sha256": "36fff6cc62c6f4e9f7ceff14aa27f23cb7ef9715de5f5e0bb3e4890f9d5aaf0c",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/gemini_pilot_metadata.json",
+      "before_sha256": "d62ea31458cbe041b656782158d369d27c0cf1595285a673a271d46e050912b2",
+      "after_sha256": "227fbad8953fc3b5c587cd252a5754300b971131b8853630b2cadc5c71c366e4",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/native_retry_gpt4o_openai_pilot_metadata.json",
+      "before_sha256": "dbf4a70f0bde4eb6dc77f8aac902bda6e39d2c9a7c7f221cf5fa3a3b97a268c1",
+      "after_sha256": "f97686265fdab00cd97e073ea85d96116c719200a05a6251393aa1544f53026c",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/newstudy20261010_evaluation_metadata_claude_sonnet46_EN_AR.json",
+      "before_sha256": "3e84623d6cffebcb4e97709575628f90f080a7aaebbf28dc0e8b6e0a0e775c0f",
+      "after_sha256": "eac17f981235506b7a2ad70989c11998ca3b8c45f94953fa0007c94914137235",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/newstudy20261010_evaluation_metadata_claude_sonnet46_ES_SW.json",
+      "before_sha256": "8f83015feb52f630cb749020dd2fa49fe714dad82bd5d4aadd83928e09e24d24",
+      "after_sha256": "b86937708db4f5b03c14b823d0b6e44dd5db2847225ebe19cfb27fc008580cc1",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/newstudy20261010_evaluation_metadata_claude_sonnet46_HI_JA.json",
+      "before_sha256": "1ed909106036b397333bcf1890f90eccd62d76f4211baf2dd788a96886f9367c",
+      "after_sha256": "95d27dc9cb4a6f5b1a204ec9cacd338d010c6a3b8091224ea75f0589b5dc4b0c",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/newstudy20261010_evaluation_metadata_claude_sonnet46_TR_ZH.json",
+      "before_sha256": "7c97482f0059eb4524eddd33276f72d93190b640dab9ddd80fe6c6f4ef3a5454",
+      "after_sha256": "e1defb7febbdd123b2224f7198219b91239382e1a8156a5c52581d2ac76d8945",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/newstudy20261010_evaluation_metadata_gemini_EN_AR.json",
+      "before_sha256": "ae40febd7529d2e024490e48bc130fd205d9b2333106f3b1e2ad6c9c95d30986",
+      "after_sha256": "2c3798365624e9a75da5ad579a12721f0ddba0c8c077e9d34d2e34e5e3012a1d",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/newstudy20261010_evaluation_metadata_gemini_ES_SW.json",
+      "before_sha256": "941cec2935d7ca0d6fa1ef35bf89ba738a3ddbc1ccaaff9f56d2d25754f6da38",
+      "after_sha256": "049c208a43b9410c9c11668cc17307a2755e53ec68e42b9ffbfcb061dc0af945",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/newstudy20261010_evaluation_metadata_gemini_HI_JA.json",
+      "before_sha256": "4c7df93006cc0f5f356be649a23b49613029c1f28c5dda15aef24c4633f735df",
+      "after_sha256": "0cd4dba0647b6153c93de9fef997caefcb23468382eb8e97a2dd124f54b9e516",
+      "scope": "workstation/process metadata and portable command presentation"
+    },
+    {
+      "path": "data/bfcl/metadata/newstudy20261010_evaluation_metadata_gemini_TR_ZH.json",
+      "before_sha256": "d2bc8fccc6dda339d0927fa67ece596daf1e6a623b66abd76951dd5369f05b92",
+      "after_sha256": "cab0bfb54f30f2dafd27f6affbf456d80fe8d6445077875b2dba7b290db14a2f",
+      "scope": "workstation/process metadata and portable command presentation"
+    }
+  ],
+  "collection_source_snapshot": "data/bfcl/collection_source_snapshot/manifest.json"
+}

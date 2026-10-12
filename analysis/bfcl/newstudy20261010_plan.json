@@ -1,0 +1,270 @@
+{
+  "plan_version": 2,
+  "pricing_snapshot_date": "2026-10-10",
+  "bfcl_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "tasks_per_category": 5,
+  "target_gold_calls_per_task": 10,
+  "tasks": 20,
+  "task_ids": [
+    "multi_turn_base_0",
+    "multi_turn_miss_func_10",
+    "multi_turn_miss_param_39",
+    "multi_turn_long_context_59",
+    "multi_turn_base_63",
+    "multi_turn_miss_func_90",
+    "multi_turn_miss_param_97",
+    "multi_turn_long_context_6",
+    "multi_turn_base_18",
+    "multi_turn_miss_func_55",
+    "multi_turn_miss_param_58",
+    "multi_turn_long_context_61",
+    "multi_turn_base_65",
+    "multi_turn_miss_func_69",
+    "multi_turn_miss_param_70",
+    "multi_turn_long_context_71",
+    "multi_turn_base_80",
+    "multi_turn_miss_func_92",
+    "multi_turn_miss_param_171",
+    "multi_turn_long_context_2"
+  ],
+  "historical_category_variants": 4,
+  "historical_unique_scenarios": 1,
+  "unique_scenarios": 20,
+  "fresh_collection": true,
+  "selected_horizon_distribution": {
+    "8": 1,
+    "9": 12,
+    "10": 7
+  },
+  "mean_gold_calls": 9.3,
+  "selection_rule": "Complete scenario families with 8-10 gold calls; descending gold-call count then numeric scenario id; one variant per family assigned round-robin across categories.",
+  "selection_limitations": "A horizon-selected descriptive slice. Category and scenario are not independently crossed, so category contrasts are confounded by scenario assignment.",
+  "categories": {
+    "multi_turn_base": {
+      "available_10_gold_call_tasks": 7,
+      "selected": [
+        {
+          "task_id": "multi_turn_base_0",
+          "gold_calls": 10,
+          "historical_anchor": true
+        },
+        {
+          "task_id": "multi_turn_base_63",
+          "gold_calls": 10,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_base_18",
+          "gold_calls": 9,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_base_65",
+          "gold_calls": 9,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_base_80",
+          "gold_calls": 9,
+          "historical_anchor": false
+        }
+      ],
+      "at_least_five_10_call_tasks_available": true
+    },
+    "multi_turn_miss_func": {
+      "available_10_gold_call_tasks": 7,
+      "selected": [
+        {
+          "task_id": "multi_turn_miss_func_10",
+          "gold_calls": 10,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_miss_func_90",
+          "gold_calls": 10,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_miss_func_55",
+          "gold_calls": 9,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_miss_func_69",
+          "gold_calls": 9,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_miss_func_92",
+          "gold_calls": 9,
+          "historical_anchor": false
+        }
+      ],
+      "at_least_five_10_call_tasks_available": true
+    },
+    "multi_turn_miss_param": {
+      "available_10_gold_call_tasks": 7,
+      "selected": [
+        {
+          "task_id": "multi_turn_miss_param_39",
+          "gold_calls": 10,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_miss_param_97",
+          "gold_calls": 10,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_miss_param_58",
+          "gold_calls": 9,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_miss_param_70",
+          "gold_calls": 9,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_miss_param_171",
+          "gold_calls": 9,
+          "historical_anchor": false
+        }
+      ],
+      "at_least_five_10_call_tasks_available": true
+    },
+    "multi_turn_long_context": {
+      "available_10_gold_call_tasks": 7,
+      "selected": [
+        {
+          "task_id": "multi_turn_long_context_59",
+          "gold_calls": 10,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_long_context_6",
+          "gold_calls": 9,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_long_context_61",
+          "gold_calls": 9,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_long_context_71",
+          "gold_calls": 9,
+          "historical_anchor": false
+        },
+        {
+          "task_id": "multi_turn_long_context_2",
+          "gold_calls": 8,
+          "historical_anchor": false
+        }
+      ],
+      "at_least_five_10_call_tasks_available": true
+    }
+  },
+  "all_categories_have_at_least_five_10_call_tasks": true,
+  "languages": [
+    "EN",
+    "AR",
+    "TR",
+    "ZH",
+    "HI",
+    "JA",
+    "ES",
+    "SW"
+  ],
+  "models": {
+    "gemini": {
+      "requested_model_name": "google/gemini-3-flash-preview",
+      "run_labels": [
+        "expansion_seed0",
+        "expansion_seed1"
+      ]
+    },
+    "claude_sonnet46": {
+      "requested_model_name": "anthropic/claude-sonnet-4.6",
+      "run_labels": [
+        "expansion_seed0",
+        "expansion_seed1"
+      ]
+    }
+  },
+  "full_trajectories_per_model_estimate": 320,
+  "full_trajectories_total_estimate": 640,
+  "replay_requests_per_model_exact": 2976,
+  "replay_requests_total_exact": 5952,
+  "non_english_task_language_pairs": 140,
+  "translation_requests_estimate": 280,
+  "translation_usage_cost_included": false,
+  "token_and_cost_projection": {
+    "scope": "fresh runs for every selected task, model, language, and seed",
+    "scale_from_existing_four_task_artifacts": 5.0,
+    "replay_scale_from_gold_call_volume": 4.65,
+    "by_model": {
+      "gemini": {
+        "input_tokens": 33679271,
+        "output_tokens": 313196,
+        "full_api_calls_estimate": 6445,
+        "replay_api_calls_exact": 2976,
+        "estimated_usd_before_localization": 17.78,
+        "reference_usage": {
+          "full": {
+            "records": 64,
+            "api_calls": 1289,
+            "input_tokens": 4785966,
+            "output_tokens": 49489,
+            "cache_token_fields": []
+          },
+          "replay": {
+            "records": 640,
+            "api_calls": 640,
+            "input_tokens": 2096654,
+            "output_tokens": 14140,
+            "cache_token_fields": []
+          }
+        },
+        "prices_usd_per_million": {
+          "input": 0.5,
+          "output": 3.0
+        }
+      },
+      "claude_sonnet46": {
+        "input_tokens": 79191651,
+        "output_tokens": 1681205,
+        "full_api_calls_estimate": 8140,
+        "replay_api_calls_exact": 2976,
+        "estimated_usd_before_localization": 262.79,
+        "reference_usage": {
+          "full": {
+            "records": 64,
+            "api_calls": 1628,
+            "input_tokens": 12615724,
+            "output_tokens": 286274,
+            "cache_token_fields": []
+          },
+          "replay": {
+            "records": 640,
+            "api_calls": 640,
+            "input_tokens": 3465168,
+            "output_tokens": 53728,
+            "cache_token_fields": []
+          }
+        },
+        "prices_usd_per_million": {
+          "input": 3.0,
+          "output": 15.0
+        }
+      }
+    },
+    "total_estimated_usd_before_localization": 280.57,
+    "cache_tokens": "No cache-token usage fields were present in saved records.",
+    "limitation": "Full token/request estimates scale historical usage by the number of trajectories; replay tokens scale by gold-call volume. New task text and model behavior can change actual usage. Replay request counts are exact for this plan."
+  },
+  "artifact_prefix": "newstudy20261010",
+  "localization_prefix": "newstudy20261010",
+  "localization_cache_review_required_before_collection": true,
+  "provider": "openrouter"
+}

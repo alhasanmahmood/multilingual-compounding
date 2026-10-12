@@ -8,22 +8,25 @@
 - Run labels: `['expanded_seed0', 'expanded_seed1', 'pilot_seed0', 'pilot_seed1']`
 - Full-task trials: `128`
 - Isolated replay trials: `1280`
+- Bootstrap: `{'n_boot': 5000, 'seed': 0, 'cluster_unit': 'underlying_task', 'cluster_counts_by_backbone': {'claude_sonnet46': 1, 'gemini': 1}, 'status': 'unavailable', 'unavailable_reason': "At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}", 'tail_interpretation': 'Bootstrap tail probabilities are uncalibrated directional diagnostics, not inferential p-values.'}`
 - Mean K: `10.00`
 - Rounded K: `10`
 - K range checked: `[9, 10, 11]`
 
+Bootstrap-tail probabilities (raw and Holm-adjusted) are uncalibrated directional diagnostics, not inferential p-values.
+
 ## CF snapshot
-- `AR::claude_sonnet46`: T=0.500, p=0.671, CF=0.12492799595447049, Delta=2.357, p_holm=1.0
-- `AR::gemini`: T=0.100, p=0.646, CF=0.7514757280415297, Delta=0.727, p_holm=1.0
-- `ES::claude_sonnet46`: T=0.600, p=0.854, CF=0.5471987258667719, Delta=0.128, p_holm=1.0
-- `ES::gemini`: T=0.500, p=0.768, CF=0.491685912567117, Delta=0.608, p_holm=1.0
-- `HI::claude_sonnet46`: T=0.600, p=0.695, CF=0.06598496587337765, Delta=2.182, p_holm=1.0
-- `HI::gemini`: T=0.500, p=0.768, CF=0.491685912567117, Delta=0.608, p_holm=1.0
-- `JA::claude_sonnet46`: T=0.600, p=0.805, CF=0.17716152204513483, Delta=0.716, p_holm=1.0
-- `JA::gemini`: T=0.500, p=0.720, CF=0.317478092378548, Delta=1.264, p_holm=1.0
-- `SW::claude_sonnet46`: T=0.200, p=0.622, CF=0.36328767018254066, Delta=2.196, p_holm=1.0
-- `SW::gemini`: T=0.100, p=0.622, CF=0.6641065106697166, Delta=1.111, p_holm=1.0
-- `TR::claude_sonnet46`: T=0.600, p=0.780, CF=0.1308768100331296, Delta=1.024, p_holm=1.0
-- `TR::gemini`: T=0.300, p=0.793, CF=1.2442857043007645, Delta=-0.216, p_holm=1.0
-- `ZH::claude_sonnet46`: T=0.400, p=0.707, CF=0.2588140517894778, Delta=1.603, p_holm=1.0
-- `ZH::gemini`: T=0.100, p=0.695, CF=1.0004273055645871, Delta=-0.001, p_holm=1.0
+- `AR::claude_sonnet46`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.500, Delta=2.357. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `AR::gemini`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.100, Delta=0.727. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `ES::claude_sonnet46`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.600, Delta=0.128. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `ES::gemini`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.500, Delta=0.608. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `HI::claude_sonnet46`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.600, Delta=2.182. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `HI::gemini`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.500, Delta=0.608. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `JA::claude_sonnet46`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.600, Delta=0.716. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `JA::gemini`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.500, Delta=1.264. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `SW::claude_sonnet46`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.200, Delta=2.196. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `SW::gemini`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.100, Delta=1.111. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `TR::claude_sonnet46`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.600, Delta=1.024. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `TR::gemini`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.300, Delta=-0.216. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `ZH::claude_sonnet46`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.400, Delta=1.603. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}
+- `ZH::gemini`: scenario-level bootstrap unavailable (1 cluster(s)); point estimate T=0.100, Delta=-0.001. Reason: At least two underlying_task clusters are required per model; insufficient cluster counts: {'claude_sonnet46': 1, 'gemini': 1}

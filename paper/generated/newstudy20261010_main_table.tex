@@ -1,0 +1,24 @@
+\begin{table}[t]\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llrrrr@{}}\toprule
+Model & Lang. & $p$ & $T$ & $\mathrm{CF}$ & $\Delta$ \\ \midrule
+\multirow{8}{*}{\shortstack[l]{Gemini 3\\Flash Preview}} & EN & 0.623 & 0.595 & ref. & ref. \\
+ & AR & 0.591 & 0.452 & 0.577 & +0.201 \\
+ & ES & 0.599 & 0.452 & 0.774 & +0.080 \\
+ & HI & 0.628 & 0.333 & -7.538 & -0.657 \\
+ & JA & 0.583 & 0.405 & 0.644 & +0.213 \\
+ & SW & 0.644 & 0.500 & -0.574 & -0.478 \\
+ & TR & 0.599 & 0.452 & 0.774 & +0.080 \\
+ & ZH & 0.610 & 0.571 & 0.209 & +0.154 \\
+\midrule
+\multirow{8}{*}{\shortstack[l]{Claude\\Sonnet 4.6}} & EN & 0.591 & 0.548 & ref. & ref. \\
+ & AR & 0.612 & 0.452 & -0.597 & -0.511 \\
+ & ES & 0.618 & 0.619 & 0.308 & -0.276 \\
+ & HI & 0.604 & 0.476 & -0.694 & -0.341 \\
+ & JA & 0.610 & 0.571 & 0.152 & -0.238 \\
+ & SW & 0.626 & 0.452 & -0.371 & -0.705 \\
+ & TR & 0.596 & 0.548 & 0.000 & -0.081 \\
+ & ZH & 0.626 & 0.429 & -0.476 & -0.760 \\
+\bottomrule\end{tabular*}
+\caption{Smoothed replay validity $p$, task success $T$, and common-baseline diagnostics at $K=9$. Each cell has twenty scenarios and two seeds ($40$ trajectories, $372$ replays). CF interpretation depends on the sign of $\log r_{\mathrm{ind}}$. Figure~\ref{fig:results} shows uncertainty for $\Delta$.}
+\label{tab:cf}\end{table}

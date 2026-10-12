@@ -51,7 +51,10 @@ cover/
 
 # Environments
 .env
+.env.*
+!.env.example
 .venv
+.venv-labse/
 env/
 venv/
 ENV/
@@ -75,6 +78,7 @@ paper/*.out
 paper/*.synctex.gz
 paper/*.toc
 paper/main.pdf
+reviews/
 
 # Local caches and locks from BFCL vendor
 vendor/**/.file_locks/
@@ -84,3 +88,36 @@ vendor/**/__pycache__/
 
 # Ephemeral evaluation traces
 data/bfcl/trace_db/
+
+# Local validation renders, duplicate offline reruns, and installation logs
+analysis/bfcl/*.log
+analysis/bfcl/*_collection_logs/
+analysis/bfcl/*_history/
+analysis/bfcl/paper_revision_validation/
+analysis/bfcl/submission_refinement_20261012/
+analysis/bfcl/translation_diagnostic_validation/
+analysis/bfcl/refinement20261012_reproduction_*
+# Private revision correspondence, financial planning, and internal audit notes
+docs/BFCL_EXPANSION_PLAN.md
+docs/EXPERIMENT_VALIDATION_20261010.md
+docs/REVIEW_REVISION_LOG.md
+docs/TRANSLATION_VALIDATION_20261011.md
+docs/SUBMISSION_REFINEMENT_20261012.md
+docs/FINAL_SUBMISSION_AUDIT_20261012.md
+docs/TABLE_LAYOUT_20261012.md
+docs/final_submission_audit/
+docs/submission_refinement_20261012/
+docs/table_layout_20261012/
+docs/publication_audit/
+
+# Collection supervisor state and redundant translation-review presentation
+analysis/bfcl/*_finalization_status.json
+analysis/bfcl/*_localizations_before_review.jsonl
+analysis/bfcl/*_literal_audit_initial.json
+analysis/bfcl/*_localization_review.md
+analysis/bfcl/*_translation_review.html
+analysis/bfcl/*_translation_review_AR_HI_SW.md
+analysis/bfcl/*_translation_review_JA_ES.md
+analysis/bfcl/*_translation_review_TR_ZH.md
+analysis/bfcl/*_labse_token_preflight.json
+analysis/bfcl/*_translation_collection_gate.json

@@ -1,0 +1,1108 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-10T14:59:30.828189+00:00",
+  "audit_scope": {
+    "cache_path": "data/bfcl/localized_queries/bfcl_multiturn_localizations.jsonl",
+    "cache_sha256": "568cc26f5e53502669010b67778af28078d50f20064270626484ef2bf1644b14",
+    "source_bfcl_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+    "task_ids": [
+      "multi_turn_base_0",
+      "multi_turn_miss_func_0",
+      "multi_turn_miss_param_0",
+      "multi_turn_long_context_0"
+    ],
+    "languages_reviewed": [
+      "AR",
+      "TR",
+      "ZH",
+      "HI",
+      "JA",
+      "ES",
+      "SW"
+    ],
+    "original_cache_rows": 32,
+    "non_english_rows_reviewed": 28,
+    "unique_underlying_scenarios": 1,
+    "independence_caveat": "The four task IDs are category variants of the same numeric scenario 0, with the same underlying prompt scenario. This is a one-scenario descriptive translation audit, not four independent scenario replications."
+  },
+  "method": {
+    "english_source": "get_original_turn_texts(BFCLTask) from the pinned local BFCL dataset.",
+    "source_hash": "task_content_sha256(BFCLTask), checked for every language row.",
+    "localized_hash": "SHA-256 of UTF-8 JSON list, ensure_ascii=False, separators=(',', ':').",
+    "strict_quoted_literal_rule": "For every user source turn, extract single- or double-quoted strings with the same strict source-literal pattern used by the review gate; require each exact string to occur verbatim in the direct target turn. Backtranslations are not used for this check.",
+    "direct_review_checks": [
+      "exact quoted literals and file/tool-facing strings",
+      "meaning and negation",
+      "turn sequence",
+      "units and numeric constraints",
+      "API-facing names and identifiers",
+      "blank-turn index alignment"
+    ],
+    "human_or_native_speaker_verification": false,
+    "api_calls": false
+  },
+  "summary": {
+    "machine_invariance_pass_rows": 28,
+    "machine_invariance_fail_rows": 0,
+    "rows_with_empty_machine_missing_literals": 28,
+    "strict_source_quoted_literal_occurrences_checked": 189,
+    "strict_source_quoted_literal_misses": 24,
+    "rows_with_direct_literal_findings": 12,
+    "direct_literal_findings_by_language": {
+      "AR": 8,
+      "TR": 0,
+      "ZH": 6,
+      "HI": 0,
+      "JA": 2,
+      "ES": 0,
+      "SW": 8
+    },
+    "direct_literal_findings_by_task": {
+      "multi_turn_base_0": 8,
+      "multi_turn_miss_func_0": 6,
+      "multi_turn_miss_param_0": 4,
+      "multi_turn_long_context_0": 6
+    },
+    "empty_source_turn_alignments_verified": 7,
+    "additional_material_semantic_numeric_unit_or_name_issues_found": 0
+  },
+  "row_checks": [
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "26da2aa9986520123471a3172f1d85e3172879ff2519fdd695de655710c53507",
+      "backtranslated_turns_sha256": "891a0fcbe82da0610fe7b6c1679caa46a0c58ddfa3add681b30c5185c9fb8958",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.07380073800738007,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "0ce74d670c31bdd1571211dedff15db725d6367a3c32b9ca3eebcbdc6c9e2fd1",
+      "backtranslated_turns_sha256": "632a2edf04cfae2e45ad1833f3524571861c7e3cc2af8865ca077dedf35aea36",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.07326007326007326,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "2fd3205548793f507fbcc12f13c037a7a4b9b6e6ecfdd20b990ed8b24d810432",
+      "backtranslated_turns_sha256": "c122a8c35d11a273ebdd80efaeceeb9317dc7fed11e356b8cafc7123b191d306",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.054104477611940295,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "HI",
+      "language_name": "Hindi",
+      "source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "0492c7fddedc13cf236b668f0321a6c69099fe78e24a03851b75715c7586c22c",
+      "backtranslated_turns_sha256": "f140b0f2ff3f8ee5ab8be62207a6f2b2090e792679cc2099495920298c91c6a2",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.06481481481481481,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "JA",
+      "language_name": "Japanese",
+      "source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "2689eabf425dd65ceeadc5b7e570ceaad52cd9c5efd26195dd1a0a8f5352dd2f",
+      "backtranslated_turns_sha256": "a0ebfc0372c594839c99c64282a54f759882b74d203aa1bf5460f23899c27f8a",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.07643312101910828,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "ES",
+      "language_name": "Spanish",
+      "source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "baa06effee778df6e2c80f544f7bd830b2d799d841d33e9c8b8aaa5658f978a2",
+      "backtranslated_turns_sha256": "41046bf2fdd865c1cb54f67a2507431d082130d06c93afd805ef06523eabb970",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.07352941176470588,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "source_task_sha256": "22e0476a64f328735778cc45d694e4d711c4c889296b37bc106e386d6cd74fbe",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "b91c758863acffde40e943efc32d5ec30a8fcd85712332a9443a93f821ce145f",
+      "backtranslated_turns_sha256": "9cec897704716c6488c84a801522fe3184ffb32bf93780a065b5c4ac1e46c041",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.07332722273143905,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "source_task_sha256": "011dddefdebab2f3f4df2443c4c9f2b2999f102bc3a8525f8f849f062e980bf5",
+      "source_turns_sha256": "c5bff27d6b92bfcfe7432ae184091e6ff10adfe4895ce26d2917f25c7d1523c2",
+      "localized_turns_sha256": "e96940614f4314f3a627e35abce6ccb26409d84e8ef06b37e8113688c9237047",
+      "backtranslated_turns_sha256": "8e77b1b7707082555aeb4f2f341d26c61669e666c078026a04b7e7144a93e2b1",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 4,
+      "backtranslation_similarity_cache_diagnostic_only": 0.4548802946593002,
+      "turn_count": 5,
+      "empty_source_turn_indices": [
+        3
+      ],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "source_task_sha256": "011dddefdebab2f3f4df2443c4c9f2b2999f102bc3a8525f8f849f062e980bf5",
+      "source_turns_sha256": "c5bff27d6b92bfcfe7432ae184091e6ff10adfe4895ce26d2917f25c7d1523c2",
+      "localized_turns_sha256": "677022a9c6cb9b4a387fc4038f1915bd2d79e4b941445628b7b729d0d9a964e1",
+      "backtranslated_turns_sha256": "8c29d4ad72d5209ee505165aec0b10c6ffb2daea4d346742d4ccc695bcfb228f",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 4,
+      "backtranslation_similarity_cache_diagnostic_only": 0.3923006416131989,
+      "turn_count": 5,
+      "empty_source_turn_indices": [
+        3
+      ],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "source_task_sha256": "011dddefdebab2f3f4df2443c4c9f2b2999f102bc3a8525f8f849f062e980bf5",
+      "source_turns_sha256": "c5bff27d6b92bfcfe7432ae184091e6ff10adfe4895ce26d2917f25c7d1523c2",
+      "localized_turns_sha256": "755473e3534eea84ca48772a6e8d2c236e0f71fa335fe3037dd566611db5095c",
+      "backtranslated_turns_sha256": "04d10747cce4a25d0111333645ddcbde51cf9d36eec8d29de9fe93940691bed4",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.17690875232774675,
+      "turn_count": 5,
+      "empty_source_turn_indices": [
+        3
+      ],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "HI",
+      "language_name": "Hindi",
+      "source_task_sha256": "011dddefdebab2f3f4df2443c4c9f2b2999f102bc3a8525f8f849f062e980bf5",
+      "source_turns_sha256": "c5bff27d6b92bfcfe7432ae184091e6ff10adfe4895ce26d2917f25c7d1523c2",
+      "localized_turns_sha256": "72faebbdb27a9ee811ddbcaf04cdcaf722e3ab72e1ece752f0aba48279bbe80b",
+      "backtranslated_turns_sha256": "e58ee96cd489aff82a22ff898a34c7fe9b7ba0ddc877e3017e87786e813319ac",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.05550416281221091,
+      "turn_count": 5,
+      "empty_source_turn_indices": [
+        3
+      ],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "JA",
+      "language_name": "Japanese",
+      "source_task_sha256": "011dddefdebab2f3f4df2443c4c9f2b2999f102bc3a8525f8f849f062e980bf5",
+      "source_turns_sha256": "c5bff27d6b92bfcfe7432ae184091e6ff10adfe4895ce26d2917f25c7d1523c2",
+      "localized_turns_sha256": "378c7b2b1a78d9be43a7b9e20106b4cde61a5856516a4c016ed84f5aa6eb4fd4",
+      "backtranslated_turns_sha256": "c3e2996cdcb20675809efb3f7960ad112087b8733605d4841e6d0662e58c3233",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.13793103448275862,
+      "turn_count": 5,
+      "empty_source_turn_indices": [
+        3
+      ],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "ES",
+      "language_name": "Spanish",
+      "source_task_sha256": "011dddefdebab2f3f4df2443c4c9f2b2999f102bc3a8525f8f849f062e980bf5",
+      "source_turns_sha256": "c5bff27d6b92bfcfe7432ae184091e6ff10adfe4895ce26d2917f25c7d1523c2",
+      "localized_turns_sha256": "ccaabab0b59fca0abae0325416924ae48f3291200e6fbe682c287428a835c8bc",
+      "backtranslated_turns_sha256": "8bc3d5806b595bf987c8aae12008d92494180bdbbcf526496849ea071e34f537",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 4,
+      "backtranslation_similarity_cache_diagnostic_only": 0.7271062271062271,
+      "turn_count": 5,
+      "empty_source_turn_indices": [
+        3
+      ],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "source_task_sha256": "011dddefdebab2f3f4df2443c4c9f2b2999f102bc3a8525f8f849f062e980bf5",
+      "source_turns_sha256": "c5bff27d6b92bfcfe7432ae184091e6ff10adfe4895ce26d2917f25c7d1523c2",
+      "localized_turns_sha256": "f22927e4897a351eec5fe62130cf1284797ffb4e38cfc0e1846172f1f310da76",
+      "backtranslated_turns_sha256": "2040683d389444ab880825a5293163380b3101b2bf9a6cb84e0881c55290834c",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 4,
+      "backtranslation_similarity_cache_diagnostic_only": 0.41284403669724773,
+      "turn_count": 5,
+      "empty_source_turn_indices": [
+        3
+      ],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "source_task_sha256": "af49480a2231157d3d463e8d110dd0ab6fbbb0b42aa8106d177fad3e0d5c3ef7",
+      "source_turns_sha256": "c15a3ace5a132b6ac306c38c88e82ff77086e5dfcc482291d860ad8bfd3c54f2",
+      "localized_turns_sha256": "5c2dd262f763ae64988170db0c24d8213c2444dcf0e554a840173290c506056e",
+      "backtranslated_turns_sha256": "db6bb7acdf5c64a2e264ab167a126f425968357e344bf7b8f48ca7bf2349029f",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.06406926406926407,
+      "turn_count": 5,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "source_task_sha256": "af49480a2231157d3d463e8d110dd0ab6fbbb0b42aa8106d177fad3e0d5c3ef7",
+      "source_turns_sha256": "c15a3ace5a132b6ac306c38c88e82ff77086e5dfcc482291d860ad8bfd3c54f2",
+      "localized_turns_sha256": "f8de6535e332234e94ae6f6e55c5b2f719f2c73a80922a2a913f9dded5af76c0",
+      "backtranslated_turns_sha256": "655b84dab0f8e0a7cf2f28744272690d022f16de5207f5ecb45c0fb4c70a34f6",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.06926406926406926,
+      "turn_count": 5,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "source_task_sha256": "af49480a2231157d3d463e8d110dd0ab6fbbb0b42aa8106d177fad3e0d5c3ef7",
+      "source_turns_sha256": "c15a3ace5a132b6ac306c38c88e82ff77086e5dfcc482291d860ad8bfd3c54f2",
+      "localized_turns_sha256": "e88684bbbda328bfb347b6ecc0952b76ccf42b0e28b553ee797b1ee2144c8abc",
+      "backtranslated_turns_sha256": "582443e201bae732d6776ee8fd13230502a851cb8e7693812ba9e139b9d1ff02",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.09355692850838482,
+      "turn_count": 5,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "HI",
+      "language_name": "Hindi",
+      "source_task_sha256": "af49480a2231157d3d463e8d110dd0ab6fbbb0b42aa8106d177fad3e0d5c3ef7",
+      "source_turns_sha256": "c15a3ace5a132b6ac306c38c88e82ff77086e5dfcc482291d860ad8bfd3c54f2",
+      "localized_turns_sha256": "00aa1f9dd77b25a2475f58742023c1319e73f6eed1ecd5babe36f57bb1003455",
+      "backtranslated_turns_sha256": "cf40b69392e7e12a0dd7f4b2cd67a59ace4a29090aac8626497450eabead819c",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.050699300699300696,
+      "turn_count": 5,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "JA",
+      "language_name": "Japanese",
+      "source_task_sha256": "af49480a2231157d3d463e8d110dd0ab6fbbb0b42aa8106d177fad3e0d5c3ef7",
+      "source_turns_sha256": "c15a3ace5a132b6ac306c38c88e82ff77086e5dfcc482291d860ad8bfd3c54f2",
+      "localized_turns_sha256": "34cd52f9347415025135e86439b9bbdfce10fe1e6915cbf3f14a75b4abf3e2fd",
+      "backtranslated_turns_sha256": "1be07b681d217d1222997ffef8093f4e68fd8ba205ae6478a16d4b6b24fed68b",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.06938421509106678,
+      "turn_count": 5,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "ES",
+      "language_name": "Spanish",
+      "source_task_sha256": "af49480a2231157d3d463e8d110dd0ab6fbbb0b42aa8106d177fad3e0d5c3ef7",
+      "source_turns_sha256": "c15a3ace5a132b6ac306c38c88e82ff77086e5dfcc482291d860ad8bfd3c54f2",
+      "localized_turns_sha256": "b1d9799f5a4d98df663b040368435cac26f778e50d02eb575f7e0e3cea8d3007",
+      "backtranslated_turns_sha256": "7570712989f92cf0b5601884468ef062f5cc0ecadf01a358c4ba9eda4c5098a1",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.06368330464716007,
+      "turn_count": 5,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "source_task_sha256": "af49480a2231157d3d463e8d110dd0ab6fbbb0b42aa8106d177fad3e0d5c3ef7",
+      "source_turns_sha256": "c15a3ace5a132b6ac306c38c88e82ff77086e5dfcc482291d860ad8bfd3c54f2",
+      "localized_turns_sha256": "0ddd0630c3ea77ec961048b641b3bd1c90454b40d808608933ef6fb4192ea7b3",
+      "backtranslated_turns_sha256": "71e5d92197418ca59f8ff23955ddac3488ceecb5dc8a16e4cc5181dffde6ad8e",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.06357388316151202,
+      "turn_count": 5,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "source_task_sha256": "a484cf65793a94730b1bb6546e1eea9b6acc3e6f424976b1954005ede3c3eee0",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "817290874642ca1005571eba74b4cb35cab1488c3ac853016eb47fb18ce4992a",
+      "backtranslated_turns_sha256": "1a035b1063bec25ecf3aa75368de2c42f3b847c165bd6fbe55de7e5e7cde5b0e",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.07948243992606285,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "TR",
+      "language_name": "Turkish",
+      "source_task_sha256": "a484cf65793a94730b1bb6546e1eea9b6acc3e6f424976b1954005ede3c3eee0",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "a9ccb0f1fac74474d28f4f0c3c6ef40946d044a19253cc379a2a655ad2c30478",
+      "backtranslated_turns_sha256": "64a84627adcfea37396071aab4e2150b9efd11e73bdef6136eb3c7bd6f923b64",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.07346189164370982,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "source_task_sha256": "a484cf65793a94730b1bb6546e1eea9b6acc3e6f424976b1954005ede3c3eee0",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "379ee48bf59c32b08afd2db68e3a2397f8f0e0742663be89a989372232b722f1",
+      "backtranslated_turns_sha256": "459e3efddd91f888cfc2b7939a025cedc6a5514fab4004065bd8ec409e11f7f1",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.05350553505535055,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "HI",
+      "language_name": "Hindi",
+      "source_task_sha256": "a484cf65793a94730b1bb6546e1eea9b6acc3e6f424976b1954005ede3c3eee0",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "3ece1e0acedaf255ef0b661356f3a7c0c10631d555228da93ca5df53f039b49e",
+      "backtranslated_turns_sha256": "afea7cfb2cdc5dfa5ba143345d7ce7f6fa6b134c18c4208e0a897b0fe51247e6",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.0886426592797784,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "JA",
+      "language_name": "Japanese",
+      "source_task_sha256": "a484cf65793a94730b1bb6546e1eea9b6acc3e6f424976b1954005ede3c3eee0",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "9ec0f68621bc5afb4cf526a236f271ed10c7d08a37e11226849f3a1b1936ca57",
+      "backtranslated_turns_sha256": "2d468d4644bdb19e0e3c0914065e5b129a3916b99b5f266b3a1810a9776c86ad",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.0718232044198895,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "ES",
+      "language_name": "Spanish",
+      "source_task_sha256": "a484cf65793a94730b1bb6546e1eea9b6acc3e6f424976b1954005ede3c3eee0",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "baa06effee778df6e2c80f544f7bd830b2d799d841d33e9c8b8aaa5658f978a2",
+      "backtranslated_turns_sha256": "41046bf2fdd865c1cb54f67a2507431d082130d06c93afd805ef06523eabb970",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.07352941176470588,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [],
+      "direct_assessment": "no_strict_quoted_literal_mismatch"
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "source_task_sha256": "a484cf65793a94730b1bb6546e1eea9b6acc3e6f424976b1954005ede3c3eee0",
+      "source_turns_sha256": "5279822a47589a77ce665c7d572691309a948d75517bea9924ab1c623b0c944f",
+      "localized_turns_sha256": "adf715f4bdabed5b59fc96e05299e1fa49a2aa12698a940c1c75b21a8908d951",
+      "backtranslated_turns_sha256": "c6d73ad4168925581fe49061a141200be18a0567000c452f88571705d7d1d355",
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "machine_fidelity_rating_cache_diagnostic_only": 3,
+      "backtranslation_similarity_cache_diagnostic_only": 0.07346189164370982,
+      "turn_count": 4,
+      "empty_source_turn_indices": [],
+      "empty_turn_alignment_verified": true,
+      "direct_exact_quote_findings": [
+        {
+          "turn_index": 1,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "missing_literals": [
+            "budget analysis"
+          ]
+        }
+      ],
+      "direct_assessment": "quoted_literal_mismatch"
+    }
+  ],
+  "findings": [
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "قم بإجراء بحث مفصل باستخدام grep لتحديد الأقسام في الملف المتعلقة بـ 'تحليل الميزانية'.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "عند تحديد محتوى 'تحليل الميزانية' المطلوب، قم بفرز 'final_report.pdf' حسب السطر لتحسين الوضوح والفهم.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "使用 grep 进行详细搜索，以识别文件中与“预算分析”相关的部分。",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "在识别出所需的“预算分析”内容后，按行对“final_report.pdf”进行排序，以提高清晰度和理解。",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "JA",
+      "language_name": "Japanese",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "grepを使用して詳細な検索を行い、ファイル内の「予算分析」に関するセクションを特定してください。",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "JA",
+      "language_name": "Japanese",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "必要な「予算分析」コンテンツを特定したら、'final_report.pdf' を行ごとに並べ替えて、明確さと理解を向上させてください。",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "Fanya utafutaji wa kina kwa kutumia grep ili kutambua sehemu katika faili zinazohusiana na 'uchambuzi wa bajeti'.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_base_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "Baada ya kutambua maudhui yanayohitajika ya 'uchambuzi wa bajeti', panga 'final_report.pdf' kwa mstari ili kuboresha uwazi na uelewa.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "قم بإجراء بحث مفصل باستخدام grep لتحديد الأقسام في الملف المتعلقة بـ 'تحليل الميزانية'.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "عند تحديد محتوى 'تحليل الميزانية' المطلوب، قم بفرز 'final_report.pdf' حسب السطر لتحسين الوضوح والفهم.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "使用 grep 进行详细搜索，以识别文件中与“预算分析”相关的部分。",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "在识别出所需的“预算分析”内容后，按行对“final_report.pdf”进行排序，以提高清晰度和理解。",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "Fanya utafutaji wa kina kwa kutumia grep ili kutambua sehemu katika faili zinazohusiana na 'uchambuzi wa bajeti'.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_func_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "Baada ya kutambua maudhui yanayohitajika ya 'uchambuzi wa bajeti', panga 'final_report.pdf' kwa mstari ili kuboresha uwazi na uelewa.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "قم بإجراء بحث مفصل باستخدام grep لتحديد الأقسام في الملف المتعلقة بـ 'تحليل الميزانية'.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "عند تحديد محتوى 'تحليل الميزانية' المطلوب، قم بفرز 'final_report.pdf' حسب السطر لتحسين الوضوح والفهم.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "Fanya utafutaji wa kina kwa kutumia grep ili kutambua sehemu katika faili zinazohusiana na 'uchambuzi wa bajeti'.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_miss_param_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "Baada ya kutambua maudhui yanayohitajika ya 'uchambuzi wa bajeti', panga 'final_report.pdf' kwa mstari ili kuboresha uwazi na uelewa.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "قم بإجراء بحث مفصل باستخدام grep لتحديد الأقسام في الملف المتعلقة بـ 'تحليل الميزانية'.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "AR",
+      "language_name": "Arabic",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "عند تحديد محتوى 'تحليل الميزانية' المطلوب، قم بفرز 'final_report.pdf' حسب السطر لتحسين الوضوح والفهم.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "使用 grep 进行详细搜索，以识别文件中与“预算分析”相关的部分。",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "ZH",
+      "language_name": "Chinese",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "在识别出所需的“预算分析”内容后，按行对“final_report.pdf”进行排序，以提高清晰度和理解力。",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "turn_index": 1,
+      "source_english": "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+      "localized_turn": "Fanya utafutaji wa kina kwa kutumia grep ili kutambua sehemu katika faili zinazohusiana na 'uchambuzi wa bajeti'.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    },
+    {
+      "task_id": "multi_turn_long_context_0",
+      "language_code": "SW",
+      "language_name": "Swahili",
+      "turn_index": 2,
+      "source_english": "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+      "localized_turn": "Baada ya kutambua maudhui yanayohitajika ya 'uchambuzi wa bajeti', panga 'final_report.pdf' kwa mstari ili kuboresha uwazi na uelewa.",
+      "missing_exact_source_literals": [
+        "budget analysis"
+      ],
+      "machine_invariance_pass": true,
+      "machine_missing_literals": [],
+      "assessment": "The quoted search string was translated. Because the prompt asks grep to search for this exact text, the translated term may not match the literal text in the file. Preserve the source string verbatim inside the translated instruction.",
+      "recommended_action": "Retain the exact literal 'budget analysis' in the target-language instruction."
+    }
+  ],
+  "interpretation": "The cached machine invariance and literal diagnostics pass for every non-English row, but direct comparison identifies translated exact grep terms in Arabic, Chinese, Japanese, and Swahili. The phrase budget analysis is an operational search string, so its translation can make the requested grep search miss the English text. Other exact quoted filenames and the reviewed task sequencing, numeric/unit constraints, and deliberate miss-parameter ambiguity were preserved in this bounded cohort."
+}

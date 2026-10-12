@@ -1,7 +1,4 @@
-% main.bib for "Errors That Compound Across Languages"
-% Entries marked "% VERIFY" must be confirmed against arXiv / ACL Anthology
-% before submission. priorworkone is the team's public prior work; cite in the
-% third person under double-blind. Pull clean entries from anthology.bib if needed.
+% References verified against primary records; see docs/submission_refinement_20261012/citation_audit.md.
 
 @inproceedings{mlcl2026,
     title = "Lost in Execution: On the Multilingual Robustness of Tool Calling in Large Language Models",
@@ -30,26 +27,34 @@
 patil2025bfcl,
 title={The Berkeley Function Calling Leaderboard ({BFCL}): From Tool Use to Agentic Evaluation of Large Language Models},
 author={Shishir G Patil and Huanzhi Mao and Fanjia Yan and Charlie Cheng-Jie Ji and Vishnu Suresh and Ion Stoica and Joseph E. Gonzalez},
-booktitle={Forty-second International Conference on Machine Learning},
+booktitle={Proceedings of the 42nd International Conference on Machine Learning},
+series={Proceedings of Machine Learning Research},
+volume={267},
+pages={48371--48392},
 year={2025},
-url={https://openreview.net/forum?id=2GmDdhBdDk}
+publisher={PMLR},
+url={https://proceedings.mlr.press/v267/patil25a.html}
 }
 
 @inproceedings{
 yao2025taubench,
-title={\{\${\textbackslash}tau\$\}-bench: A Benchmark for {\textbackslash}underline\{T\}ool-{\textbackslash}underline\{A\}gent-{\textbackslash}underline\{U\}ser Interaction in Real-World Domains},
-author={Shunyu Yao and Noah Shinn and Pedram Razavi and Karthik R Narasimhan},
+title={{$\tau$}-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains},
+author={Shunyu Yao and Noah Shinn and Pedram Razavi and Karthik Narasimhan},
 booktitle={The Thirteenth International Conference on Learning Representations},
 year={2025},
-url={https://openreview.net/forum?id=roNSXZpUDN}
+url={https://proceedings.iclr.cc/paper_files/paper/2025/hash/1b126cc38b8638e07bef37e7b2bb72bf-Abstract-Conference.html},
+doi = {10.48550/arXiv.2406.12045}
 }
 
-@article{barres2025tau2,
-  title   = {$\tau^2$-bench: Evaluating Conversational Agents in Dual-Control
-             Environments},
-  author  = {Barres, Victor and Dong, Honghua and Ray, Soham and Si, Xujie and Narasimhan, Karthik},
-  journal = {arXiv preprint arXiv:2506.07982},
-  year    = {2025}
+@misc{barres2025tau2,
+  title={{$\tau^2$}-Bench: Evaluating Conversational Agents in a Dual-Control Environment},
+  author={Barres, Victor and Dong, Honghua and Ray, Soham and Si, Xujie and Narasimhan, Karthik},
+  year={2025},
+  eprint={2506.07982},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  doi={10.48550/arXiv.2506.07982},
+  url={https://arxiv.org/abs/2506.07982}
 }
 
 @misc{denoiseflow2026,
@@ -59,6 +64,7 @@ url={https://openreview.net/forum?id=roNSXZpUDN}
       eprint={2603.00532},
       archivePrefix={arXiv},
       primaryClass={cs.AI},
+      doi={10.48550/arXiv.2603.00532},
       url={https://arxiv.org/abs/2603.00532}, 
 }
 
@@ -92,6 +98,7 @@ url={https://openreview.net/forum?id=roNSXZpUDN}
       eprint={2601.15778},
       archivePrefix={arXiv},
       primaryClass={cs.AI},
+      doi={10.48550/arXiv.2601.15778},
       url={https://arxiv.org/abs/2601.15778}, 
 }
 
@@ -102,6 +109,7 @@ url={https://openreview.net/forum?id=roNSXZpUDN}
       eprint={2602.13691},
       archivePrefix={arXiv},
       primaryClass={cs.AI},
+      doi={10.48550/arXiv.2602.13691},
       url={https://arxiv.org/abs/2602.13691}, 
 }
 
@@ -111,7 +119,8 @@ title={Tool{LLM}: Facilitating Large Language Models to Master 16000+ Real-world
 author={Yujia Qin and Shihao Liang and Yining Ye and Kunlun Zhu and Lan Yan and Yaxi Lu and Yankai Lin and Xin Cong and Xiangru Tang and Bill Qian and Sihan Zhao and Lauren Hong and Runchu Tian and Ruobing Xie and Jie Zhou and Mark Gerstein and Dahai Li and Zhiyuan Liu and Maosong Sun},
 booktitle={The Twelfth International Conference on Learning Representations},
 year={2024},
-url={https://openreview.net/forum?id=dHng2O0Jjr}
+url={https://proceedings.iclr.cc/paper_files/paper/2024/hash/28e50ee5b72e90b50e7196fde8ea260e-Abstract-Conference.html},
+doi = {10.48550/arXiv.2307.16789}
 }
 
 @inproceedings{guo2024stabletoolbench,
@@ -140,11 +149,12 @@ url={https://openreview.net/forum?id=dHng2O0Jjr}
 
 @misc{zhuge2025agentjudge,
       title={Agent-as-a-Judge: Evaluate Agents with Agents}, 
-      author={Mingchen Zhuge and Changsheng Zhao and Dylan Ashley and Wenyi Wang and Dmitrii Khizbullin and Yunyang Xiong and Zechun Liu and Ernie Chang and Raghuraman Krishnamoorthi and Yuandong Tian and Yangyang Shi and Vikas Chandra and Jürgen Schmidhuber},
+      author={Mingchen Zhuge and Changsheng Zhao and Dylan Ashley and Wenyi Wang and Dmitrii Khizbullin and Yunyang Xiong and Zechun Liu and Ernie Chang and Raghuraman Krishnamoorthi and Yuandong Tian and Yangyang Shi and Vikas Chandra and J{\"u}rgen Schmidhuber},
       year={2024},
       eprint={2410.10934},
       archivePrefix={arXiv},
       primaryClass={cs.AI},
+      doi={10.48550/arXiv.2410.10934},
       url={https://arxiv.org/abs/2410.10934}, 
 }
 
@@ -153,7 +163,10 @@ url={https://openreview.net/forum?id=dHng2O0Jjr}
   author    = {Fu, Xiyan and Liu, Wei},
   booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2025},
   pages     = {11040--11053},
-  year      = {2025}
+  year      = {2025},
+  publisher = {Association for Computational Linguistics},
+  doi       = {10.18653/v1/2025.findings-emnlp.587},
+  url       = {https://aclanthology.org/2025.findings-emnlp.587/}
 }
 
 @inproceedings{hada2024evaluators,
@@ -248,16 +261,18 @@ url={https://openreview.net/forum?id=dHng2O0Jjr}
       eprint={2604.04532},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
+      doi={10.48550/arXiv.2604.04532},
       url={https://arxiv.org/abs/2604.04532}, 
 }
 
 @inproceedings{
 shi2022language,
-title={Language models are multilingual chain-of-thought reasoners},
+title={Language Models Are Multilingual Chain-of-Thought Reasoners},
 author={Freda Shi and Mirac Suzgun and Markus Freitag and Xuezhi Wang and Suraj Srivats and Soroush Vosoughi and Hyung Won Chung and Yi Tay and Sebastian Ruder and Denny Zhou and Dipanjan Das and Jason Wei},
-booktitle={The Eleventh International Conference on Learning Representations },
+booktitle={The Eleventh International Conference on Learning Representations},
 year={2023},
-url={https://openreview.net/forum?id=fR3wGCk-IXp}
+url={https://openreview.net/forum?id=fR3wGCk-IXp},
+doi = {10.48550/arXiv.2210.03057}
 }
 
 @misc{arabicenglish2026,
@@ -267,6 +282,7 @@ url={https://openreview.net/forum?id=fR3wGCk-IXp}
       eprint={2601.05101},
       archivePrefix={arXiv},
       primaryClass={cs.AI},
+      doi={10.48550/arXiv.2601.05101},
       url={https://arxiv.org/abs/2601.05101}, 
 }
 
@@ -277,6 +293,7 @@ url={https://openreview.net/forum?id=fR3wGCk-IXp}
       eprint={2603.16759},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
+      doi={10.48550/arXiv.2603.16759},
       url={https://arxiv.org/abs/2603.16759}, 
 }
 
@@ -302,12 +319,13 @@ url={https://openreview.net/forum?id=fR3wGCk-IXp}
 }
 
 @misc{agentprop2026,
-      title={Evaluating Tool-Using Language Agents: Judge Reliability, Propagation Cascades, and Runtime Mitigation in AgentProp-Bench}, 
+      title={Auditing Automated Evaluation, Error Propagation, and Runtime Mitigation in Tool-Using Language Agents},
       author={Bhaskar Gurram},
       year={2026},
       eprint={2604.16706},
       archivePrefix={arXiv},
       primaryClass={cs.AI},
+      doi={10.48550/arXiv.2604.16706},
       url={https://arxiv.org/abs/2604.16706}, 
 }
 
@@ -342,6 +360,7 @@ url={https://openreview.net/forum?id=fR3wGCk-IXp}
       eprint={2603.08262},
       archivePrefix={arXiv},
       primaryClass={cs.AI},
+      doi={10.48550/arXiv.2603.08262},
       url={https://arxiv.org/abs/2603.08262}, 
 }
 
@@ -352,6 +371,7 @@ url={https://openreview.net/forum?id=fR3wGCk-IXp}
       eprint={2605.24432},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
+      doi={10.48550/arXiv.2605.24432},
       url={https://arxiv.org/abs/2605.24432}, 
 }
 
@@ -361,5 +381,27 @@ title={{LLM}s Get Lost In Multi-Turn Conversation},
 author={Philippe Laban and Hiroaki Hayashi and Yingbo Zhou and Jennifer Neville},
 booktitle={The Fourteenth International Conference on Learning Representations},
 year={2026},
-url={https://openreview.net/forum?id=VKGTGGcwl6}
+url={https://proceedings.iclr.cc/paper_files/paper/2026/hash/59f6421e64707225fdf5b28840679a07-Abstract-Conference.html},
+doi = {10.48550/arXiv.2505.06120}
+}
+
+@inproceedings{feng2022labse,
+  title = "Language-agnostic {BERT} Sentence Embedding",
+  author = "Feng, Fangxiaoyu  and
+    Yang, Yinfei  and
+    Cer, Daniel  and
+    Arivazhagan, Naveen  and
+    Wang, Wei",
+  editor = "Muresan, Smaranda  and
+    Nakov, Preslav  and
+    Villavicencio, Aline",
+  booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+  month = may,
+  year = "2022",
+  address = "Dublin, Ireland",
+  publisher = "Association for Computational Linguistics",
+  url = "https://aclanthology.org/2022.acl-long.62/",
+  doi = "10.18653/v1/2022.acl-long.62",
+  pages = "878--891",
+  abstract = "While BERT is an effective method for learning monolingual sentence embeddings for semantic similarity and embedding based transfer learning BERT based cross-lingual sentence embeddings have yet to be explored. We systematically investigate methods for learning multilingual sentence embeddings by combining the best methods for learning monolingual and cross-lingual representations including: masked language modeling (MLM), translation language modeling (TLM), dual encoder translation ranking, and additive margin softmax. We show that introducing a pre-trained multilingual language model dramatically reduces the amount of parallel training data required to achieve good performance by 80{\%}. Composing the best of these methods produces a model that achieves 83.7{\%} bi-text retrieval accuracy over 112 languages on Tatoeba, well above the 65.5{\%} achieved by LASER, while still performing competitively on monolingual transfer learning benchmarks. Parallel data mined from CommonCrawl using our best model is shown to train competitive NMT models for en-zh and en-de. We publicly release our best multilingual sentence embedding model for 109+ languages at \url{https://tfhub.dev/google/LaBSE}."
 }

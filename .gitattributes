@@ -1,2 +1,11 @@
-# Auto detect text files and perform LF normalization
+# Normalize editable source, but preserve exact evidence bytes on every platform.
 * text=auto
+# These artifacts are linked by SHA-256 in the collection/review provenance.
+# Git must not change CRLF/LF when adding them or checking them out.
+data/bfcl/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+analysis/bfcl/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+paper/generated/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# The collection status also records exact bytes of these collector sources.
+src/multilingual_compounding/evaluation.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/multilingual_compounding/openrouter_handler.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+scripts/run_expansion_collection.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
